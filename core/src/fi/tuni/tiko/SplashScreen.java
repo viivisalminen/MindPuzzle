@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
@@ -23,17 +22,6 @@ public class SplashScreen implements Screen {
     public SplashScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        Gdx.input.setInputProcessor(stage);
-
-        Texture splashTxt = new Texture(Gdx.files.internal("mushroom.png"));
-        splashImg = new Image(splashTxt);
-        splashImg.setSize(splashTxt.getWidth()/5f,splashTxt.getHeight()/5f );
-        splashImg.setOrigin(splashImg.getWidth()/2f,splashImg.getHeight()/2f );
-
-        // Keeping the image centered in the screen
-        splashImg.setPosition(stage.getWidth() / 2 - 32, stage.getHeight() / 2 - 32);
-
-        stage.addActor(splashImg);
     }
 
     // show() is called once every time game sets the screen to one object(= game page)
@@ -41,7 +29,24 @@ public class SplashScreen implements Screen {
     // Resets everything to defaults
     @Override
     public void show() {
-        System.out.println("Show!");
+        System.out.println("SPLASH!");
+        Gdx.input.setInputProcessor(stage);
+
+        Runnable transitionRunnable = new Runnable() {
+            @Override
+            public void run() {
+                app.setScreen(app.mainMenuScreen);
+            }
+        };
+
+        //Texture splashTxt = new Texture(Gdx.files.internal("mushroom.png"));
+        //Same row as above
+        Texture splashTxt = app.assets.get("images/mushroom.png", Texture.class);
+
+        splashImg = new Image(splashTxt);
+        splashImg.setSize(splashTxt.getWidth()/5f,splashTxt.getHeight()/5f );
+        splashImg.setOrigin(splashImg.getWidth()/2f,splashImg.getHeight()/2f );
+        // Keeping the image centered in the screen
         splashImg.setPosition(stage.getWidth() / 2 - 32, stage.getHeight() + 32);
 
         // Sets the image invisible and reveals the image within 2 seconds
@@ -53,7 +58,9 @@ public class SplashScreen implements Screen {
                 parallel(fadeIn(2f, Interpolation.pow2),
                         scaleTo(2f,2f,2.5f, Interpolation.pow5),
                         moveTo(stage.getWidth() / 2 - 32, stage.getHeight() / 2 - 32, 2f, Interpolation.swing)),
-                        delay(1.5f), fadeOut(1.25f)));
+                delay(1.5f), fadeOut(1.25f), run(transitionRunnable)));
+
+        stage.addActor(splashImg);
     }
 
     @Override
@@ -66,7 +73,7 @@ public class SplashScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font.draw(app.batch, "Splashscreen!", 120,120);
+        app.font.draw(app.batch, "Screen: Splash!", 20,20);
         app.batch.end();
     }
 
