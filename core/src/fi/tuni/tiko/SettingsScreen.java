@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class MainMenuScreen implements Screen {
+public class SettingsScreen implements Screen {
 
     private final MindPuzzle app;
     public static final int VIRTUAL_WIDTH = 400;
@@ -21,11 +21,11 @@ public class MainMenuScreen implements Screen {
     private Stage stage;
     private Skin skin;
 
-    private TextButton buttonPlay, buttonHowToPlay, buttonSettings, buttonCredits, buttonExit;
+    private TextButton buttonSound, buttonMusic, buttonLanguage, buttonMenu;
 
     private ShapeRenderer shapeRenderer;
 
-    public MainMenuScreen(final MindPuzzle app) {
+    public SettingsScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
@@ -33,7 +33,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-        System.out.println("MAIN MENU");
+        System.out.println("SETTINGS");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -46,55 +46,32 @@ public class MainMenuScreen implements Screen {
     }
 
     private void initButtons() {
-        buttonPlay = new TextButton("Play", skin, "default");
-        buttonPlay.setPosition(VIRTUAL_WIDTH/6,500);
-        buttonPlay.setSize(280, 60);
-        buttonPlay.addListener(new ClickListener() {
+        buttonSound = new TextButton("Sound", skin, "default");
+        buttonSound.setPosition(VIRTUAL_WIDTH/6,550);
+        buttonSound.setSize(280, 60);
+
+        buttonMusic = new TextButton("Music", skin, "default");
+        buttonMusic.setPosition(VIRTUAL_WIDTH/6,450);
+        buttonMusic.setSize(280, 60);
+
+        buttonLanguage = new TextButton("Language", skin, "default");
+        buttonLanguage.setPosition(VIRTUAL_WIDTH/6,350);
+        buttonLanguage.setSize(280, 60);
+
+        buttonMenu = new TextButton("Menu", skin, "default");
+        buttonMenu.setPosition(VIRTUAL_WIDTH/6,50);
+        buttonMenu.setSize(280, 60);
+        buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.roomMenuScreen);
+                app.setScreen(app.mainMenuScreen);
             }
         });
 
-        buttonHowToPlay = new TextButton("How to play", skin, "default");
-        buttonHowToPlay.setPosition(VIRTUAL_WIDTH/6,400);
-        buttonHowToPlay.setSize(280, 60);
-
-        buttonSettings = new TextButton("Settings", skin, "default");
-        buttonSettings.setPosition(VIRTUAL_WIDTH/6,300);
-        buttonSettings.setSize(280, 60);
-        buttonSettings.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.settingsScreen);
-            }
-        });
-
-        buttonCredits = new TextButton("Credits", skin, "default");
-        buttonCredits.setPosition(VIRTUAL_WIDTH/6,200);
-        buttonCredits.setSize(280, 60);
-        buttonCredits.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.creditsScreen);
-            }
-        });
-
-        buttonExit = new TextButton("Exit", skin, "default");
-        buttonExit.setPosition(VIRTUAL_WIDTH/6,100);
-        buttonExit.setSize(280, 60);
-        buttonExit.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.exit();
-            }
-        });
-
-        stage.addActor(buttonPlay);
-        stage.addActor(buttonHowToPlay);
-        stage.addActor(buttonSettings);
-        stage.addActor(buttonCredits);
-        stage.addActor(buttonExit);
+        stage.addActor(buttonSound);
+        stage.addActor(buttonMusic);
+        stage.addActor(buttonLanguage);
+        stage.addActor(buttonMenu);
     }
 
     private void update(float delta) {
@@ -111,7 +88,7 @@ public class MainMenuScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font.draw(app.batch, "Screen: MAIN MENU", 20,20);
+        app.font.draw(app.batch, "Screen: SETTINGS", 20,20);
         app.batch.end();
     }
 

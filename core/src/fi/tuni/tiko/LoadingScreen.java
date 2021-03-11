@@ -8,18 +8,22 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class LoadingScreen implements Screen {
 
     private final MindPuzzle app;
 
     private ShapeRenderer shapeRenderer;
+    private Stage stage;
     // How much AssetManager has loaded at the time
     private float progress;
 
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
         this.shapeRenderer = new ShapeRenderer();
+        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
     public void queueAssets() {
@@ -40,8 +44,8 @@ public class LoadingScreen implements Screen {
         // Keeps returning false until all the assets are finished loading
         // After that application changes the SplashScreen
         if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
-            // USE THIS IN THE FINAL VERSION!! app.setScreen(app.splashScreen);
-            app.setScreen(app.mainMenuScreen);
+            app.setScreen(app.splashScreen);
+            //app.setScreen(app.mainMenuScreen);
         }
     }
 

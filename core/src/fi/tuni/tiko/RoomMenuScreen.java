@@ -15,8 +15,6 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 public class RoomMenuScreen implements Screen {
 
     private final MindPuzzle app;
-    public static final int VIRTUAL_WIDTH = 400;
-    public static final int VIRTUAL_HEIGHT = 650;
 
     private Stage stage;
     private Skin skin;
@@ -35,6 +33,7 @@ public class RoomMenuScreen implements Screen {
     public void show() {
         System.out.println("ROOM MENU");
         Gdx.input.setInputProcessor(stage);
+        stage.clear();
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -46,27 +45,57 @@ public class RoomMenuScreen implements Screen {
 
     private void initButtons() {
         buttonSleep = new TextButton("Sleep", skin, "default");
-        buttonSleep.setPosition(VIRTUAL_WIDTH/6,550);
+        buttonSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,550);
         buttonSleep.setSize(280, 60);
+        buttonSleep.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.sleepRoom);
+            }
+        });
 
         buttonFood = new TextButton("Food", skin, "default");
-        buttonFood.setPosition(VIRTUAL_WIDTH/6,450);
+        buttonFood.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,450);
         buttonFood.setSize(280, 60);
+        buttonFood.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.foodRoom);
+            }
+        });
 
         buttonSocial = new TextButton("Social", skin, "default");
-        buttonSocial.setPosition(VIRTUAL_WIDTH/6,350);
+        buttonSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,350);
         buttonSocial.setSize(280, 60);
+        buttonSocial.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.socialRoom);
+            }
+        });
 
         buttonHobbies = new TextButton("Hobbies", skin, "default");
-        buttonHobbies.setPosition(VIRTUAL_WIDTH/6,250);
+        buttonHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,250);
         buttonHobbies.setSize(280, 60);
+        buttonHobbies.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.hobbiesRoom);
+            }
+        });
 
-        buttonSport = new TextButton("Sport", skin, "default");
-        buttonSport.setPosition(VIRTUAL_WIDTH/6,150);
+        buttonSport = new TextButton("Sports", skin, "default");
+        buttonSport.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,150);
         buttonSport.setSize(280, 60);
+        buttonSport.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.sportsRoom);
+            }
+        });
 
         buttonMenu = new TextButton("Menu", skin, "default");
-        buttonMenu.setPosition(VIRTUAL_WIDTH/6,50);
+        buttonMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH/6,50);
         buttonMenu.setSize(280, 60);
         buttonMenu.addListener(new ClickListener() {
             @Override

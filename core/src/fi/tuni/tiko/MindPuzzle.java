@@ -21,6 +21,7 @@ public class MindPuzzle extends Game {
 	public SpriteBatch batch;
 
 	public BitmapFont font;
+	public BitmapFont font20;
 
 	public AssetManager assets;
 
@@ -28,6 +29,13 @@ public class MindPuzzle extends Game {
 	public SplashScreen splashScreen;
 	public MainMenuScreen mainMenuScreen;
 	public RoomMenuScreen roomMenuScreen;
+	public SettingsScreen settingsScreen;
+	public CreditsScreen creditsScreen;
+	public SleepRoom sleepRoom;
+	public FoodRoom foodRoom;
+	public SocialRoom socialRoom;
+	public HobbiesRoom hobbiesRoom;
+	public SportsRoom sportsRoom;
 
 	@Override
 	public void create() {
@@ -36,14 +44,19 @@ public class MindPuzzle extends Game {
 		camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
 		batch = new SpriteBatch();
 
-		//font = new BitmapFont();
-		//font.setColor(Color.NAVY);
 		initFonts();
 
 		loadingScreen = new LoadingScreen(this);
 		splashScreen = new SplashScreen(this);
 		mainMenuScreen = new MainMenuScreen(this);
 		roomMenuScreen = new RoomMenuScreen(this);
+		settingsScreen = new SettingsScreen(this);
+		creditsScreen = new CreditsScreen(this);
+		sleepRoom = new SleepRoom(this);
+		foodRoom = new FoodRoom(this);
+		socialRoom = new SocialRoom(this);
+		hobbiesRoom = new HobbiesRoom(this);
+		sportsRoom = new SportsRoom(this);
 
 		// Setting the game state
 		this.setScreen(loadingScreen);
@@ -56,6 +69,12 @@ public class MindPuzzle extends Game {
         parameter.size = 24;
         parameter.color = Color.BLACK;
         font = generator.generateFont(parameter);
+
+		FreeTypeFontGenerator.FreeTypeFontParameter parameter20 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+		parameter20.size = 20;
+		parameter20.color = Color.BLACK;
+		font20 = generator.generateFont(parameter20);
     }
 
 	@Override
@@ -71,5 +90,13 @@ public class MindPuzzle extends Game {
 		loadingScreen.dispose();
 		splashScreen.dispose();
 		mainMenuScreen.dispose();
+		roomMenuScreen.dispose();
+		settingsScreen.dispose();
+		creditsScreen.dispose();
+		sleepRoom.dispose();
+		foodRoom.dispose();
+		socialRoom.dispose();
+		hobbiesRoom.dispose();
+		sportsRoom.dispose();
 	}
 }

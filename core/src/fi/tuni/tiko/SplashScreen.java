@@ -55,10 +55,10 @@ public class SplashScreen implements Screen {
 
         // Swings the image to the center of the screen with parallel effect revealing the image in the same tim
         splashImg.addAction(sequence(alpha(0), scaleTo(0.1f,0.1f),
-                parallel(fadeIn(2f, Interpolation.pow2),
+                parallel(fadeIn(1.5f, Interpolation.pow2),
                         scaleTo(2f,2f,2.5f, Interpolation.pow5),
                         moveTo(stage.getWidth() / 2 - 32, stage.getHeight() / 2 - 32, 2f, Interpolation.swing)),
-                delay(1.5f), fadeOut(1.25f), run(transitionRunnable)));
+                delay(1f), fadeOut(1.25f), run(transitionRunnable)));
 
         stage.addActor(splashImg);
     }
