@@ -25,12 +25,14 @@ public class LoadingScreen implements Screen {
 
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
     }
 
     public void queueAssets() {
         app.assets.load("images/mushroom.png", Texture.class);
+        app.assets.load("images/background.png", Texture.class);
+        app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }
 

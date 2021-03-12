@@ -8,12 +8,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -25,11 +27,12 @@ public class MainMenuScreen implements Screen {
     private final MindPuzzle app;
 
     private Stage stage;
+    private Table background;
     private Skin skin;
-    private Skin menuSkin;
+
     private Texture imgTxt;
     private Texture imgTxtPressed;
-    private Image buttonImage;
+
     private ImageButton imageButton;
 
     private TextButton buttonMenu, buttonPlay, buttonHowToPlay, buttonSettings, buttonCredits, buttonExit;
@@ -55,6 +58,12 @@ public class MainMenuScreen implements Screen {
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
+
+        background = new Table();
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setFillParent(true);
+        background.setDebug(true);
+        stage.addActor(background);
 
         initButtons();
     }

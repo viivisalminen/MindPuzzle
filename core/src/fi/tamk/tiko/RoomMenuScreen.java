@@ -3,13 +3,17 @@ package fi.tamk.tiko;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class RoomMenuScreen implements Screen {
@@ -17,6 +21,7 @@ public class RoomMenuScreen implements Screen {
     private final MindPuzzle app;
 
     private Stage stage;
+    private Table background;
     private Skin skin;
 
     private TextButton buttonSleep, buttonFood, buttonSocial, buttonHobbies, buttonSport, buttonMenu;
@@ -40,17 +45,23 @@ public class RoomMenuScreen implements Screen {
         this.skin.add("default-font", app.font);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
+        background = new Table();
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setFillParent(true);
+        background.setDebug(true);
+        stage.addActor(background);
+
         initButtons();
     }
 
     private void initButtons() {
-        buttonSleep = new TextButton("Sleep", skin, "default");
+        buttonSleep = new TextButton("Main menu", skin, "default");
         buttonSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
         buttonSleep.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         buttonSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.sleepRoom);
+                app.setScreen(app.mainMenuScreen);
             }
         });
 
@@ -94,13 +105,13 @@ public class RoomMenuScreen implements Screen {
             }
         });
 
-        buttonMenu = new TextButton("Main Menu", skin, "default");
+        buttonMenu = new TextButton("Sleep", skin, "default");
         buttonMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
         buttonMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.mainMenuScreen);
+                app.setScreen(app.sleepRoom);
             }
         });
 

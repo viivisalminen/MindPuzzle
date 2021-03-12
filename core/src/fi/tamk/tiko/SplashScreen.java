@@ -4,9 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
@@ -15,6 +18,7 @@ public class SplashScreen implements Screen {
 
     private final MindPuzzle app;
     private Stage stage;
+    private Table background;
 
     private Image splashImg;
 
@@ -31,6 +35,12 @@ public class SplashScreen implements Screen {
     public void show() {
         System.out.println("SPLASH!");
         Gdx.input.setInputProcessor(stage);
+
+        background = new Table();
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setFillParent(true);
+        background.setDebug(true);
+        stage.addActor(background);
 
         Runnable transitionRunnable = new Runnable() {
             @Override

@@ -3,14 +3,18 @@ package fi.tamk.tiko;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
@@ -19,6 +23,7 @@ public class CreditsScreen implements Screen {
     private final MindPuzzle app;
 
     private Stage stage;
+    private Table background;
     private Skin skin;
 
     private TextButton buttonMenu;
@@ -34,7 +39,7 @@ public class CreditsScreen implements Screen {
 
     public CreditsScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
     }
 
@@ -48,6 +53,12 @@ public class CreditsScreen implements Screen {
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
+
+        background = new Table();
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setFillParent(true);
+        background.setDebug(true);
+        stage.addActor(background);
 
         initButtons();
     }
