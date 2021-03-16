@@ -41,6 +41,7 @@ public class CreditsScreen implements Screen {
         this.app = app;
         this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
+        this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
 
     @Override
@@ -55,7 +56,7 @@ public class CreditsScreen implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -92,7 +93,7 @@ public class CreditsScreen implements Screen {
 
         app.batch.begin();
         app.font.draw(app.batch, "Screen: CREDITS", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.font20.draw(app.batch, line, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.85f);
+        app.font40.draw(app.batch, line, MindPuzzle.VIRTUAL_WIDTH * 0.4f,MindPuzzle.VIRTUAL_HEIGHT * 2f);
         app.batch.end();
     }
 

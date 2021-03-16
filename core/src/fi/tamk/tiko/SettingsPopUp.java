@@ -16,19 +16,21 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class SleepRoom implements Screen {
+public class SettingsPopUp implements Screen {
 
     private final MindPuzzle app;
+    //private final float PopUpWidth = MindPuzzle.VIRTUAL_WIDTH * 0.975f;
+    //private final float PopUpHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.3f;
 
     private Stage stage;
     private Table background;
     private Skin skin;
 
-    private TextButton buttonDoor, buttonCharacter, buttonSettingsPopUp;
+    private TextButton buttonMusic, buttonSounds, buttonFin, buttonEng, buttonX;
 
     private ShapeRenderer shapeRenderer;
 
-    public SleepRoom(final MindPuzzle app) {
+    public SettingsPopUp(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
@@ -36,7 +38,7 @@ public class SleepRoom implements Screen {
 
     @Override
     public void show() {
-        System.out.println("SLEEP ROOM");
+        System.out.println("S-PopUp screen");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -55,40 +57,63 @@ public class SleepRoom implements Screen {
     }
 
     private void initButtons() {
-        buttonDoor = new TextButton("Room Menu", skin, "default");
-        buttonDoor.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        buttonDoor.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonDoor.addListener(new ClickListener() {
+        float buttonSize = MindPuzzle.VIRTUAL_WIDTH * 0.075f;
+
+        buttonMusic = new TextButton("M", skin, "default");
+        buttonMusic.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.4f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        buttonMusic.setSize(buttonSize, buttonSize);
+        /*buttonMusic.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.roomMenuScreen);
+            }
+        });*/
+
+        buttonSounds = new TextButton("S", skin, "default");
+        buttonSounds.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        buttonSounds.setSize(buttonSize, buttonSize);
+        /*buttonSounds.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.roomMenuScreen);
+            }
+        });*/
+
+        buttonFin = new TextButton("Fi", skin, "default");
+        buttonFin.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        buttonFin.setSize(buttonSize, buttonSize);
+        /*buttonFin.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.roomMenuScreen);
+            }
+        });*/
+
+        buttonEng = new TextButton("En", skin, "default");
+        buttonEng.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.7f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        buttonEng.setSize(buttonSize, buttonSize);
+        /*buttonEng.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.roomMenuScreen);
+            }
+        });*/
+
+        buttonX = new TextButton("X", skin, "default");
+        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        buttonX.setSize(buttonSize, buttonSize);
+        buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.roomMenuScreen);
             }
         });
 
-        buttonCharacter = new TextButton("Character", skin, "default");
-        buttonCharacter.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonCharacter.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
-        buttonCharacter.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.questionScreen);
-            }
-        });
-
-        buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
-        buttonSettingsPopUp.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.settingsPopUp);
-            }
-        });
-
-
-        stage.addActor(buttonDoor);
-        stage.addActor(buttonCharacter);
-        stage.addActor(buttonSettingsPopUp);
+        stage.addActor(buttonMusic);
+        stage.addActor(buttonSounds);
+        stage.addActor(buttonFin);
+        stage.addActor(buttonEng);
+        stage.addActor(buttonX);
     }
 
     private void update(float delta) {
@@ -105,7 +130,7 @@ public class SleepRoom implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font.draw(app.batch, "Screen: SLEEP ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.font.draw(app.batch, "Screen: SettingsPopUp screen", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         app.batch.end();
     }
 

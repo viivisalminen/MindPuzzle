@@ -27,12 +27,19 @@ public class LoadingScreen implements Screen {
         this.app = app;
         this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
+        this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
 
     public void queueAssets() {
-        app.assets.load("images/mushroom.png", Texture.class);
+        app.assets.load("images/logo.png", Texture.class);
         app.assets.load("images/background.png", Texture.class);
         app.assets.load("images/roomBackground.png", Texture.class);
+        app.assets.load("images/food.png", Texture.class);
+        app.assets.load("images/hobbies.png", Texture.class);
+        app.assets.load("images/sleep.png", Texture.class);
+        app.assets.load("images/social.png", Texture.class);
+        app.assets.load("images/sports.png", Texture.class);
+        app.assets.load("images/mushroom.png", Texture.class);
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }
 
@@ -49,8 +56,8 @@ public class LoadingScreen implements Screen {
         // Keeps returning false until all the assets are finished loading
         // After that application changes the SplashScreen
         if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
-            app.setScreen(app.splashScreen);
-            //app.setScreen(app.mainMenuScreen);
+            //app.setScreen(app.splashScreen);
+            app.setScreen(app.mainMenuScreen);
         }
     }
 

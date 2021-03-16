@@ -68,10 +68,22 @@ public class FoodRoom implements Screen {
         buttonCharacter = new TextButton("Character", skin, "default");
         buttonCharacter.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         buttonCharacter.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
+        buttonCharacter.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.questionScreen);
+            }
+        });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
         buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
+        buttonSettingsPopUp.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(app.settingsPopUp);
+            }
+        });
 
 
         stage.addActor(buttonDoor);

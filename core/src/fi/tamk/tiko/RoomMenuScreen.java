@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -24,7 +25,10 @@ public class RoomMenuScreen implements Screen {
     private Table background;
     private Skin skin;
 
-    private TextButton buttonSleep, buttonFood, buttonSocial, buttonHobbies, buttonSport, buttonMenu;
+    private Texture imgSleep, imgFood, imgHobbies, imgSports, imgSocial;
+    private Texture imgSleepPressed, imgFoodPressed, imgHobbiesPressed, imgSportsPressed, imgSocialPressed;
+    private ImageButton imageSleep, imageFood, imageHobbies, imageSports, imageSocial;
+    private TextButton buttonMenu;
 
     private ShapeRenderer shapeRenderer;
 
@@ -40,13 +44,24 @@ public class RoomMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
+        imgFood = app.assets.get("images/food.png", Texture.class);
+        imgFoodPressed = app.assets.get("images/food.png", Texture.class);
+        imgSleep = app.assets.get("images/sleep.png", Texture.class);
+        imgSleepPressed = app.assets.get("images/sleep.png", Texture.class);
+        imgSocial = app.assets.get("images/social.png", Texture.class);
+        imgSocialPressed = app.assets.get("images/social.png", Texture.class);
+        imgHobbies = app.assets.get("images/hobbies.png", Texture.class);
+        imgHobbiesPressed = app.assets.get("images/hobbies.png", Texture.class);
+        imgSports = app.assets.get("images/sports.png", Texture.class);
+        imgSportsPressed = app.assets.get("images/sports.png", Texture.class);
+
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -55,71 +70,86 @@ public class RoomMenuScreen implements Screen {
     }
 
     private void initButtons() {
-        buttonSleep = new TextButton("Main menu", skin, "default");
-        buttonSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        buttonSleep.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonSleep.addListener(new ClickListener() {
+        buttonMenu = new TextButton("Main menu", skin, "default");
+        buttonMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
+        buttonMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.mainMenuScreen);
             }
         });
 
-        buttonFood = new TextButton("Food", skin, "default");
-        buttonFood.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        buttonFood.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonFood.addListener(new ClickListener() {
+        imageFood = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgFood)),
+                new TextureRegionDrawable(new TextureRegion(imgFoodPressed))
+        );
+        imageFood.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        imageFood.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageFood.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.foodRoom);
             }
         });
 
-        buttonSocial = new TextButton("Social", skin, "default");
-        buttonSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        buttonSocial.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonSocial.addListener(new ClickListener() {
+        imageSocial = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgSocial)),
+                new TextureRegionDrawable(new TextureRegion(imgSocialPressed))
+        );
+        imageSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        imageSocial.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSocial.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.socialRoom);
             }
         });
 
-        buttonHobbies = new TextButton("Hobbies", skin, "default");
-        buttonHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        buttonHobbies.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonHobbies.addListener(new ClickListener() {
+        imageHobbies = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgHobbies)),
+                new TextureRegionDrawable(new TextureRegion(imgHobbiesPressed))
+        );
+        imageHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageHobbies.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageHobbies.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.hobbiesRoom);
             }
         });
 
-        buttonSport = new TextButton("Sports", skin, "default");
-        buttonSport.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        buttonSport.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonSport.addListener(new ClickListener() {
+        imageSports = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgSports)),
+                new TextureRegionDrawable(new TextureRegion(imgSportsPressed))
+        );
+        imageSports.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageSports.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSports.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.sportsRoom);
             }
         });
 
-        buttonMenu = new TextButton("Sleep", skin, "default");
-        buttonMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        buttonMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonMenu.addListener(new ClickListener() {
+        imageSleep = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgSleep)),
+                new TextureRegionDrawable(new TextureRegion(imgSleepPressed))
+        );
+        imageSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        imageSleep.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(app.sleepRoom);
             }
         });
 
-        stage.addActor(buttonSleep);
-        stage.addActor(buttonFood);
-        stage.addActor(buttonSocial);
-        stage.addActor(buttonHobbies);
-        stage.addActor(buttonSport);
+        stage.addActor(imageSleep);
+        stage.addActor(imageFood);
+        stage.addActor(imageSocial);
+        stage.addActor(imageHobbies);
+        stage.addActor(imageSports);
         stage.addActor(buttonMenu);
     }
 

@@ -20,7 +20,7 @@ public class MindPuzzle extends Game {
 	public SpriteBatch batch;
 
 	public BitmapFont font;
-	public BitmapFont font20;
+	public BitmapFont font40;
 
 	public AssetManager assets;
 
@@ -35,12 +35,14 @@ public class MindPuzzle extends Game {
 	public SocialRoom socialRoom;
 	public HobbiesRoom hobbiesRoom;
 	public SportsRoom sportsRoom;
+	public SettingsPopUp settingsPopUp;
+	public QuestionScreen questionScreen;
 
 	@Override
 	public void create() {
 		assets = new AssetManager();
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+		camera.setToOrtho(false, VIRTUAL_WIDTH/2, VIRTUAL_HEIGHT/2);
 		batch = new SpriteBatch();
 
 		initFonts();
@@ -56,6 +58,8 @@ public class MindPuzzle extends Game {
 		socialRoom = new SocialRoom(this);
 		hobbiesRoom = new HobbiesRoom(this);
 		sportsRoom = new SportsRoom(this);
+		settingsPopUp = new SettingsPopUp(this);
+		questionScreen = new QuestionScreen(this);
 
 		// Setting the game state
 		this.setScreen(loadingScreen);
@@ -69,11 +73,11 @@ public class MindPuzzle extends Game {
         parameter.color = Color.BLACK;
         font = generator.generateFont(parameter);
 
-		FreeTypeFontGenerator.FreeTypeFontParameter parameter20 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+		FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-		parameter20.size = 20;
-		parameter20.color = Color.BLACK;
-		font20 = generator.generateFont(parameter20);
+		parameter40.size = 40;
+		parameter40.color = Color.BLACK;
+		font40 = generator.generateFont(parameter40);
     }
 
 	@Override

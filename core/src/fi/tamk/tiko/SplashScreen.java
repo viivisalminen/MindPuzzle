@@ -37,7 +37,7 @@ public class SplashScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -51,13 +51,13 @@ public class SplashScreen implements Screen {
 
         //Texture splashTxt = new Texture(Gdx.files.internal("mushroom.png"));
         //Same row as above
-        Texture splashTxt = app.assets.get("images/mushroom.png", Texture.class);
+        Texture splashTxt = app.assets.get("images/logo.png", Texture.class);
 
         splashImg = new Image(splashTxt);
         splashImg.setSize(splashTxt.getWidth()/5f,splashTxt.getHeight()/5f );
         splashImg.setOrigin(splashImg.getWidth()/2f,splashImg.getHeight()/2f );
         // Keeping the image centered in the screen
-        splashImg.setPosition(stage.getWidth() / 2 - 32, stage.getHeight() + 32);
+        splashImg.setPosition(MindPuzzle.VIRTUAL_WIDTH / 2 - 32, MindPuzzle.VIRTUAL_HEIGHT + 32);
 
         // Sets the image invisible and reveals the image within 2 seconds
         // sequences chains the actions and executes them one by one
@@ -67,7 +67,7 @@ public class SplashScreen implements Screen {
         splashImg.addAction(sequence(alpha(0), scaleTo(0.1f,0.1f),
                 parallel(fadeIn(1.5f, Interpolation.pow2),
                         scaleTo(2f,2f,2.5f, Interpolation.pow5),
-                        moveTo(stage.getWidth() / 2 - 32, stage.getHeight() / 2 - 32, 2f, Interpolation.swing)),
+                        moveTo(MindPuzzle.VIRTUAL_WIDTH / 2 - 60, MindPuzzle.VIRTUAL_HEIGHT / 2 - 32, 2f, Interpolation.swing)),
                 delay(1f), fadeOut(1.25f), run(transitionRunnable)));
 
         stage.addActor(splashImg);
