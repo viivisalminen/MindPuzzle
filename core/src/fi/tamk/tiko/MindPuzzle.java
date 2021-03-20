@@ -2,6 +2,7 @@ package fi.tamk.tiko;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -9,21 +10,27 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
+/*The class MindPuzzle contains methods the application is operated with.
+
+Class MindPuzzle initializes the measurement of the screens, fonts used in the application
+*/
 public class MindPuzzle extends Game {
-
 	public static final String TITLE = "MindPuzzle";
+	// Application version number.
 	public static final float VERSION =  0.1f;
-	public static final int VIRTUAL_WIDTH = 400;
-	public static final int VIRTUAL_HEIGHT = 650;
-
+	// Screen dimensions.
+	public static final int VIRTUAL_WIDTH = 1080;
+	public static final int VIRTUAL_HEIGHT = 1920;
+	// A camera with orthographic projection.
 	public OrthographicCamera camera;
+	// Draws batched quads using indices.
 	public SpriteBatch batch;
-
-	public BitmapFont font;
+	// Renders bitmap fonts.
+	public BitmapFont font30;
 	public BitmapFont font40;
-
+	// Provides access to an application's raw asset files.
 	public AssetManager assets;
-
+	// Classes' objects that are used to switch screens.
 	public LoadingScreen loadingScreen;
 	public SplashScreen splashScreen;
 	public MainMenuScreen mainMenuScreen;
@@ -37,7 +44,13 @@ public class MindPuzzle extends Game {
 	public SportsRoom sportsRoom;
 	public SettingsPopUp settingsPopUp;
 	public QuestionScreen questionScreen;
+	public AnswerScreen answerScreen;
+	// The most recent screen is stored in the variable, which allows
+	// the return to the previous screen from the question screen.
+	public Screen previousScreen = mainMenuScreen;
 
+	// Called when the Application is first created.
+	// Initializes objects and sets the screen to loading screen.
 	@Override
 	public void create() {
 		assets = new AssetManager();
@@ -60,35 +73,43 @@ public class MindPuzzle extends Game {
 		sportsRoom = new SportsRoom(this);
 		settingsPopUp = new SettingsPopUp(this);
 		questionScreen = new QuestionScreen(this);
+		answerScreen = new AnswerScreen(this);
 
-		// Setting the game state
 		this.setScreen(loadingScreen);
 	}
-
+	// Sets the previous visible screen.
+	public void setPreviousScreen(Screen prev) {
+		previousScreen = prev;
+	}
+	// Returns the previous visible screen.
+	public Screen getPreviousScreen() {
+		return previousScreen;
+	}
+	// Introduces and initializes fonts
     private void initFonts() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-MediumItalic.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-        parameter.size = 24;
-        parameter.color = Color.BLACK;
-        font = generator.generateFont(parameter);
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter30.size = 30;
+        parameter30.color = Color.BLACK;
+        font30 = generator.generateFont(parameter30);
 
 		FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-
 		parameter40.size = 40;
 		parameter40.color = Color.BLACK;
 		font40 = generator.generateFont(parameter40);
     }
-
+	// Uses the currently displayed screens render()-method
 	@Override
 	public void render() {
 	    super.render();
 	}
-
+	// Called when the Application is destroyed. Disposes all objects.
 	@Override
 	public void dispose() {
 		batch.dispose();
-		font.dispose();
+		font30.dispose();
+		font40.dispose();
 		assets.dispose();
 		loadingScreen.dispose();
 		splashScreen.dispose();
@@ -101,5 +122,7 @@ public class MindPuzzle extends Game {
 		socialRoom.dispose();
 		hobbiesRoom.dispose();
 		sportsRoom.dispose();
+		questionScreen.dispose();
+		answerScreen.dispose();
 	}
 }
