@@ -57,6 +57,10 @@ public class SettingsPopUp implements Screen {
         stage.addActor(background);
 
         initButtons();
+
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
     }
 
     // Initializes the buttons used in this screen.
@@ -66,42 +70,46 @@ public class SettingsPopUp implements Screen {
         buttonMusic = new TextButton("M", skin, "default");
         buttonMusic.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.4f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         buttonMusic.setSize(buttonSize, buttonSize);
-        /*buttonMusic.addListener(new ClickListener() {
+        buttonMusic.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.roomMenuScreen);
+                MainMenuScreen.musicOff();
             }
-        });*/
+        });
 
         buttonSounds = new TextButton("S", skin, "default");
         buttonSounds.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         buttonSounds.setSize(buttonSize, buttonSize);
-        /*buttonSounds.addListener(new ClickListener() {
+        buttonSounds.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.roomMenuScreen);
+                MainMenuScreen.soundEffectOff();
             }
-        });*/
+        });
 
         buttonFin = new TextButton("Fi", skin, "default");
         buttonFin.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         buttonFin.setSize(buttonSize, buttonSize);
-        /*buttonFin.addListener(new ClickListener() {
+        buttonFin.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.roomMenuScreen);
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
             }
-        });*/
+        });
 
         buttonEng = new TextButton("En", skin, "default");
         buttonEng.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.7f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         buttonEng.setSize(buttonSize, buttonSize);
-        /*buttonEng.addListener(new ClickListener() {
+        buttonEng.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.roomMenuScreen);
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
             }
-        });*/
+        });
 
         buttonX = new TextButton("X", skin, "default");
         buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
@@ -109,6 +117,9 @@ public class SettingsPopUp implements Screen {
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.getPreviousScreen());
             }
         });

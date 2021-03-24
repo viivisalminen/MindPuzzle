@@ -57,6 +57,9 @@ public class FoodRoom implements Screen {
         stage.addActor(background);
 
         initButtons();
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
         app.setPreviousScreen(app.foodRoom);
     }
 
@@ -68,6 +71,9 @@ public class FoodRoom implements Screen {
         buttonDoor.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.roomMenuScreen);
             }
         });
@@ -78,6 +84,9 @@ public class FoodRoom implements Screen {
         buttonCharacter.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.questionScreen);
             }
         });
@@ -88,6 +97,9 @@ public class FoodRoom implements Screen {
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.settingsPopUp);
             }
         });
@@ -116,6 +128,10 @@ public class FoodRoom implements Screen {
         app.batch.begin();
         app.font30.draw(app.batch, "Screen: FOOD ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         app.batch.end();
+    }
+
+    public Stage getStage() {
+        return stage;
     }
 
     // Called when the Application is resized. This can happen at any point during

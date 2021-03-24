@@ -87,7 +87,7 @@ public class SplashScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font30.draw(app.batch, "Screen: Splash!",MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.font30.draw(app.batch, "Screen: Splash!",Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.05f);
         app.batch.end();
     }
 

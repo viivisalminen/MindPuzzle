@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -19,15 +20,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+import java.util.Scanner;
+
 // MainMenuScreen is the main menu of the game including play, how to play, settings, credits and exit.
 public class MainMenuScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
 
-    public static Sound sound;
-    public static Music music;
-    public static boolean musicPlaying = true;
-    public static boolean soundOn = true;
     // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
     private Stage stage;
     // Positions the background picture to the Screen.
@@ -43,6 +42,19 @@ public class MainMenuScreen implements Screen {
     private ImageButton imageButton;
     private TextButton buttonMenu, buttonPlay, buttonHowToPlay, buttonSettings, buttonCredits, buttonExit;
 
+    public FileHandle file;
+    public String text = "";
+    public String [] textArray;
+    public static String question = "";
+    public static String optionA = "";
+    public static String optionB = "";
+    public static String optionC = "";
+    public static String rightAnswer = "";
+    public static String playersAnswer = "";
+    public static Music music;
+    public static boolean musicPlaying = true;
+    public static Sound sound;
+    public static boolean soundOn = true;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
@@ -76,7 +88,11 @@ public class MainMenuScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
-        playMusic();
+        initTextFile();
+        if(getMusic()) {
+            music.play();
+        }
+
         app.setPreviousScreen(app.mainMenuScreen);
     }
 
@@ -92,7 +108,9 @@ public class MainMenuScreen implements Screen {
         imageButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                playSound();
+                if(getSound()) {
+                    sound.play();
+                }
                 app.setScreen(app.roomMenuScreen);
             }
         });
@@ -105,7 +123,9 @@ public class MainMenuScreen implements Screen {
         buttonHowToPlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                playSound();
+                if(getSound()) {
+                    sound.play();
+                }
             }
         });
 
@@ -116,7 +136,9 @@ public class MainMenuScreen implements Screen {
         buttonSettings.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                playSound();
+                if(getSound()) {
+                    sound.play();
+                }
                 app.setScreen(app.settingsScreen);
             }
         });
@@ -128,7 +150,9 @@ public class MainMenuScreen implements Screen {
         buttonCredits.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                playSound();
+                if(getSound()) {
+                    sound.play();
+                }
                 app.setScreen(app.creditsScreen);
             }
         });
@@ -140,7 +164,9 @@ public class MainMenuScreen implements Screen {
         buttonExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                playSound();
+                if(getSound()) {
+                    sound.play();
+                }
                 Gdx.app.exit();
             }
         });
@@ -173,44 +199,104 @@ public class MainMenuScreen implements Screen {
         app.batch.end();
     }
 
-    public static void playMusic(){
-        if(music.isPlaying()){
-            music.pause();
-            musicPlaying = false;
-        }
-        else if(!music.isPlaying()){
-            music.setLooping(true);
-            music.setVolume(0.05f);
-            music.play();
-            musicPlaying = true;
-        }
+    public static void musicOn(){
+        music.play();
+        music.setLooping(true);
+        music.setVolume(0.05f);
+        musicPlaying = true;
     }
 
-    public static void setMusic(boolean value) {
-        musicPlaying = value;
+    public static void musicOff() {
+        music.stop();
+        musicPlaying = false;
     }
 
     public static Boolean getMusic() {
         return musicPlaying;
     }
 
-    public static void playSound(){
-        if(getSound()){
-            sound.pause();
-            soundOn = false;
-        }
-        else if(!getSound()){
-            sound.play();
-            soundOn = true;
-        }
+    public static void soundEffectOn() {
+        sound.play();
+        soundOn = true;
     }
 
-    public static void setSound(boolean value) {
-        soundOn = value;
+    public static void soundEffectOff() {
+        sound.stop();
+        soundOn = false;
     }
 
     public static Boolean getSound() {
         return soundOn;
+    }
+
+
+    public static String getQuestion() { return question; }
+
+    public static String getOptionA() { return optionA; }
+
+    public static String getOptionB() { return optionB; }
+
+    public static String getOptionC() { return optionC; }
+
+    // Sets the previous right answer.
+    public static void setRightAnswer(String prev) {
+        rightAnswer = prev;
+    }
+    // Returns the previous right answer.
+    public static String getRightAnswer() {
+        return rightAnswer;
+    }
+
+    // Sets the player's previous answer.
+    public static void setPlayersAnswer(String prev) {
+        playersAnswer = prev;
+    }
+    // Returns the player's previous answer.
+    public static String getPlayersAnswer() {
+        return playersAnswer;
+    }
+
+    private void initTextFile() {
+        file = Gdx.files.internal("questions/questions.txt");
+        //text = file.readString();
+        //System.out.println(text);
+
+        Scanner scanner = new Scanner(file.readString());
+        String line = "";
+
+        /*while(scanner.hasNext()){
+            System.out.println(scanner.nextLine());
+        }*/
+        int random = (int)(Math.random()*3+1);
+        String randomNumber = Integer.toString(random);
+        System.out.println(randomNumber);
+
+        while(scanner.hasNext()){
+            line = scanner.nextLine();
+
+            if(line.contains(randomNumber) && line.contains("?")) {
+                question = line;
+                System.out.println("Kysymys:  "+question);
+            }
+            else if(line.contains("a)")) {
+                optionA = line;
+                System.out.println("a):  "+optionA);
+            }
+            else if(line.contains("b)")) {
+                optionB = line;
+                System.out.println("b):  "+optionB);
+            }
+            else if(line.contains("c)")) {
+                optionC = line;
+                System.out.println("c):  "+optionC);
+            }
+            else if(line.contains("a") || line.contains("b") || line.contains("c")) {
+                setRightAnswer(line);
+                rightAnswer = line;
+                System.out.println("Oikea vastaus:  "+rightAnswer);
+                break;
+            }
+        }
     }
 
     // Called when the Application is resized. This can happen at any point during

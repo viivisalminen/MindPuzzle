@@ -4,11 +4,16 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+
+import java.util.Scanner;
 
 /*The class MindPuzzle contains methods the application is operated with.
 
@@ -22,6 +27,7 @@ public class MindPuzzle extends Game {
 	public static final int VIRTUAL_WIDTH = 1080;
 	public static final int VIRTUAL_HEIGHT = 1920;
 	// A camera with orthographic projection.
+	// Used in most of the screens
 	public OrthographicCamera camera;
 	// Draws batched quads using indices.
 	public SpriteBatch batch;
@@ -30,6 +36,7 @@ public class MindPuzzle extends Game {
 	public BitmapFont font40;
 	// Provides access to an application's raw asset files.
 	public AssetManager assets;
+
 	// Classes' objects that are used to switch screens.
 	public LoadingScreen loadingScreen;
 	public SplashScreen splashScreen;
@@ -45,9 +52,11 @@ public class MindPuzzle extends Game {
 	public SettingsPopUp settingsPopUp;
 	public QuestionScreen questionScreen;
 	public AnswerScreen answerScreen;
+
 	// The most recent screen is stored in the variable, which allows
 	// the return to the previous screen from the question screen.
 	public Screen previousScreen = mainMenuScreen;
+
 
 	// Called when the Application is first created.
 	// Initializes objects and sets the screen to loading screen.
@@ -77,6 +86,27 @@ public class MindPuzzle extends Game {
 
 		this.setScreen(loadingScreen);
 	}
+
+
+	// Introduces and initializes fonts
+    private void initFonts() {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-MediumItalic.ttf"));
+
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter30.size = 30;
+        //parameter30.borderColor = Color.BLACK;
+        //parameter30.borderWidth = 2;
+        parameter30.color = Color.BLACK;
+        font30 = generator.generateFont(parameter30);
+
+		FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+		parameter40.size = 40;
+		//parameter40.borderColor = Color.BLACK;
+		//parameter40.borderWidth = 2;
+		parameter40.color = Color.BLACK;
+		font40 = generator.generateFont(parameter40);
+    }
+
 	// Sets the previous visible screen.
 	public void setPreviousScreen(Screen prev) {
 		previousScreen = prev;
@@ -85,20 +115,7 @@ public class MindPuzzle extends Game {
 	public Screen getPreviousScreen() {
 		return previousScreen;
 	}
-	// Introduces and initializes fonts
-    private void initFonts() {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-MediumItalic.ttf"));
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter30.size = 30;
-        parameter30.color = Color.BLACK;
-        font30 = generator.generateFont(parameter30);
-
-		FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-		parameter40.size = 40;
-		parameter40.color = Color.BLACK;
-		font40 = generator.generateFont(parameter40);
-    }
 	// Uses the currently displayed screens render()-method
 	@Override
 	public void render() {

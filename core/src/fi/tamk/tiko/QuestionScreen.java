@@ -7,21 +7,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Cell;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+
 
 public class QuestionScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
@@ -35,14 +30,14 @@ public class QuestionScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private Dialog popUp;
-
     private TextButton buttonA, buttonB, buttonC, buttonX;
+    private Texture characterTxt;
+    private Rectangle characterRec;
 
-    String question = "123456789123456789\nWhat should I do?";
+    /*String question = "123456789123456789\nWhat should I do?";
     String optionA = "A ) 123456789123456789\n123456789123456789";
     String optionB = "B ) 123456789123456789\n123456789123456789";
-    String optionC = "C ) 123456789123456789\n123456789123456789";
+    String optionC = "C ) 123456789123456789\n123456789123456789";*/
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public QuestionScreen(final MindPuzzle app) {
@@ -59,64 +54,64 @@ public class QuestionScreen implements Screen {
         Gdx.input.setInputProcessor(stage); //Allows input to Scene2D components
         stage.clear();
 
+        characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
+        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
+
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font30);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/roomBackground.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
 
         initButtons();
+
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
     }
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
-
         float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.1f;
         float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.75f;
 
-        /*popUp = new Dialog("", skin, "dialog");
-
-        popUp.text("What should I do next?");
-        popUp.button("A ) ...........................\n...............................................", true); //sends "true" as the result
-        popUp.button("B ) ...........................\n...............................................", false); //sends "false" as the result
-        popUp.button("C ) ...........................\n...............................................", false); //sends "false" as the result
-        popUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        popUp.setKeepWithinStage(false);
-        popUp.show(stage);
-
-        System.out.println(popUp.getAlign());*/
-
-        buttonA = new TextButton(optionA, skin, "default");
+        buttonA = new TextButton(MainMenuScreen.getOptionA(), skin, "default");
+        buttonA.getLabel().setFontScale(2, 2);
         buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
         buttonA.setSize(buttonWidth, buttonHeight);
         buttonA.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                MainMenuScreen.setPlayersAnswer("a");
                 app.setScreen(app.answerScreen);
             }
         });
 
-        buttonB = new TextButton(optionB, skin, "default");
+        buttonB = new TextButton(MainMenuScreen.getOptionB(), skin, "default");
+        buttonB.getLabel().setFontScale(2, 2);
         buttonB.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
         buttonB.setSize(buttonWidth, buttonHeight);
         buttonB.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                MainMenuScreen.setPlayersAnswer("b");
                 app.setScreen(app.answerScreen);
             }
         });
 
-        buttonC = new TextButton(optionC, skin, "default");
+        buttonC = new TextButton(MainMenuScreen.getOptionC(), skin, "default");
+        buttonC.getLabel().setFontScale(2, 2);
         buttonC.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         buttonC.setSize(buttonWidth, buttonHeight);
         buttonC.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                MainMenuScreen.setPlayersAnswer("c");
                 app.setScreen(app.answerScreen);
             }
         });
@@ -127,7 +122,7 @@ public class QuestionScreen implements Screen {
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.getPreviousScreen());
+                app.setScreen(app.previousScreen);
             }
         });
 
@@ -153,15 +148,13 @@ public class QuestionScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
+        app.font40.draw(app.batch, MainMenuScreen.getQuestion(), Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.5f);
+
+        app.batch.draw(characterTxt, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, characterRec.width, characterRec.height);
         app.font30.draw(app.batch, "Screen: Question screen", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-
-        app.font30.draw(app.batch, question, Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.5f);
-        //app.font.draw(app.batch, optionA, MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        //app.font.draw(app.batch, optionB, MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
-        //app.font.draw(app.batch, optionC, MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.10f);
-
         app.batch.end();
     }
+
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().

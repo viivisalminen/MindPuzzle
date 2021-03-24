@@ -69,7 +69,9 @@ public class CreditsScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
-        MainMenuScreen.playMusic();
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
     }
 
     // Initializes the buttons used in this screen.
@@ -80,7 +82,9 @@ public class CreditsScreen implements Screen {
         buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.sound.play();
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.mainMenuScreen);
             }
         });

@@ -73,6 +73,9 @@ public class RoomMenuScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
     }
 
     // Initializes the buttons used in this screen.
@@ -84,6 +87,9 @@ public class RoomMenuScreen implements Screen {
         buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.mainMenuScreen);
             }
         });
@@ -97,6 +103,9 @@ public class RoomMenuScreen implements Screen {
         imageFood.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.foodRoom);
             }
         });
@@ -110,6 +119,9 @@ public class RoomMenuScreen implements Screen {
         imageSocial.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.socialRoom);
             }
         });
@@ -123,6 +135,9 @@ public class RoomMenuScreen implements Screen {
         imageHobbies.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.hobbiesRoom);
             }
         });
@@ -136,6 +151,9 @@ public class RoomMenuScreen implements Screen {
         imageSports.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.sportsRoom);
             }
         });
@@ -149,6 +167,9 @@ public class RoomMenuScreen implements Screen {
         imageSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.sleepRoom);
             }
         });

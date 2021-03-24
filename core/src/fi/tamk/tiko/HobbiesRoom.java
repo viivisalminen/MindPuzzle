@@ -57,6 +57,9 @@ public class HobbiesRoom implements Screen {
         stage.addActor(background);
 
         initButtons();
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
         app.setPreviousScreen(app.hobbiesRoom);
     }
 
@@ -68,6 +71,9 @@ public class HobbiesRoom implements Screen {
         buttonDoor.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.roomMenuScreen);
             }
         });
@@ -78,6 +84,9 @@ public class HobbiesRoom implements Screen {
         buttonCharacter.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.questionScreen);
             }
         });
@@ -88,6 +97,9 @@ public class HobbiesRoom implements Screen {
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.settingsPopUp);
             }
         });

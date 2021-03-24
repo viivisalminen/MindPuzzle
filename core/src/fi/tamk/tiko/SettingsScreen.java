@@ -58,7 +58,10 @@ public class SettingsScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
-        MainMenuScreen.playMusic();
+
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
     }
 
     // Initializes the buttons used in this screen.
@@ -73,21 +76,25 @@ public class SettingsScreen implements Screen {
         if(MainMenuScreen.getSound()) {
             stage.addActor(buttonSound);
         }
-        else {stage.addActor(soundPressed);}
+        else if (!MainMenuScreen.getSound()){
+            stage.addActor(soundPressed);
+        }
 
         buttonSound.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playSound();
-                MainMenuScreen.setSound(false);
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                MainMenuScreen.soundEffectOff();
                 stage.addActor(soundPressed);
             }
         });
         soundPressed.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playSound();
-                MainMenuScreen.setSound(true);
+                MainMenuScreen.soundEffectOn();
+                MainMenuScreen.sound.play();
                 stage.addActor(buttonSound);
             }
         });
@@ -102,21 +109,21 @@ public class SettingsScreen implements Screen {
         if(MainMenuScreen.getMusic()) {
             stage.addActor(buttonMusic);
         }
-        else {stage.addActor(musicPressed);}
+        else if (!MainMenuScreen.getMusic()){
+            stage.addActor(musicPressed);
+        }
 
         buttonMusic.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playMusic();
-                MainMenuScreen.setMusic(false);
+                MainMenuScreen.musicOff();
                 stage.addActor(musicPressed);
             }
         });
         musicPressed.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playMusic();
-                MainMenuScreen.setMusic(true);
+                MainMenuScreen.musicOn();
                 stage.addActor(buttonMusic);
             }
         });
@@ -127,7 +134,9 @@ public class SettingsScreen implements Screen {
         buttonLanguage.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playSound();
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
             }
         });
 
@@ -137,7 +146,9 @@ public class SettingsScreen implements Screen {
         buttonMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.playSound();
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.mainMenuScreen);
             }
         });

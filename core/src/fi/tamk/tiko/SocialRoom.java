@@ -7,8 +7,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -29,6 +31,10 @@ public class SocialRoom implements Screen {
     private ShapeRenderer shapeRenderer;
 
     private TextButton buttonDoor, buttonCharacter, buttonSettingsPopUp;
+    private ImageButton doorButton;
+    private Texture doorTxt, doorTxtPressed;
+    private Texture characterTxt;
+    private Rectangle characterRec;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SocialRoom(final MindPuzzle app) {
@@ -45,29 +51,44 @@ public class SocialRoom implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
+        characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
+        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.45f, characterTxt.getHeight() * 0.45f);
+
+        doorTxt = app.assets.get("images/door.png", Texture.class);
+        doorTxtPressed = app.assets.get("images/door.png", Texture.class);
+
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font30);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/roomBackground.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/socialRoom.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
 
         initButtons();
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.music.play();
+        }
         app.setPreviousScreen(app.socialRoom);
     }
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
-        buttonDoor = new TextButton("Room Menu", skin, "default");
-        buttonDoor.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        buttonDoor.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonDoor.addListener(new ClickListener() {
+        doorButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(doorTxt)),
+                new TextureRegionDrawable(new TextureRegion(doorTxtPressed))
+        );
+        doorButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.5f);
+        doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.roomMenuScreen);
             }
         });
@@ -78,6 +99,9 @@ public class SocialRoom implements Screen {
         buttonCharacter.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.questionScreen);
             }
         });
@@ -88,12 +112,15 @@ public class SocialRoom implements Screen {
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.settingsPopUp);
             }
         });
 
 
-        stage.addActor(buttonDoor);
+        stage.addActor(doorButton);
         stage.addActor(buttonCharacter);
         stage.addActor(buttonSettingsPopUp);
     }
@@ -114,7 +141,9 @@ public class SocialRoom implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font30.draw(app.batch, "Screen: SOCIAL ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.batch.draw(characterTxt, MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, characterRec.width, characterRec.height);
+
+        app.font30.draw(app.batch, "Screen: SOCIAL ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.01f,MindPuzzle.VIRTUAL_HEIGHT * 0.01f);
         app.batch.end();
     }
 

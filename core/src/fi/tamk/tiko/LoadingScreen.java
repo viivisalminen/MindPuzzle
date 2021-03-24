@@ -47,6 +47,10 @@ public class LoadingScreen implements Screen {
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
         app.assets.load("sounds/hitsound.wav", Sound.class);
         app.assets.load("sounds/mixkit-jk.mp3", Music.class);
+        app.assets.load("images/popUpBackground.jpg", Texture.class);
+        app.assets.load("images/socialRoom.png", Texture.class);
+        app.assets.load("images/door.png", Texture.class);
+        app.assets.load("images/skullwolf.png", Texture.class);
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -66,7 +70,7 @@ public class LoadingScreen implements Screen {
         // Keeps returning false until all the assets are finished loading
         // After that, application changes to the SplashScreen
         if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
-            app.setScreen(app.splashScreen);
+            app.setScreen(app.mainMenuScreen);
             //app.setScreen(app.questionScreen);
         }
     }
@@ -89,7 +93,7 @@ public class LoadingScreen implements Screen {
         shapeRenderer.end();
 
         app.batch.begin();
-        app.font30.draw(app.batch, "Screen: LOADING", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.font30.draw(app.batch, "Screen: LOADING", Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.05f);
         app.batch.end();
     }
 
