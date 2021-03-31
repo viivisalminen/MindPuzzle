@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // CreditsScreen contains information about the authors of the game,
 // the customer and possible source information of the material.
@@ -32,8 +32,6 @@ public class CreditsScreen implements Screen {
 
     private TextButton buttonMenu;
 
-
-
     String line = "Team: "
             + "\nScrum Erkki Toivola "
             + "\nDeveloper Viivi Salminen "
@@ -44,7 +42,7 @@ public class CreditsScreen implements Screen {
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public CreditsScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
         this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
@@ -53,7 +51,6 @@ public class CreditsScreen implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("CREDITS");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -63,7 +60,7 @@ public class CreditsScreen implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -108,8 +105,7 @@ public class CreditsScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font30.draw(app.batch, "Screen: CREDITS", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.font30.draw(app.batch, line, Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.75f);
+        app.font30.draw(app.batch, line, MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.75f);
         app.batch.end();
     }
 

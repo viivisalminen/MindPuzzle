@@ -4,8 +4,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -24,8 +22,8 @@ public class MindPuzzle extends Game {
 	// Application version number.
 	public static final float VERSION =  0.1f;
 	// Screen dimensions.
-	public static final int VIRTUAL_WIDTH = 1080;
-	public static final int VIRTUAL_HEIGHT = 1920;
+	public static int VIRTUAL_WIDTH = 1080;
+	public static int VIRTUAL_HEIGHT = 1920;
 	// A camera with orthographic projection.
 	// Used in most of the screens
 	public OrthographicCamera camera;
@@ -36,6 +34,16 @@ public class MindPuzzle extends Game {
 	public BitmapFont font40;
 	// Provides access to an application's raw asset files.
 	public AssetManager assets;
+
+	public FileHandle file;
+	public static String[][] textArray = new String[5][5];
+	public int row = 0;
+	public int column = 0;
+	public static String question = "";
+	public static String optionA = "";
+	public static String optionB = "";
+	public static String optionC = "";
+	public static String rightAnswer = "";
 
 	// Classes' objects that are used to switch screens.
 	public LoadingScreen loadingScreen;
@@ -57,7 +65,6 @@ public class MindPuzzle extends Game {
 	// the return to the previous screen from the question screen.
 	public Screen previousScreen = mainMenuScreen;
 
-
 	// Called when the Application is first created.
 	// Initializes objects and sets the screen to loading screen.
 	@Override
@@ -68,6 +75,7 @@ public class MindPuzzle extends Game {
 		batch = new SpriteBatch();
 
 		initFonts();
+		initTextFile();
 
 		loadingScreen = new LoadingScreen(this);
 		splashScreen = new SplashScreen(this);
@@ -87,25 +95,81 @@ public class MindPuzzle extends Game {
 		this.setScreen(loadingScreen);
 	}
 
-
 	// Introduces and initializes fonts
     private void initFonts() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-MediumItalic.ttf"));
 
         FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter30.size = 30;
-        //parameter30.borderColor = Color.BLACK;
-        //parameter30.borderWidth = 2;
         parameter30.color = Color.BLACK;
         font30 = generator.generateFont(parameter30);
 
 		FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
 		parameter40.size = 40;
-		//parameter40.borderColor = Color.BLACK;
-		//parameter40.borderWidth = 2;
 		parameter40.color = Color.BLACK;
 		font40 = generator.generateFont(parameter40);
     }
+
+    private void initTextFile() {
+		file = Gdx.files.internal("questions/questions.txt");
+
+		Scanner scanner = new Scanner(file.readString());
+		String line = "";
+
+		while(scanner.hasNext()){
+			line = scanner.nextLine();
+			column = 0;
+			if(line.contains("?")) {
+				textArray[row][column] = line;
+				System.out.println("Kysymys:  "+question);
+			}
+			line = scanner.nextLine();
+			if(line.contains("a)")) {
+				textArray[row][column + 1] = line;
+				System.out.println("a):  "+optionA);
+			}
+			line = scanner.nextLine();
+			if (line.contains("b)")) {
+				textArray[row][column + 2] = line;
+				System.out.println("b):  "+optionB);
+			}
+			line = scanner.nextLine();
+			if (line.contains("c)")) {
+				textArray[row][column + 3] = line;
+				System.out.println("c):  "+optionC);
+			}
+			line = scanner.nextLine();
+			if (line.contains("a") || line.contains("b") || line.contains("c")) {
+				textArray[row][column + 4] = line;
+				System.out.println("Oikea vastaus:  "+rightAnswer);
+			}
+
+			if(row < 3) {
+				row++;
+			}
+			else if (row == 3) {
+				break;
+			}
+		}
+
+		System.out.println("initTextFile metodissa. Taulukko käsitelty. Tulostetaan...");
+
+		for(int rivi = 0; rivi < textArray.length; rivi++) {
+			for(int sarake = 0; sarake < textArray.length; sarake++) {
+				System.out.println(textArray[rivi][sarake]);
+			}
+		}
+
+		MainMenuScreen.receiveQuestions(textArray);
+	}
+
+    public static void setVirtualWidth(int width) {
+		VIRTUAL_WIDTH = width;
+	}
+
+	public static void setVirtualHeight(int height) {
+		VIRTUAL_HEIGHT = height;
+	}
 
 	// Sets the previous visible screen.
 	public void setPreviousScreen(Screen prev) {

@@ -39,12 +39,11 @@ public class AnswerScreen implements Screen {
 
     @Override
     public void show() {
-        System.out.println("Answer screen");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
         characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
-        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
+        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -91,14 +90,14 @@ public class AnswerScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(characterTxt, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, characterRec.width, characterRec.height);
-        app.font30.draw(app.batch, "Screen: Answer screen", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
         app.font40.draw(app.batch, line,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         app.batch.end();
     }
 
     public boolean checkTheAnswer() {
-        if(MainMenuScreen.getPlayersAnswer().equals(MainMenuScreen.getRightAnswer())) {
+
+        if(QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
             answer = true;
         }
         else {

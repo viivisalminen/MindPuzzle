@@ -41,7 +41,6 @@ public class SportsRoom implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("SPORTS ROOM");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -57,9 +56,11 @@ public class SportsRoom implements Screen {
         stage.addActor(background);
 
         initButtons();
+
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
+
         app.setPreviousScreen(app.sportsRoom);
     }
 
@@ -104,7 +105,6 @@ public class SportsRoom implements Screen {
             }
         });
 
-
         stage.addActor(buttonDoor);
         stage.addActor(buttonCharacter);
         stage.addActor(buttonSettingsPopUp);
@@ -124,10 +124,6 @@ public class SportsRoom implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: SPORTS ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during

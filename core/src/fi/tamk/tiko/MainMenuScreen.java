@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -36,25 +34,16 @@ public class MainMenuScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private Texture imgTxt;
-    private Texture imgTxtPressed;
+    private Texture imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
+    private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
+    private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
 
-    private ImageButton imageButton;
-    private TextButton buttonMenu, buttonPlay, buttonHowToPlay, buttonSettings, buttonCredits, buttonExit;
-
-    public FileHandle file;
-    public String text = "";
-    public String [] textArray;
-    public static String question = "";
-    public static String optionA = "";
-    public static String optionB = "";
-    public static String optionC = "";
-    public static String rightAnswer = "";
-    public static String playersAnswer = "";
     public static Music music;
     public static boolean musicPlaying = true;
     public static Sound sound;
     public static boolean soundOn = true;
+
+    public static String[][] questionsArray = new String[3][5];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
@@ -67,12 +56,24 @@ public class MainMenuScreen implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("MAIN MENU");
+
+        System.out.println("Ruudun leveys: "+ Gdx.graphics.getWidth());
+        System.out.println("Ruudun korkeus: "+ Gdx.graphics.getHeight());
+
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        imgTxt = app.assets.get("images/mushroom.png", Texture.class);
-        imgTxtPressed = app.assets.get("images/mushroom.png", Texture.class);
+        imgCredits = app.assets.get("images/Buttons/Credits.png", Texture.class);
+        imgCreditsPressed = app.assets.get("images/Buttons/CreditsPressed.png", Texture.class);
+        imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
+        imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
+        imgHowToPlay = app.assets.get("images/Buttons/HowToPlay.png", Texture.class);
+        imgHowToPlayPressed = app.assets.get("images/Buttons/HowToPlayPressed.png", Texture.class);
+        imgPlay = app.assets.get("images/Buttons/Play.png", Texture.class);
+        imgPlayPressed = app.assets.get("images/Buttons/PlayPressed.png", Texture.class);
+        imgSettings = app.assets.get("images/Buttons/Settings.png", Texture.class);
+        imgSettingsPressed = app.assets.get("images/Buttons/SettingsPressed.png", Texture.class);
+
         sound = app.assets.get("sounds/hitsound.wav", Sound.class);
         music = app.assets.get("sounds/mixkit-jk.mp3", Music.class);
 
@@ -82,13 +83,13 @@ public class MainMenuScreen implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
 
         initButtons();
-        initTextFile();
+
         if(getMusic()) {
             music.play();
         }
@@ -96,16 +97,27 @@ public class MainMenuScreen implements Screen {
         app.setPreviousScreen(app.mainMenuScreen);
     }
 
+    public static void receiveQuestions(String[][] array) {
+        questionsArray = array.clone();
+
+        System.out.println("receiveQuestion metodissa. Taulukko kloonattu. Tulostetaan...");
+
+        for(int rivi = 0; rivi < 3; rivi++) {
+            for(int sarake = 0; sarake < 5; sarake++) {
+                System.out.println(questionsArray[rivi][sarake]);
+            }
+        }
+    }
+
     // Initializes the buttons used in this screen.
     private void initButtons() {
-        // PLAYBUTTON HERE
-        imageButton = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(imgTxt)),
-                new TextureRegionDrawable(new TextureRegion(imgTxtPressed))
+        imagePlay = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgPlay)),
+                new TextureRegionDrawable(new TextureRegion(imgPlayPressed))
         );
-        imageButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f);
-        imageButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        imageButton.addListener(new ClickListener() {
+        imagePlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        imagePlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imagePlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(getSound()) {
@@ -114,13 +126,14 @@ public class MainMenuScreen implements Screen {
                 app.setScreen(app.roomMenuScreen);
             }
         });
-        stage.addActor(imageButton);
 
-        buttonHowToPlay = new TextButton("How to play", skin, "default");
-        buttonHowToPlay.getLabel().setFontScale(3, 3);
-        buttonHowToPlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        buttonHowToPlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        buttonHowToPlay.addListener(new ClickListener() {
+        imageHowToPlay = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgHowToPlay)),
+                new TextureRegionDrawable(new TextureRegion(imgHowToPlayPressed))
+        );
+        imageHowToPlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageHowToPlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageHowToPlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(getSound()) {
@@ -129,11 +142,13 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        buttonSettings = new TextButton("Settings", skin, "default");
-        buttonSettings.getLabel().setFontScale(3, 3);
-        buttonSettings.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        buttonSettings.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        buttonSettings.addListener(new ClickListener() {
+        imageSettings = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgSettings)),
+                new TextureRegionDrawable(new TextureRegion(imgSettingsPressed))
+        );
+        imageSettings.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        imageSettings.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageSettings.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(getSound()) {
@@ -143,11 +158,13 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        buttonCredits = new TextButton("Credits", skin, "default");
-        buttonCredits.getLabel().setFontScale(3, 3);
-        buttonCredits.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        buttonCredits.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        buttonCredits.addListener(new ClickListener() {
+        imageCredits = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgCredits)),
+                new TextureRegionDrawable(new TextureRegion(imgCreditsPressed))
+        );
+        imageCredits.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        imageCredits.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageCredits.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(getSound()) {
@@ -157,11 +174,13 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        buttonExit = new TextButton("Exit", skin, "default");
-        buttonExit.getLabel().setFontScale(3, 3);
-        buttonExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        buttonExit.addListener(new ClickListener() {
+        imageExit = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgExit)),
+                new TextureRegionDrawable(new TextureRegion(imgExitPressed))
+        );
+        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        imageExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(getSound()) {
@@ -171,12 +190,11 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        //stage.addActor(buttonPlay);
-        stage.addActor(buttonHowToPlay);
-        stage.addActor(buttonSettings);
-        stage.addActor(buttonCredits);
-        stage.addActor(buttonExit);
-
+        stage.addActor(imagePlay);
+        stage.addActor(imageHowToPlay);
+        stage.addActor(imageCredits);
+        stage.addActor(imageExit);
+        stage.addActor(imageSettings);
     }
 
     // Calls every actor's act()-method that has added to the stage.
@@ -193,16 +211,12 @@ public class MainMenuScreen implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: MAIN MENU",MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.batch.end();
     }
 
     public static void musicOn(){
         music.play();
         music.setLooping(true);
-        music.setVolume(0.05f);
+        music.setVolume(0.01f);
         musicPlaying = true;
     }
 
@@ -227,76 +241,6 @@ public class MainMenuScreen implements Screen {
 
     public static Boolean getSound() {
         return soundOn;
-    }
-
-
-    public static String getQuestion() { return question; }
-
-    public static String getOptionA() { return optionA; }
-
-    public static String getOptionB() { return optionB; }
-
-    public static String getOptionC() { return optionC; }
-
-    // Sets the previous right answer.
-    public static void setRightAnswer(String prev) {
-        rightAnswer = prev;
-    }
-    // Returns the previous right answer.
-    public static String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    // Sets the player's previous answer.
-    public static void setPlayersAnswer(String prev) {
-        playersAnswer = prev;
-    }
-    // Returns the player's previous answer.
-    public static String getPlayersAnswer() {
-        return playersAnswer;
-    }
-
-    private void initTextFile() {
-        file = Gdx.files.internal("questions/questions.txt");
-        //text = file.readString();
-        //System.out.println(text);
-
-        Scanner scanner = new Scanner(file.readString());
-        String line = "";
-
-        /*while(scanner.hasNext()){
-            System.out.println(scanner.nextLine());
-        }*/
-        int random = (int)(Math.random()*3+1);
-        String randomNumber = Integer.toString(random);
-        System.out.println(randomNumber);
-
-        while(scanner.hasNext()){
-            line = scanner.nextLine();
-
-            if(line.contains(randomNumber) && line.contains("?")) {
-                question = line;
-                System.out.println("Kysymys:  "+question);
-            }
-            else if(line.contains("a)")) {
-                optionA = line;
-                System.out.println("a):  "+optionA);
-            }
-            else if(line.contains("b)")) {
-                optionB = line;
-                System.out.println("b):  "+optionB);
-            }
-            else if(line.contains("c)")) {
-                optionC = line;
-                System.out.println("c):  "+optionC);
-            }
-            else if(line.contains("a") || line.contains("b") || line.contains("c")) {
-                setRightAnswer(line);
-                rightAnswer = line;
-                System.out.println("Oikea vastaus:  "+rightAnswer);
-                break;
-            }
-        }
     }
 
     // Called when the Application is resized. This can happen at any point during
@@ -325,3 +269,4 @@ public class MainMenuScreen implements Screen {
         music.dispose();
     }
 }
+

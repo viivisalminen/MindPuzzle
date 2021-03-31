@@ -1,15 +1,15 @@
-1.Mitä nyt pitäisi tehdä?
-a) Mennä ulos
-b) Juoda kahvia
-c) Koodata
-b
-2.Mitä huomenna pitäisi tehdä?
-a) ksksksksksksksksksksksksksksksksksksksksksksksksksks
-b) ksksksksksksksksksksksksksksksksksksksksksksksksksks
-c) ksksksksksksksksksksksksksksksksksksksksksksksksksks
+1. Ystäväni eivät enää kutsu minua yhteisiin juttuihin enkä tiedä miksi. Mitä voisin tehdä? 
+a) Antaa asian olla
+b) Hankkia uusia ystäviä
+c) Kertoa suoraan miltä sinusta tuntuu ja ehdottaa yhteistä tekemistä
 c
-3.Mitä viikonloppuna pitäisi tehdä?
-a) ksksksksksksksksksksksksksksksksksksksksksksksksksks
-b) ksksksksksksksksksksksksksksksksksksksksksksksksksks
-c) ksksksksksksksksksksksksksksksksksksksksksksksksksks
+2. Tuntuu, että ystäväni salailee asioita ja se vaivaa minua. Mitä minun pitäisi tehdä? 
+a) Kerro suoraan miltä sinusta tuntuu
+b) Ryhdy salapoliisiksi ja seuraa ystäväsi liikkeitä
+c) Pidä mykkäkoulua ystävällesi. Tietääpähän kohdelleensa sinua kaltoin.
 a
+3. Luulen, että ystäväni on masentunut. Miten voisin auttaa? 
+a) Kyllä sen äiti ja isä auttaa sitä
+b) Pyydä ystävääsi lähtemään kanssasi jonnekin, kysele kuulumisia ja kuuntele
+c) Se on varmasti vain väsymystä. Kyllä ystäväsi voi huomenna jo paremmin
+b

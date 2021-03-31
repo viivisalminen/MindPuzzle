@@ -41,7 +41,6 @@ public class SettingsPopUp implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("S-PopUp screen");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -145,10 +144,6 @@ public class SettingsPopUp implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: SettingsPopUp screen", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during

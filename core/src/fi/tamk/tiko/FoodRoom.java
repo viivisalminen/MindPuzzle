@@ -41,7 +41,6 @@ public class FoodRoom implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("FOOD ROOM");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -104,7 +103,6 @@ public class FoodRoom implements Screen {
             }
         });
 
-
         stage.addActor(buttonDoor);
         stage.addActor(buttonCharacter);
         stage.addActor(buttonSettingsPopUp);
@@ -124,10 +122,6 @@ public class FoodRoom implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: FOOD ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.batch.end();
     }
 
     public Stage getStage() {

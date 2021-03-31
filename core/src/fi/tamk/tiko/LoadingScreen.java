@@ -37,6 +37,7 @@ public class LoadingScreen implements Screen {
     public void queueAssets() {
         app.assets.load("images/logo.png", Texture.class);
         app.assets.load("images/background.png", Texture.class);
+        app.assets.load("images/background2.png", Texture.class);
         app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("images/food.png", Texture.class);
         app.assets.load("images/hobbies.png", Texture.class);
@@ -51,12 +52,34 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/socialRoom.png", Texture.class);
         app.assets.load("images/door.png", Texture.class);
         app.assets.load("images/skullwolf.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart1.png", Texture.class);
+        app.assets.load("images/Buttons/Credits.png", Texture.class);
+        app.assets.load("images/Buttons/CreditsPressed.png", Texture.class);
+        app.assets.load("images/Buttons/Exit.png", Texture.class);
+        app.assets.load("images/Buttons/ExitPressed.png", Texture.class);
+        app.assets.load("images/Buttons/HowToPlay.png", Texture.class);
+        app.assets.load("images/Buttons/HowToPlayPressed.png", Texture.class);
+        app.assets.load("images/Buttons/Menu.png", Texture.class);
+        app.assets.load("images/Buttons/MenuPressed.png", Texture.class);
+        app.assets.load("images/Buttons/Play.png", Texture.class);
+        app.assets.load("images/Buttons/PlayPressed.png", Texture.class);
+        app.assets.load("images/Buttons/Settings.png", Texture.class);
+        app.assets.load("images/Buttons/SettingsPressed.png", Texture.class);
+        app.assets.load("images/RoomIcons/Food.png", Texture.class);
+        app.assets.load("images/RoomIcons/FoodPressed.png", Texture.class);
+        app.assets.load("images/RoomIcons/Hobbies.png", Texture.class);
+        app.assets.load("images/RoomIcons/HobbiesPressed.png", Texture.class);
+        app.assets.load("images/RoomIcons/Sleep.png", Texture.class);
+        app.assets.load("images/RoomIcons/SleepPressed.png", Texture.class);
+        app.assets.load("images/RoomIcons/Social.png", Texture.class);
+        app.assets.load("images/RoomIcons/SocialPressed.png", Texture.class);
+        app.assets.load("images/RoomIcons/Sports.png", Texture.class);
+        app.assets.load("images/RoomIcons/SportsPressed.png", Texture.class);
     }
 
     // Called when this screen becomes the current screen for a Game.
     @Override
     public void show() {
-        System.out.println("LOADING!");
         this.progress = 0f;
         queueAssets();
     }
@@ -70,8 +93,7 @@ public class LoadingScreen implements Screen {
         // Keeps returning false until all the assets are finished loading
         // After that, application changes to the SplashScreen
         if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
-            app.setScreen(app.mainMenuScreen);
-            //app.setScreen(app.questionScreen);
+            app.setScreen(app.splashScreen);
         }
     }
 
@@ -91,10 +113,6 @@ public class LoadingScreen implements Screen {
         shapeRenderer.setColor(Color.CORAL);
         shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, progress * (MindPuzzle.VIRTUAL_WIDTH * 0.7f), MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
         shapeRenderer.end();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: LOADING", Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.05f);
-        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during

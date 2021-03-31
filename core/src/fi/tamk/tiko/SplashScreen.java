@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
@@ -28,17 +28,16 @@ public class SplashScreen implements Screen {
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SplashScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
     // Called when this screen becomes the current screen for a Game.
     @Override
     public void show() {
-        System.out.println("SPLASH!");
         Gdx.input.setInputProcessor(stage);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -85,10 +84,6 @@ public class SplashScreen implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: Splash!",Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.05f);
-        app.batch.end();
     }
 
     // Calls every actor's act()-method that has added to the stage.

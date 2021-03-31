@@ -30,14 +30,18 @@ public class QuestionScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private TextButton buttonA, buttonB, buttonC, buttonX;
+    private TextButton questionButton, buttonA, buttonB, buttonC, buttonX;
     private Texture characterTxt;
     private Rectangle characterRec;
 
-    /*String question = "123456789123456789\nWhat should I do?";
-    String optionA = "A ) 123456789123456789\n123456789123456789";
-    String optionB = "B ) 123456789123456789\n123456789123456789";
-    String optionC = "C ) 123456789123456789\n123456789123456789";*/
+    public int row = 0;
+    public static String question = "";
+    public static String optionA = "";
+    public static String optionB = "";
+    public static String optionC = "";
+    public static String rightAnswer = "";
+    public static String playersAnswer = "";
+
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public QuestionScreen(final MindPuzzle app) {
@@ -50,12 +54,11 @@ public class QuestionScreen implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("Question screen");
         Gdx.input.setInputProcessor(stage); //Allows input to Scene2D components
         stage.clear();
 
         characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
-        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
+        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -68,6 +71,7 @@ public class QuestionScreen implements Screen {
         background.setDebug(true);
         stage.addActor(background);
 
+        initQuestions();
         initButtons();
 
         if(MainMenuScreen.getMusic()) {
@@ -75,43 +79,62 @@ public class QuestionScreen implements Screen {
         }
     }
 
+    private void initQuestions() {
+        question = MainMenuScreen.questionsArray[row][0];
+        optionA = MainMenuScreen.questionsArray[row][1];
+        optionB = MainMenuScreen.questionsArray[row][2];
+        optionC = MainMenuScreen.questionsArray[row][3];
+        rightAnswer = MainMenuScreen.questionsArray[row][4];
+
+        row++;
+    }
+
+    public static String getRightAnswer() {
+        return rightAnswer;
+    }
+
     // Initializes the buttons used in this screen.
     private void initButtons() {
         float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.1f;
         float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.75f;
 
-        buttonA = new TextButton(MainMenuScreen.getOptionA(), skin, "default");
-        buttonA.getLabel().setFontScale(2, 2);
+        questionButton = new TextButton(question, skin, "default");
+        questionButton.getLabel().setFontScale(0.75f, 0.75f);
+        questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
+        questionButton.setSize(buttonWidth, buttonHeight);
+
+        buttonA = new TextButton(optionA, skin, "default");
+        buttonA.getLabel().setFontScale(0.75f, 0.75f);
         buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
         buttonA.setSize(buttonWidth, buttonHeight);
         buttonA.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.setPlayersAnswer("a");
+                setPlayersAnswer("a");
                 app.setScreen(app.answerScreen);
             }
         });
 
-        buttonB = new TextButton(MainMenuScreen.getOptionB(), skin, "default");
-        buttonB.getLabel().setFontScale(2, 2);
+        buttonB = new TextButton(optionB, skin, "default");
+        buttonB.getLabel().setFontScale(0.75f, 0.75f);
         buttonB.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
         buttonB.setSize(buttonWidth, buttonHeight);
         buttonB.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.setPlayersAnswer("b");
+                setPlayersAnswer("b");
                 app.setScreen(app.answerScreen);
             }
         });
 
-        buttonC = new TextButton(MainMenuScreen.getOptionC(), skin, "default");
-        buttonC.getLabel().setFontScale(2, 2);
+        buttonC = new TextButton(optionC, skin, "default");
+        buttonC.getLabel().setFontScale(0.75f, 0.75f);
         buttonC.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         buttonC.setSize(buttonWidth, buttonHeight);
         buttonC.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.setPlayersAnswer("c");
+                setPlayersAnswer("c");
                 app.setScreen(app.answerScreen);
             }
         });
@@ -126,10 +149,19 @@ public class QuestionScreen implements Screen {
             }
         });
 
+        stage.addActor(questionButton);
         stage.addActor(buttonA);
         stage.addActor(buttonB);
         stage.addActor(buttonC);
         stage.addActor(buttonX);
+    }
+
+    public static void setPlayersAnswer(String a) {
+        playersAnswer = a;
+    }
+
+    public static String getPlayersAnswer() {
+        return playersAnswer;
     }
 
     // Calls every actor's act()-method that has added to the stage.
@@ -148,10 +180,7 @@ public class QuestionScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.font40.draw(app.batch, MainMenuScreen.getQuestion(), Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.5f);
-
-        app.batch.draw(characterTxt, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, characterRec.width, characterRec.height);
-        app.font30.draw(app.batch, "Screen: Question screen", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
         app.batch.end();
     }
 

@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -30,10 +29,9 @@ public class RoomMenuScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private Texture imgSleep, imgFood, imgHobbies, imgSports, imgSocial;
-    private Texture imgSleepPressed, imgFoodPressed, imgHobbiesPressed, imgSportsPressed, imgSocialPressed;
-    private ImageButton imageSleep, imageFood, imageHobbies, imageSports, imageSocial;
-    private TextButton buttonMenu;
+    private Texture imgMenu, imgSleep, imgFood, imgHobbies, imgSports, imgSocial;
+    private Texture imgMenuPressed ,imgSleepPressed, imgFoodPressed, imgHobbiesPressed, imgSportsPressed, imgSocialPressed;
+    private ImageButton imageMenu, imageSleep, imageFood, imageHobbies, imageSports, imageSocial;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public RoomMenuScreen(final MindPuzzle app) {
@@ -46,20 +44,21 @@ public class RoomMenuScreen implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("ROOM MENU");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        imgFood = app.assets.get("images/food.png", Texture.class);
-        imgFoodPressed = app.assets.get("images/food.png", Texture.class);
-        imgSleep = app.assets.get("images/sleep.png", Texture.class);
-        imgSleepPressed = app.assets.get("images/sleep.png", Texture.class);
-        imgSocial = app.assets.get("images/social.png", Texture.class);
-        imgSocialPressed = app.assets.get("images/social.png", Texture.class);
-        imgHobbies = app.assets.get("images/hobbies.png", Texture.class);
-        imgHobbiesPressed = app.assets.get("images/hobbies.png", Texture.class);
-        imgSports = app.assets.get("images/sports.png", Texture.class);
-        imgSportsPressed = app.assets.get("images/sports.png", Texture.class);
+        imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
+        imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
+        imgFood = app.assets.get("images/RoomIcons/Food.png", Texture.class);
+        imgFoodPressed = app.assets.get("images/RoomIcons/FoodPressed.png", Texture.class);
+        imgSleep = app.assets.get("images/RoomIcons/Sleep.png", Texture.class);
+        imgSleepPressed = app.assets.get("images/RoomIcons/SleepPressed.png", Texture.class);
+        imgSocial = app.assets.get("images/RoomIcons/Social.png", Texture.class);
+        imgSocialPressed = app.assets.get("images/RoomIcons/SocialPressed.png", Texture.class);
+        imgHobbies = app.assets.get("images/RoomIcons/Hobbies.png", Texture.class);
+        imgHobbiesPressed = app.assets.get("images/RoomIcons/HobbiesPressed.png", Texture.class);
+        imgSports = app.assets.get("images/RoomIcons/Sports.png", Texture.class);
+        imgSportsPressed = app.assets.get("images/RoomIcons/SportsPressed.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -67,12 +66,13 @@ public class RoomMenuScreen implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
 
         initButtons();
+
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
@@ -80,11 +80,13 @@ public class RoomMenuScreen implements Screen {
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
-        buttonMenu = new TextButton("Main menu", skin, "default");
-        buttonMenu.getLabel().setFontScale(3, 3);
-        buttonMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        buttonMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
-        buttonMenu.addListener(new ClickListener() {
+        imageMenu = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgMenu)),
+                new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
+        );
+        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
@@ -98,7 +100,7 @@ public class RoomMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgFood)),
                 new TextureRegionDrawable(new TextureRegion(imgFoodPressed))
         );
-        imageFood.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        imageFood.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
         imageFood.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         imageFood.addListener(new ClickListener() {
             @Override
@@ -114,7 +116,7 @@ public class RoomMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgSocial)),
                 new TextureRegionDrawable(new TextureRegion(imgSocialPressed))
         );
-        imageSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        imageSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
         imageSocial.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         imageSocial.addListener(new ClickListener() {
             @Override
@@ -130,7 +132,7 @@ public class RoomMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgHobbies)),
                 new TextureRegionDrawable(new TextureRegion(imgHobbiesPressed))
         );
-        imageHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         imageHobbies.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         imageHobbies.addListener(new ClickListener() {
             @Override
@@ -146,7 +148,7 @@ public class RoomMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgSports)),
                 new TextureRegionDrawable(new TextureRegion(imgSportsPressed))
         );
-        imageSports.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageSports.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         imageSports.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         imageSports.addListener(new ClickListener() {
             @Override
@@ -162,7 +164,7 @@ public class RoomMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgSleep)),
                 new TextureRegionDrawable(new TextureRegion(imgSleepPressed))
         );
-        imageSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        imageSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         imageSleep.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
         imageSleep.addListener(new ClickListener() {
             @Override
@@ -174,12 +176,12 @@ public class RoomMenuScreen implements Screen {
             }
         });
 
+        stage.addActor(imageMenu);
         stage.addActor(imageSleep);
         stage.addActor(imageFood);
         stage.addActor(imageSocial);
         stage.addActor(imageHobbies);
         stage.addActor(imageSports);
-        stage.addActor(buttonMenu);
     }
 
     // Calls every actor's act()-method that has added to the stage.
@@ -196,10 +198,6 @@ public class RoomMenuScreen implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.font30.draw(app.batch, "Screen: ROOM MENU", MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
-        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during

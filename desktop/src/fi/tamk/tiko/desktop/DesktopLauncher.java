@@ -10,11 +10,11 @@ public class DesktopLauncher {
 
 		config.title = MindPuzzle.TITLE + " v" + MindPuzzle.VERSION;
 		// Window size for desktop launcher
-		config.width = 400;
-		config.height = 650;
+		config.width = (int)(1080 * 0.4f);
+		config.height = (int)(1920 * 0.4f);
 		// location where the window opens on the screen
 		config.x = 300;
-		config.y = 25;
+		config.y = 0;
 
 		config.backgroundFPS = 60;
 		config.foregroundFPS = 60;

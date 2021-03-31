@@ -31,9 +31,9 @@ public class SocialRoom implements Screen {
     private ShapeRenderer shapeRenderer;
 
     private TextButton buttonDoor, buttonCharacter, buttonSettingsPopUp;
-    private ImageButton doorButton;
-    private Texture doorTxt, doorTxtPressed;
-    private Texture characterTxt;
+    private ImageButton doorButton, characterButton;
+    private Texture doorTxt, characterTxt;
+    private Texture doorTxtPressed;
     private Rectangle characterRec;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
@@ -47,15 +47,12 @@ public class SocialRoom implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        System.out.println("SOCIAL ROOM");
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
-        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.45f, characterTxt.getHeight() * 0.45f);
-
         doorTxt = app.assets.get("images/door.png", Texture.class);
         doorTxtPressed = app.assets.get("images/door.png", Texture.class);
+        characterTxt = app.assets.get("images/Pixelarts/pixelart1.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -69,9 +66,11 @@ public class SocialRoom implements Screen {
         stage.addActor(background);
 
         initButtons();
+
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
+
         app.setPreviousScreen(app.socialRoom);
     }
 
@@ -93,10 +92,11 @@ public class SocialRoom implements Screen {
             }
         });
 
-        buttonCharacter = new TextButton("Character", skin, "default");
-        buttonCharacter.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonCharacter.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
-        buttonCharacter.addListener(new ClickListener() {
+        characterButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(characterTxt)));
+        characterButton.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.6f);
+        characterButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.075f, MindPuzzle.VIRTUAL_WIDTH * 0.075f);
+        characterButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
@@ -121,7 +121,7 @@ public class SocialRoom implements Screen {
 
 
         stage.addActor(doorButton);
-        stage.addActor(buttonCharacter);
+        stage.addActor(characterButton);
         stage.addActor(buttonSettingsPopUp);
     }
 
@@ -139,12 +139,6 @@ public class SocialRoom implements Screen {
         update(delta);
 
         stage.draw();
-
-        app.batch.begin();
-        app.batch.draw(characterTxt, MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, characterRec.width, characterRec.height);
-
-        app.font30.draw(app.batch, "Screen: SOCIAL ROOM", MindPuzzle.VIRTUAL_WIDTH * 0.01f,MindPuzzle.VIRTUAL_HEIGHT * 0.01f);
-        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
