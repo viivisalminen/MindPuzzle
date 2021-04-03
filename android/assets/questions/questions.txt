@@ -1,15 +1,90 @@
-1. Ystäväni eivät enää kutsu minua yhteisiin juttuihin enkä tiedä miksi. Mitä voisin tehdä? 
+SOCIAL
+100. Ystäväni eivät enää kutsu minua yhteisiin juttuihin enkä tiedä miksi. Mitä voisin tehdä? 
 a) Antaa asian olla
 b) Hankkia uusia ystäviä
 c) Kertoa suoraan miltä sinusta tuntuu ja ehdottaa yhteistä tekemistä
 c
-2. Tuntuu, että ystäväni salailee asioita ja se vaivaa minua. Mitä minun pitäisi tehdä? 
+SOCIAL
+101. Tuntuu, että ystäväni salailee asioita ja se vaivaa minua. Mitä minun pitäisi tehdä? 
 a) Kerro suoraan miltä sinusta tuntuu
 b) Ryhdy salapoliisiksi ja seuraa ystäväsi liikkeitä
 c) Pidä mykkäkoulua ystävällesi. Tietääpähän kohdelleensa sinua kaltoin.
 a
-3. Luulen, että ystäväni on masentunut. Miten voisin auttaa? 
+SOCIAL
+102. Luulen, että ystäväni on masentunut. Miten voisin auttaa? 
 a) Kyllä sen äiti ja isä auttaa sitä
 b) Pyydä ystävääsi lähtemään kanssasi jonnekin, kysele kuulumisia ja kuuntele
 c) Se on varmasti vain väsymystä. Kyllä ystäväsi voi huomenna jo paremmin
+b
+SLEEP
+200.En ole nukkunut hyvin moneen päivään. Mitä voisin tehdä? 
+a) Joskus myöhemmin ehtii kyllä nukkua. Nuorena pitää nauttia elämästä. 
+b) Yritä rauhoittaa ilta-aika älylaitteista ja syö iltapala hyvissä ajoin ennen nukkumaanmenoa. 
+c) Tee oikein rankka juoksulenkki niin kyllä se uni sieltä sitten tulee. 
+b
+SLEEP
+201.Tuntuu siltä, että en voi muodostaa hyvää unirytmiä. Mikä avuksi? 
+a) Yritä mennä viikon jokaisena päivänä samaan aikaan nukkumaan äläkä valvo liikaa viikonloppuisinkaan. 
+b) Nukkuminen on muutenkin yliarvostettua. Eikä se haittaa, vaikka tunneilla välillä torkahtaa. 
+c) Kyllä se unirytmi siitä korjaantuu ihan itsekseenkin. 
+a
+SLEEP
+202.Nukahtaminen illalla on niin vaikeaa! Mikä voisi auttaa? 
+a) Katso vaikka jotain sarjaa niin kauan, että alkaa väsyttää ja mene vasta sitten nukkumaan. 
+b) Surffaille kännykällä sängyssä niin pitkään, että alkaa väsyttää.  
+c) Syö iltapala 2–3 tuntia ennen nukkumaanmenoa ja rauhoita ilta älylaitteilta   
+c
+SPORTS
+300.Onko se tarpeeksi liikuntaa ja ulkoilmaa, jos hölkkään parvekkeella tunnin joka päivä? 
+a) aaaaa
+b) bbbbb
+c) ccccc
+c
+SPORTS
+301.Haluaisin liikkua enemmän, mutta minulla ei ole aikaa siihen. Mikä avuksi?
+a) aaaaa
+b) bbbbb
+c) ccccc
+a
+SPORTS
+302.Minulla ei ole tarpeeksi hyvää varustusta siihen, että voisin urheilla ja liikkua kunnolla. Mikä avuksi?
+a) aaaaa
+b) bbbbb
+c) ccccc
+b
+HOBBIES
+400. En ole vieläkään löytänyt harrastusta, joka olisi “minun juttuni”, mutta olen kokeillut jo niin montaa asiaa. Mikä avuksi?
+a) aaaaa
+b) bbbbb
+c) ccccc
+c
+HOBBIES
+401.Nykyinen harrastukseni ei ole enää yhtään niin hauska kuin joskus ennen ja en tiedä miksi? 
+a) aaaaa
+b) bbbbb
+c) ccccc
+a
+HOBBIES
+402.Vanhempani haluavat minun harrastavani tiettyä asiaa, mutta se ei ole yhtään minun juttuni. Miten voisin kertoa heille tämän?
+a) aaaaa
+b) bbbbb
+c) ccccc
+b
+FOOD 
+500.Tuntuu, että terveellisesti syöminen on mahdotonta! Palaan aina takaisin herkkuihin. Mikä avuksi?
+a) aaaaa
+b) bbbbb
+c) ccccc
+b
+FOOD
+501.Haluan alkaa syömään terveellisesti, mutta perheeni ei suostu ostamaan terveellistä ruokaa! Mitä voin tehdä? 
+a) aaaaa
+b) bbbbb
+c) ccccc
+b
+FOOD
+503.Ystäväni luulee, että hän syö terveellisesti, mutta mielestäni hän syö silti liikaa. Mikä avuksi?
+a) aaaaa
+b) bbbbb
+c) ccccc
 b

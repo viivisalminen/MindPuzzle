@@ -16,9 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-
-import java.util.Scanner;
 
 // MainMenuScreen is the main menu of the game including play, how to play, settings, credits and exit.
 public class MainMenuScreen implements Screen {
@@ -43,7 +42,11 @@ public class MainMenuScreen implements Screen {
     public static Sound sound;
     public static boolean soundOn = true;
 
-    public static String[][] questionsArray = new String[3][5];
+    public static String[][] questionsAboutSocial = new String[5][5];
+    public static String[][] questionsAboutSleep = new String[5][5];
+    public static String[][] questionsAboutSports = new String[5][5];
+    public static String[][] questionsAboutHobbies = new String[5][5];
+    public static String[][] questionsAboutFood = new String[5][5];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
@@ -96,15 +99,43 @@ public class MainMenuScreen implements Screen {
 
         app.setPreviousScreen(app.mainMenuScreen);
     }
+    // MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+    public static void receiveQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+        questionsAboutSocial = social.clone();
+        questionsAboutSleep = sleep.clone();
+        questionsAboutSports = sport.clone();
+        questionsAboutHobbies = hobby.clone();
+        questionsAboutFood = food.clone();
 
-    public static void receiveQuestions(String[][] array) {
-        questionsArray = array.clone();
-
-        System.out.println("receiveQuestion metodissa. Taulukko kloonattu. Tulostetaan...");
+        System.out.println("receiveQuestion metodissa. Taulukko kloonattu. Tulostetaan SOCIAL: ");
 
         for(int rivi = 0; rivi < 3; rivi++) {
             for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsArray[rivi][sarake]);
+                System.out.println(questionsAboutSocial[rivi][sarake]);
+            }
+        }
+        System.out.println("Tulostetaan SLEEP: ");
+        for(int rivi = 0; rivi < 3; rivi++) {
+            for(int sarake = 0; sarake < 5; sarake++) {
+                System.out.println(questionsAboutSleep[rivi][sarake]);
+            }
+        }
+        System.out.println("Tulostetaan SPORTS: ");
+        for(int rivi = 0; rivi < 3; rivi++) {
+            for(int sarake = 0; sarake < 5; sarake++) {
+                System.out.println(questionsAboutSports[rivi][sarake]);
+            }
+        }
+        System.out.println("Tulostetaan HOBBIES: ");
+        for(int rivi = 0; rivi < 3; rivi++) {
+            for(int sarake = 0; sarake < 5; sarake++) {
+                System.out.println(questionsAboutHobbies[rivi][sarake]);
+            }
+        }
+        System.out.println("Tulostetaan FOOD: ");
+        for(int rivi = 0; rivi < 3; rivi++) {
+            for(int sarake = 0; sarake < 5; sarake++) {
+                System.out.println(questionsAboutFood[rivi][sarake]);
             }
         }
     }

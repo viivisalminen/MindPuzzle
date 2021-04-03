@@ -57,7 +57,14 @@ public class AnswerScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
-        line = "Your answer was "+checkTheAnswer();
+        app.addAnsweredQuestion();
+
+        if (checkTheAnswer()) {
+            app.addPoint();
+            line = "Yay your answer was right!";
+        } else if (!(checkTheAnswer())) {
+            line = "Oh no your answer wasn't that good!";
+        }
     }
 
     private void initButtons() {
@@ -69,7 +76,11 @@ public class AnswerScreen implements Screen {
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.setScreen(app.previousScreen);
+                if(app.getAnsweredQuestion() == 7) {
+                    app.setScreen(app.partyScreen);
+                } else {
+                    app.setScreen(app.previousScreen);
+                }
             }
         });
 

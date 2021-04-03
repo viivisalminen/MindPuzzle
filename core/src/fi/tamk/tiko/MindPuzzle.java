@@ -36,14 +36,13 @@ public class MindPuzzle extends Game {
 	public AssetManager assets;
 
 	public FileHandle file;
-	public static String[][] textArray = new String[5][5];
+	public static String[][] socialQuestions = new String[5][5];
+	public static String[][] sleepQuestions = new String[5][5];
+	public static String[][] sportQuestions = new String[5][5];
+	public static String[][] hobbyQuestions = new String[5][5];
+	public static String[][] foodQuestions = new String[5][5];
 	public int row = 0;
 	public int column = 0;
-	public static String question = "";
-	public static String optionA = "";
-	public static String optionB = "";
-	public static String optionC = "";
-	public static String rightAnswer = "";
 
 	// Classes' objects that are used to switch screens.
 	public LoadingScreen loadingScreen;
@@ -60,10 +59,14 @@ public class MindPuzzle extends Game {
 	public SettingsPopUp settingsPopUp;
 	public QuestionScreen questionScreen;
 	public AnswerScreen answerScreen;
+	public PartyScreen partyScreen;
 
 	// The most recent screen is stored in the variable, which allows
 	// the return to the previous screen from the question screen.
 	public Screen previousScreen = mainMenuScreen;
+
+	public static int points = 0;
+	public static int questionsAnswered = 0;
 
 	// Called when the Application is first created.
 	// Initializes objects and sets the screen to loading screen.
@@ -75,7 +78,12 @@ public class MindPuzzle extends Game {
 		batch = new SpriteBatch();
 
 		initFonts();
-		initTextFile();
+		initTextFile(socialQuestions, "SOCIAL");
+		initTextFile(sleepQuestions, "SLEEP");
+		initTextFile(sportQuestions, "SPORTS");
+		initTextFile(hobbyQuestions, "HOBBIES");
+		initTextFile(foodQuestions, "FOOD");
+		MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
 
 		loadingScreen = new LoadingScreen(this);
 		splashScreen = new SplashScreen(this);
@@ -91,6 +99,7 @@ public class MindPuzzle extends Game {
 		settingsPopUp = new SettingsPopUp(this);
 		questionScreen = new QuestionScreen(this);
 		answerScreen = new AnswerScreen(this);
+		partyScreen = new PartyScreen(this);
 
 		this.setScreen(loadingScreen);
 	}
@@ -110,57 +119,59 @@ public class MindPuzzle extends Game {
 		font40 = generator.generateFont(parameter40);
     }
 
-    private void initTextFile() {
+    private void initTextFile(String[][] array, String theme) {
 		file = Gdx.files.internal("questions/questions.txt");
 
 		Scanner scanner = new Scanner(file.readString());
 		String line = "";
 
-		while(scanner.hasNext()){
+		while(scanner.hasNext()) {
 			line = scanner.nextLine();
-			column = 0;
-			if(line.contains("?")) {
-				textArray[row][column] = line;
-				System.out.println("Kysymys:  "+question);
-			}
-			line = scanner.nextLine();
-			if(line.contains("a)")) {
-				textArray[row][column + 1] = line;
-				System.out.println("a):  "+optionA);
-			}
-			line = scanner.nextLine();
-			if (line.contains("b)")) {
-				textArray[row][column + 2] = line;
-				System.out.println("b):  "+optionB);
-			}
-			line = scanner.nextLine();
-			if (line.contains("c)")) {
-				textArray[row][column + 3] = line;
-				System.out.println("c):  "+optionC);
-			}
-			line = scanner.nextLine();
-			if (line.contains("a") || line.contains("b") || line.contains("c")) {
-				textArray[row][column + 4] = line;
-				System.out.println("Oikea vastaus:  "+rightAnswer);
-			}
+			if (line.contains(theme)) {
+				column = 0;
+				line = scanner.nextLine();
+				if (line.contains("?")) {
+					array[row][column] = line;
+				}
 
-			if(row < 3) {
-				row++;
-			}
-			else if (row == 3) {
-				break;
+				line = scanner.nextLine();
+				if (line.contains("a)")) {
+					array[row][column + 1] = line;
+				}
+
+				line = scanner.nextLine();
+				if (line.contains("b)")) {
+					array[row][column + 2] = line;
+				}
+
+				line = scanner.nextLine();
+				if (line.contains("c)")) {
+					array[row][column + 3] = line;
+				}
+
+				line = scanner.nextLine();
+				if (line.contains("a") || line.contains("b") || line.contains("c")) {
+					array[row][column + 4] = line;
+				}
+
+				if (row < 3) {
+					row++;
+				} else if (row == 3) {
+					break;
+				}
 			}
 		}
 
 		System.out.println("initTextFile metodissa. Taulukko käsitelty. Tulostetaan...");
 
-		for(int rivi = 0; rivi < textArray.length; rivi++) {
-			for(int sarake = 0; sarake < textArray.length; sarake++) {
-				System.out.println(textArray[rivi][sarake]);
+		for(int rivi = 0; rivi < 3; rivi++) {
+			for(int sarake = 0; sarake < 5; sarake++) {
+				System.out.println(array[rivi][sarake]);
 			}
 		}
 
-		MainMenuScreen.receiveQuestions(textArray);
+		row = 0;
+		scanner.close();
 	}
 
     public static void setVirtualWidth(int width) {
@@ -178,6 +189,22 @@ public class MindPuzzle extends Game {
 	// Returns the previous visible screen.
 	public Screen getPreviousScreen() {
 		return previousScreen;
+	}
+
+	public static void addPoint() {
+		points++;
+	}
+
+	public static int getPoints() {
+		return points;
+	}
+
+	public static void addAnsweredQuestion() {
+		questionsAnswered++;
+	}
+
+	public static int getAnsweredQuestion() {
+		return questionsAnswered;
 	}
 
 	// Uses the currently displayed screens render()-method

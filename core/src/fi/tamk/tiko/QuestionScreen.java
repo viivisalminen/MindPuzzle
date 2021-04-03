@@ -71,22 +71,67 @@ public class QuestionScreen implements Screen {
         background.setDebug(true);
         stage.addActor(background);
 
-        initQuestions();
+        initQuestions(app.getPreviousScreen());
         initButtons();
 
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
     }
+    /*   questionsAboutSocial = social.clone();
+        questionsAboutSleep = sleep.clone();
+        questionsAboutSports = sport.clone();
+        questionsAboutHobbies = hobby.clone();
+        questionsAboutFood = food.clone();
+*/
+    private void initQuestions(Screen prev) {
+        if(row == 3) {
+            row = 0;
+        }
 
-    private void initQuestions() {
-        question = MainMenuScreen.questionsArray[row][0];
-        optionA = MainMenuScreen.questionsArray[row][1];
-        optionB = MainMenuScreen.questionsArray[row][2];
-        optionC = MainMenuScreen.questionsArray[row][3];
-        rightAnswer = MainMenuScreen.questionsArray[row][4];
+        if (prev.equals(app.socialRoom)) {
+            question = MainMenuScreen.questionsAboutSocial[row][0];
+            optionA = MainMenuScreen.questionsAboutSocial[row][1];
+            optionB = MainMenuScreen.questionsAboutSocial[row][2];
+            optionC = MainMenuScreen.questionsAboutSocial[row][3];
+            rightAnswer = MainMenuScreen.questionsAboutSocial[row][4];
 
-        row++;
+            row++;
+        } else if (prev.equals(app.sleepRoom)) {
+            question = MainMenuScreen.questionsAboutSleep[row][0];
+            optionA = MainMenuScreen.questionsAboutSleep[row][1];
+            optionB = MainMenuScreen.questionsAboutSleep[row][2];
+            optionC = MainMenuScreen.questionsAboutSleep[row][3];
+            rightAnswer = MainMenuScreen.questionsAboutSleep[row][4];
+
+            row++;
+        } else if (prev.equals(app.sportsRoom)) {
+            question = MainMenuScreen.questionsAboutSports[row][0];
+            optionA = MainMenuScreen.questionsAboutSports[row][1];
+            optionB = MainMenuScreen.questionsAboutSports[row][2];
+            optionC = MainMenuScreen.questionsAboutSports[row][3];
+            rightAnswer = MainMenuScreen.questionsAboutSports[row][4];
+
+            row++;
+        } else if (prev.equals(app.hobbiesRoom)) {
+            question = MainMenuScreen.questionsAboutHobbies[row][0];
+            optionA = MainMenuScreen.questionsAboutHobbies[row][1];
+            optionB = MainMenuScreen.questionsAboutHobbies[row][2];
+            optionC = MainMenuScreen.questionsAboutHobbies[row][3];
+            rightAnswer = MainMenuScreen.questionsAboutHobbies[row][4];
+
+            row++;
+        } else if (prev.equals(app.foodRoom)) {
+            question = MainMenuScreen.questionsAboutFood[row][0];
+            optionA = MainMenuScreen.questionsAboutFood[row][1];
+            optionB = MainMenuScreen.questionsAboutFood[row][2];
+            optionC = MainMenuScreen.questionsAboutFood[row][3];
+            rightAnswer = MainMenuScreen.questionsAboutFood[row][4];
+
+            row++;
+        }
+
+
     }
 
     public static String getRightAnswer() {

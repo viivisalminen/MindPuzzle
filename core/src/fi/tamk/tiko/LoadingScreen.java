@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // LoadingScreen loads all the assets to the game and
 // shows how many assets have been loaded using the download bar.
@@ -28,7 +29,7 @@ public class LoadingScreen implements Screen {
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
         this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
