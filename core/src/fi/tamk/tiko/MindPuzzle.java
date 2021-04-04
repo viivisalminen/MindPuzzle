@@ -34,6 +34,7 @@ public class MindPuzzle extends Game {
 	// Renders bitmap fonts.
 	public BitmapFont font30;
 	public BitmapFont font40;
+	public BitmapFont font60;
 	// Provides access to an application's raw asset files.
 	public AssetManager assets;
 
@@ -122,6 +123,11 @@ public class MindPuzzle extends Game {
 		parameter40.size = 40;
 		parameter40.color = Color.BLACK;
 		font40 = generator.generateFont(parameter40);
+
+		FreeTypeFontGenerator.FreeTypeFontParameter parameter60 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+		parameter60.size = 60;
+		parameter60.color = Color.BLACK;
+		font60 = generator.generateFont(parameter60);
     }
 
     private void initTextFile(String[][] array, String theme) {
@@ -218,6 +224,7 @@ public class MindPuzzle extends Game {
 	public void render() {
 	    super.render();
 	}
+
 	// Called when the Application is destroyed. Disposes all objects.
 	@Override
 	public void dispose() {

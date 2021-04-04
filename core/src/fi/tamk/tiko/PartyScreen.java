@@ -83,17 +83,13 @@ public class PartyScreen implements Screen {
         stage.addActor(imageExit);
     }
 
-    // Calls every actor's act()-method that has added to the stage.
-    private void update(float delta) {
-        stage.act(delta);
-    }
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(Gdx.graphics.getDeltaTime());
+        // Calls every actor's act()-method that has added to the stage.
+        stage.act(Gdx.graphics.getDeltaTime());
 
         stage.draw();
 

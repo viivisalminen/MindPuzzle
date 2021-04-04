@@ -184,18 +184,14 @@ public class RoomMenuScreen implements Screen {
         stage.addActor(imageSports);
     }
 
-    // Calls every actor's act()-method that has added to the stage.
-    private void update(float delta) {
-        stage.act(delta);
-    }
-
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(delta);
+        // Calls every actor's act()-method that has added to the stage.
+        stage.act(Gdx.graphics.getDeltaTime());
 
         stage.draw();
     }

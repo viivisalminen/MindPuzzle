@@ -87,16 +87,13 @@ public class AnswerScreen implements Screen {
         stage.addActor(buttonX);
     }
 
-    private void update(float delta) {
-        stage.act(delta);
-    }
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(delta);
+        // Calls every actor's act()-method that has added to the stage.
+        stage.act(Gdx.graphics.getDeltaTime());
 
         stage.draw();
 

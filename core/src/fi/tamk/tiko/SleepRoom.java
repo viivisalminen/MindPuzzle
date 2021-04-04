@@ -34,6 +34,9 @@ public class SleepRoom implements Screen {
     private Texture doorTxt, pixel1Txt, pixel2Txt, pixel3Txt, pixel4Txt, pixel5Txt;
     private Texture doorTxtPressed;
 
+    private String points = Integer.toString(MindPuzzle.getPoints());
+    private String line = "";
+
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SleepRoom(final MindPuzzle app) {
         this.app = app;
@@ -47,6 +50,12 @@ public class SleepRoom implements Screen {
     public void show() {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
+
+        if(app.getLanguage().equals("fi_FI")) {
+            line = "PISTEET: ";
+        } else {
+            line = "POINTS: ";
+        }
 
         doorTxt = app.assets.get("images/door.png", Texture.class);
         doorTxtPressed = app.assets.get("images/door.png", Texture.class);
@@ -94,7 +103,7 @@ public class SleepRoom implements Screen {
 
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
-        pixel1Button.setPosition(Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.6f);
+        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
         pixel1Button.setSize(pixel1Txt.getWidth(), pixel1Txt.getHeight());
         pixel1Button.addListener(new ClickListener() {
             @Override
@@ -108,7 +117,7 @@ public class SleepRoom implements Screen {
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.35f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
         pixel2Button.setSize(pixel2Txt.getWidth(), pixel2Txt.getHeight());
         pixel2Button.addListener(new ClickListener() {
             @Override
@@ -122,7 +131,7 @@ public class SleepRoom implements Screen {
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(Gdx.graphics.getWidth() * 0.55f,Gdx.graphics.getHeight() * 0.6f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
         pixel3Button.setSize(pixel3Txt.getWidth(), pixel3Txt.getHeight());
         pixel3Button.addListener(new ClickListener() {
             @Override
@@ -136,7 +145,7 @@ public class SleepRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(Gdx.graphics.getWidth() * 0.35f,Gdx.graphics.getHeight() * 0.2f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
         pixel4Button.setSize(pixel4Txt.getWidth(), pixel4Txt.getHeight());
         pixel4Button.addListener(new ClickListener() {
             @Override
@@ -150,7 +159,7 @@ public class SleepRoom implements Screen {
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(Gdx.graphics.getWidth() * 0.6f,Gdx.graphics.getHeight() * 0.35f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
         pixel5Button.setSize(pixel5Txt.getWidth(), pixel5Txt.getHeight());
         pixel5Button.addListener(new ClickListener() {
             @Override
@@ -175,7 +184,6 @@ public class SleepRoom implements Screen {
             }
         });
 
-
         stage.addActor(doorButton);
         stage.addActor(pixel1Button);
         stage.addActor(pixel2Button);
@@ -185,20 +193,25 @@ public class SleepRoom implements Screen {
         stage.addActor(buttonSettingsPopUp);
     }
 
-    // Calls every actor's act()-method that has added to the stage.
-    private void update(float delta) {
-        stage.act(delta);
-    }
-
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1f,1f,1f,1f);
+        Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(delta);
+        // Calls every actor's act()-method that has added to the stage.
+        stage.act(Gdx.graphics.getDeltaTime());
 
         stage.draw();
+
+        app.batch.begin();
+        points = Integer.toString(MindPuzzle.getPoints());
+        if (Gdx.graphics.getWidth() < 1000) {
+            app.font40.draw(app.batch, line + points, Gdx.graphics.getWidth() * 0.075f, Gdx.graphics.getHeight() * 0.97f);
+        } else if (Gdx.graphics.getWidth() >= 1000) {
+            app.font60.draw(app.batch, line + points, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.9f);
+        }
+        app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
