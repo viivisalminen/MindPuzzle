@@ -59,11 +59,11 @@ public class FoodRoom implements Screen {
 
         doorTxt = app.assets.get("images/door.png", Texture.class);
         doorTxtPressed = app.assets.get("images/door.png", Texture.class);
-        pixel1Txt = app.assets.get("images/Pixelarts/pixelart6.png", Texture.class);
-        pixel2Txt = app.assets.get("images/Pixelarts/pixelart7.png", Texture.class);
-        pixel3Txt = app.assets.get("images/Pixelarts/pixelart8.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Pixelarts/pixelart9.png", Texture.class);
-        pixel5Txt = app.assets.get("images/Pixelarts/pixelart10.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Pixelarts/browncatPixel.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Pixelarts/foxPixel.png", Texture.class);
+        pixel3Txt = app.assets.get("images/Pixelarts/hamsterPixel.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Pixelarts/lynxPixel.png", Texture.class);
+        pixel5Txt = app.assets.get("images/Pixelarts/mushroomguyPixel.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -71,7 +71,7 @@ public class FoodRoom implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/roomBackground.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/foodRoom.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -111,6 +111,7 @@ public class FoodRoom implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.setPreviousCharacter("browncat");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -125,6 +126,7 @@ public class FoodRoom implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.setPreviousCharacter("fox");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -139,6 +141,7 @@ public class FoodRoom implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.setPreviousCharacter("hamster");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -153,6 +156,7 @@ public class FoodRoom implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.setPreviousCharacter("lynx");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -167,6 +171,7 @@ public class FoodRoom implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.setPreviousCharacter("mushroomguy");
                 app.setScreen(app.questionScreen);
             }
         });

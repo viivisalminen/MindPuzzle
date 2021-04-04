@@ -42,8 +42,8 @@ public class AnswerScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
-        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
+        getCharacter();
+        characterRec = new Rectangle(0,0,characterTxt.getWidth(), characterTxt.getHeight());
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -64,6 +64,30 @@ public class AnswerScreen implements Screen {
             line = "Yay your answer was right!";
         } else if (!(checkTheAnswer())) {
             line = "Oh no your answer wasn't that good!";
+        }
+    }
+
+    private void getCharacter() {
+        if(app.getCharacter().equals("bird")) {
+            characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
+        } else if (app.getCharacter().equals("browncat")) {
+            characterTxt = app.assets.get("images/Characters/browncat.png", Texture.class);
+        } else if (app.getCharacter().equals("fox")) {
+            characterTxt = app.assets.get("images/Characters/fox.png", Texture.class);
+        } else if (app.getCharacter().equals("hamster")) {
+            characterTxt = app.assets.get("images/Characters/hamster.png", Texture.class);
+        } else if (app.getCharacter().equals("lynx")) {
+            characterTxt = app.assets.get("images/Characters/lynx.png", Texture.class);
+        } else if (app.getCharacter().equals("mushroomguy")) {
+            characterTxt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
+        } else if (app.getCharacter().equals("robotcat")) {
+            characterTxt = app.assets.get("images/Characters/robotcat.png", Texture.class);
+        } else if (app.getCharacter().equals("skullwolf")) {
+            characterTxt = app.assets.get("images/Characters/skullwolf.png", Texture.class);
+        } else if (app.getCharacter().equals("swampmonster")) {
+            characterTxt = app.assets.get("images/Characters/swampmonster.png", Texture.class);
+        } else if (app.getCharacter().equals("yeti")) {
+            characterTxt = app.assets.get("images/Characters/yeti.png", Texture.class);
         }
     }
 
@@ -98,7 +122,7 @@ public class AnswerScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width * 0.5f, characterRec.height * 0.5f);
         app.font40.draw(app.batch, line,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         app.batch.end();
     }

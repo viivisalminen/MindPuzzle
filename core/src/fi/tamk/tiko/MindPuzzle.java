@@ -67,6 +67,7 @@ public class MindPuzzle extends Game {
 	// The most recent screen is stored in the variable, which allows
 	// the return to the previous screen from the question screen.
 	public Screen previousScreen = mainMenuScreen;
+	public static String previousCharacter = "";
 
 	public static int points = 0;
 	public static int questionsAnswered = 0;
@@ -135,6 +136,7 @@ public class MindPuzzle extends Game {
 
 		Scanner scanner = new Scanner(file.readString());
 		String line = "";
+		String longLine = "";
 
 		while(scanner.hasNext()) {
 			line = scanner.nextLine();
@@ -142,22 +144,72 @@ public class MindPuzzle extends Game {
 				column = 0;
 				line = scanner.nextLine();
 				if (line.contains("?")) {
-					array[row][column] = line;
+					if(line.length() > 50 && line.length() < 70) {
+						longLine = new StringBuilder().append(line.substring(0, 36))
+								.append("\n").append(line.substring(36)).toString();
+						array[row][column] = longLine;
+						System.out.println(longLine);
+					} else if(line.length() >= 70) {
+						longLine = new StringBuilder().append(line.substring(0, 42))
+								.append("\n").append(line.substring(42)).toString();
+						array[row][column] = longLine;
+						System.out.println(longLine);
+					} else {
+						array[row][column] = line;
+					}
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("a)")) {
-					array[row][column + 1] = line;
+					if(line.length() > 50 && line.length() < 70) {
+						longLine = new StringBuilder().append(line.substring(0, 36))
+								.append("\n").append(line.substring(36)).toString();
+						array[row][column + 1] = longLine;
+						System.out.println(longLine);
+					} else if(line.length() >= 70) {
+						longLine = new StringBuilder().append(line.substring(0, 42))
+								.append("\n").append(line.substring(42)).toString();
+						array[row][column + 1] = longLine;
+						System.out.println(longLine);
+					} else {
+						array[row][column + 1] = line;
+					}
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("b)")) {
-					array[row][column + 2] = line;
+					if(line.length() > 50 && line.length() < 70) {
+						longLine = new StringBuilder().append(line.substring(0, 36))
+								.append("\n").append(line.substring(36)).toString();
+						array[row][column + 2] = longLine;
+						System.out.println(longLine);
+					} else if(line.length() >= 70) {
+						longLine = new StringBuilder().append(line.substring(0, 42))
+								.append("\n").append(line.substring(42)).toString();
+						array[row][column + 2] = longLine;
+						System.out.println(longLine);
+					} else {
+						array[row][column + 2] = line;
+					}
+
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("c)")) {
-					array[row][column + 3] = line;
+					if(line.length() > 50 && line.length() < 70) {
+						longLine = new StringBuilder().append(line.substring(0, 36))
+								.append("\n").append(line.substring(36)).toString();
+						array[row][column + 3] = longLine;
+						System.out.println(longLine);
+					} else if(line.length() >= 70) {
+						longLine = new StringBuilder().append(line.substring(0, 42))
+								.append("\n").append(line.substring(42)).toString();
+						array[row][column + 3] = longLine;
+						System.out.println(longLine);
+					} else {
+						array[row][column + 3] = line;
+					}
+
 				}
 
 				line = scanner.nextLine();
@@ -192,6 +244,14 @@ public class MindPuzzle extends Game {
 	// Returns the previous visible screen.
 	public Screen getPreviousScreen() {
 		return previousScreen;
+	}
+
+	public static void setPreviousCharacter(String character) {
+		previousCharacter = character;
+	}
+
+	public static String getCharacter() {
+		return previousCharacter;
 	}
 
 	public static void addPoint() {

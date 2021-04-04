@@ -44,19 +44,29 @@ public class LoadingScreen implements Screen {
         app.assets.load("sounds/mixkit-jk.mp3", Music.class);
         app.assets.load("images/popUpBackground.jpg", Texture.class);
         app.assets.load("images/socialRoom.png", Texture.class);
+        app.assets.load("images/sleepRoom.png", Texture.class);
+        app.assets.load("images/hobbiesRoom.png", Texture.class);
+        app.assets.load("images/foodRoom.png", Texture.class);
         app.assets.load("images/door.png", Texture.class);
-        app.assets.load("images/skullwolf.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart1.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart2.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart3.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart4.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart5.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart6.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart7.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart8.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart9.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart10.png", Texture.class);
-        app.assets.load("images/Pixelarts/pixelart11.png", Texture.class);
+        app.assets.load("images/Characters/skullwolf.png", Texture.class);
+        app.assets.load("images/Characters/bird.png", Texture.class);
+        app.assets.load("images/Pixelarts/birdPixel.png", Texture.class);
+        app.assets.load("images/Characters/browncat.png", Texture.class);
+        app.assets.load("images/Pixelarts/browncatPixel.png", Texture.class);
+        app.assets.load("images/Characters/fox.png", Texture.class);
+        app.assets.load("images/Pixelarts/foxPixel.png", Texture.class);
+        app.assets.load("images/Characters/hamster.png", Texture.class);
+        app.assets.load("images/Pixelarts/hamsterPixel.png", Texture.class);
+        app.assets.load("images/Characters/lynx.png", Texture.class);
+        app.assets.load("images/Pixelarts/lynxPixel.png", Texture.class);
+        app.assets.load("images/Characters/mushroomguy.png", Texture.class);
+        app.assets.load("images/Pixelarts/mushroomguyPixel.png", Texture.class);
+        app.assets.load("images/Characters/robotcat.png", Texture.class);
+        app.assets.load("images/Pixelarts/robotcatPixel.png", Texture.class);
+        app.assets.load("images/Characters/swampmonster.png", Texture.class);
+        app.assets.load("images/Pixelarts/swampmonsterPixel.png", Texture.class);
+        app.assets.load("images/Characters/yeti.png", Texture.class);
+        app.assets.load("images/Pixelarts/yetiPixel.png", Texture.class);
         app.assets.load("images/Buttons/Credits.png", Texture.class);
         app.assets.load("images/Buttons/CreditsPressed.png", Texture.class);
         app.assets.load("images/Buttons/Exit.png", Texture.class);
@@ -91,6 +101,16 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/RoomIcons/SocialPressed.png", Texture.class);
         app.assets.load("images/RoomIcons/Sports.png", Texture.class);
         app.assets.load("images/RoomIcons/SportsPressed.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/Harrastukset.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/HarrastuksetPainettu.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/Ihmissuhteet.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/IhmissuhteetPainettu.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/Liikunta.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/LiikuntaPainettu.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/Ravinto.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/RavintoPainettu.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/Uni.png", Texture.class);
+        app.assets.load("images/Huonekuvakkeet/UniPainettu.png", Texture.class);
     }
 
     // Called when this screen becomes the current screen for a Game.

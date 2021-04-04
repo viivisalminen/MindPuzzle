@@ -16,6 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+import java.util.Locale;
+
 public class SettingsPopUp implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
@@ -95,6 +97,11 @@ public class SettingsPopUp implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                if(app.getLanguage().equals("fi_FI")) {
+                    app.setLanguage(new Locale("en", "US"));
+                } else if (!(app.getLanguage().equals("fi_FI"))) {
+                    app.setLanguage(new Locale("fi", "FI"));
+                }
             }
         });
 
@@ -106,6 +113,11 @@ public class SettingsPopUp implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
+                }
+                if (!(app.getLanguage().equals("fi_FI"))) {
+                    app.setLanguage(new Locale("fi", "FI"));
+                } else if (app.getLanguage().equals("fi_FI")) {
+                    app.setLanguage(new Locale("en", "US"));
                 }
             }
         });

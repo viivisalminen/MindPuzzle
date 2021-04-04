@@ -57,7 +57,7 @@ public class QuestionScreen implements Screen {
         Gdx.input.setInputProcessor(stage); //Allows input to Scene2D components
         stage.clear();
 
-        characterTxt = app.assets.get("images/skullwolf.png", Texture.class);
+        getCharacter();
         characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
 
         this.skin = new Skin();
@@ -76,6 +76,30 @@ public class QuestionScreen implements Screen {
 
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
+        }
+    }
+
+    private void getCharacter() {
+        if(app.getCharacter().equals("bird")) {
+            characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
+        } else if (app.getCharacter().equals("browncat")) {
+            characterTxt = app.assets.get("images/Characters/browncat.png", Texture.class);
+        } else if (app.getCharacter().equals("fox")) {
+            characterTxt = app.assets.get("images/Characters/fox.png", Texture.class);
+        } else if (app.getCharacter().equals("hamster")) {
+            characterTxt = app.assets.get("images/Characters/hamster.png", Texture.class);
+        } else if (app.getCharacter().equals("lynx")) {
+            characterTxt = app.assets.get("images/Characters/lynx.png", Texture.class);
+        } else if (app.getCharacter().equals("mushroomguy")) {
+            characterTxt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
+        } else if (app.getCharacter().equals("robotcat")) {
+            characterTxt = app.assets.get("images/Characters/robotcat.png", Texture.class);
+        } else if (app.getCharacter().equals("skullwolf")) {
+            characterTxt = app.assets.get("images/Characters/skullwolf.png", Texture.class);
+        } else if (app.getCharacter().equals("swampmonster")) {
+            characterTxt = app.assets.get("images/Characters/swampmonster.png", Texture.class);
+        } else if (app.getCharacter().equals("yeti")) {
+            characterTxt = app.assets.get("images/Characters/yeti.png", Texture.class);
         }
     }
 
@@ -132,12 +156,12 @@ public class QuestionScreen implements Screen {
         float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.75f;
 
         questionButton = new TextButton(question, skin, "default");
-        questionButton.getLabel().setFontScale(0.75f, 0.75f);
+        questionButton.getLabel().setFontScale(1.5f, 1.5f);
         questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
-        questionButton.setSize(buttonWidth, buttonHeight);
+        questionButton.setSize(buttonWidth, buttonHeight*1.5f);
 
         buttonA = new TextButton(optionA, skin, "default");
-        buttonA.getLabel().setFontScale(0.75f, 0.75f);
+        buttonA.getLabel().setFontScale(1.5f, 1.5f);
         buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
         buttonA.setSize(buttonWidth, buttonHeight);
         buttonA.addListener(new ClickListener() {
@@ -149,7 +173,7 @@ public class QuestionScreen implements Screen {
         });
 
         buttonB = new TextButton(optionB, skin, "default");
-        buttonB.getLabel().setFontScale(0.75f, 0.75f);
+        buttonB.getLabel().setFontScale(1.5f, 1.5f);
         buttonB.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
         buttonB.setSize(buttonWidth, buttonHeight);
         buttonB.addListener(new ClickListener() {
@@ -161,7 +185,7 @@ public class QuestionScreen implements Screen {
         });
 
         buttonC = new TextButton(optionC, skin, "default");
-        buttonC.getLabel().setFontScale(0.75f, 0.75f);
+        buttonC.getLabel().setFontScale(1.5f, 1.5f);
         buttonC.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         buttonC.setSize(buttonWidth, buttonHeight);
         buttonC.addListener(new ClickListener() {

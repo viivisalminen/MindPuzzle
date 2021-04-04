@@ -47,18 +47,33 @@ public class RoomMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-        imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-        imgFood = app.assets.get("images/RoomIcons/Food.png", Texture.class);
-        imgFoodPressed = app.assets.get("images/RoomIcons/FoodPressed.png", Texture.class);
-        imgSleep = app.assets.get("images/RoomIcons/Sleep.png", Texture.class);
-        imgSleepPressed = app.assets.get("images/RoomIcons/SleepPressed.png", Texture.class);
-        imgSocial = app.assets.get("images/RoomIcons/Social.png", Texture.class);
-        imgSocialPressed = app.assets.get("images/RoomIcons/SocialPressed.png", Texture.class);
-        imgHobbies = app.assets.get("images/RoomIcons/Hobbies.png", Texture.class);
-        imgHobbiesPressed = app.assets.get("images/RoomIcons/HobbiesPressed.png", Texture.class);
-        imgSports = app.assets.get("images/RoomIcons/Sports.png", Texture.class);
-        imgSportsPressed = app.assets.get("images/RoomIcons/SportsPressed.png", Texture.class);
+        if(app.getLanguage().equals("fi_FI")) {
+            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
+            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
+            imgFood = app.assets.get("images/Huonekuvakkeet/Ravinto.png", Texture.class);
+            imgFoodPressed = app.assets.get("images/Huonekuvakkeet/RavintoPainettu.png", Texture.class);
+            imgSleep = app.assets.get("images/Huonekuvakkeet/Uni.png", Texture.class);
+            imgSleepPressed = app.assets.get("images/Huonekuvakkeet/UniPainettu.png", Texture.class);
+            imgSocial = app.assets.get("images/Huonekuvakkeet/Ihmissuhteet.png", Texture.class);
+            imgSocialPressed = app.assets.get("images/Huonekuvakkeet/IhmissuhteetPainettu.png", Texture.class);
+            imgHobbies = app.assets.get("images/Huonekuvakkeet/Harrastukset.png", Texture.class);
+            imgHobbiesPressed = app.assets.get("images/Huonekuvakkeet/HarrastuksetPainettu.png", Texture.class);
+            imgSports = app.assets.get("images/Huonekuvakkeet/Liikunta.png", Texture.class);
+            imgSportsPressed = app.assets.get("images/Huonekuvakkeet/LiikuntaPainettu.png", Texture.class);
+        } else {
+            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
+            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
+            imgFood = app.assets.get("images/RoomIcons/Food.png", Texture.class);
+            imgFoodPressed = app.assets.get("images/RoomIcons/FoodPressed.png", Texture.class);
+            imgSleep = app.assets.get("images/RoomIcons/Sleep.png", Texture.class);
+            imgSleepPressed = app.assets.get("images/RoomIcons/SleepPressed.png", Texture.class);
+            imgSocial = app.assets.get("images/RoomIcons/Social.png", Texture.class);
+            imgSocialPressed = app.assets.get("images/RoomIcons/SocialPressed.png", Texture.class);
+            imgHobbies = app.assets.get("images/RoomIcons/Hobbies.png", Texture.class);
+            imgHobbiesPressed = app.assets.get("images/RoomIcons/HobbiesPressed.png", Texture.class);
+            imgSports = app.assets.get("images/RoomIcons/Sports.png", Texture.class);
+            imgSportsPressed = app.assets.get("images/RoomIcons/SportsPressed.png", Texture.class);
+        }
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
