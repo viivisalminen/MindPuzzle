@@ -66,16 +66,29 @@ public class MainMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        imgCredits = app.assets.get("images/Buttons/Credits.png", Texture.class);
-        imgCreditsPressed = app.assets.get("images/Buttons/CreditsPressed.png", Texture.class);
-        imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
-        imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
-        imgHowToPlay = app.assets.get("images/Buttons/HowToPlay.png", Texture.class);
-        imgHowToPlayPressed = app.assets.get("images/Buttons/HowToPlayPressed.png", Texture.class);
-        imgPlay = app.assets.get("images/Buttons/Play.png", Texture.class);
-        imgPlayPressed = app.assets.get("images/Buttons/PlayPressed.png", Texture.class);
-        imgSettings = app.assets.get("images/Buttons/Settings.png", Texture.class);
-        imgSettingsPressed = app.assets.get("images/Buttons/SettingsPressed.png", Texture.class);
+        if(app.getLanguage().equals("fi_FI")) {
+            imgCredits = app.assets.get("images/Painonapit/Tekijat.png", Texture.class);
+            imgCreditsPressed = app.assets.get("images/Painonapit/TekijatPainettu.png", Texture.class);
+            imgExit = app.assets.get("images/Painonapit/Lopeta.png", Texture.class);
+            imgExitPressed = app.assets.get("images/Painonapit/LopetaPainettu.png", Texture.class);
+            imgHowToPlay = app.assets.get("images/Painonapit/Ohjeet.png", Texture.class);
+            imgHowToPlayPressed = app.assets.get("images/Painonapit/OhjeetPainettu.png", Texture.class);
+            imgPlay = app.assets.get("images/Painonapit/Pelaa.png", Texture.class);
+            imgPlayPressed = app.assets.get("images/Painonapit/PelaaPainettu.png", Texture.class);
+            imgSettings = app.assets.get("images/Painonapit/Asetukset.png", Texture.class);
+            imgSettingsPressed = app.assets.get("images/Painonapit/AsetuksetPainettu.png", Texture.class);
+        } else {
+            imgCredits = app.assets.get("images/Buttons/Credits.png", Texture.class);
+            imgCreditsPressed = app.assets.get("images/Buttons/CreditsPressed.png", Texture.class);
+            imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
+            imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
+            imgHowToPlay = app.assets.get("images/Buttons/HowToPlay.png", Texture.class);
+            imgHowToPlayPressed = app.assets.get("images/Buttons/HowToPlayPressed.png", Texture.class);
+            imgPlay = app.assets.get("images/Buttons/Play.png", Texture.class);
+            imgPlayPressed = app.assets.get("images/Buttons/PlayPressed.png", Texture.class);
+            imgSettings = app.assets.get("images/Buttons/Settings.png", Texture.class);
+            imgSettingsPressed = app.assets.get("images/Buttons/SettingsPressed.png", Texture.class);
+        }
 
         sound = app.assets.get("sounds/hitsound.wav", Sound.class);
         music = app.assets.get("sounds/mixkit-jk.mp3", Music.class);
@@ -106,38 +119,6 @@ public class MainMenuScreen implements Screen {
         questionsAboutSports = sport.clone();
         questionsAboutHobbies = hobby.clone();
         questionsAboutFood = food.clone();
-
-        System.out.println("receiveQuestion metodissa. Taulukko kloonattu. Tulostetaan SOCIAL: ");
-
-        for(int rivi = 0; rivi < 3; rivi++) {
-            for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsAboutSocial[rivi][sarake]);
-            }
-        }
-        System.out.println("Tulostetaan SLEEP: ");
-        for(int rivi = 0; rivi < 3; rivi++) {
-            for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsAboutSleep[rivi][sarake]);
-            }
-        }
-        System.out.println("Tulostetaan SPORTS: ");
-        for(int rivi = 0; rivi < 3; rivi++) {
-            for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsAboutSports[rivi][sarake]);
-            }
-        }
-        System.out.println("Tulostetaan HOBBIES: ");
-        for(int rivi = 0; rivi < 3; rivi++) {
-            for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsAboutHobbies[rivi][sarake]);
-            }
-        }
-        System.out.println("Tulostetaan FOOD: ");
-        for(int rivi = 0; rivi < 3; rivi++) {
-            for(int sarake = 0; sarake < 5; sarake++) {
-                System.out.println(questionsAboutFood[rivi][sarake]);
-            }
-        }
     }
 
     // Initializes the buttons used in this screen.

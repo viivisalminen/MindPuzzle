@@ -37,15 +37,8 @@ public class LoadingScreen implements Screen {
     // Loads all the assets used in the game one by one.
     public void queueAssets() {
         app.assets.load("images/logo.png", Texture.class);
-        app.assets.load("images/background.png", Texture.class);
         app.assets.load("images/background2.png", Texture.class);
         app.assets.load("images/roomBackground.png", Texture.class);
-        app.assets.load("images/food.png", Texture.class);
-        app.assets.load("images/hobbies.png", Texture.class);
-        app.assets.load("images/sleep.png", Texture.class);
-        app.assets.load("images/social.png", Texture.class);
-        app.assets.load("images/sports.png", Texture.class);
-        app.assets.load("images/mushroom.png", Texture.class);
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
         app.assets.load("sounds/hitsound.wav", Sound.class);
         app.assets.load("sounds/mixkit-jk.mp3", Music.class);
@@ -66,6 +59,18 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/Buttons/PlayPressed.png", Texture.class);
         app.assets.load("images/Buttons/Settings.png", Texture.class);
         app.assets.load("images/Buttons/SettingsPressed.png", Texture.class);
+        app.assets.load("images/Painonapit/Tekijat.png", Texture.class);
+        app.assets.load("images/Painonapit/TekijatPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Lopeta.png", Texture.class);
+        app.assets.load("images/Painonapit/LopetaPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Ohjeet.png", Texture.class);
+        app.assets.load("images/Painonapit/OhjeetPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Paavalikko.png", Texture.class);
+        app.assets.load("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Pelaa.png", Texture.class);
+        app.assets.load("images/Painonapit/PelaaPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Asetukset.png", Texture.class);
+        app.assets.load("images/Painonapit/AsetuksetPainettu.png", Texture.class);
         app.assets.load("images/RoomIcons/Food.png", Texture.class);
         app.assets.load("images/RoomIcons/FoodPressed.png", Texture.class);
         app.assets.load("images/RoomIcons/Hobbies.png", Texture.class);
@@ -111,7 +116,7 @@ public class LoadingScreen implements Screen {
         shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.7f, MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
 
-        shapeRenderer.setColor(Color.CORAL);
+        shapeRenderer.setColor(Color.FOREST);
         shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, progress * (MindPuzzle.VIRTUAL_WIDTH * 0.7f), MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
         shapeRenderer.end();
     }

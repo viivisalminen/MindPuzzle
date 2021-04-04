@@ -59,7 +59,7 @@ public class PartyScreen implements Screen {
             MainMenuScreen.music.play();
         }
 
-        if (app.getPoints() == 5) {
+        if (app.getPoints() >= 5) {
             line = "Hurray! The villagers are happy again.\nLet's have a great party!";
         } else if (app.getPoints() < 5) {
             line = "Oh no! The villagers are still \ntoo sad to have a party!";
@@ -93,7 +93,7 @@ public class PartyScreen implements Screen {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(delta);
+        update(Gdx.graphics.getDeltaTime());
 
         stage.draw();
 

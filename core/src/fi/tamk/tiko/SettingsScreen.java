@@ -16,6 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+import java.util.Locale;
+
 public class SettingsScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
@@ -51,7 +53,7 @@ public class SettingsScreen implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background.png"))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background2.png"))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -135,6 +137,11 @@ public class SettingsScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
+                }
+                if(app.getLanguage().equals("fi_FI")) {
+                    app.setLanguage(new Locale("en", "US"));
+                } else if (!(app.getLanguage().equals("fi_FI"))) {
+                    app.setLanguage(new Locale("fi", "FI"));
                 }
             }
         });

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /*The class MindPuzzle contains methods the application is operated with.
@@ -68,6 +69,8 @@ public class MindPuzzle extends Game {
 	public static int points = 0;
 	public static int questionsAnswered = 0;
 
+	public static String language = "";
+
 	// Called when the Application is first created.
 	// Initializes objects and sets the screen to loading screen.
 	@Override
@@ -102,6 +105,7 @@ public class MindPuzzle extends Game {
 		partyScreen = new PartyScreen(this);
 
 		this.setScreen(loadingScreen);
+		setLanguage(Locale.getDefault());
 	}
 
 	// Introduces and initializes fonts
@@ -162,14 +166,6 @@ public class MindPuzzle extends Game {
 			}
 		}
 
-		System.out.println("initTextFile metodissa. Taulukko käsitelty. Tulostetaan...");
-
-		for(int rivi = 0; rivi < 3; rivi++) {
-			for(int sarake = 0; sarake < 5; sarake++) {
-				System.out.println(array[rivi][sarake]);
-			}
-		}
-
 		row = 0;
 		scanner.close();
 	}
@@ -205,6 +201,15 @@ public class MindPuzzle extends Game {
 
 	public static int getAnsweredQuestion() {
 		return questionsAnswered;
+	}
+
+	public static void setLanguage(Locale locale) {
+		language = locale.toString();
+		System.out.println("Kieli: "+language);
+	}
+
+	public static String getLanguage() {
+		return language;
 	}
 
 	// Uses the currently displayed screens render()-method

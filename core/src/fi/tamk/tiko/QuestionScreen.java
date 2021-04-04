@@ -78,12 +78,7 @@ public class QuestionScreen implements Screen {
             MainMenuScreen.music.play();
         }
     }
-    /*   questionsAboutSocial = social.clone();
-        questionsAboutSleep = sleep.clone();
-        questionsAboutSports = sport.clone();
-        questionsAboutHobbies = hobby.clone();
-        questionsAboutFood = food.clone();
-*/
+
     private void initQuestions(Screen prev) {
         if(row == 3) {
             row = 0;
@@ -95,7 +90,6 @@ public class QuestionScreen implements Screen {
             optionB = MainMenuScreen.questionsAboutSocial[row][2];
             optionC = MainMenuScreen.questionsAboutSocial[row][3];
             rightAnswer = MainMenuScreen.questionsAboutSocial[row][4];
-
             row++;
         } else if (prev.equals(app.sleepRoom)) {
             question = MainMenuScreen.questionsAboutSleep[row][0];
@@ -103,7 +97,6 @@ public class QuestionScreen implements Screen {
             optionB = MainMenuScreen.questionsAboutSleep[row][2];
             optionC = MainMenuScreen.questionsAboutSleep[row][3];
             rightAnswer = MainMenuScreen.questionsAboutSleep[row][4];
-
             row++;
         } else if (prev.equals(app.sportsRoom)) {
             question = MainMenuScreen.questionsAboutSports[row][0];
@@ -111,7 +104,6 @@ public class QuestionScreen implements Screen {
             optionB = MainMenuScreen.questionsAboutSports[row][2];
             optionC = MainMenuScreen.questionsAboutSports[row][3];
             rightAnswer = MainMenuScreen.questionsAboutSports[row][4];
-
             row++;
         } else if (prev.equals(app.hobbiesRoom)) {
             question = MainMenuScreen.questionsAboutHobbies[row][0];
@@ -119,7 +111,6 @@ public class QuestionScreen implements Screen {
             optionB = MainMenuScreen.questionsAboutHobbies[row][2];
             optionC = MainMenuScreen.questionsAboutHobbies[row][3];
             rightAnswer = MainMenuScreen.questionsAboutHobbies[row][4];
-
             row++;
         } else if (prev.equals(app.foodRoom)) {
             question = MainMenuScreen.questionsAboutFood[row][0];
@@ -127,11 +118,8 @@ public class QuestionScreen implements Screen {
             optionB = MainMenuScreen.questionsAboutFood[row][2];
             optionC = MainMenuScreen.questionsAboutFood[row][3];
             rightAnswer = MainMenuScreen.questionsAboutFood[row][4];
-
             row++;
         }
-
-
     }
 
     public static String getRightAnswer() {
@@ -228,7 +216,6 @@ public class QuestionScreen implements Screen {
         app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
         app.batch.end();
     }
-
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
