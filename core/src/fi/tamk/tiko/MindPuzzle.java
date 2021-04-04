@@ -25,6 +25,7 @@ public class MindPuzzle extends Game {
 	// Screen dimensions.
 	public static int VIRTUAL_WIDTH = 1080;
 	public static int VIRTUAL_HEIGHT = 1920;
+
 	// A camera with orthographic projection.
 	// Used in most of the screens
 	public OrthographicCamera camera;
@@ -77,7 +78,7 @@ public class MindPuzzle extends Game {
 	public void create() {
 		assets = new AssetManager();
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, VIRTUAL_WIDTH/2, VIRTUAL_HEIGHT/2);
+		camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
 		batch = new SpriteBatch();
 
 		initFonts();

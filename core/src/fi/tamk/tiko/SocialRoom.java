@@ -30,11 +30,11 @@ public class SocialRoom implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private TextButton buttonDoor, buttonCharacter, buttonSettingsPopUp;
-    private ImageButton doorButton, characterButton;
-    private Texture doorTxt, characterTxt;
+    private TextButton buttonSettingsPopUp;
+    private ImageButton doorButton, pixel1Button, pixel2Button, pixel3Button, pixel4Button, pixel5Button;
+    private Texture doorTxt, pixel1Txt, pixel2Txt, pixel3Txt, pixel4Txt, pixel5Txt;
     private Texture doorTxtPressed;
-    private Rectangle characterRec;
+
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SocialRoom(final MindPuzzle app) {
@@ -52,7 +52,11 @@ public class SocialRoom implements Screen {
 
         doorTxt = app.assets.get("images/door.png", Texture.class);
         doorTxtPressed = app.assets.get("images/door.png", Texture.class);
-        characterTxt = app.assets.get("images/Pixelarts/pixelart1.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Pixelarts/pixelart1.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Pixelarts/pixelart2.png", Texture.class);
+        pixel3Txt = app.assets.get("images/Pixelarts/pixelart3.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Pixelarts/pixelart4.png", Texture.class);
+        pixel5Txt = app.assets.get("images/Pixelarts/pixelart5.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -92,11 +96,67 @@ public class SocialRoom implements Screen {
             }
         });
 
-        characterButton = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(characterTxt)));
-        characterButton.setPosition(Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.6f);
-        characterButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.075f, MindPuzzle.VIRTUAL_WIDTH * 0.075f);
-        characterButton.addListener(new ClickListener() {
+        pixel1Button = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
+        pixel1Button.setPosition(Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.6f);
+        pixel1Button.setSize(pixel1Txt.getWidth(), pixel1Txt.getHeight());
+        pixel1Button.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setScreen(app.questionScreen);
+            }
+        });
+
+        pixel2Button = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
+        pixel2Button.setPosition(Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.35f);
+        pixel2Button.setSize(pixel2Txt.getWidth(), pixel2Txt.getHeight());
+        pixel2Button.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setScreen(app.questionScreen);
+            }
+        });
+
+        pixel3Button = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
+        pixel3Button.setPosition(Gdx.graphics.getWidth() * 0.55f,Gdx.graphics.getHeight() * 0.6f);
+        pixel3Button.setSize(pixel3Txt.getWidth(), pixel3Txt.getHeight());
+        pixel3Button.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setScreen(app.questionScreen);
+            }
+        });
+
+        pixel4Button = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
+        pixel4Button.setPosition(Gdx.graphics.getWidth() * 0.35f,Gdx.graphics.getHeight() * 0.2f);
+        pixel4Button.setSize(pixel4Txt.getWidth(), pixel4Txt.getHeight());
+        pixel4Button.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setScreen(app.questionScreen);
+            }
+        });
+
+        pixel5Button = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
+        pixel5Button.setPosition(Gdx.graphics.getWidth() * 0.6f,Gdx.graphics.getHeight() * 0.35f);
+        pixel5Button.setSize(pixel5Txt.getWidth(), pixel5Txt.getHeight());
+        pixel5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
@@ -107,7 +167,7 @@ public class SocialRoom implements Screen {
         });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override
@@ -121,7 +181,11 @@ public class SocialRoom implements Screen {
 
 
         stage.addActor(doorButton);
-        stage.addActor(characterButton);
+        stage.addActor(pixel1Button);
+        stage.addActor(pixel2Button);
+        stage.addActor(pixel3Button);
+        stage.addActor(pixel4Button);
+        stage.addActor(pixel5Button);
         stage.addActor(buttonSettingsPopUp);
     }
 

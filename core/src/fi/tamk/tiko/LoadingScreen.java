@@ -47,6 +47,16 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/door.png", Texture.class);
         app.assets.load("images/skullwolf.png", Texture.class);
         app.assets.load("images/Pixelarts/pixelart1.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart2.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart3.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart4.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart5.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart6.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart7.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart8.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart9.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart10.png", Texture.class);
+        app.assets.load("images/Pixelarts/pixelart11.png", Texture.class);
         app.assets.load("images/Buttons/Credits.png", Texture.class);
         app.assets.load("images/Buttons/CreditsPressed.png", Texture.class);
         app.assets.load("images/Buttons/Exit.png", Texture.class);
