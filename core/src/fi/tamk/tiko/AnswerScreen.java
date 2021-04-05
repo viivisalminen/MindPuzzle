@@ -43,7 +43,7 @@ public class AnswerScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        characterRec = new Rectangle(0,0,characterTxt.getWidth(), characterTxt.getHeight());
+        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -61,8 +61,10 @@ public class AnswerScreen implements Screen {
 
         if (checkTheAnswer()) {
             app.addPoint();
+            MainMenuScreen.right.play();
             line = "Yay your answer was right!";
         } else if (!(checkTheAnswer())) {
+            MainMenuScreen.wrong.play();
             line = "Oh no your answer wasn't that good!";
         }
     }
@@ -122,7 +124,8 @@ public class AnswerScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width * 0.5f, characterRec.height * 0.5f);
+
+        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
         app.font40.draw(app.batch, line,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         app.batch.end();
     }

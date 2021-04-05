@@ -145,13 +145,13 @@ public class MindPuzzle extends Game {
 				line = scanner.nextLine();
 				if (line.contains("?")) {
 					if(line.length() > 50 && line.length() < 70) {
-						longLine = new StringBuilder().append(line.substring(0, 36))
-								.append("\n").append(line.substring(36)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 30))
+								.append("\n").append(line.substring(30)).toString();
 						array[row][column] = longLine;
 						System.out.println(longLine);
 					} else if(line.length() >= 70) {
-						longLine = new StringBuilder().append(line.substring(0, 42))
-								.append("\n").append(line.substring(42)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 40))
+								.append("\n").append(line.substring(40)).toString();
 						array[row][column] = longLine;
 						System.out.println(longLine);
 					} else {
@@ -162,13 +162,13 @@ public class MindPuzzle extends Game {
 				line = scanner.nextLine();
 				if (line.contains("a)")) {
 					if(line.length() > 50 && line.length() < 70) {
-						longLine = new StringBuilder().append(line.substring(0, 36))
-								.append("\n").append(line.substring(36)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 30))
+								.append("\n").append(line.substring(30)).toString();
 						array[row][column + 1] = longLine;
 						System.out.println(longLine);
 					} else if(line.length() >= 70) {
-						longLine = new StringBuilder().append(line.substring(0, 42))
-								.append("\n").append(line.substring(42)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 40))
+								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 1] = longLine;
 						System.out.println(longLine);
 					} else {
@@ -179,13 +179,13 @@ public class MindPuzzle extends Game {
 				line = scanner.nextLine();
 				if (line.contains("b)")) {
 					if(line.length() > 50 && line.length() < 70) {
-						longLine = new StringBuilder().append(line.substring(0, 36))
-								.append("\n").append(line.substring(36)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 30))
+								.append("\n").append(line.substring(30)).toString();
 						array[row][column + 2] = longLine;
 						System.out.println(longLine);
 					} else if(line.length() >= 70) {
-						longLine = new StringBuilder().append(line.substring(0, 42))
-								.append("\n").append(line.substring(42)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 40))
+								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 2] = longLine;
 						System.out.println(longLine);
 					} else {
@@ -197,13 +197,13 @@ public class MindPuzzle extends Game {
 				line = scanner.nextLine();
 				if (line.contains("c)")) {
 					if(line.length() > 50 && line.length() < 70) {
-						longLine = new StringBuilder().append(line.substring(0, 36))
-								.append("\n").append(line.substring(36)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 30))
+								.append("\n").append(line.substring(30)).toString();
 						array[row][column + 3] = longLine;
 						System.out.println(longLine);
 					} else if(line.length() >= 70) {
-						longLine = new StringBuilder().append(line.substring(0, 42))
-								.append("\n").append(line.substring(42)).toString();
+						longLine = new StringBuilder().append(line.substring(0, 40))
+								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 3] = longLine;
 						System.out.println(longLine);
 					} else {

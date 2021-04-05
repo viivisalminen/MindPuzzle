@@ -40,8 +40,10 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/background2.png", Texture.class);
         app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
-        app.assets.load("sounds/hitsound.wav", Sound.class);
-        app.assets.load("sounds/mixkit-jk.mp3", Music.class);
+        app.assets.load("sounds/button.mp3", Sound.class);
+        app.assets.load("sounds/right.mp3", Sound.class);
+        app.assets.load("sounds/wrong.mp3", Sound.class);
+        app.assets.load("sounds/background.mp3", Music.class);
         app.assets.load("images/popUpBackground.jpg", Texture.class);
         app.assets.load("images/socialRoom.png", Texture.class);
         app.assets.load("images/sleepRoom.png", Texture.class);

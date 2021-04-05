@@ -39,7 +39,7 @@ public class MainMenuScreen implements Screen {
 
     public static Music music;
     public static boolean musicPlaying = true;
-    public static Sound sound;
+    public static Sound sound, right, wrong;
     public static boolean soundOn = true;
 
     public static String[][] questionsAboutSocial = new String[5][5];
@@ -90,8 +90,10 @@ public class MainMenuScreen implements Screen {
             imgSettingsPressed = app.assets.get("images/Buttons/SettingsPressed.png", Texture.class);
         }
 
-        sound = app.assets.get("sounds/hitsound.wav", Sound.class);
-        music = app.assets.get("sounds/mixkit-jk.mp3", Music.class);
+        sound = app.assets.get("sounds/button.mp3", Sound.class);
+        right = app.assets.get("sounds/right.mp3", Sound.class);
+        wrong = app.assets.get("sounds/wrong.mp3", Sound.class);
+        music = app.assets.get("sounds/background.mp3", Music.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -275,6 +277,8 @@ public class MainMenuScreen implements Screen {
         stage.dispose();
         sound.dispose();
         music.dispose();
+        right.dispose();
+        wrong.dispose();
     }
 }
 

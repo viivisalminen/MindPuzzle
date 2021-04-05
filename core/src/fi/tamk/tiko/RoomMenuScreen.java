@@ -48,8 +48,8 @@ public class RoomMenuScreen implements Screen {
         stage.clear();
 
         if(app.getLanguage().equals("fi_FI")) {
-            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
+            imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
+            imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
             imgFood = app.assets.get("images/Huonekuvakkeet/Ravinto.png", Texture.class);
             imgFoodPressed = app.assets.get("images/Huonekuvakkeet/RavintoPainettu.png", Texture.class);
             imgSleep = app.assets.get("images/Huonekuvakkeet/Uni.png", Texture.class);

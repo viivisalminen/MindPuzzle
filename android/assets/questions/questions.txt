@@ -32,7 +32,7 @@ SLEEP
 Nukahtaminen illalla on niin vaikeaa! Mikä voisi auttaa?
 a) Katso vaikka jotain sarjaa niin kauan, että alkaa väsyttää ja mene vasta sitten nukkumaan.
 b) Surffaille kännykällä sängyssä niin pitkään, että alkaa väsyttää.
-c) Syö iltapala 2–3 tuntia ennen nukkumaanmenoa ja rauhoita ilta älylaitteilta
+c) Syö iltapala 2-3 tuntia ennen nukkumaanmenoa ja rauhoita ilta älylaitteilta
 c
 SPORTS
 Onko se tarpeeksi liikuntaa ja ulkoilmaa, jos hölkkään parvekkeella tunnin joka päivä?
