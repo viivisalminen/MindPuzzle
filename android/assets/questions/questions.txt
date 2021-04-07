@@ -1,90 +1,306 @@
-SOCIAL
-Ystäväni eivät enää kutsu minua yhteisiin juttuihin enkä tiedä miksi. Mitä voisin tehdä?
-a) Antaa asian olla
-b) Hankkia uusia ystäviä
-c) Kertoa suoraan miltä sinusta tuntuu ja ehdottaa yhteistä tekemistä
+SLEEP
+En ole nukkunut hyvin moneen päivään.   Mitä voisin tehdä?
+a) Joskus myöhemmin ehtii kyllä nuk-    kua. Nuorena pitää nauttia elämästä.
+b) Yritä rauhoittaa ilta-aika älylait-  teista ja syö iltapala hyvissä ajoin    ennen nukkumaanmenoa.
+c) Tee oikein rankka juoksulenkki niin  kyllä se uni sieltä sitten tulee.
+b
+SLEEP
+Tuntuu siltä, että en voi muodostaa     hyvää unirytmiä. Mikä avuksi?
+a) Yritä mennä viikon jokaisena päivänä samaan aikaan nukkumaan äläkä valvo     liikaa viikonloppuisinkaan.
+b) Nukkuminen on muutenkin yliarvostet- tua. Eikä se haittaa, vaikka tunneilla  välillä torkahtaa.
+c) Kyllä se unirytmi siitä korjaantuu   ihan itsekseenkin.
+a
+SLEEP
+Nukahtaminen illalla on niin vaikeaa!   Mikä voisi auttaa?
+a) Katso vaikka jotain sarjaa niin      kauan, että alkaa väsyttää ja mene vasta sitten nukkumaan.
+b) Surffaille kännykällä sängyssä niin  pitkään, että alkaa väsyttää. 
+c) Syö iltapala 2–3 tuntia ennen nukku- maanmenoa ja rauhoita ilta älylaitteilta  
 c
-SOCIAL
-Tuntuu, että ystäväni salailee asioita ja se vaivaa minua. Mitä minun pitäisi tehdä?
-a) Kerro suoraan miltä sinusta tuntuu
-b) Ryhdy salapoliisiksi ja seuraa ystäväsi liikkeitä
-c) Pidä mykkäkoulua ystävällesi. Tietääpähän kohdelleensa sinua kaltoin.
-a
-SOCIAL
-Luulen, että ystäväni on masentunut. Miten voisin auttaa?
-a) Kyllä sen äiti ja isä auttaa sitä
-b) Pyydä ystävääsi lähtemään kanssasi jonnekin, kysele kuulumisia ja kuuntele
-c) Se on varmasti vain väsymystä. Kyllä ystäväsi voi huomenna jo paremmin
-b
 SLEEP
-En ole nukkunut hyvin moneen päivään. Mitä voisin tehdä?
-a) Joskus myöhemmin ehtii kyllä nukkua. Nuorena pitää nauttia elämästä.
-b) Yritä rauhoittaa ilta-aika älylaitteista ja syö iltapala hyvissä ajoin ennen nukkumaanmenoa.
-c) Tee oikein rankka juoksulenkki niin kyllä se uni sieltä sitten tulee.
-b
-SLEEP
-Tuntuu siltä, että en voi muodostaa hyvää unirytmiä. Mikä avuksi?
-a) Yritä mennä viikon jokaisena päivänä samaan aikaan nukkumaan äläkä valvo liikaa viikonloppuisinkaan.
-b) Nukkuminen on muutenkin yliarvostettua. Eikä se haittaa, vaikka tunneilla välillä torkahtaa.
-c) Kyllä se unirytmi siitä korjaantuu ihan itsekseenkin.
+Tuntuu siltä, että haluaisin vain nuk-  kua koko ajan, mutta muutakin pitäisi   päivän aikana tehdä. Mistä saisin lisää energiaa?
+a) Varmista, että saat öisin tarpeeksi  unta, syöt hyvin ja liikut edes vähän   päivän aikana.
+b) Juot vain riittävästi energiajuomia  niin jaksat hoitaa päivän               velvollisuudet.
+c) Koulu voi kyllä odottaa, että nukut  yhden päivän univelkaasi pois.
 a
 SLEEP
-Nukahtaminen illalla on niin vaikeaa! Mikä voisi auttaa?
-a) Katso vaikka jotain sarjaa niin kauan, että alkaa väsyttää ja mene vasta sitten nukkumaan.
-b) Surffaille kännykällä sängyssä niin pitkään, että alkaa väsyttää.
-c) Syö iltapala 2-3 tuntia ennen nukkumaanmenoa ja rauhoita ilta älylaitteilta
+Heräilen yön aikana koko ajan. Miten    saisin nukuttua läpi yön?
+a) Kuulostaa siltä, että mieltäsi painaa jokin asia. Voisit yrittää jutella     hyvän ystävän tai vanhempiesi kanssa.
+b) Ei varmasti syytä huoleen. Jos heräät yöllä, voit ihan hyvin vaikka pelailla niin kauan, että uni tulee uudestaan.
+c) Mene myöhemmin nukkumaan niin ei mene aikaa hukkaan sängyssä pyörimiseen.
+a
+SLEEP
+Nukkuisin muuten hyvin, mutta ympäris-  töni on liian meluisa! Mitä voisin      tehdä asialle?
+a) Kannattaa koittaa korvatulppia ja    miettiä voiko melun lähteelle           tehdä jotain
+b) Ainoa vaihtoehto on muuttaa pois
+c) Virittäydyt kiitollisuuden tunteeseen niin et huomaa melua
+a
+SLEEP
+Nukun ihan hyvin, mutta en jaksa tehdä  mitään päivän aikana. Miten jaksaisin   koulupäivät paremmin?
+a) Energiajuomalla saa hyvän avun väsy- neisiin päiviin.
+b) Voisit kokeilla lisätä liikuntaa     arkeesi ja tarkistaa, että syöt varmasti monipuolisesti.
+c) Välitunneilla voi piiloutua jonnekin nukkumaan.
+b
+SLEEP
+Minulla on tapana nukkua torkut päiväl- lä, mutta se on alkanut haitata yöunia- ni. Mitä minun pitäisi tehdä?
+a) Voit ihan huoletta nukkua varastoon  parin tunnin päiväunia. Öisin voikin    sitten nukkua vähemmän.
+b) Älä missään nimessä nuku päiväunia.  Menee pian koko loppupäivä pilalle!
+c) Jos koet tarvitsevasi pienet torkut  päivän aikana, lepää maksimissaan puoli tuntia ja nouse sitten ylös.
+c
+SLEEP
+Pärjään hienosti parin tunnin yöunilla! Onko uni nyt muka niin tärkeää?
+a) Liian vähäinen unensaanti vähentää   mm. keskittymiskykyä ja tarkkaavaisuutta ja muistaminen vaikeutuu.
+b) Viisas nukkuu vähän ja käyttää senkin ajan johonkin tärkeämpään.
+c) Vanhempanikin pärjäävät lyhyillä     yöunilla. Kahvi pelastaa!
+a
+SLEEP
+Stressaan nukkumista illalla niin pal-  jon, etten saa nukutuksi! Mikä avuksi?
+a) Käy illalla oikein raskaalla juoksu- lenkillä niin kyllä se uni sieltä tulee ilman stressaamista.
+b) Ei siitä kannata ottaa stressiä.     Uni tulee, jos on tullakseen.
+c) Yritä jotain hengitys- tai rentou-   tusharjoitusta ennen nukkumaanmenoa.
 c
 SPORTS
-Onko se tarpeeksi liikuntaa ja ulkoilmaa, jos hölkkään parvekkeella tunnin joka päivä?
-a) Hienosti! Eipähän tarvitse poistua kotoa mihinkään.
+Onko se tarpeeksi liikuntaa ja ulkoil-  maa, jos hölkkään parvekkeella tunnin   joka päivä?
+a) Hienosti! Eipähän tarvitse poistua   kotoa mihinkään.
 b) Nääh, kyllä vartti hölkkää riittää.
-c) Mielesi virkistyisi myös, jos tekisitkin lenkin vaikkapa lähimetsässä.
+c) Mielesi virkistyisi myös, jos teki-  sitkin lenkin vaikkapa lähimetsässä.
 c
-SPORTS
-Haluaisin liikkua enemmän, mutta minulla ei ole aikaa siihen. Mikä avuksi?
-a) Voisit varmasti lyhentää päivittäistä ruutuaikaasi, jota voit sitten käyttää liikkumiseen.
-b) Kyllä liikkua pitää! Otat ajan yöunistasi.
-c) Kyllä sitten vanhanakin ehtii aloittaa liikkumisen.
+SPORTS 
+Haluaisin liikkua enemmän, mutta minul- la ei ole aikaa siihen. Mikä avuksi?
+a) Voisit varmasti lyhentää päivittäis- tä ruutuaikaasi, jota voit sitten käyt- tää liikkumiseen.
+b) Kyllä liikkua pitää! Otat ajan       yöunistasi.
+c) Kyllä sitten vanhanakin ehtii        aloittaa liikkumisen.
 a
-SPORTS
-Minulla ei ole tarpeeksi hyvää varustusta siihen, että voisin urheilla ja liikkua kunnolla. Mikä avuksi?
-a) Liikkuminen on muutenkin ihan yliarvostettua. Miksi siis panostaa kalliisiin varusteisiinkaan...
-b) Kävely ja juoksu ovat tehokkaita liikuntamuotoa. Sinulta varmasti löytyy ainakin yhdet hyvät kävelykengät.
+SPORTS 
+Minulla ei ole tarpeeksi hyvää varustus-ta siihen, että voisin urheilla ja      liikkua kunnolla. Mikä avuksi?
+a) Liikkuminen on muutenkin ihan yliar- vostettua. Miksi siis panostaa kallii-  siin varusteisiinkaan...
+b) Kävely ja juoksu ovat tehokkaita lii-kuntamuotoa. Sinulta varmasti löytyy    ainakin yhdet hyvät kävelykengät.
 c) Vanhempien lompakolle vain. Kyllähän varusteet pitää olla vimpan päälle!
 b
-HOBBIES
-En ole vieläkään löytänyt harrastusta, joka olisi “minun juttuni”, mutta olen kokeillut jo niin montaa asiaa. Mikä avuksi?
-a) aaaaa
-b) bbbbb
-c) ccccc
+SPORTS 
+En usko, että olen tarpeeksi hyvässä    kunnossa urheillakseni.                 Mistä aloittaisin?
+a) Heti vain juoksemaan 10 kilometrin   lenkille. Kyllä se kunto siitä sitten   nousee nopeasti!
+b) Ei liikkuminen ole niin tärkeää. Kou-luun raahautuminen on tarpeeksi rankkaa.
+c) Aloita vaikka puolen tunnin kävely-  lenkillä pari kertaa viikossa. Mieli    virkistyy ja kunto kohenee pikkuhiljaa.
+c
+SPORTS 
+Ulkona on liian kylmä liikkumiseen!     Voinko vain jäädä sohvalle?
+a) Kylmä tekee hyvää lihaksille,        sinne vaan!
+b) Puet vain riittävästi vaatteita      päälle niin kyllä siellä pärjää.
+c) Sohvalle vain viltin alle.
+b
+SPORTS 
+Ulkona on liian kuuma liikkumiseen!     Voinko vain makoilla rannalla?
+a) Lakki päähän, aurinkorasvaa iholle ja juomapullo mukaan niin hyvä tulee.
+b) Ei kesällä tarvitse liikkua.         Hellepäivinä hikoilee ihan tarpeeksi.
+c) Vaatteet pois ja pihalle vain!
+a
+SPORTS 
+En pysy muiden perässä liikuntatunnilla. Mitä voisin tehdä asialle? 
+a) Kampita kaikki muut niin sittenpähän olette kaikki yhtä nopeita.
+b) Antaa muiden elvistellä ja           skippaa liikuntatunti.
+c) Pääasia, että pidät hauskaa          liikuntatunneilla.
+c
+SPORTS 
+Haluaisin alkaa harrastamaan liikuntaa, mutta olen liian huonossa kunnossa.     Mistä aloittaisin?
+a) Etsi netistä ilmaisia jumppavideoita ja aloita niiden avulla.
+b) Äkkiä hankit salijäsenyyden ja       laitteisiin pumppaamaan!
+c) Jos todella haluaisit liikkua, olisit jo aloittanut.
+a
+SPORTS 
+Ystäväni liikkuu mielestäni ihan liikaa ja se on hänelle pakkomielle! Onko se   haitallista?
+a) Olet vain kateellinen, kun ystäväsi  jaksaa liikkua.
+b) Liiallisella liikunnalla voi ajautua ylikuntoon ja se saattaa myös aiheuttaa monenlaisia lieveoireita.
+c) Ei syytä huoleen. Liikuntahan on     terveellistä. Mitä enemmän liikut, sen  terveempi olet.
+b
+SPORTS 
+Haluaisin alkaa hölkkäämään päivittäin, mutta en halua tehdä sitä yksin! Ketä   minun pitäisi kysyä mukaan?
+a) Äidin ja isin kanssa vain lenkille.  Vanhemmatkin tykkäävät!
+b) Vain, jos paras ystäväsi             pääsee mukaan.
+c) Ihan sama kenet saat mukaan,         kunhan lähdet lenkille!
+c
+SPORTS 
+Onko liikunta pakollista, jos haluan    pudottaa painoani?
+a) Kyllä, pelkkä ruokavalio muutos ei   riitä. Liikunnalla varmistat, että paino lähtee oikeista paikoista.
+b) Ei tietenkään jätät vain muutaman    aterian välistä niin paino lähtee       putoamaan.
+c) Liikunta on ainoa tapa pudottaa pai- noa, vähintään 6 kertaa viikossa salille ja juoksu lenkit päälle.
+a
+FOOD
+Kuinka oppisin syömään terveellisesti   ilman, että sorrun toistuvasti          herkuttelemaan?
+a) Terveellinen ruoka on pahaa. Kannat- taa vain syödä sitä mikä on hyvää.
+b) Netistä löytyy paljon hyviä     reseptejä, miten tehdä maukasta    terveellistä ruokaa. Herkkuja voi  syödä silti kohtuudella.
+c) Herkut on pahasta, ikinä ei pitäisi  syödä mitään epäterveellistä!
+b
+FOOD
+Syön kaksi kertaa päivässä, eikös se ole ihan tarpeeksi?
+a) Siinäkin on kerta liikaa. Kun syö    kerran päivässä niin pysyy kalorit      kurissa.
+b) Kaksi kertaa on ihan riittävästi. Ei kenelläkään ole aikaa syödä useammin.
+c) Päivän aikana tulisi syödä useita    pieniä aterioita.
+c
+FOOD
+Kuinka muistaisin päivän aikana juoda   tarpeeksi vettä?
+a) Käytä sovellusta, joka muistuttaa    sinua juomaan vettä säännöllisesti      päivän aikana.
+b) Ei se nyt niin jetsulleen oo, juot   sit vähän enemmän myöhemmin.
+c) Juot pari ES:sää veden sijasta.
+a
+FOOD
+Jos syön vain kerran päivässä niin voin syödä roskaruokaa ilman seurauksia,     eikö niin?
+a) Kyllä, koska vain kalorimäärällä on  merkitystä.
+b) Se on ihan okei syödä roskaruo- kaa silloin tällöin, mutta päivän  ravinnonsaanti tulisi jakaa useal-le aterialle ja miettiä ravintoaineita.
+c) Ei, roskaruuan syömisellä on ai-na seuraksensa. Jos syöt vain ker- ran päivässä, on erityisen tärkeää miettiä mitä syö. Keskity kasvik-  siin ja hyviin rasvoihin.
+b
+FOOD
+Juon paljon limsaa ja energiajuomaa     päivässä, eikös se korvaa veden tarpeen?
+a) Tietenkin, neste kuin neste.
+b) Usein janon tunne on oikeasti nälän  tunnetta ja juomalla limsaa tai energia-juomaa tyydytän molemmat tarpeet.
+c) Ei, sekä limsa että energiajuoma sitovat nestettä kehosta ja lisää veden tar-vetta. Veden tarvetta ei poista muut juomat.
+c
+FOOD
+Onko tarpeellista syödä terveellistä    ruokaa joka päivä?
+a) Kyllä, joka päivä niin pysyy rytmi   kunnossa.
+b) Ei tietenkään, kunhan valtaosana     päivistä syö terveellisesti.
+c) Kunhan syöt silloin tällöin jonkun   kasviksen niin hyvä tulee.
+b
+FOOD
+Haluaisin pudottaa painoa, miten voin   vaikuttaa tähän syömisellä?
+a) Pitää syödä useammin pieniä annoksia, sopivassa suhteessa kasviksia ja       proteiinia.
+b) Ihan sama mitä syöt, kunhan urheilet paljon.
+c) Syöt mahdollisimman vähän niin paino lähtee putoamaan. 
+a
+FOOD
+Olen vieläkin nirso ja en tiedä miten   voin muuttaa tämän?
+a) Jos et jostain tykkää niin se on ihan okei, ei siitä tarvitse murehtia.
+b) Rohkeasti vain maistelemaan uu- sia asioita, kaikesta ei tarvitse  pitää, mutta maistelemalla voit   löytää uusia suosikkeja.
+c) Kyllä kaikkea pitää syödä, joillakin lapsilla ei ole ruokaa ollenkaan niin ei täällä voi ruveta nirsoilemaan.
+b
+FOOD
+Mihin aikaan illalla on hyvä            syödä iltapala?
+a) Juuri ennen kuin menet nukkumaan,    niin pärjäät aamuun asti.
+b) Pari tuntia ennen nukkumaan menoa,   niin ruoka ehtii “laskemaan” ennen      nukahtamista.
+c) Iltapalaa ei pitäisi syödä ollenkaan, turhaa napostelua.
+b
+FOOD
+Paljonko vettä minun oikeasti pitäisi   juoda päivässä?
+a) Juot silloin kun on jano, ei sitä sen enempää tarvitse.
+b) Veden tarpeeseen vaikuttaa paino,    lämpötila ja aktiivisuus. Keskimääräinen veden tarve on noin 2-3 litraa.
+c) Enemmän on parempi, juominen pitää   nälän tunteen loitolla eli mitä enemmän juot, sitä vähemmän tarvitsee syödä.
+b
+SOCIAL
+Ystäväni eivät enää kutsu minua yhtei-  siin juttuihin enkä tiedä miksi. Mitä   voisin tehdä? 
+a) Antaa asian olla.
+b) Hankkia uusia ystäviä.
+c) Kertoa suoraan miltä sinusta tuntuu  ja ehdottaa yhteistä tekemistä.
+c
+SOCIAL
+Tuntuu, että ystäväni salailee asioita  ja se vaivaa minua. Mitä minun pitäisi  tehdä? 
+a) Kerro suoraan miltä sinusta tuntuu.
+b) Ryhdy salapoliisiksi ja seuraa       ystäväsi liikkeitä.
+c) Pidä mykkäkoulua ystävällesi.        Tietääpähän kohdelleensa sinua kaltoin.
+a
+SOCIAL
+Luulen, että ystäväni on masentunut.    Miten voisin auttaa? 
+a) Kyllä sen äiti ja isä auttaa sitä.
+b) Pyydä ystävääsi lähtemään kanssasi   jonnekin, kysele kuulumisia ja kuuntele.
+c) Se on varmasti vain väsymystä. Kyllä ystäväsi voi huomenna jo paremmin.
+b
+SOCIAL
+En tiedä mitä tehdä... Kaverini ovat    alkaneet kiusaamaan minua ja en tiedä   miksi? 
+a) Rupeat kiusaamaan heitä takaisin,    leikkimielinen kiusaaminen on hyväksi   ystävyydelle.
+b) Annat vain asian olla ja             unohdat heidät.
+c) Kannattaa yrittää keskustella heidän kanssaan asiasta ja mahdollisesti tuoda aikuisia mukaan keskusteluun.
+c
+SOCIAL
+Olen ajautunut etäisiksi ystäväni kans- sa. Miten saisin korjattua välejämme?
+a) Jos ystäväsi ei enää halua viettää   kanssasi aikaa, hanki uusia ystäviä.
+b) Ehdota ystävällesi jotain yhteistä   tekemistä. Hän on varmasti ollut vain   kiireinen viime aikoina.
+c) Stalkkaa ystävääsi somessa ja        tuppaudu seuraan.
+b
+SOCIAL
+Paras ystäväni on muuttamassa pois!     Miten saisin säilytettyä ystävyys-      suhteeni?
+a) Videopuhelut ovat oiva tapa pitää    yhteyttä ystävääsi ja varmasti voitte   myös vierailla toistenne luona.
+b) Kavereita tulee ja menee.
+c) Ei kannata murehtia asiaa liikaa,    kyllä ystävyytenne säilyy, jos on       säilyäkseen.
+a
+SOCIAL
+Kaverini haluavat aina tehdä hengatessa jotain mitä minä en halua tehdä. Kuinka voisin sanoa heille ei? 
+a) Kerro heille rohkeasti oma mielipi-  teesi, jos he ovat oikeasti kavereitasi, he kuuntelevat kyllä.
+b) Ei kannata sanoa mitään, ettet       pahoita kavereidesi mieltä.
+c) Ehdota kavereillesi mitä sinä haluai-sit tehdä ja jos he eivät innostu siitä, jätä asia sikseen.
+a
+SOCIAL
+Haluaisin, että perheeni viettäisi enem-män aikaa yhdessä, mutta en tiedä miten saada tämä tapahtumaan?
+a) Kaverit ovat paljon tärkeämpiä kuin  perhe. Panosta aikaan heidän kanssaan.
+b) Perhejuhlat ovat ihan tarpeeksi      yhteistä aikaa.
+c) Ota asia puheeksi ja ehdota esim.    yhteistä peli-iltaa.
+c
+SOCIAL
+Ihastukseni tykkääkin kaveristani,      eikä minusta! Mitä teen?
+a) Kerro tunteistasi avoimesti kaveril- lesi sekä ihastuksellesi, ja ehkä       asiaan löytyy ratkaisu.
+b) Jos kaverisi on myös ihastunut sinun ihastukseesi, kannattaa asian antaa olla.
+c) Kannattaa unohtaa ihastuksesi.
+a
+SOCIAL
+Välillä tuntuu, että vanhempani eivät   ymmärrä minua ollenkaan. Miten voisin   saada vanhempani ymmärtämään minua paremmin?
+a) Jos vanhempasi eivät ymmärrä sinua,  kannattaa viettää enemmän aikaa pois    kotoa.
+b) Vanhemmat ovat aina vähän jääräpäitä, eivätkä ymmärrä millään. 
+c) Pyri keskustelemaan vaikeistakin     asioista vanhempiesi kanssa ja kertomaan omista tuntemuksistasi.
 c
 HOBBIES
-Nykyinen harrastukseni ei ole enää yhtään niin hauska kuin joskus ennen ja en tiedä miksi?
-a) aaaaa
-b) bbbbb
-c) ccccc
+En ole vieläkään löytänyt harras-  tusta, joka olisi “minun juttuni”  vaikka olen kokeillut jo niin     montaa asiaa. Mitä voisin tehdä?
+a) Keksi itsellesi uusi juttu.
+b) Jos joku kaverisi harrastaa jotain   mitä haluaisit kokeilla, ehdota jos voi-sit lähteä kokeilemaan hänen kanssaan.
+c) Sohvalla makoilu käy vallan hyvin    harrastuksesta.
+b
+HOBBIES
+Nykyinen harrastukseni ei ole enää yhtään niin hauska kuin joskus     ennen. Jatkanko silti harrastuksen parissa vai keksinkö jotain muuta?
+a) Ihmiset muuttuvat. Kokeile etsiä     jokin uusi harrastus, josta pitäisit.
+b) Kannattaa vain lopettaa harrastaminen
+c) Tylsistyminen on varmasti vain vaihe. Jatka vain harrastuksesi parissa.
 a
 HOBBIES
-Vanhempani haluavat minun harrastavani tiettyä asiaa, mutta se ei ole yhtään minun juttuni. Miten voisin kertoa heille tämän?
-a) aaaaa
-b) bbbbb
-c) ccccc
+Vanhempani haluavat minun harrastavani  tiettyä asiaa, mutta se ei ole yhtään   minun juttuni. Miten voisin kertoa heille tämän?
+a) Valehtele vanhemmillesi, että jatkat harrastusta, mutta käytä aika kavereiden kanssa hengailuun.
+b) Kerro avoimesti mitä mieltä olet täs-tä harrastuksesta, ja miettikää yhdessä mitä tehdä asian kanssa.
+c) Jatka harrastusta, jos vanhempasi si-tä haluavat. Kyllä he tietävät mitä     sinun kannattaa tehdä elämässäsi.
 b
-FOOD 
-Tuntuu, että terveellisesti syöminen on mahdotonta! Palaan aina takaisin herkkuihin. Mikä avuksi?
-a) aaaaa
-b) bbbbb
-c) ccccc
+HOBBIES
+Pidän harrastuksestani todella pal-jon, mutta vanhempani eivät pidä   siitä ja yrittävät estää minua    harrastamasta. Miten saisin heidän  mielensä muuttumaan?
+a) Kerro heille suoraan kuinka tärkeä   harrastuksesi sinulle on ja yritä saada heidät ymmärtämään.
+b) Kannattaa vain lopettaa harrastus ja välttyä konfliktilta.
+c) Älä välitä vanhemmistasi ja jatka    kuitenkin harrastusta.
+a
+HOBBIES
+Minulla on tylsää melkein joka päivä ja mikään harrastus ei vaikuta mieluisalta. Mikä neuvoksi?
+a) Leffojenkatselu on ihan              hyvä harrastus.
+b) Lähde rohkeasti kokeilemaan uusia    harrastuksia, jotka vaikuttavat         vähänkin kiinnostavilta.
+c) Hengaile kavereidesi kanssa, sekin on ihan hyvä harrastus.
 b
-FOOD
-Haluan alkaa syömään terveellisesti, mutta perheeni ei suostu ostamaan terveellistä ruokaa! Mitä voin tehdä?
-a) aaaaa
-b) bbbbb
-c) ccccc
+HOBBIES
+Kaverini ajattelevat, että harrastukseni on outo! Miten voisin vakuuttaa heille toisin?
+a) Ehdota heille, jos he haluaisivat    kokeilla harrastustasi. Ehkä he voisi-  vatkin tykätä siitä.
+b) Ei kannata liikaa kuunnella kaverei- den mielipiteitä, vaan tehdä sitä mistä itse tykkää.
+c) Kannattaa lopettaa outo harrastus,   ettei maine kärsi.
+a
+HOBBIES
+Ystäväni harkitsee yhteisen harrastuk-  semme lopettamista ja minä en haluaisi  jatkaa yksin. Mitä voisin tehdä?
+a) Painostat kaveriasi jatkamaan harras-tusta kanssasi.
+b) Totta kai tuet ystäväsi päätöstä ja  lopetat myös.
+c) Kenties voisit löytää jonkun toisen  kaverin, joka haluasi harrastaa sinun   kanssasi yhdessä.
+c
+HOBBIES
+Haluaisin aloittaa tietyn harrastuksen, mutta saatan olla jo liian              vanha sellaiseen... 
+a) Ikä on vain syy olla laiska 
+b) Mieti mitä muut ajattelevat  
+c) Harrastus ei katso ikää, joten anna  mennä vaan, jos todella haluat. 
+c
+HOBBIES
+Pidän harrastuksestani, mutta se vie    liikaa aikaa... Mitä voin tehdä? 
+a) Lopeta harrastus kokonaan. 
+b) Yritä mahdollisuuksien mukaan hallita harrastukseen käytettävää aikaa muuhun elämään sopivaksi. 
+c) Aseta harrastus kaiken muun edelle.
 b
-FOOD
-Ystäväni luulee, että hän syö terveellisesti, mutta mielestäni hän syö silti liikaa. Mikä avuksi?
-a) aaaaa
-b) bbbbb
-c) ccccc
-b
+HOBBIES
+Haluaisin aloittaa harrastuksen, joka   yleisesti ajatellaan olevan toisen suku-puolen harrastus, miten kerron siitä vanhemmilleni ja       kavereilleni?
+a) Unohda koko asia, parempi vain mennä massan mukana 
+b) Aloita harrastus mutta älä kerro     kenellekään asiasta ja jos joku kysyy   niin valehtele. 
+c) Puhu avoimesti läheisillesi kiinnos- tuksestasi ja selitä miksi asia on      sinulle tärkeä.
+c

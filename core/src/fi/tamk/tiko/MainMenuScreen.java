@@ -42,11 +42,11 @@ public class MainMenuScreen implements Screen {
     public static Sound sound, right, wrong;
     public static boolean soundOn = true;
 
-    public static String[][] questionsAboutSocial = new String[5][5];
-    public static String[][] questionsAboutSleep = new String[5][5];
-    public static String[][] questionsAboutSports = new String[5][5];
-    public static String[][] questionsAboutHobbies = new String[5][5];
-    public static String[][] questionsAboutFood = new String[5][5];
+    public static String[][] questionsAboutSocial = new String[10][10];
+    public static String[][] questionsAboutSleep = new String[10][10];
+    public static String[][] questionsAboutSports = new String[10][10];
+    public static String[][] questionsAboutHobbies = new String[10][10];
+    public static String[][] questionsAboutFood = new String[10][10];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
@@ -110,6 +110,8 @@ public class MainMenuScreen implements Screen {
 
         if(getMusic()) {
             music.play();
+            music.setLooping(true);
+            music.setVolume(1f);
         }
 
         app.setPreviousScreen(app.mainMenuScreen);
@@ -226,7 +228,7 @@ public class MainMenuScreen implements Screen {
     public static void musicOn(){
         music.play();
         music.setLooping(true);
-        music.setVolume(0.01f);
+        music.setVolume(1f);
         musicPlaying = true;
     }
 

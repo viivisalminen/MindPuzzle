@@ -34,7 +34,7 @@ public class QuestionScreen implements Screen {
     private Texture characterTxt;
     private Rectangle characterRec;
 
-    public int row = 0;
+    public int row = (int)(Math.random() * 10);
     public static String question = "";
     public static String optionA = "";
     public static String optionB = "";
@@ -58,7 +58,7 @@ public class QuestionScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.62f, Gdx.graphics.getHeight() * 0.42f);
+        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.52f, Gdx.graphics.getHeight() * 0.32f);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -104,9 +104,10 @@ public class QuestionScreen implements Screen {
     }
 
     private void initQuestions(Screen prev) {
-        if(row == 3) {
+        if(row == 10) {
             row = 0;
         }
+        //row = (int)(Math.random() * 10);
 
         if (prev.equals(app.socialRoom)) {
             question = MainMenuScreen.questionsAboutSocial[row][0];
@@ -152,17 +153,17 @@ public class QuestionScreen implements Screen {
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
-        float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.1f;
-        float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.75f;
+        float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.15f;
+        float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.9f;
 
         questionButton = new TextButton(question, skin, "default");
         questionButton.getLabel().setFontScale(1.5f, 1.5f);
-        questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
-        questionButton.setSize(buttonWidth, buttonHeight*1.5f);
+        questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
+        questionButton.setSize(buttonWidth, buttonHeight * 1.25f);
 
         buttonA = new TextButton(optionA, skin, "default");
         buttonA.getLabel().setFontScale(1.5f, 1.5f);
-        buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
+        buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.325f);
         buttonA.setSize(buttonWidth, buttonHeight);
         buttonA.addListener(new ClickListener() {
             @Override
@@ -174,7 +175,7 @@ public class QuestionScreen implements Screen {
 
         buttonB = new TextButton(optionB, skin, "default");
         buttonB.getLabel().setFontScale(1.5f, 1.5f);
-        buttonB.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
+        buttonB.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
         buttonB.setSize(buttonWidth, buttonHeight);
         buttonB.addListener(new ClickListener() {
             @Override
@@ -186,7 +187,7 @@ public class QuestionScreen implements Screen {
 
         buttonC = new TextButton(optionC, skin, "default");
         buttonC.getLabel().setFontScale(1.5f, 1.5f);
-        buttonC.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
+        buttonC.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.025f);
         buttonC.setSize(buttonWidth, buttonHeight);
         buttonC.addListener(new ClickListener() {
             @Override
@@ -197,8 +198,8 @@ public class QuestionScreen implements Screen {
         });
 
         buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.85f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
-        buttonX.setSize(MindPuzzle.VIRTUAL_HEIGHT * 0.05f, MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.85f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        buttonX.setSize(MindPuzzle.VIRTUAL_HEIGHT * 0.075f, MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

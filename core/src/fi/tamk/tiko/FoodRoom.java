@@ -213,8 +213,10 @@ public class FoodRoom implements Screen {
         points = Integer.toString(MindPuzzle.getPoints());
         if(Gdx.graphics.getWidth() < 1000) {
             app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.97f);
-        } else if (Gdx.graphics.getWidth() >= 1000) {
+        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
             app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.9f);
+        } else if (Gdx.graphics.getWidth() >= 1200) {
+            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.99f);
         }
         app.batch.end();
     }
