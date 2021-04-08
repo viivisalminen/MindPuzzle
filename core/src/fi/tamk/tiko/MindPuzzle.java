@@ -70,7 +70,11 @@ public class MindPuzzle extends Game {
 	public static String previousCharacter = "";
 
 	public static int points = 0;
-	public static int questionsAnswered = 0;
+	public static int foodQuestionsAnswered = 0;
+	public static int socialQuestionsAnswered = 0;
+	public static int sportQuestionsAnswered = 0;
+	public static int hobbyQuestionsAnswered = 0;
+	public static int sleepQuestionsAnswered = 0;
 
 	public static String language = "";
 
@@ -328,12 +332,36 @@ public class MindPuzzle extends Game {
 		return points;
 	}
 
-	public static void addAnsweredQuestion() {
-		questionsAnswered++;
+	public void addAnsweredQuestion(Screen room) {
+		if(room.equals(foodRoom)) {
+			foodQuestionsAnswered++;
+		} else if (room.equals(socialRoom)) {
+			socialQuestionsAnswered++;
+		} else if (room.equals(sleepRoom)) {
+			sleepQuestionsAnswered++;
+		} else if (room.equals(hobbiesRoom)) {
+			hobbyQuestionsAnswered++;
+		} else if (room.equals(sportsRoom)) {
+			sportQuestionsAnswered++;
+		}
 	}
 
-	public static int getAnsweredQuestion() {
-		return questionsAnswered;
+	public static int getAnsweredQuestion(String room) {
+		int returnable = 0;
+
+		if(room.equals("food")) {
+			returnable = foodQuestionsAnswered;
+		} else if (room.equals("social")) {
+			returnable = socialQuestionsAnswered;
+		} else if (room.equals("sleep")) {
+			returnable = sleepQuestionsAnswered;
+		} else if (room.equals("hobbies")) {
+			returnable = hobbyQuestionsAnswered;
+		} else if (room.equals("sports")) {
+			returnable = sportQuestionsAnswered;
+		}
+
+		return returnable;
 	}
 
 	public static void setLanguage(Locale locale) {

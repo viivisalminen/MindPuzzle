@@ -14,7 +14,7 @@ SLEEP
 Nukahtaminen illalla on niin vaikeaa!   Mikä voisi auttaa?
 a) Katso vaikka jotain sarjaa niin      kauan, että alkaa väsyttää ja mene vasta sitten nukkumaan.
 b) Surffaille kännykällä sängyssä niin  pitkään, että alkaa väsyttää. 
-c) Syö iltapala 2–3 tuntia ennen nukku- maanmenoa ja rauhoita ilta älylaitteilta  
+c) Syö iltapala 2-3 tuntia ennen nukku- maanmenoa ja rauhoita ilta älylaitteilta  
 c
 SLEEP
 Tuntuu siltä, että haluaisin vain nuk-  kua koko ajan, mutta muutakin pitäisi   päivän aikana tehdä. Mistä saisin lisää energiaa?
@@ -77,7 +77,7 @@ b) Kävely ja juoksu ovat tehokkaita lii-kuntamuotoa. Sinulta varmasti löytyy  
 c) Vanhempien lompakolle vain. Kyllähän varusteet pitää olla vimpan päälle!
 b
 SPORTS 
-En usko, että olen tarpeeksi hyvässä    kunnossa urheillakseni.                 Mistä aloittaisin?
+En usko, että olen tarpeeksi hyvässä    kunnossa urheillakseni. Mistä aloittaisin?
 a) Heti vain juoksemaan 10 kilometrin   lenkille. Kyllä se kunto siitä sitten   nousee nopeasti!
 b) Ei liikkuminen ole niin tärkeää. Kou-luun raahautuminen on tarpeeksi rankkaa.
 c) Aloita vaikka puolen tunnin kävely-  lenkillä pari kertaa viikossa. Mieli    virkistyy ja kunto kohenee pikkuhiljaa.
@@ -125,9 +125,9 @@ b) Ei tietenkään jätät vain muutaman    aterian välistä niin paino lähtee
 c) Liikunta on ainoa tapa pudottaa pai- noa, vähintään 6 kertaa viikossa salille ja juoksu lenkit päälle.
 a
 FOOD
-Kuinka oppisin syömään terveellisesti   ilman, että sorrun toistuvasti          herkuttelemaan?
+Kuinka oppisin syömään terveellisesti   ilman, että sorrun toistuvasti herkutte-lemaan?
 a) Terveellinen ruoka on pahaa. Kannat- taa vain syödä sitä mikä on hyvää.
-b) Netistä löytyy paljon hyviä     reseptejä, miten tehdä maukasta    terveellistä ruokaa. Herkkuja voi  syödä silti kohtuudella.
+b) Netistä löytyy paljon hyviä     reseptejä, miten tehdä maukasta    terveellistä ruokaa.                              Herkkuja voi syödä silti kohtuudella.
 c) Herkut on pahasta, ikinä ei pitäisi  syödä mitään epäterveellistä!
 b
 FOOD
@@ -145,14 +145,14 @@ a
 FOOD
 Jos syön vain kerran päivässä niin voin syödä roskaruokaa ilman seurauksia,     eikö niin?
 a) Kyllä, koska vain kalorimäärällä on  merkitystä.
-b) Se on ihan okei syödä roskaruo- kaa silloin tällöin, mutta päivän  ravinnonsaanti tulisi jakaa useal-le aterialle ja miettiä ravintoaineita.
+b) Se on ihan okei syödä roskaruo- kaa silloin tällöin, mutta päivän  ravinnonsaanti tulisi jakaa useal- le aterialle ja miettiä ravintoaineita.
 c) Ei, roskaruuan syömisellä on ai-na seuraksensa. Jos syöt vain ker- ran päivässä, on erityisen tärkeää miettiä mitä syö. Keskity kasvik-  siin ja hyviin rasvoihin.
 b
 FOOD
 Juon paljon limsaa ja energiajuomaa     päivässä, eikös se korvaa veden tarpeen?
 a) Tietenkin, neste kuin neste.
 b) Usein janon tunne on oikeasti nälän  tunnetta ja juomalla limsaa tai energia-juomaa tyydytän molemmat tarpeet.
-c) Ei, sekä limsa että energiajuoma sitovat nestettä kehosta ja lisää veden tar-vetta. Veden tarvetta ei poista muut juomat.
+c) Ei, sekä limsa että energiajuoma sitovat nestettä kehosta ja lisää veden tarvetta. Veden tarvetta ei  poista muut juomat.
 c
 FOOD
 Onko tarpeellista syödä terveellistä    ruokaa joka päivä?
@@ -167,13 +167,13 @@ b) Ihan sama mitä syöt, kunhan urheilet paljon.
 c) Syöt mahdollisimman vähän niin paino lähtee putoamaan. 
 a
 FOOD
-Olen vieläkin nirso ja en tiedä miten   voin muuttaa tämän?
+Olen vieläkin nirso ja en tiedä miten   voisin muuttaa tämän?
 a) Jos et jostain tykkää niin se on ihan okei, ei siitä tarvitse murehtia.
-b) Rohkeasti vain maistelemaan uu- sia asioita, kaikesta ei tarvitse  pitää, mutta maistelemalla voit   löytää uusia suosikkeja.
+b) Rohkeasti vain maistelemaan uu- sia asioita, kaikesta ei tarvitse  pitää, mutta maistelemalla voit    löytää uusia  suosikkeja.
 c) Kyllä kaikkea pitää syödä, joillakin lapsilla ei ole ruokaa ollenkaan niin ei täällä voi ruveta nirsoilemaan.
 b
 FOOD
-Mihin aikaan illalla on hyvä            syödä iltapala?
+Mihin aikaan illalla on hyvä syödä      iltapala?
 a) Juuri ennen kuin menet nukkumaan,    niin pärjäät aamuun asti.
 b) Pari tuntia ennen nukkumaan menoa,   niin ruoka ehtii “laskemaan” ennen      nukahtamista.
 c) Iltapalaa ei pitäisi syödä ollenkaan, turhaa napostelua.
@@ -203,9 +203,9 @@ b) Pyydä ystävääsi lähtemään kanssasi   jonnekin, kysele kuulumisia ja ku
 c) Se on varmasti vain väsymystä. Kyllä ystäväsi voi huomenna jo paremmin.
 b
 SOCIAL
-En tiedä mitä tehdä... Kaverini ovat    alkaneet kiusaamaan minua ja en tiedä   miksi? 
+En tiedä mitä tehdä... Kaverini ovat al-kaneet kiusaamaan minua ja en tiedä     miksi?
 a) Rupeat kiusaamaan heitä takaisin,    leikkimielinen kiusaaminen on hyväksi   ystävyydelle.
-b) Annat vain asian olla ja             unohdat heidät.
+b) Annat vain asian olla ja unohdat     heidät.
 c) Kannattaa yrittää keskustella heidän kanssaan asiasta ja mahdollisesti tuoda aikuisia mukaan keskusteluun.
 c
 SOCIAL
@@ -215,15 +215,15 @@ b) Ehdota ystävällesi jotain yhteistä   tekemistä. Hän on varmasti ollut va
 c) Stalkkaa ystävääsi somessa ja        tuppaudu seuraan.
 b
 SOCIAL
-Paras ystäväni on muuttamassa pois!     Miten saisin säilytettyä ystävyys-      suhteeni?
+Paras ystäväni on muuttamassa pois! Mi- ten saisin säilytettyä ystävyyssuhteeni?
 a) Videopuhelut ovat oiva tapa pitää    yhteyttä ystävääsi ja varmasti voitte   myös vierailla toistenne luona.
 b) Kavereita tulee ja menee.
-c) Ei kannata murehtia asiaa liikaa,    kyllä ystävyytenne säilyy, jos on       säilyäkseen.
+c) Ei kannata murehtia asiaa liikaa, ky-llä ystävyytenne säilyy, jos on säilyäk-seen.
 a
 SOCIAL
 Kaverini haluavat aina tehdä hengatessa jotain mitä minä en halua tehdä. Kuinka voisin sanoa heille ei? 
 a) Kerro heille rohkeasti oma mielipi-  teesi, jos he ovat oikeasti kavereitasi, he kuuntelevat kyllä.
-b) Ei kannata sanoa mitään, ettet       pahoita kavereidesi mieltä.
+b) Ei kannata sanoa mitään, ettet pahoi-ta kavereidesi mieltä.
 c) Ehdota kavereillesi mitä sinä haluai-sit tehdä ja jos he eivät innostu siitä, jätä asia sikseen.
 a
 SOCIAL
@@ -234,36 +234,36 @@ c) Ota asia puheeksi ja ehdota esim.    yhteistä peli-iltaa.
 c
 SOCIAL
 Ihastukseni tykkääkin kaveristani,      eikä minusta! Mitä teen?
-a) Kerro tunteistasi avoimesti kaveril- lesi sekä ihastuksellesi, ja ehkä       asiaan löytyy ratkaisu.
+a) Kerro tunteistasi avoimesti kaveril- lesi sekä ihastuksellesi. Ehkä asiaan   löytyy ratkaisu.
 b) Jos kaverisi on myös ihastunut sinun ihastukseesi, kannattaa asian antaa olla.
 c) Kannattaa unohtaa ihastuksesi.
 a
 SOCIAL
-Välillä tuntuu, että vanhempani eivät   ymmärrä minua ollenkaan. Miten voisin   saada vanhempani ymmärtämään minua paremmin?
+Välillä tuntuu, että vanhempani ei-vät ymmärrä minua ollenkaan. Miten voisin saada vanhempani ymmär-     tämään minua paremmin?
 a) Jos vanhempasi eivät ymmärrä sinua,  kannattaa viettää enemmän aikaa pois    kotoa.
 b) Vanhemmat ovat aina vähän jääräpäitä, eivätkä ymmärrä millään. 
 c) Pyri keskustelemaan vaikeistakin     asioista vanhempiesi kanssa ja kertomaan omista tuntemuksistasi.
 c
 HOBBIES
-En ole vieläkään löytänyt harras-  tusta, joka olisi “minun juttuni”  vaikka olen kokeillut jo niin     montaa asiaa. Mitä voisin tehdä?
+En ole vieläkään löytänyt harras-  tusta, joka olisi “minun juttuni”  vaikka olen kokeillut jo niin      montaa asiaa.  Mitä voisin tehdä?
 a) Keksi itsellesi uusi juttu.
 b) Jos joku kaverisi harrastaa jotain   mitä haluaisit kokeilla, ehdota jos voi-sit lähteä kokeilemaan hänen kanssaan.
 c) Sohvalla makoilu käy vallan hyvin    harrastuksesta.
 b
 HOBBIES
-Nykyinen harrastukseni ei ole enää yhtään niin hauska kuin joskus     ennen. Jatkanko silti harrastuksen parissa vai keksinkö jotain muuta?
+Nykyinen harrastukseni ei ole enää yhtään niin hauska kuin joskus en- nen. Jatkanko silti harrastuksen   parissa vai    keksinkö jotain muuta?
 a) Ihmiset muuttuvat. Kokeile etsiä     jokin uusi harrastus, josta pitäisit.
 b) Kannattaa vain lopettaa harrastaminen
 c) Tylsistyminen on varmasti vain vaihe. Jatka vain harrastuksesi parissa.
 a
 HOBBIES
-Vanhempani haluavat minun harrastavani  tiettyä asiaa, mutta se ei ole yhtään   minun juttuni. Miten voisin kertoa heille tämän?
+Vanhempani haluavat minun harrasta-van tiettyä asiaa, mutta se ei ole yhtään minun juttuni. Miten voisin kertoa heille tämän?
 a) Valehtele vanhemmillesi, että jatkat harrastusta, mutta käytä aika kavereiden kanssa hengailuun.
 b) Kerro avoimesti mitä mieltä olet täs-tä harrastuksesta, ja miettikää yhdessä mitä tehdä asian kanssa.
 c) Jatka harrastusta, jos vanhempasi si-tä haluavat. Kyllä he tietävät mitä     sinun kannattaa tehdä elämässäsi.
 b
 HOBBIES
-Pidän harrastuksestani todella pal-jon, mutta vanhempani eivät pidä   siitä ja yrittävät estää minua    harrastamasta. Miten saisin heidän  mielensä muuttumaan?
+Pidän harrastuksestani todella pal-jon, mutta vanhempani eivät pidä   siitä ja yrittävät estää minua     harrastamasta. Miten saisin heidän  mielensä muuttumaan?
 a) Kerro heille suoraan kuinka tärkeä   harrastuksesi sinulle on ja yritä saada heidät ymmärtämään.
 b) Kannattaa vain lopettaa harrastus ja välttyä konfliktilta.
 c) Älä välitä vanhemmistasi ja jatka    kuitenkin harrastusta.
@@ -287,7 +287,7 @@ b) Totta kai tuet ystäväsi päätöstä ja  lopetat myös.
 c) Kenties voisit löytää jonkun toisen  kaverin, joka haluasi harrastaa sinun   kanssasi yhdessä.
 c
 HOBBIES
-Haluaisin aloittaa tietyn harrastuksen, mutta saatan olla jo liian              vanha sellaiseen... 
+Haluaisin aloittaa tietyn harrastuksen, mutta saatan olla jo liian vanha        sellaiseen. Voisinko silti yrittää?
 a) Ikä on vain syy olla laiska 
 b) Mieti mitä muut ajattelevat  
 c) Harrastus ei katso ikää, joten anna  mennä vaan, jos todella haluat. 
@@ -299,7 +299,7 @@ b) Yritä mahdollisuuksien mukaan hallita harrastukseen käytettävää aikaa mu
 c) Aseta harrastus kaiken muun edelle.
 b
 HOBBIES
-Haluaisin aloittaa harrastuksen, joka   yleisesti ajatellaan olevan toisen suku-puolen harrastus, miten kerron siitä vanhemmilleni ja       kavereilleni?
+Haluaisin aloittaa harrastuksen,   jonka yleisesti ajatellaan olevan  toisen sukupuolen harrastus, miten kerron siitä   vanhemmilleni ja kavereilleni?
 a) Unohda koko asia, parempi vain mennä massan mukana 
 b) Aloita harrastus mutta älä kerro     kenellekään asiasta ja jos joku kysyy   niin valehtele. 
 c) Puhu avoimesti läheisillesi kiinnos- tuksestasi ja selitä miksi asia on      sinulle tärkeä.

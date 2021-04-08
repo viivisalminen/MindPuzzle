@@ -33,7 +33,11 @@ public class SleepRoom implements Screen {
     private ImageButton doorButton, pixel1Button, pixel2Button, pixel3Button, pixel4Button, pixel5Button;
     private Texture doorTxt, pixel1Txt, pixel2Txt, pixel3Txt, pixel4Txt, pixel5Txt;
     private Texture doorTxtPressed;
-
+    private boolean char1NotClicked = true;
+    private boolean char2NotClicked = true;
+    private boolean char3NotClicked = true;
+    private boolean char4NotClicked = true;
+    private boolean char5NotClicked = true;
     private String points = Integer.toString(MindPuzzle.getPoints());
     private String line = "";
 
@@ -59,11 +63,11 @@ public class SleepRoom implements Screen {
 
         doorTxt = app.assets.get("images/door.png", Texture.class);
         doorTxtPressed = app.assets.get("images/door.png", Texture.class);
-        pixel1Txt = app.assets.get("images/Pixelarts/mushroomguyPixel.png", Texture.class);
-        pixel2Txt = app.assets.get("images/Pixelarts/robotcatPixel.png", Texture.class);
-        pixel3Txt = app.assets.get("images/Pixelarts/swampmonsterPixel.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Pixelarts/yetiPixel.png", Texture.class);
-        pixel5Txt = app.assets.get("images/Pixelarts/birdPixel.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Characters/griffinred.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Characters/robotcat.png", Texture.class);
+        pixel3Txt = app.assets.get("images/Characters/skullbear.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Characters/skullwolf.png", Texture.class);
+        pixel5Txt = app.assets.get("images/Characters/sloth.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -104,14 +108,15 @@ public class SleepRoom implements Screen {
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
         pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel1Button.setSize(pixel1Txt.getWidth(), pixel1Txt.getHeight());
+        pixel1Button.setSize(pixel1Txt.getWidth() * 0.5f, pixel1Txt.getHeight() * 0.5f);
         pixel1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                app.setPreviousCharacter("mushroomguy");
+                char1NotClicked = false;
+                app.setPreviousCharacter("griffinred");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -119,13 +124,14 @@ public class SleepRoom implements Screen {
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
         pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
-        pixel2Button.setSize(pixel2Txt.getWidth(), pixel2Txt.getHeight());
+        pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                char2NotClicked = false;
                 app.setPreviousCharacter("robotcat");
                 app.setScreen(app.questionScreen);
             }
@@ -134,14 +140,15 @@ public class SleepRoom implements Screen {
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
         pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel3Button.setSize(pixel3Txt.getWidth(), pixel3Txt.getHeight());
+        pixel3Button.setSize(pixel3Txt.getWidth() * 0.6f, pixel3Txt.getHeight() * 0.6f);
         pixel3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                app.setPreviousCharacter("swampmonster");
+                char3NotClicked = false;
+                app.setPreviousCharacter("skullbear");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -149,14 +156,15 @@ public class SleepRoom implements Screen {
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
         pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        pixel4Button.setSize(pixel4Txt.getWidth(), pixel4Txt.getHeight());
+        pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
         pixel4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                app.setPreviousCharacter("yeti");
+                char4NotClicked = false;
+                app.setPreviousCharacter("skullwolf");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -164,14 +172,15 @@ public class SleepRoom implements Screen {
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
         pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
-        pixel5Button.setSize(pixel5Txt.getWidth(), pixel5Txt.getHeight());
+        pixel5Button.setSize(pixel5Txt.getWidth() * 0.5f, pixel5Txt.getHeight() * 0.5f);
         pixel5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                app.setPreviousCharacter("bird");
+                char5NotClicked = false;
+                app.setPreviousCharacter("sloth");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -190,11 +199,21 @@ public class SleepRoom implements Screen {
         });
 
         stage.addActor(doorButton);
-        stage.addActor(pixel1Button);
-        stage.addActor(pixel2Button);
-        stage.addActor(pixel3Button);
-        stage.addActor(pixel4Button);
-        stage.addActor(pixel5Button);
+        if (char1NotClicked) {
+            stage.addActor(pixel1Button);
+        }
+        if (char2NotClicked) {
+            stage.addActor(pixel2Button);
+        }
+        if (char3NotClicked) {
+            stage.addActor(pixel3Button);
+        }
+        if (char4NotClicked) {
+            stage.addActor(pixel4Button);
+        }
+        if (char5NotClicked) {
+            stage.addActor(pixel5Button);
+        }
         stage.addActor(buttonSettingsPopUp);
     }
 

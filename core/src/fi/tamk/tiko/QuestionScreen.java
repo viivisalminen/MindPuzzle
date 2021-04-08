@@ -31,7 +31,7 @@ public class QuestionScreen implements Screen {
     private ShapeRenderer shapeRenderer;
 
     private TextButton questionButton, buttonA, buttonB, buttonC, buttonX;
-    private Texture characterTxt;
+    private Texture bubble, characterTxt;
     private Rectangle characterRec;
 
     public int row = (int)(Math.random() * 10);
@@ -58,7 +58,8 @@ public class QuestionScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        characterRec = new Rectangle(0,0,Gdx.graphics.getWidth() * 0.52f, Gdx.graphics.getHeight() * 0.32f);
+        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
+        bubble = app.assets.get("images/bubble.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -84,20 +85,40 @@ public class QuestionScreen implements Screen {
             characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
         } else if (app.getCharacter().equals("browncat")) {
             characterTxt = app.assets.get("images/Characters/browncat.png", Texture.class);
+        } else if (app.getCharacter().equals("demoncat")) {
+            characterTxt = app.assets.get("images/Characters/demoncat.png", Texture.class);
         } else if (app.getCharacter().equals("fox")) {
             characterTxt = app.assets.get("images/Characters/fox.png", Texture.class);
+        } else if (app.getCharacter().equals("ghost")) {
+            characterTxt = app.assets.get("images/Characters/ghost.png", Texture.class);
+        } else if (app.getCharacter().equals("griffinblue")) {
+            characterTxt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
+        } else if (app.getCharacter().equals("griffinred")) {
+            characterTxt = app.assets.get("images/Characters/griffinred.png", Texture.class);
         } else if (app.getCharacter().equals("hamster")) {
             characterTxt = app.assets.get("images/Characters/hamster.png", Texture.class);
+        } else if (app.getCharacter().equals("leafdragon")) {
+            characterTxt = app.assets.get("images/Characters/leafdragon.png", Texture.class);
         } else if (app.getCharacter().equals("lynx")) {
             characterTxt = app.assets.get("images/Characters/lynx.png", Texture.class);
         } else if (app.getCharacter().equals("mushroomguy")) {
             characterTxt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
         } else if (app.getCharacter().equals("robotcat")) {
             characterTxt = app.assets.get("images/Characters/robotcat.png", Texture.class);
+        } else if (app.getCharacter().equals("skullbear")) {
+            characterTxt = app.assets.get("images/Characters/skullbear.png", Texture.class);
         } else if (app.getCharacter().equals("skullwolf")) {
             characterTxt = app.assets.get("images/Characters/skullwolf.png", Texture.class);
+        } else if (app.getCharacter().equals("sloth")) {
+            characterTxt = app.assets.get("images/Characters/sloth.png", Texture.class);
+        } else if (app.getCharacter().equals("snake")) {
+            characterTxt = app.assets.get("images/Characters/snake.png", Texture.class);
         } else if (app.getCharacter().equals("swampmonster")) {
             characterTxt = app.assets.get("images/Characters/swampmonster.png", Texture.class);
+        } else if (app.getCharacter().equals("wizardcat")) {
+            characterTxt = app.assets.get("images/Characters/wizardcat.png", Texture.class);
+        } else if (app.getCharacter().equals("wolf")) {
+            characterTxt = app.assets.get("images/Characters/wolf.png", Texture.class);
         } else if (app.getCharacter().equals("yeti")) {
             characterTxt = app.assets.get("images/Characters/yeti.png", Texture.class);
         }
@@ -156,10 +177,10 @@ public class QuestionScreen implements Screen {
         float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.15f;
         float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.9f;
 
-        questionButton = new TextButton(question, skin, "default");
+        /*questionButton = new TextButton(question, skin, "default");
         questionButton.getLabel().setFontScale(1.5f, 1.5f);
         questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        questionButton.setSize(buttonWidth, buttonHeight * 1.25f);
+        questionButton.setSize(buttonWidth, buttonHeight * 1.25f);*/
 
         buttonA = new TextButton(optionA, skin, "default");
         buttonA.getLabel().setFontScale(1.5f, 1.5f);
@@ -207,7 +228,7 @@ public class QuestionScreen implements Screen {
             }
         });
 
-        stage.addActor(questionButton);
+        //stage.addActor(questionButton);
         stage.addActor(buttonA);
         stage.addActor(buttonB);
         stage.addActor(buttonC);
@@ -234,7 +255,9 @@ public class QuestionScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.3f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+        app.batch.draw(bubble,MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f, bubble.getWidth(), bubble.getHeight());
+        app.font40.draw(app.batch, question,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.85f);
+        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
         app.batch.end();
     }
 
