@@ -30,7 +30,7 @@ public class QuestionScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private TextButton questionButton, buttonA, buttonB, buttonC, buttonX;
+    private TextButton buttonA, buttonB, buttonC, buttonX;
     private Texture bubble, characterTxt;
     private Rectangle characterRec;
 
@@ -128,7 +128,6 @@ public class QuestionScreen implements Screen {
         if(row == 10) {
             row = 0;
         }
-        //row = (int)(Math.random() * 10);
 
         if (prev.equals(app.socialRoom)) {
             question = MainMenuScreen.questionsAboutSocial[row][0];
@@ -251,13 +250,24 @@ public class QuestionScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(bubble,MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f, bubble.getWidth(), bubble.getHeight());
-        app.font40.draw(app.batch, question,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.85f);
-        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+
+        if(Gdx.graphics.getWidth() < 1000) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
+            app.font30.draw(app.batch, question,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.915f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.45f,Gdx.graphics.getHeight() * 0.5f, characterRec.width * 0.6f, characterRec.height * 0.6f);
+        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth(), bubble.getHeight());
+            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.925f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+        } else if (Gdx.graphics.getWidth() >= 1200) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.75f, bubble.getWidth(), bubble.getHeight());
+            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.95f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+        }
+
         app.batch.end();
     }
 

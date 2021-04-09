@@ -37,20 +37,25 @@ public class LoadingScreen implements Screen {
     // Loads all the assets used in the game one by one.
     public void queueAssets() {
         app.assets.load("images/logo.png", Texture.class);
-        app.assets.load("images/background2.png", Texture.class);
-        app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
+
         app.assets.load("sounds/button.mp3", Sound.class);
         app.assets.load("sounds/right.mp3", Sound.class);
         app.assets.load("sounds/wrong.mp3", Sound.class);
         app.assets.load("sounds/background.mp3", Music.class);
+
+        app.assets.load("images/background2.png", Texture.class);
+        app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("images/popUpBackground.jpg", Texture.class);
         app.assets.load("images/socialRoom.png", Texture.class);
         app.assets.load("images/sleepRoom.png", Texture.class);
         app.assets.load("images/hobbiesRoom.png", Texture.class);
         app.assets.load("images/foodRoom.png", Texture.class);
+        app.assets.load("images/sportRoom.png", Texture.class);
         app.assets.load("images/door.png", Texture.class);
+        app.assets.load("images/doorFIN.png", Texture.class);
         app.assets.load("images/bubble.png", Texture.class);
+
         app.assets.load("images/Characters/bird.png", Texture.class);
         app.assets.load("images/Characters/browncat.png", Texture.class);
         app.assets.load("images/Characters/demoncat.png", Texture.class);
@@ -71,6 +76,7 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/Characters/wizardcat.png", Texture.class);
         app.assets.load("images/Characters/wolf.png", Texture.class);
         app.assets.load("images/Characters/yeti.png", Texture.class);
+
         app.assets.load("images/Buttons/Credits.png", Texture.class);
         app.assets.load("images/Buttons/CreditsPressed.png", Texture.class);
         app.assets.load("images/Buttons/Exit.png", Texture.class);
@@ -79,12 +85,25 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/Buttons/HowToPlayPressed.png", Texture.class);
         app.assets.load("images/Buttons/Menu.png", Texture.class);
         app.assets.load("images/Buttons/MenuPressed.png", Texture.class);
+        app.assets.load("images/Buttons/MusicOFF_Settings.png", Texture.class);
+        app.assets.load("images/Buttons/MusicOFF_SettingsPressed.png", Texture.class);
+        app.assets.load("images/Buttons/MusicON_Settings.png", Texture.class);
+        app.assets.load("images/Buttons/MusicON_SettingsPressed.png", Texture.class);
         app.assets.load("images/Buttons/Play.png", Texture.class);
         app.assets.load("images/Buttons/PlayPressed.png", Texture.class);
         app.assets.load("images/Buttons/Settings.png", Texture.class);
         app.assets.load("images/Buttons/SettingsPressed.png", Texture.class);
-        app.assets.load("images/Painonapit/Tekijat.png", Texture.class);
-        app.assets.load("images/Painonapit/TekijatPainettu.png", Texture.class);
+        app.assets.load("images/Buttons/SoundsOFF_Settings.png", Texture.class);
+        app.assets.load("images/Buttons/SoundsOFF_SettingsPressed.png", Texture.class);
+        app.assets.load("images/Buttons/SoundsON_Settings.png", Texture.class);
+        app.assets.load("images/Buttons/SoundsON_SettingsPressed.png", Texture.class);
+
+        app.assets.load("images/Painonapit/Asetukset.png", Texture.class);
+        app.assets.load("images/Painonapit/AsetuksetPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/EnglantiOFF.png", Texture.class);
+        app.assets.load("images/Painonapit/EnglantiOFFPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/EnglantiON.png", Texture.class);
+        app.assets.load("images/Painonapit/EnglantiONPainettu.png", Texture.class);
         app.assets.load("images/Painonapit/Lopeta.png", Texture.class);
         app.assets.load("images/Painonapit/LopetaPainettu.png", Texture.class);
         app.assets.load("images/Painonapit/Ohjeet.png", Texture.class);
@@ -93,8 +112,13 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
         app.assets.load("images/Painonapit/Pelaa.png", Texture.class);
         app.assets.load("images/Painonapit/PelaaPainettu.png", Texture.class);
-        app.assets.load("images/Painonapit/Asetukset.png", Texture.class);
-        app.assets.load("images/Painonapit/AsetuksetPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/SuomiOFF.png", Texture.class);
+        app.assets.load("images/Painonapit/SuomiOFFPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/SuomiON.png", Texture.class);
+        app.assets.load("images/Painonapit/SuomiONPainettu.png", Texture.class);
+        app.assets.load("images/Painonapit/Tekijat.png", Texture.class);
+        app.assets.load("images/Painonapit/TekijatPainettu.png", Texture.class);
+
         app.assets.load("images/RoomIcons/Food.png", Texture.class);
         app.assets.load("images/RoomIcons/FoodPressed.png", Texture.class);
         app.assets.load("images/RoomIcons/Hobbies.png", Texture.class);
@@ -105,6 +129,7 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/RoomIcons/SocialPressed.png", Texture.class);
         app.assets.load("images/RoomIcons/Sports.png", Texture.class);
         app.assets.load("images/RoomIcons/SportsPressed.png", Texture.class);
+
         app.assets.load("images/Huonekuvakkeet/Harrastukset.png", Texture.class);
         app.assets.load("images/Huonekuvakkeet/HarrastuksetPainettu.png", Texture.class);
         app.assets.load("images/Huonekuvakkeet/Ihmissuhteet.png", Texture.class);
@@ -115,6 +140,23 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/Huonekuvakkeet/RavintoPainettu.png", Texture.class);
         app.assets.load("images/Huonekuvakkeet/Uni.png", Texture.class);
         app.assets.load("images/Huonekuvakkeet/UniPainettu.png", Texture.class);
+
+        app.assets.load("images/RoomSettings/EnOFF_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/EnOFF_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/EnON_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/EnON_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/FiOFF_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/FiOFF_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/FiON_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/FiON_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/MusicOFF_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/MusicOFF_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/MusicON_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/MusicON_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/SoundsOFF_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/SoundsOFF_RoomPressed.png", Texture.class);
+        app.assets.load("images/RoomSettings/SoundsON_Room.png", Texture.class);
+        app.assets.load("images/RoomSettings/SoundsON_RoomPressed.png", Texture.class);
     }
 
     // Called when this screen becomes the current screen for a Game.

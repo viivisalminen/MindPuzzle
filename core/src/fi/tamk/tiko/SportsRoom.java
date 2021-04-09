@@ -58,12 +58,14 @@ public class SportsRoom implements Screen {
 
         if(app.getLanguage().equals("fi_FI")) {
             line = "PISTEET: ";
+            doorTxt = app.assets.get("images/doorFIN.png", Texture.class);
+            doorTxtPressed = app.assets.get("images/doorFIN.png", Texture.class);
         } else {
             line = "POINTS: ";
+            doorTxt = app.assets.get("images/door.png", Texture.class);
+            doorTxtPressed = app.assets.get("images/door.png", Texture.class);
         }
 
-        doorTxt = app.assets.get("images/door.png", Texture.class);
-        doorTxtPressed = app.assets.get("images/door.png", Texture.class);
         pixel1Txt = app.assets.get("images/Characters/snake.png", Texture.class);
         pixel2Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
         pixel3Txt = app.assets.get("images/Characters/yeti.png", Texture.class);
@@ -76,7 +78,7 @@ public class SportsRoom implements Screen {
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/roomBackground.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/sportRoom.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);

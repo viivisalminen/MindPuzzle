@@ -57,12 +57,14 @@ public class FoodRoom implements Screen {
 
         if(app.getLanguage().equals("fi_FI")) {
             line = "PISTEET: ";
+            doorTxt = app.assets.get("images/doorFIN.png", Texture.class);
+            doorTxtPressed = app.assets.get("images/doorFIN.png", Texture.class);
         } else {
             line = "POINTS: ";
+            doorTxt = app.assets.get("images/door.png", Texture.class);
+            doorTxtPressed = app.assets.get("images/door.png", Texture.class);
         }
 
-        doorTxt = app.assets.get("images/door.png", Texture.class);
-        doorTxtPressed = app.assets.get("images/door.png", Texture.class);
         pixel1Txt = app.assets.get("images/Characters/bird.png", Texture.class);
         pixel2Txt = app.assets.get("images/Characters/browncat.png", Texture.class);
         pixel3Txt = app.assets.get("images/Characters/demoncat.png", Texture.class);

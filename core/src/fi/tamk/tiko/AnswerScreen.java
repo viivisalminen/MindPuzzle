@@ -29,7 +29,7 @@ public class AnswerScreen implements Screen {
     private TextButton buttonX;
     private ShapeRenderer shapeRenderer;
     private Texture bubble, characterTxt;
-    private Rectangle characterRec;
+    private Rectangle characterRec, largerCharacter;
 
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
@@ -44,6 +44,7 @@ public class AnswerScreen implements Screen {
 
         getCharacter();
         characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
+        largerCharacter = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
         bubble = app.assets.get("images/bubble.png", Texture.class);
 
         this.skin = new Skin();
@@ -119,7 +120,7 @@ public class AnswerScreen implements Screen {
         float buttonSize = MindPuzzle.VIRTUAL_WIDTH * 0.075f;
 
         buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         buttonX.setSize(buttonSize, buttonSize);
         buttonX.addListener(new ClickListener() {
             @Override
@@ -147,9 +148,21 @@ public class AnswerScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(bubble,MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f, bubble.getWidth(), bubble.getHeight());
-        app.font40.draw(app.batch, line,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.85f);
-        app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+
+        if(Gdx.graphics.getWidth() < 1000) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
+            app.font30.draw(app.batch, line,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.9f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width * 0.75f, largerCharacter.height * 0.75f);
+        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth(), bubble.getHeight());
+            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.9f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
+        } else if (Gdx.graphics.getWidth() >= 1200) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.75f, bubble.getWidth(), bubble.getHeight());
+            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.9f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
+        }
+
         app.batch.end();
     }
 

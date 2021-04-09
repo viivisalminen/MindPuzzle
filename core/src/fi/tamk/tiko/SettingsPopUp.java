@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -30,7 +31,10 @@ public class SettingsPopUp implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
 
-    private TextButton buttonMusic, buttonSounds, buttonFin, buttonEng, buttonX;
+    private ImageButton soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
+    private Texture soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
+    private Texture soundsONPressed, soundsOFFPressed, musicONPressed, musicOFFPressed, finONPressed, finOFFPressed, enONPressed, enOFFPressed;
+    private TextButton buttonX;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SettingsPopUp(final MindPuzzle app) {
@@ -46,13 +50,30 @@ public class SettingsPopUp implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
+        soundsON = app.assets.get("images/RoomSettings/SoundsON_Room.png", Texture.class);
+        soundsONPressed = app.assets.get("images/RoomSettings/SoundsON_RoomPressed.png", Texture.class);
+        soundsOFF = app.assets.get("images/RoomSettings/SoundsOFF_Room.png", Texture.class);
+        soundsOFFPressed = app.assets.get("images/RoomSettings/SoundsOFF_RoomPressed.png", Texture.class);
+        musicON = app.assets.get("images/RoomSettings/MusicON_Room.png", Texture.class);
+        musicONPressed = app.assets.get("images/RoomSettings/MusicON_RoomPressed.png", Texture.class);
+        musicOFF = app.assets.get("images/RoomSettings/MusicOFF_Room.png", Texture.class);
+        musicOFFPressed = app.assets.get("images/RoomSettings/MusicOFF_RoomPressed.png", Texture.class);
+        finON = app.assets.get("images/RoomSettings/FiON_Room.png", Texture.class);
+        finONPressed = app.assets.get("images/RoomSettings/FiON_RoomPressed.png", Texture.class);
+        finOFF = app.assets.get("images/RoomSettings/FiOFF_Room.png", Texture.class);
+        finOFFPressed = app.assets.get("images/RoomSettings/FiOFF_RoomPressed.png", Texture.class);
+        enON = app.assets.get("images/RoomSettings/EnON_Room.png", Texture.class);
+        enONPressed = app.assets.get("images/RoomSettings/EnON_RoomPressed.png", Texture.class);
+        enOFF = app.assets.get("images/RoomSettings/EnOFF_Room.png", Texture.class);
+        enOFFPressed = app.assets.get("images/RoomSettings/EnOFF_RoomPressed.png", Texture.class);
+
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
         this.skin.add("default-font", app.font30);
         this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/roomBackground.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -66,79 +87,177 @@ public class SettingsPopUp implements Screen {
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
-        float buttonSize = MindPuzzle.VIRTUAL_WIDTH * 0.075f;
+        int buttonSize = 180;
 
-        buttonMusic = new TextButton("M", skin, "default");
-        buttonMusic.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.4f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonMusic.setSize(buttonSize, buttonSize);
-        buttonMusic.addListener(new ClickListener() {
+        soundsONButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(soundsON)),
+                new TextureRegionDrawable(new TextureRegion(soundsONPressed))
+        );
+        soundsONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        soundsONButton.setSize(buttonSize, buttonSize);
+        soundsONButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                MainMenuScreen.soundEffectOff();
+                stage.addActor(soundsOFFButton);
+                show();
+            }
+        });
+
+        soundsOFFButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(soundsOFF)),
+                new TextureRegionDrawable(new TextureRegion(soundsOFFPressed))
+        );
+        soundsOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        soundsOFFButton.setSize(buttonSize, buttonSize);
+        soundsOFFButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                MainMenuScreen.soundEffectOn();
+                MainMenuScreen.sound.play();
+                stage.addActor(soundsONButton);
+                show();
+            }
+        });
+
+        musicONButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(musicON)),
+                new TextureRegionDrawable(new TextureRegion(musicONPressed))
+        );
+        musicONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        musicONButton.setSize(buttonSize, buttonSize);
+        musicONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 MainMenuScreen.musicOff();
+                stage.addActor(musicOFFButton);
+                show();
             }
         });
 
-        buttonSounds = new TextButton("S", skin, "default");
-        buttonSounds.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonSounds.setSize(buttonSize, buttonSize);
-        buttonSounds.addListener(new ClickListener() {
+        musicOFFButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(musicOFF)),
+                new TextureRegionDrawable(new TextureRegion(musicOFFPressed))
+        );
+        musicOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        musicOFFButton.setSize(buttonSize, buttonSize);
+        musicOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                MainMenuScreen.soundEffectOff();
+                MainMenuScreen.musicOn();
+                stage.addActor(musicONButton);
+                show();
             }
         });
 
-        buttonFin = new TextButton("Fi", skin, "default");
-        buttonFin.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonFin.setSize(buttonSize, buttonSize);
-        buttonFin.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
-                }
-                if(app.getLanguage().equals("fi_FI")) {
-                    app.setLanguage(new Locale("en", "US"));
-                } else if (!(app.getLanguage().equals("fi_FI"))) {
-                    app.setLanguage(new Locale("fi", "FI"));
-                }
-            }
-        });
-
-        buttonEng = new TextButton("En", skin, "default");
-        buttonEng.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.7f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        buttonEng.setSize(buttonSize, buttonSize);
-        buttonEng.addListener(new ClickListener() {
+        finONButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(finON)),
+                new TextureRegionDrawable(new TextureRegion(finONPressed))
+        );
+        finONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        finONButton.setSize(buttonSize, buttonSize);
+        finONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                if (!(app.getLanguage().equals("fi_FI"))) {
-                    app.setLanguage(new Locale("fi", "FI"));
-                } else if (app.getLanguage().equals("fi_FI")) {
-                    app.setLanguage(new Locale("en", "US"));
-                }
+                app.setLanguage(new Locale("en", "US"));
+                stage.addActor(finOFFButton);
+                show();
+
             }
         });
+
+        finOFFButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(finOFF)),
+                new TextureRegionDrawable(new TextureRegion(finOFFPressed))
+        );
+        finOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        finOFFButton.setSize(buttonSize, buttonSize);
+        finOFFButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setLanguage(new Locale("fi", "FI"));
+                stage.addActor(finONButton);
+                show();
+
+            }
+        });
+
+        enONButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(enON)),
+                new TextureRegionDrawable(new TextureRegion(enONPressed))
+        );
+        enONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        enONButton.setSize(buttonSize, buttonSize);
+        enONButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setLanguage(new Locale("fi", "FI"));
+                stage.addActor(enOFFButton);
+                show();
+            }
+        });
+
+        enOFFButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(enOFF)),
+                new TextureRegionDrawable(new TextureRegion(enOFFPressed))
+        );
+        enOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        enOFFButton.setSize(buttonSize, buttonSize);
+        enOFFButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setLanguage(new Locale("en", "US"));
+                stage.addActor(enONButton);
+                show();
+            }
+        });
+
+        if(MainMenuScreen.getSound()) {
+            stage.addActor(soundsONButton);
+        }
+        else if (!MainMenuScreen.getSound()){
+            stage.addActor(soundsOFFButton);
+        }
+
+        if(MainMenuScreen.getMusic()) {
+            stage.addActor(musicONButton);
+        }
+        else if (!MainMenuScreen.getMusic()){
+            stage.addActor(musicOFFButton);
+        }
+
+        if(app.getLanguage().equals("fi_FI")) {
+            stage.addActor(finONButton);
+            stage.addActor(enOFFButton);
+        } else if (!(app.getLanguage().equals("fi_FI"))) {
+            stage.addActor(finOFFButton);
+            stage.addActor(enONButton);
+        }
 
         buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        buttonX.setSize(buttonSize, buttonSize);
+        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.85f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        buttonX.setSize(MindPuzzle.VIRTUAL_HEIGHT * 0.075f, MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
-                }
-                app.setScreen(app.getPreviousScreen());
+                app.setScreen(app.previousScreen);
             }
         });
-
-        stage.addActor(buttonMusic);
-        stage.addActor(buttonSounds);
-        stage.addActor(buttonFin);
-        stage.addActor(buttonEng);
         stage.addActor(buttonX);
     }
 

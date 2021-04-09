@@ -38,12 +38,17 @@ public class MindPuzzle extends Game {
 	// Provides access to an application's raw asset files.
 	public AssetManager assets;
 
-	public FileHandle file;
+	public FileHandle fileEN, fileFIN;
 	public static String[][] socialQuestions = new String[10][10];
 	public static String[][] sleepQuestions = new String[10][10];
 	public static String[][] sportQuestions = new String[10][10];
 	public static String[][] hobbyQuestions = new String[10][10];
 	public static String[][] foodQuestions = new String[10][10];
+	public static String[][] socialQuestionsFIN = new String[10][10];
+	public static String[][] sleepQuestionsFIN = new String[10][10];
+	public static String[][] sportQuestionsFIN = new String[10][10];
+	public static String[][] hobbyQuestionsFIN = new String[10][10];
+	public static String[][] foodQuestionsFIN = new String[10][10];
 	public int row = 0;
 	public int column = 0;
 
@@ -88,12 +93,21 @@ public class MindPuzzle extends Game {
 		batch = new SpriteBatch();
 
 		initFonts();
-		initTextFile(socialQuestions, "SOCIAL");
-		initTextFile(sleepQuestions, "SLEEP");
-		initTextFile(sportQuestions, "SPORTS");
-		initTextFile(hobbyQuestions, "HOBBIES");
-		initTextFile(foodQuestions, "FOOD");
+		fileEN = Gdx.files.internal("questions/questions.txt");
+		initTextFile(socialQuestions, "SOCIAL", fileEN);
+		initTextFile(sleepQuestions, "SLEEP", fileEN);
+		initTextFile(sportQuestions, "SPORTS", fileEN);
+		initTextFile(hobbyQuestions, "HOBBIES", fileEN);
+		initTextFile(foodQuestions, "FOOD", fileEN);
 		MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+
+		/*fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
+		initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
+		initTextFile(sleepQuestionsFIN, "SLEEP", fileFIN);
+		initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
+		initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
+		initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
+		MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);*/
 
 		loadingScreen = new LoadingScreen(this);
 		splashScreen = new SplashScreen(this);
@@ -135,9 +149,7 @@ public class MindPuzzle extends Game {
 		font60 = generator.generateFont(parameter60);
     }
 
-    private void initTextFile(String[][] array, String theme) {
-		file = Gdx.files.internal("questions/questions.txt");
-
+    private void initTextFile(String[][] array, String theme, FileHandle file) {
 		Scanner scanner = new Scanner(file.readString());
 		String line = "";
 		String longLine = "";
@@ -152,13 +164,11 @@ public class MindPuzzle extends Game {
 						longLine = new StringBuilder().append(line.substring(0, 40))
 								.append("\n").append(line.substring(40)).toString();
 						array[row][column] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 80 && line.length() < 120) {
 						longLine = new StringBuilder().append(line.substring(0,40))
 								.append("\n").append(line.substring(40,80))
 								.append("\n").append(line.substring(80)).toString();
 						array[row][column] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 120 && line.length() < 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -166,7 +176,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,120))
 								.append("\n").append(line.substring(120)).toString();
 						array[row][column] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -174,7 +183,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,140))
 								.append("\n").append(line.substring(140)).toString();
 						array[row][column] = longLine;
-						System.out.println(longLine);
 					} else {
 						array[row][column] = line;
 					}
@@ -186,13 +194,11 @@ public class MindPuzzle extends Game {
 						longLine = new StringBuilder().append(line.substring(0, 40))
 								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 1] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 80 && line.length() < 120) {
 						longLine = new StringBuilder().append(line.substring(0,40))
 								.append("\n").append(line.substring(40,80))
 								.append("\n").append(line.substring(80)).toString();
 						array[row][column + 1] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 120 && line.length() < 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -200,7 +206,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,120))
 								.append("\n").append(line.substring(120)).toString();
 						array[row][column + 1] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -208,7 +213,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,140))
 								.append("\n").append(line.substring(140)).toString();
 						array[row][column + 1] = longLine;
-						System.out.println(longLine);
 					} else {
 						array[row][column + 1] = line;
 					}
@@ -220,13 +224,11 @@ public class MindPuzzle extends Game {
 						longLine = new StringBuilder().append(line.substring(0, 40))
 								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 2] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 80 && line.length() < 120) {
 						longLine = new StringBuilder().append(line.substring(0,40))
 								.append("\n").append(line.substring(40,80))
 								.append("\n").append(line.substring(80)).toString();
 						array[row][column + 2] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 120 && line.length() < 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -234,7 +236,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,120))
 								.append("\n").append(line.substring(120)).toString();
 						array[row][column + 2] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -242,7 +243,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,140))
 								.append("\n").append(line.substring(140)).toString();
 						array[row][column + 2] = longLine;
-						System.out.println(longLine);
 					} else {
 						array[row][column + 2] = line;
 					}
@@ -254,13 +254,11 @@ public class MindPuzzle extends Game {
 						longLine = new StringBuilder().append(line.substring(0, 40))
 								.append("\n").append(line.substring(40)).toString();
 						array[row][column + 3] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 80 && line.length() < 120) {
 						longLine = new StringBuilder().append(line.substring(0,40))
 								.append("\n").append(line.substring(40,80))
 								.append("\n").append(line.substring(80)).toString();
 						array[row][column + 3] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 120 && line.length() < 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -268,7 +266,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,120))
 								.append("\n").append(line.substring(120)).toString();
 						array[row][column + 3] = longLine;
-						System.out.println(longLine);
 					} else if(line.length() >= 140) {
 						longLine = new StringBuilder().append(line.substring(0,35))
 								.append("\n").append(line.substring(35,70))
@@ -276,7 +273,6 @@ public class MindPuzzle extends Game {
 								.append("\n").append(line.substring(105,140))
 								.append("\n").append(line.substring(140)).toString();
 						array[row][column + 3] = longLine;
-						System.out.println(longLine);
 					} else {
 						array[row][column + 3] = line;
 					}
@@ -366,7 +362,6 @@ public class MindPuzzle extends Game {
 
 	public static void setLanguage(Locale locale) {
 		language = locale.toString();
-		System.out.println("Kieli: "+language);
 	}
 
 	public static String getLanguage() {

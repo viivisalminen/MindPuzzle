@@ -48,6 +48,12 @@ public class MainMenuScreen implements Screen {
     public static String[][] questionsAboutHobbies = new String[10][10];
     public static String[][] questionsAboutFood = new String[10][10];
 
+    /*public static String[][] questionsAboutSocialFIN = new String[10][10];
+    public static String[][] questionsAboutSleepFIN = new String[10][10];
+    public static String[][] questionsAboutSportsFIN = new String[10][10];
+    public static String[][] questionsAboutHobbiesFIN = new String[10][10];
+    public static String[][] questionsAboutFoodFIN = new String[10][10];*/
+
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
         this.app = app;
@@ -59,7 +65,7 @@ public class MainMenuScreen implements Screen {
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-
+        // POISTA TÄMÄ!!!!!!!!!!!!!!!!!!!!!!!!!
         System.out.println("Ruudun leveys: "+ Gdx.graphics.getWidth());
         System.out.println("Ruudun korkeus: "+ Gdx.graphics.getHeight());
 
@@ -125,13 +131,21 @@ public class MainMenuScreen implements Screen {
         questionsAboutFood = food.clone();
     }
 
+    /*public static void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+        questionsAboutSocialFIN = social.clone();
+        questionsAboutSleepFIN = sleep.clone();
+        questionsAboutSportsFIN = sport.clone();
+        questionsAboutHobbiesFIN = hobby.clone();
+        questionsAboutFoodFIN = food.clone();
+    }*/
+
     // Initializes the buttons used in this screen.
     private void initButtons() {
         imagePlay = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgPlay)),
                 new TextureRegionDrawable(new TextureRegion(imgPlayPressed))
         );
-        imagePlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        imagePlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
         imagePlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imagePlay.addListener(new ClickListener() {
             @Override
@@ -147,7 +161,7 @@ public class MainMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgHowToPlay)),
                 new TextureRegionDrawable(new TextureRegion(imgHowToPlayPressed))
         );
-        imageHowToPlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
+        imageHowToPlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
         imageHowToPlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imageHowToPlay.addListener(new ClickListener() {
             @Override
@@ -162,7 +176,7 @@ public class MainMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgSettings)),
                 new TextureRegionDrawable(new TextureRegion(imgSettingsPressed))
         );
-        imageSettings.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        imageSettings.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         imageSettings.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imageSettings.addListener(new ClickListener() {
             @Override
@@ -178,7 +192,7 @@ public class MainMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgCredits)),
                 new TextureRegionDrawable(new TextureRegion(imgCreditsPressed))
         );
-        imageCredits.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        imageCredits.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
         imageCredits.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imageCredits.addListener(new ClickListener() {
             @Override
@@ -194,7 +208,7 @@ public class MainMenuScreen implements Screen {
                 new TextureRegionDrawable(new TextureRegion(imgExit)),
                 new TextureRegionDrawable(new TextureRegion(imgExitPressed))
         );
-        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         imageExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imageExit.addListener(new ClickListener() {
             @Override
@@ -212,6 +226,7 @@ public class MainMenuScreen implements Screen {
         stage.addActor(imageExit);
         stage.addActor(imageSettings);
     }
+
 
     // Called when the screen should render itself.
     @Override
