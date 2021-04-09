@@ -68,8 +68,8 @@ public class FoodRoom implements Screen {
         pixel1Txt = app.assets.get("images/Characters/bird.png", Texture.class);
         pixel2Txt = app.assets.get("images/Characters/browncat.png", Texture.class);
         pixel3Txt = app.assets.get("images/Characters/demoncat.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Characters/fox.png", Texture.class);
-        pixel5Txt = app.assets.get("images/Characters/ghost.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Characters/ghost.png", Texture.class);
+        pixel5Txt = app.assets.get("images/Characters/fox.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -109,7 +109,7 @@ public class FoodRoom implements Screen {
 
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
-        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
         pixel1Button.setSize(pixel1Txt.getWidth() * 0.15f, pixel1Txt.getHeight() * 0.15f);
         pixel1Button.addListener(new ClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class FoodRoom implements Screen {
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
         pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
@@ -141,7 +141,7 @@ public class FoodRoom implements Screen {
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.575f,MindPuzzle.VIRTUAL_HEIGHT * 0.45f);
         pixel3Button.setSize(pixel3Txt.getWidth() * 0.5f, pixel3Txt.getHeight() * 0.5f);
         pixel3Button.addListener(new ClickListener() {
             @Override
@@ -157,8 +157,8 @@ public class FoodRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
+        pixel4Button.setSize(pixel4Txt.getWidth() * 0.25f, pixel4Txt.getHeight() * 0.25f);
         pixel4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -166,15 +166,15 @@ public class FoodRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
-                app.setPreviousCharacter("fox");
+                app.setPreviousCharacter("ghost");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
-        pixel5Button.setSize(pixel5Txt.getWidth() * 0.25f, pixel5Txt.getHeight() * 0.25f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.495f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        pixel5Button.setSize(pixel5Txt.getWidth() * 0.5f, pixel5Txt.getHeight() * 0.5f);
         pixel5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -182,13 +182,13 @@ public class FoodRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
-                app.setPreviousCharacter("ghost");
+                app.setPreviousCharacter("fox");
                 app.setScreen(app.questionScreen);
             }
         });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override

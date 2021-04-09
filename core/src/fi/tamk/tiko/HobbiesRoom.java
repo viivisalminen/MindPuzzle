@@ -65,10 +65,10 @@ public class HobbiesRoom implements Screen {
             doorTxtPressed = app.assets.get("images/door.png", Texture.class);
         }
 
-        pixel1Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
-        pixel2Txt = app.assets.get("images/Characters/hamster.png", Texture.class);
-        pixel3Txt = app.assets.get("images/Characters/leafdragon.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Characters/lynx.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Characters/hamster.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
+        pixel3Txt = app.assets.get("images/Characters/lynx.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Characters/leafdragon.png", Texture.class);
         pixel5Txt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
 
         this.skin = new Skin();
@@ -109,8 +109,8 @@ public class HobbiesRoom implements Screen {
 
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
-        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel1Button.setSize(pixel1Txt.getWidth() * 0.5f, pixel1Txt.getHeight() * 0.5f);
+        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f);
+        pixel1Button.setSize(pixel1Txt.getWidth() * 0.25f, pixel1Txt.getHeight() * 0.25f);
         pixel1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -118,15 +118,15 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
-                app.setPreviousCharacter("griffinblue");
+                app.setPreviousCharacter("hamster");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
-        pixel2Button.setSize(pixel2Txt.getWidth() * 0.25f, pixel2Txt.getHeight() * 0.25f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.075f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -134,15 +134,15 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
-                app.setPreviousCharacter("hamster");
+                app.setPreviousCharacter("griffinblue");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel3Button.setSize(pixel3Txt.getWidth() * 0.5f, pixel3Txt.getHeight() * 0.5f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.675f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel3Button.setSize(pixel3Txt.getWidth() * 0.4f, pixel3Txt.getHeight() * 0.4f);
         pixel3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -150,14 +150,14 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
-                app.setPreviousCharacter("leafdragon");
+                app.setPreviousCharacter("lynx");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
         pixel4Button.addListener(new ClickListener() {
             @Override
@@ -166,14 +166,14 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
-                app.setPreviousCharacter("lynx");
+                app.setPreviousCharacter("leafdragon");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.65f,MindPuzzle.VIRTUAL_HEIGHT * 0.45f);
         pixel5Button.setSize(pixel5Txt.getWidth() * 0.2f, pixel5Txt.getHeight() * 0.2f);
         pixel5Button.addListener(new ClickListener() {
             @Override
@@ -188,7 +188,7 @@ public class HobbiesRoom implements Screen {
         });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override

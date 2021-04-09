@@ -109,7 +109,7 @@ public class SleepRoom implements Screen {
 
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
-        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
         pixel1Button.setSize(pixel1Txt.getWidth() * 0.5f, pixel1Txt.getHeight() * 0.5f);
         pixel1Button.addListener(new ClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class SleepRoom implements Screen {
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
@@ -141,7 +141,7 @@ public class SleepRoom implements Screen {
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         pixel3Button.setSize(pixel3Txt.getWidth() * 0.6f, pixel3Txt.getHeight() * 0.6f);
         pixel3Button.addListener(new ClickListener() {
             @Override
@@ -157,7 +157,7 @@ public class SleepRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.575f,MindPuzzle.VIRTUAL_HEIGHT * 0.55f);
         pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
         pixel4Button.addListener(new ClickListener() {
             @Override
@@ -173,7 +173,7 @@ public class SleepRoom implements Screen {
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
         pixel5Button.setSize(pixel5Txt.getWidth() * 0.5f, pixel5Txt.getHeight() * 0.5f);
         pixel5Button.addListener(new ClickListener() {
             @Override
@@ -188,7 +188,7 @@ public class SleepRoom implements Screen {
         });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override

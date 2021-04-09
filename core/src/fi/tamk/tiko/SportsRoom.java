@@ -128,7 +128,7 @@ public class SportsRoom implements Screen {
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
         pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class SportsRoom implements Screen {
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
         pixel3Button.setSize(pixel3Txt.getWidth() * 0.6f, pixel3Txt.getHeight() * 0.6f);
         pixel3Button.addListener(new ClickListener() {
             @Override
@@ -160,8 +160,8 @@ public class SportsRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        pixel4Button.setSize(pixel4Txt.getWidth() * 0.15f, pixel4Txt.getHeight() * 0.15f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
+        pixel4Button.setSize(pixel4Txt.getWidth() * 0.25f, pixel4Txt.getHeight() * 0.25f);
         pixel4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -176,7 +176,7 @@ public class SportsRoom implements Screen {
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
         pixel5Button.setSize(pixel5Txt.getWidth() * 0.2f, pixel5Txt.getHeight() * 0.2f);
         pixel5Button.addListener(new ClickListener() {
             @Override
@@ -191,7 +191,7 @@ public class SportsRoom implements Screen {
         });
 
         buttonSettingsPopUp = new TextButton("Settings", skin, "default");
-        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
+        buttonSettingsPopUp.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.45f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         buttonSettingsPopUp.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_WIDTH * 0.1f);
         buttonSettingsPopUp.addListener(new ClickListener() {
             @Override
@@ -236,11 +236,11 @@ public class SportsRoom implements Screen {
         app.batch.begin();
         points = Integer.toString(MindPuzzle.getPoints());
         if(Gdx.graphics.getWidth() < 1000) {
-            app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.97f);
+            app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.945f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.9f);
+            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.88f);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.99f);
+            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f,Gdx.graphics.getHeight() * 0.97f);
         }
         app.batch.end();
     }
