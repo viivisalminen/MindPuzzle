@@ -26,13 +26,13 @@ public class MainMenuScreen implements Screen {
     private Table background;
 
     private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
-    private Rectangle logoRec;
+    private Rectangle logoSmall, logoLarge;
     private Texture logo, imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
     private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
 
-    public static Music music;
+    public static Music music, right, wrong;
     public static boolean musicPlaying = true;
-    public static Sound sound, right, wrong;
+    public static Sound sound;
     public static boolean soundOn = true;
 
     public static String[][] questionsAboutSocial = new String[10][10];
@@ -61,7 +61,8 @@ public class MainMenuScreen implements Screen {
         stage.clear();
 
         logo = app.assets.get("images/logo.png", Texture.class);
-        logoRec = new Rectangle(0,0,logo.getWidth(), logo.getHeight());
+        logoSmall = new Rectangle(0,0,logo.getWidth() * 0.85f, logo.getHeight() * 0.85f);
+        logoLarge = new Rectangle(0,0,logo.getWidth() * 1.25f, logo.getHeight() * 1.25f);
 
         if(app.getLanguage().equals("fi_FI")) {
             imgCredits = app.assets.get("images/Painonapit/Tekijat.png", Texture.class);
@@ -88,8 +89,8 @@ public class MainMenuScreen implements Screen {
         }
 
         sound = app.assets.get("sounds/button.mp3", Sound.class);
-        right = app.assets.get("sounds/right.mp3", Sound.class);
-        wrong = app.assets.get("sounds/wrong.mp3", Sound.class);
+        right = app.assets.get("sounds/right.mp3", Music.class);
+        wrong = app.assets.get("sounds/wrong.mp3", Music.class);
         music = app.assets.get("sounds/background.mp3", Music.class);
 
         background = new Table();
@@ -225,7 +226,15 @@ public class MainMenuScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.2f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoRec.getWidth(), logoRec.getHeight());
+        if(Gdx.graphics.getWidth() < 1000) {
+            app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f, Gdx.graphics.getHeight() * 0.75f, logoSmall.getWidth(), logoSmall.getHeight());
+        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
+            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
+        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
+            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
+        } else if (Gdx.graphics.getWidth() >= 2000) {
+            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
+        }
         app.batch.end();
     }
 
@@ -246,7 +255,7 @@ public class MainMenuScreen implements Screen {
     }
 
     public static void soundEffectOn() {
-        sound.play();
+        sound.play(1f);;
         soundOn = true;
     }
 

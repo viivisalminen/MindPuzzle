@@ -70,7 +70,8 @@ public class QuestionScreen implements Screen {
         initButtons();
 
         if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.music.play();
+            MainMenuScreen.musicOn();
+            MainMenuScreen.music.setVolume(0.4f);
         }
     }
 

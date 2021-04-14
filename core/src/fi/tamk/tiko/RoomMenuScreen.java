@@ -76,7 +76,7 @@ public class RoomMenuScreen implements Screen {
         initButtons();
 
         if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.music.play();
+            MainMenuScreen.musicOn();
         }
     }
 

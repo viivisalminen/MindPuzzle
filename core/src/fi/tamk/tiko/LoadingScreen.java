@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // LoadingScreen loads all the assets to the game and
@@ -178,8 +177,8 @@ public class LoadingScreen implements Screen {
 
         app.assets.load("sounds/background.mp3", Music.class);
         app.assets.load("sounds/button.mp3", Sound.class);
-        app.assets.load("sounds/right.mp3", Sound.class);
-        app.assets.load("sounds/wrong.mp3", Sound.class);
+        app.assets.load("sounds/right.mp3", Music.class);
+        app.assets.load("sounds/wrong.mp3", Music.class);
 
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }

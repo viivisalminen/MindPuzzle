@@ -57,15 +57,22 @@ public class AnswerScreen implements Screen {
         initButtons();
         app.addAnsweredQuestion(app.getPreviousScreen());
 
+        if(MainMenuScreen.getMusic()) {
+            MainMenuScreen.musicOn();
+            MainMenuScreen.music.setVolume(0.4f);
+        }
+
         if (checkTheAnswer()) {
             app.addPoint();
             if(MainMenuScreen.getSound()) {
                 MainMenuScreen.right.play();
+                MainMenuScreen.right.setVolume(1f);
             }
             line = "Yay your answer was right!";
         } else if (!(checkTheAnswer())) {
             if(MainMenuScreen.getSound()) {
                 MainMenuScreen.wrong.play();
+                MainMenuScreen.wrong.setVolume(1f);
             }
             line = "Oh no your answer wasn't that good!";
         }
