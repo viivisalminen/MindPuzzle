@@ -1,0 +1,307 @@
+SLEEP
+I haven’t slept well in many days. What could I do?
+a) Don’t worry about it, you must enjoy life when you are young.
+b) Try to calm down in the evening time on smart devices and eat supper well in advance of bedtime.
+c) Take a really hard run. After that, you will definitely fall asleep.
+b
+SLEEP
+It feels like I can’t form a good sleep rhythm. What could help?
+a) Try to go to bed at the same time every day of the week and don’t stay up too late on the weekends.
+b) Sleeping is overrated anyway. And it isn’t that serious if you take a nap during the lesson.
+c) Don’t worry, that sleep rhythm corrects itself.
+a
+SLEEP
+Falling asleep in the evening is so hard! What could help?
+a) Watch some tv-series until you start to feel tired
+and only then go to sleep.
+b) Browse social media on your cell phone in bed until you start to get tired.
+c) Eat supper 2-3 hours before bedtime and calm the evening from smart devices.
+c
+SLEEP
+I would just like to sleep all day, but the day’s chores should still be taken care of. Where can I get more energy?
+a) Make sure you get enough sleep at night, eat well, and exercise even a little during the day.
+b) Just drink enough energy drinks so you can handle your day’s responsibilities.
+c) The school can wait you to sleep off your sleep debt one day.
+a
+SLEEP
+I wake up constantly during the night. How do I get to sleep through the night?
+a) Sounds like something is bothering your mind. You could try to talk with a good friend or your parents.
+b) Definitely not a cause for concern. If you wake up at night, it’s totally ok just play with your phone until the sleep comes again.
+c) Stay awake later in the evening so no time is wasted spinning in bed.
+a
+SLEEP
+I would sleep well, but my environment is too noisy! What could I do about it?
+a) You should try earplugs and think if you can do something about the noise source.
+b) The only option is to move out.
+c) Just tune yourself in to a sense of gratitude so you don’t notice the noise.
+a
+SLEEP
+I sleep just fine, but I can’t do anything during the day. How can I cope with school days better?
+a) The energy drink provides great energy for tired days
+b) You could try adding some exercise to your daily routine and checking that you eat a variety of healthy foods.
+c) You can hide somewhere to sleep during the breaks.
+b
+SLEEP
+I tend to take naps in the daytime, but it has started to affect my sleep. What should I do?
+a) You can take long naps without any worries. You can then sleep less during the night.
+b) Don't by any means take a nap!  You will ruin the rest of your day!
+c) If you feel like you need to take a midday nap, limit your nap to 30 minutes or less and then get up.
+c
+SLEEP
+I do just fine with couple of hours of sleep! Sleep isn't that important, right? 
+a) Sleeping too little affects your concentration, vigilance and makes it harder to remember things.
+b) It’s wise to sleep just a little and use that time to do something more important.
+c) My parents manage with little sleep. Coffee saves the day! 
+a
+SLEEP
+I stress about sleeping so much that I can’t sleep!! What can I do?
+a) Go for an exhausting jog in the evening, that will make you so tired you don’t have the energy to stress. 
+b) Don’t stress about it, sleep will come if it comes. 
+c) Try some breathing and relaxing exercises, before going to bed. 
+c
+SPORTS
+Is it enough exercising and being outside if I jog for an hour on the balcony every day?
+a) Yeah, that’s great! No reason to leave the house! 
+b) Nah, 15 minutes is enough. 
+c) Your mind would get more active, if you went for a jog in the woods. 
+c
+SPORTS 
+I would like to be more active, but I don’t have the time. What can I do about it? 
+a) You could reduce the time you use with electronics and use that time for exercising. 
+b) You must exercise! Just take some time away from sleeping.
+c) Don’t worry about it, you can start exercising when you’re old.
+a
+SPORTS 
+I don’t have the proper equipment for exercising, what can I do? 
+a) Exercising is overrated. Why should you buy expensive equipment?
+b) Walking and running are efficient exercises. I bet you have at least one good shoes for it.
+c) Your parents will pay. Of course, you need the best possible equipment! 
+b
+SPORTS 
+I don’t think I'm in good enough shape to exercise. Where do I start? 
+a) Start with a 10km run. Your stamina will get better faster!
+b) Being active isn’t that important. If you get to school that’s hard enough.
+c) Start with a couple of half an hour walks in a week. Your mind will become more active, and your stamina will improve gradually. 
+c
+SPORTS 
+It’s too cold outside! Can I just stay inside where it’s warm? 
+a) Cold is good for muscles, just go for it!
+b) Just put enough clothes on, you will be fine. 
+c) Just burrow into the couch with warm blanket. 
+b
+SPORTS 
+It’s too hot outside to exercise! Can I just lay on the beach?
+a) Just put a hat on, sunblock on skin, a bottle of water in hand and your good to go!
+b) You don’t have to exercise in the summer. During heatwave you sweat enough already. 
+c) Just take your clothes off and out you go!
+a
+SPORTS 
+I can’t keep up with the rest of the gym class. What could I do about it?
+a) Trip all the others, then you’re all equally as fast.
+b) Let the others boast and skip the whole class.
+c) The most important thing is that you have fun during the class.
+c
+SPORTS 
+I would like to start exercising, but I’m too out of shape. Where should I start?
+a) Find free exercise videos online and start with them.
+b) Get a gym membership right away and start pumping iron!
+c) If you really wanted to exercise, you would’ve already started.
+a
+SPORTS 
+I think my friend exercises too much and is obsessed! Can it be harmful?
+a) You are just jealous, that your friend has the energy. 
+b) The main concern of training too much is overtraining and there can be many other negative side effects.
+c) Nah, don’t worry about it. Exercising is good for you, the more you exercise in better shape you are. 
+b
+SPORTS 
+I’d like to start jogging daily, but I don’t want to go alone. Who should I ask to come with me?  
+a) Your mom and dad of course! They would love to come with you.
+b) Only go if you can get your BFF to come with you.
+c) It doesn’t matter who you get to come with you as long as you just go!
+c
+SPORTS 
+Is exercising mandatory if I want to lose weight?
+a) Yes, dietary changes aren’t enough. With exercise you make sure you don’t lose muscle.
+b) Of course not, just leave few meals out and you will see the change in no time! 
+c) Exercising is the only way to lose weight, at minimum 6 times per week at gym and running on top of that. 
+a
+FOOD
+How can I learn to eat healthier, without relapsing to junk food?  
+a) Healthy food tastes horrible, just stick with whatever tastes good.
+b) You can find many good and tasty recipes for healthier food, but you can have cheat days occasionally.
+c) Junk food is bad for you, don’t eat anything that’s not healthy!
+b
+FOOD
+I eat twice a day, that’s enough right?
+a) That’s one too many. If you eat only once you can control your calorie intake better.
+b) Twice is just fine. Nobody got time to eat more often. 
+c) You should eat many small meals throughout the day. 
+c
+FOOD
+How can I remember to drink enough water? 
+a) Download an app that reminds you to drink regularly throughout the day. 
+b) It’s not so important, just drink a little more when you remember. 
+c) Just drink couple of energy drinks and you’re good to go. 
+a
+FOOD
+If I only eat once a day, I can eat all the junk food I want to, right? 
+a) Of course, only the calorie intake matters.
+b) It’s okay to eat junk food occasionally, but you should divide your intake to several smaller meals and think about nutrients.
+c) No, there are always consequences to eating junk food. If you only eat once per day, you should really pay attention to what you eat. Focus on vegetables and good fats.
+b
+FOOD
+I drink a lot of soda and energy drinks during the day, isn’t it good alternative for drinking water? 
+a) Of course, they are all liquids after all.
+b) Feeling thirsty is often just you are being hungry. So, drinking sugary sodas and energy drinks takes away the thirst and the hunger.
+c) No, both soda and energy drinks bind water in your body and increase the need of water. Water is best to quench your thirst.
+c
+FOOD
+Is it necessary to eat healthy food every day?
+a) Yes, every day so you don’t lose your boogie.
+b) Of course not, just try to eat healthy on most days.
+c) Just eat a carrot or something occasionally, and it’s all good.
+b
+FOOD
+How should I be eating if I want to lose weight?
+a) You should eat smaller meals more often, with enough vegetables and protein.
+b) It doesn’t matter what you eat, as long as you're exercising a lot.
+c) Eat as little as possible and your weight will start to drop.
+a
+FOOD
+I’m still very picky eater and I don’t know how to change this? 
+a) If you don’t like it, don’t eat it. No reason to sweat over it.
+b) Just start trying new stuff, you don’t have to like everything, but you can find new favorites. 
+c) You must eat everything; some kids don’t have food at all so you can’t be picky. 
+b
+FOOD
+When is the best time to eat an evening meal?
+a) Right before you go to sleep, so you can last until the morning.
+b) A few hours before going to bed, so the food has some time to go down before falling asleep.
+c) You shouldn’t ever eat an evening meal, it’s unnecessary snacking.
+b
+FOOD
+How much water should I really drink per day?
+a) Just drink whenever you’re thirsty, no more than that is needed.
+b) It depends on your weight, temperature and your activity level. A daily intake of about 2-3 liters is sufficient on average.
+c) The more, the better. Drinking water decreases appetite, so the more water you drink, the less you need to eat.
+b
+SOCIAL
+My friends never invite me to anything anymore and I don’t know why. What could I do?
+a) Let it be.
+b) Get some new friends.
+c) Tell them bluntly how you feel and ask for them to hang out with you.
+c
+SOCIAL
+I feel like my friend is keeping secrets from me and it bothers me. What should i do? T 
+a) Just tell them how you feel and talk about it.
+b) Go into full P.I mode and start following your friend everywhere. 
+c) Stop talking to your friend. That will teach them to treat you better.
+a
+SOCIAL
+I think my friend is depressed, how can I help them?  
+a) That’s what parents are for, they will help.
+b) Ask your friend out for a coffee or something and ask them how they are doing and let them know you are there for them. 
+c) Don’t worry about it, they are probably just tired. Tomorrow everything will be better. 
+b
+SOCIAL
+I don’t know what to do. My friends just started bullying me and I don’t know why?
+a) Just start bullying them back, playful bullying is good for friendships.
+b) Just let it be and forget about them. 
+c) You should talk to them about it and maybe bring an adult to the conversation. 
+c
+SOCIAL
+My friend has become distant from me. How could I fix our friendship?
+a) If your friend doesn’t want to spend time with you anymore, get new friends.
+b) Recommend your friend to do things together with you. They have likely just been busy.
+c) Stalk your friend on social media and intrude them.
+b
+SOCIAL
+My best friend is moving away! How could I maintain our friendship?
+a) Video calls are a great way to keep in touch with your friend and you could still visit each other if you don’t live too far apart.
+b) Friends come and go.
+C) You shouldn’t worry too much; your friendship will last if it shall.
+a
+SOCIAL
+My friends always want to do something I don’t want to do. How can I say no to them?  
+a) Let them know how you feel about it, if they truly are your friends they will listen. 
+b) Just suck it up, so you don’t hurt their feelings. 
+c) Suggest something you would like to do and if they don’t want to just let it go.
+a
+SOCIAL
+I would like my family to spend more time together, but how can I make this happen? 
+a) Friends are more important than family. Just invest more time to them instead. 
+b) Family parties are enough time to together.
+c) Just talk about it and suggest a game night or something. 
+c
+SOCIAL
+My crush likes my friend, instead of me! What should I do?
+a) Communicate your feelings openly to your friend and crush. It will be easier to deal with this awkward scenario if everyone is on the same page.
+b) If your friend also likes your crush, you should just let it be.
+c) You should forget your crush.
+a
+SOCIAL
+Sometimes I feel like my parents don’t get me at all. How can I make them understand me better? 
+a) If your parents don’t get you, just spend more time away from home. 
+b) Parents are always just stubborn and don’t understand anything.  
+c) Try talking to them, even about the difficult subjects and tell them how you are feeling.
+c
+HOBBIES
+I still haven’t found a hobby that would be right for me and I have tried just about everything. Should I just give up? 
+a) Come up with a new thing for yourself.
+b) If one of your friends has a hobby you'd like to try, ask if you could go with them and try it out.
+c) Just lying on the couch is a great hobby! 
+b
+HOBBIES
+My current hobby isn’t as fun as it used to be. Should I just keep going or figure something else out? 
+a) People change, you can always try to find a new hobby that you'd enjoy more.
+b) Just give up the hobby, hobbies are overrated. 
+c) Boredom is just a phase. Just keep at it and you will enjoy it again in no time. 
+a
+HOBBIES
+My parents want me to have a certain hobby, but It's just not for me. How can I tell them this? 
+a) Just lie to your parents and use the time to hang out with your friends.
+b) Tell them openly how you feel about the hobby and try to find a solution together.
+c) Just keep at it, if that is what your parents want. They know what is best for you. 
+b
+HOBBIES
+I like my hobby very much, but my parents don’t, and they are trying to take the hobby away from me. How could I change their mind?
+a) Tell them how important your hobby really is to you and try to make them understand.
+b) You should just stop the hobby and avoid conflict.
+c) Just ignore your parents and continue the hobby.
+a
+HOBBIES
+I get bored almost every day and I have no interests or hobbies. What should I do?
+a) Watching movies at home is a good enough hobby.
+b) Explore and try new hobbies that seem even a little interesting.
+c) Hang out with your friends, it is also a good hobby.
+b
+HOBBIES
+My friends think my hobby is weird! How could I convince them otherwise?
+a) Try to convince them to try your hobby. Maybe they could actually like it.
+b) You shouldn’t care about your friends’ opinions too much, just do whatever you like.
+c) You should stop your weird hobby to make sure your reputation doesn’t suffer.
+a
+HOBBIES
+My friend is considering ending our common hobby and I don't want to continue alone. What could I do?
+a) Pressure your friend to continue the hobby with you.
+b) You should support your friend’s decision and also end the hobby.
+c) Perhaps you could find some other friend who would be interested to do the hobby with you.
+c
+HOBBIES
+I would like to start a certain hobby, but I may already be too old for it. Could I still try?
+a) Age is just an excuse to be lazy.
+b) Think about what the others think
+c) Any age is the right age to pick a hobby, so go for it if you’d really want to.
+c
+HOBBIES
+I like my hobby, but I feel like I’m spending too much time on it. What can I do?
+a) Give up on the hobby.
+b) Try to manage the time spent on the hobby to fit the rest of your life.
+c) Put the hobby before everything else. 
+b
+HOBBIES
+I would like to start a hobby that is usually the opposite gender’s hobby, how can I tell my parents and friends about it?
+a) Forget the whole thing, it’s better to just go with the masses.
+b) Start the hobby but don’t tell anyone about it. If someone asks, then lie.
+c) Talk openly about your interests to your close relatives and explain to them why the hobby is important to you.
+c

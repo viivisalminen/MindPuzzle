@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -17,7 +16,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-
 public class QuestionScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
@@ -27,8 +25,6 @@ public class QuestionScreen implements Screen {
     private Table background;
     // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
     private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
 
     private TextButton buttonA, buttonB, buttonC, buttonX;
     private Texture bubble, characterTxt;
@@ -42,12 +38,10 @@ public class QuestionScreen implements Screen {
     public static String rightAnswer = "";
     public static String playersAnswer = "";
 
-
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public QuestionScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -129,41 +123,80 @@ public class QuestionScreen implements Screen {
             row = 0;
         }
 
-        if (prev.equals(app.socialRoom)) {
-            question = MainMenuScreen.questionsAboutSocial[row][0];
-            optionA = MainMenuScreen.questionsAboutSocial[row][1];
-            optionB = MainMenuScreen.questionsAboutSocial[row][2];
-            optionC = MainMenuScreen.questionsAboutSocial[row][3];
-            rightAnswer = MainMenuScreen.questionsAboutSocial[row][4];
-            row++;
-        } else if (prev.equals(app.sleepRoom)) {
-            question = MainMenuScreen.questionsAboutSleep[row][0];
-            optionA = MainMenuScreen.questionsAboutSleep[row][1];
-            optionB = MainMenuScreen.questionsAboutSleep[row][2];
-            optionC = MainMenuScreen.questionsAboutSleep[row][3];
-            rightAnswer = MainMenuScreen.questionsAboutSleep[row][4];
-            row++;
-        } else if (prev.equals(app.sportsRoom)) {
-            question = MainMenuScreen.questionsAboutSports[row][0];
-            optionA = MainMenuScreen.questionsAboutSports[row][1];
-            optionB = MainMenuScreen.questionsAboutSports[row][2];
-            optionC = MainMenuScreen.questionsAboutSports[row][3];
-            rightAnswer = MainMenuScreen.questionsAboutSports[row][4];
-            row++;
-        } else if (prev.equals(app.hobbiesRoom)) {
-            question = MainMenuScreen.questionsAboutHobbies[row][0];
-            optionA = MainMenuScreen.questionsAboutHobbies[row][1];
-            optionB = MainMenuScreen.questionsAboutHobbies[row][2];
-            optionC = MainMenuScreen.questionsAboutHobbies[row][3];
-            rightAnswer = MainMenuScreen.questionsAboutHobbies[row][4];
-            row++;
-        } else if (prev.equals(app.foodRoom)) {
-            question = MainMenuScreen.questionsAboutFood[row][0];
-            optionA = MainMenuScreen.questionsAboutFood[row][1];
-            optionB = MainMenuScreen.questionsAboutFood[row][2];
-            optionC = MainMenuScreen.questionsAboutFood[row][3];
-            rightAnswer = MainMenuScreen.questionsAboutFood[row][4];
-            row++;
+        if(app.getLanguage().equals("fi_FI")) {
+            if (prev.equals(app.socialRoom)) {
+                question = MainMenuScreen.questionsAboutSocialFIN[row][0];
+                optionA = MainMenuScreen.questionsAboutSocialFIN[row][1];
+                optionB = MainMenuScreen.questionsAboutSocialFIN[row][2];
+                optionC = MainMenuScreen.questionsAboutSocialFIN[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSocialFIN[row][4];
+                row++;
+            } else if (prev.equals(app.sleepRoom)) {
+                question = MainMenuScreen.questionsAboutSleepFIN[row][0];
+                optionA = MainMenuScreen.questionsAboutSleepFIN[row][1];
+                optionB = MainMenuScreen.questionsAboutSleepFIN[row][2];
+                optionC = MainMenuScreen.questionsAboutSleepFIN[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSleepFIN[row][4];
+                row++;
+            } else if (prev.equals(app.sportsRoom)) {
+                question = MainMenuScreen.questionsAboutSportsFIN[row][0];
+                optionA = MainMenuScreen.questionsAboutSportsFIN[row][1];
+                optionB = MainMenuScreen.questionsAboutSportsFIN[row][2];
+                optionC = MainMenuScreen.questionsAboutSportsFIN[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSportsFIN[row][4];
+                row++;
+            } else if (prev.equals(app.hobbiesRoom)) {
+                question = MainMenuScreen.questionsAboutHobbiesFIN[row][0];
+                optionA = MainMenuScreen.questionsAboutHobbiesFIN[row][1];
+                optionB = MainMenuScreen.questionsAboutHobbiesFIN[row][2];
+                optionC = MainMenuScreen.questionsAboutHobbiesFIN[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutHobbiesFIN[row][4];
+                row++;
+            } else if (prev.equals(app.foodRoom)) {
+                question = MainMenuScreen.questionsAboutFoodFIN[row][0];
+                optionA = MainMenuScreen.questionsAboutFoodFIN[row][1];
+                optionB = MainMenuScreen.questionsAboutFoodFIN[row][2];
+                optionC = MainMenuScreen.questionsAboutFoodFIN[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutFoodFIN[row][4];
+                row++;
+            }
+        } else {
+            if (prev.equals(app.socialRoom)) {
+                question = MainMenuScreen.questionsAboutSocial[row][0];
+                optionA = MainMenuScreen.questionsAboutSocial[row][1];
+                optionB = MainMenuScreen.questionsAboutSocial[row][2];
+                optionC = MainMenuScreen.questionsAboutSocial[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSocial[row][4];
+                row++;
+            } else if (prev.equals(app.sleepRoom)) {
+                question = MainMenuScreen.questionsAboutSleep[row][0];
+                optionA = MainMenuScreen.questionsAboutSleep[row][1];
+                optionB = MainMenuScreen.questionsAboutSleep[row][2];
+                optionC = MainMenuScreen.questionsAboutSleep[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSleep[row][4];
+                row++;
+            } else if (prev.equals(app.sportsRoom)) {
+                question = MainMenuScreen.questionsAboutSports[row][0];
+                optionA = MainMenuScreen.questionsAboutSports[row][1];
+                optionB = MainMenuScreen.questionsAboutSports[row][2];
+                optionC = MainMenuScreen.questionsAboutSports[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutSports[row][4];
+                row++;
+            } else if (prev.equals(app.hobbiesRoom)) {
+                question = MainMenuScreen.questionsAboutHobbies[row][0];
+                optionA = MainMenuScreen.questionsAboutHobbies[row][1];
+                optionB = MainMenuScreen.questionsAboutHobbies[row][2];
+                optionC = MainMenuScreen.questionsAboutHobbies[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutHobbies[row][4];
+                row++;
+            } else if (prev.equals(app.foodRoom)) {
+                question = MainMenuScreen.questionsAboutFood[row][0];
+                optionA = MainMenuScreen.questionsAboutFood[row][1];
+                optionB = MainMenuScreen.questionsAboutFood[row][2];
+                optionC = MainMenuScreen.questionsAboutFood[row][3];
+                rightAnswer = MainMenuScreen.questionsAboutFood[row][4];
+                row++;
+            }
         }
     }
 
@@ -176,11 +209,6 @@ public class QuestionScreen implements Screen {
         float buttonHeight = MindPuzzle.VIRTUAL_HEIGHT * 0.15f;
         float buttonWidth = MindPuzzle.VIRTUAL_WIDTH * 0.9f;
 
-        /*questionButton = new TextButton(question, skin, "default");
-        questionButton.getLabel().setFontScale(1.5f, 1.5f);
-        questionButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        questionButton.setSize(buttonWidth, buttonHeight * 1.25f);*/
-
         buttonA = new TextButton(optionA, skin, "default");
         buttonA.getLabel().setFontScale(1.5f, 1.5f);
         buttonA.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.325f);
@@ -188,6 +216,9 @@ public class QuestionScreen implements Screen {
         buttonA.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 setPlayersAnswer("a");
                 app.setScreen(app.answerScreen);
             }
@@ -200,6 +231,9 @@ public class QuestionScreen implements Screen {
         buttonB.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 setPlayersAnswer("b");
                 app.setScreen(app.answerScreen);
             }
@@ -212,6 +246,9 @@ public class QuestionScreen implements Screen {
         buttonC.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 setPlayersAnswer("c");
                 app.setScreen(app.answerScreen);
             }
@@ -223,11 +260,13 @@ public class QuestionScreen implements Screen {
         buttonX.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.previousScreen);
             }
         });
 
-        //stage.addActor(questionButton);
         stage.addActor(buttonA);
         stage.addActor(buttonB);
         stage.addActor(buttonC);
@@ -253,21 +292,19 @@ public class QuestionScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.715f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
             app.font30.draw(app.batch, question,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.915f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.45f,Gdx.graphics.getHeight() * 0.5f, characterRec.width * 0.6f, characterRec.height * 0.6f);
-        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth(), bubble.getHeight());
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.45f,Gdx.graphics.getHeight() * 0.475f, characterRec.width * 0.6f, characterRec.height * 0.6f);
+        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.715f, bubble.getWidth(), bubble.getHeight());
             app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.925f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.475f, characterRec.width, characterRec.height);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.75f, bubble.getWidth(), bubble.getHeight());
-            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.95f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.5f, characterRec.width, characterRec.height);
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.765f, bubble.getWidth(), bubble.getHeight());
+            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.8f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.475f, characterRec.width, characterRec.height);
         }
-
         app.batch.end();
     }
 

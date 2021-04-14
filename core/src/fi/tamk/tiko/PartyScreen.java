@@ -5,11 +5,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -22,10 +20,6 @@ public class PartyScreen implements Screen {
     private Stage stage;
     // Positions the background picture to the Screen.
     private Table background;
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
-    private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
     private String line = "";
     private Texture imgExit;
     private Texture imgExitPressed;
@@ -35,7 +29,6 @@ public class PartyScreen implements Screen {
     public PartyScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     @Override
@@ -45,7 +38,6 @@ public class PartyScreen implements Screen {
 
         imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
         imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
-
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -90,7 +82,6 @@ public class PartyScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
 
         app.batch.begin();
@@ -99,24 +90,16 @@ public class PartyScreen implements Screen {
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) { }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() { }
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() { }
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() { }
 
     @Override
     public void dispose() {

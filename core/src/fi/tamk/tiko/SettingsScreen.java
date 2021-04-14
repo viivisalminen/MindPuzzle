@@ -4,15 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -26,10 +22,6 @@ public class SettingsScreen implements Screen {
     private Stage stage;
     // Positions the background picture to the Screen.
     private Table background;
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
-    private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
 
     private ImageButton menuButton, soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
     private Texture menu, soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
@@ -39,7 +31,6 @@ public class SettingsScreen implements Screen {
     public SettingsScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -52,14 +43,14 @@ public class SettingsScreen implements Screen {
         if(app.getLanguage().equals("fi_FI")) {
             menu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
             menuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            soundsON = app.assets.get("images/Buttons/SoundsON_Settings.png", Texture.class);
-            soundsONPressed = app.assets.get("images/Buttons/SoundsON_SettingsPressed.png", Texture.class);
-            soundsOFF = app.assets.get("images/Buttons/SoundsOFF_Settings.png", Texture.class);
-            soundsOFFPressed = app.assets.get("images/Buttons/SoundsOFF_SettingsPressed.png", Texture.class);
-            musicON = app.assets.get("images/Buttons/MusicON_Settings.png", Texture.class);
-            musicONPressed = app.assets.get("images/Buttons/MusicON_SettingsPressed.png", Texture.class);
-            musicOFF = app.assets.get("images/Buttons/MusicOFF_Settings.png", Texture.class);
-            musicOFFPressed = app.assets.get("images/Buttons/MusicOFF_SettingsPressed.png", Texture.class);
+            soundsON = app.assets.get("images/Painonapit/PeliaanetON.png", Texture.class);
+            soundsONPressed = app.assets.get("images/Painonapit/PeliaanetONPainettu.png", Texture.class);
+            soundsOFF = app.assets.get("images/Painonapit/PeliaanetOFF.png", Texture.class);
+            soundsOFFPressed = app.assets.get("images/Painonapit/PeliaanetOFFPainettu.png", Texture.class);
+            musicON = app.assets.get("images/Painonapit/MusiikkiON.png", Texture.class);
+            musicONPressed = app.assets.get("images/Painonapit/MusiikkiONPainettu.png", Texture.class);
+            musicOFF = app.assets.get("images/Painonapit/MusiikkiOFF.png", Texture.class);
+            musicOFFPressed = app.assets.get("images/Painonapit/Musiikki_OFF2.png", Texture.class);
             finON = app.assets.get("images/Painonapit/SuomiON.png", Texture.class);
             finONPressed = app.assets.get("images/Painonapit/SuomiONPainettu.png", Texture.class);
             finOFF = app.assets.get("images/Painonapit/SuomiOFF.png", Texture.class);
@@ -68,7 +59,6 @@ public class SettingsScreen implements Screen {
             enONPressed = app.assets.get("images/Painonapit/EnglantiONPainettu.png", Texture.class);
             enOFF = app.assets.get("images/Painonapit/EnglantiOFF.png", Texture.class);
             enOFFPressed = app.assets.get("images/Painonapit/EnglantiOFFPainettu.png", Texture.class);
-
         } else {
             menu = app.assets.get("images/Buttons/Menu.png", Texture.class);
             menuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
@@ -80,20 +70,15 @@ public class SettingsScreen implements Screen {
             musicONPressed = app.assets.get("images/Buttons/MusicON_SettingsPressed.png", Texture.class);
             musicOFF = app.assets.get("images/Buttons/MusicOFF_Settings.png", Texture.class);
             musicOFFPressed = app.assets.get("images/Buttons/MusicOFF_SettingsPressed.png", Texture.class);
-            finON = app.assets.get("images/Painonapit/SuomiON.png", Texture.class);
-            finONPressed = app.assets.get("images/Painonapit/SuomiONPainettu.png", Texture.class);
-            finOFF = app.assets.get("images/Painonapit/SuomiOFF.png", Texture.class);
-            finOFFPressed = app.assets.get("images/Painonapit/SuomiOFFPainettu.png", Texture.class);
-            enON = app.assets.get("images/Painonapit/EnglantiON.png", Texture.class);
-            enONPressed = app.assets.get("images/Painonapit/EnglantiONPainettu.png", Texture.class);
-            enOFF = app.assets.get("images/Painonapit/EnglantiOFF.png", Texture.class);
-            enOFFPressed = app.assets.get("images/Painonapit/EnglantiOFFPainettu.png", Texture.class);
+            finON = app.assets.get("images/Buttons/FinnishON_Settings.png", Texture.class);
+            finONPressed = app.assets.get("images/Buttons/FinnishON_SettingsPressed.png", Texture.class);
+            finOFF = app.assets.get("images/Buttons/FinnishOFF_Settings.png", Texture.class);
+            finOFFPressed = app.assets.get("images/Buttons/FinnishOFF_SettingsPressed.png", Texture.class);
+            enON = app.assets.get("images/Buttons/EnglishON_Settings.png", Texture.class);
+            enONPressed = app.assets.get("images/Buttons/EnglishON_SettingsPressed.png", Texture.class);
+            enOFF = app.assets.get("images/Buttons/EnglishOFF_Settings.png", Texture.class);
+            enOFFPressed = app.assets.get("images/Buttons/EnglishOFF_SettingsPressed.png", Texture.class);
         }
-
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background2.png"))));
@@ -205,7 +190,6 @@ public class SettingsScreen implements Screen {
                 app.setLanguage(new Locale("en", "US"));
                 stage.addActor(finOFFButton);
                 show();
-
             }
         });
 
@@ -224,7 +208,6 @@ public class SettingsScreen implements Screen {
                 app.setLanguage(new Locale("fi", "FI"));
                 stage.addActor(finONButton);
                 show();
-
             }
         });
 
@@ -297,7 +280,6 @@ public class SettingsScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
     }
 

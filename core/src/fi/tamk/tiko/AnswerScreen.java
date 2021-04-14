@@ -6,35 +6,30 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class AnswerScreen implements Screen {
-
     private final MindPuzzle app;
-
     private Stage stage;
     private Table background;
     private Skin skin;
     private boolean answer;
     private String line = "";
-    private TextButton buttonX;
-    private ShapeRenderer shapeRenderer;
-    private Texture bubble, characterTxt;
-    private Rectangle characterRec, largerCharacter;
+    private ImageButton xButton;
+    private Texture bubble, characterTxt, exit, exitPressed;
+    private Rectangle largerCharacter;
 
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     @Override
@@ -43,9 +38,10 @@ public class AnswerScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
         largerCharacter = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
         bubble = app.assets.get("images/bubble.png", Texture.class);
+        exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
+        exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -59,15 +55,18 @@ public class AnswerScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
-
         app.addAnsweredQuestion(app.getPreviousScreen());
 
         if (checkTheAnswer()) {
             app.addPoint();
-            MainMenuScreen.right.play();
+            if(MainMenuScreen.getSound()) {
+                MainMenuScreen.right.play();
+            }
             line = "Yay your answer was right!";
         } else if (!(checkTheAnswer())) {
-            MainMenuScreen.wrong.play();
+            if(MainMenuScreen.getSound()) {
+                MainMenuScreen.wrong.play();
+            }
             line = "Oh no your answer wasn't that good!";
         }
     }
@@ -117,24 +116,35 @@ public class AnswerScreen implements Screen {
     }
 
     private void initButtons() {
-        float buttonSize = MindPuzzle.VIRTUAL_WIDTH * 0.075f;
-
-        buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.8f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
-        buttonX.setSize(buttonSize, buttonSize);
-        buttonX.addListener(new ClickListener() {
+        xButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(exit)),
+                new TextureRegionDrawable(new TextureRegion(exitPressed))
+        );
+        if(Gdx.graphics.getWidth() < 1000) {
+            xButton.setPosition((Gdx.graphics.getWidth() / 2 + exit.getWidth() / 3),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
+            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 - exit.getWidth() / 2),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
+            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH  / 2 + exit.getWidth() * 3f),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 2000) {
+            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 + exit.getWidth() * 4),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+        }
+        xButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.2f, MindPuzzle.VIRTUAL_WIDTH * 0.2f);
+        xButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if((app.getAnsweredQuestion("food") >= 5) && (app.getAnsweredQuestion("social") >= 5) && (app.getAnsweredQuestion("sleep") >= 5)
-                        && (app.getAnsweredQuestion("hobbies") >= 5) && (app.getAnsweredQuestion("sports") >= 5)) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                if((app.getAnsweredQuestion("food") >= 3) && (app.getAnsweredQuestion("social") >= 3) && (app.getAnsweredQuestion("sleep") >= 3)
+                        && (app.getAnsweredQuestion("hobbies") >= 3) && (app.getAnsweredQuestion("sports") >= 3)) {
                     app.setScreen(app.partyScreen);
                 } else {
                     app.setScreen(app.previousScreen);
                 }
             }
         });
-
-        stage.addActor(buttonX);
+        stage.addActor(xButton);
     }
 
     @Override
@@ -144,11 +154,9 @@ public class AnswerScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
 
         app.batch.begin();
-
         if(Gdx.graphics.getWidth() < 1000) {
             app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
             app.font30.draw(app.batch, line,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.9f);
@@ -159,44 +167,33 @@ public class AnswerScreen implements Screen {
             app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
         } else if (Gdx.graphics.getWidth() >= 1200) {
             app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.75f, bubble.getWidth(), bubble.getHeight());
-            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.9f);
+            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.8f);
             app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
         }
-
         app.batch.end();
     }
 
     public boolean checkTheAnswer() {
-
         if(QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
             answer = true;
         }
         else {
             answer = false;
         }
-
         return answer;
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) { }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() { }
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() { }
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() { }
 
     @Override
     public void dispose() {

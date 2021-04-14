@@ -4,15 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -26,21 +22,15 @@ public class SettingsPopUp implements Screen {
     private Stage stage;
     // Positions the background picture to the Screen.
     private Table background;
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
-    private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
 
-    private ImageButton soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
-    private Texture soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
-    private Texture soundsONPressed, soundsOFFPressed, musicONPressed, musicOFFPressed, finONPressed, finOFFPressed, enONPressed, enOFFPressed;
-    private TextButton buttonX;
+    private ImageButton xButton, soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
+    private Texture exit, soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
+    private Texture exitPressed, soundsONPressed, soundsOFFPressed, musicONPressed, musicOFFPressed, finONPressed, finOFFPressed, enONPressed, enOFFPressed;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public SettingsPopUp(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -50,6 +40,8 @@ public class SettingsPopUp implements Screen {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
+        exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
+        exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
         soundsON = app.assets.get("images/RoomSettings/SoundsON_Room.png", Texture.class);
         soundsONPressed = app.assets.get("images/RoomSettings/SoundsON_RoomPressed.png", Texture.class);
         soundsOFF = app.assets.get("images/RoomSettings/SoundsOFF_Room.png", Texture.class);
@@ -66,11 +58,6 @@ public class SettingsPopUp implements Screen {
         enONPressed = app.assets.get("images/RoomSettings/EnON_RoomPressed.png", Texture.class);
         enOFF = app.assets.get("images/RoomSettings/EnOFF_Room.png", Texture.class);
         enOFFPressed = app.assets.get("images/RoomSettings/EnOFF_RoomPressed.png", Texture.class);
-
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
@@ -168,7 +155,6 @@ public class SettingsPopUp implements Screen {
                 app.setLanguage(new Locale("en", "US"));
                 stage.addActor(finOFFButton);
                 show();
-
             }
         });
 
@@ -187,7 +173,6 @@ public class SettingsPopUp implements Screen {
                 app.setLanguage(new Locale("fi", "FI"));
                 stage.addActor(finONButton);
                 show();
-
             }
         });
 
@@ -249,16 +234,22 @@ public class SettingsPopUp implements Screen {
             stage.addActor(enONButton);
         }
 
-        buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.85f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        buttonX.setSize(MindPuzzle.VIRTUAL_HEIGHT * 0.075f, MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
-        buttonX.addListener(new ClickListener() {
+        xButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(exit)),
+                new TextureRegionDrawable(new TextureRegion(exitPressed))
+        );
+        xButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f);
+        xButton.setSize(buttonSize, buttonSize);
+        xButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
                 app.setScreen(app.previousScreen);
             }
         });
-        stage.addActor(buttonX);
+        stage.addActor(xButton);
     }
 
     // Called when the screen should render itself.
@@ -269,7 +260,6 @@ public class SettingsPopUp implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
     }
 

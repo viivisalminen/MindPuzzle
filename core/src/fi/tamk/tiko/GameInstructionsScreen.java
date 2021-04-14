@@ -18,7 +18,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // CreditsScreen contains information about the authors of the game,
 // the customer and possible source information of the material.
-public class CreditsScreen implements Screen {
+public class GameInstructionsScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
     // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
@@ -27,11 +27,11 @@ public class CreditsScreen implements Screen {
     private Table background;
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
-    private Texture imgMenu, imgMenuPressed, credits;
+    private Texture imgMenu, imgMenuPressed, instructions;
     private ImageButton imageMenu;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
-    public CreditsScreen(final MindPuzzle app) {
+    public GameInstructionsScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
@@ -48,11 +48,11 @@ public class CreditsScreen implements Screen {
         if(app.getLanguage().equals("fi_FI")) {
             imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Tekijat.png", Texture.class);
+            instructions = app.assets.get("images/Credits_and_instructions/Peliohjeet.png", Texture.class);
         } else {
             imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Credits.png", Texture.class);
+            instructions = app.assets.get("images/Credits_and_instructions/HowTo.png", Texture.class);
         }
 
         background = new Table();
@@ -100,11 +100,11 @@ public class CreditsScreen implements Screen {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
+            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.075f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f, instructions.getWidth() * 0.5f, instructions.getHeight() * 0.5f);
         } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
+            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f, instructions.getWidth() * 0.75f, instructions.getHeight() * 0.75f);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.7f, credits.getHeight() * 0.7f);
+            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f, instructions.getWidth() * 0.8f, instructions.getHeight() * 0.8f);
         }
         app.batch.end();
     }

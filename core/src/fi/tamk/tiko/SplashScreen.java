@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
@@ -71,8 +70,7 @@ public class SplashScreen implements Screen {
                 parallel(fadeIn(1.5f, Interpolation.pow2),
                         scaleTo(2f,2f,2.5f, Interpolation.pow5),
                         moveTo(MindPuzzle.VIRTUAL_WIDTH / 3.25f, MindPuzzle.VIRTUAL_HEIGHT / 2 - 32, 2f, Interpolation.swing)),
-                delay(1f), fadeOut(1.25f), run(transitionRunnable)));
-
+                delay(0.25f), fadeOut(1f), run(transitionRunnable)));
         stage.addActor(splashImg);
     }
 
@@ -84,7 +82,6 @@ public class SplashScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
     }
 
@@ -100,21 +97,15 @@ public class SplashScreen implements Screen {
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.
     @Override
-    public void pause() {
-        System.out.println("Pause!");
-    }
+    public void pause() { }
 
     // Called when the Application is resumed from a paused state, usually when it regains focus.
     @Override
-    public void resume() {
-        System.out.println("Resume!");
-    }
+    public void resume() { }
 
     // Called when this screen is no longer the current screen for a Game.
     @Override
-    public void hide() {
-        System.out.println("Hide!");
-    }
+    public void hide() { }
 
     // Called when the Application is destroyed. Disposes the stage and all its actors.
     @Override

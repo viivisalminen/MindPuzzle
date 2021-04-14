@@ -4,13 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -24,10 +21,6 @@ public class RoomMenuScreen implements Screen {
     private Stage stage;
     // Positions the background picture to the Screen.
     private Table background;
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
-    private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
 
     private Texture imgMenu, imgSleep, imgFood, imgHobbies, imgSports, imgSocial;
     private Texture imgMenuPressed ,imgSleepPressed, imgFoodPressed, imgHobbiesPressed, imgSportsPressed, imgSocialPressed;
@@ -37,7 +30,6 @@ public class RoomMenuScreen implements Screen {
     public RoomMenuScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -74,11 +66,6 @@ public class RoomMenuScreen implements Screen {
             imgSports = app.assets.get("images/RoomIcons/Sports.png", Texture.class);
             imgSportsPressed = app.assets.get("images/RoomIcons/SportsPressed.png", Texture.class);
         }
-
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -207,7 +194,6 @@ public class RoomMenuScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
     }
 

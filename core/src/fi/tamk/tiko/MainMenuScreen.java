@@ -6,36 +6,29 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // MainMenuScreen is the main menu of the game including play, how to play, settings, credits and exit.
 public class MainMenuScreen implements Screen {
     // Class MindPuzzle object that allows to set screen from inside this class.
     private final MindPuzzle app;
-
     // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
     private Stage stage;
     // Positions the background picture to the Screen.
     private Table background;
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc).
-    private Skin skin;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
 
-    private Texture imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
-    private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
     private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
+    private Rectangle logoRec;
+    private Texture logo, imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
+    private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
 
     public static Music music;
     public static boolean musicPlaying = true;
@@ -48,29 +41,27 @@ public class MainMenuScreen implements Screen {
     public static String[][] questionsAboutHobbies = new String[10][10];
     public static String[][] questionsAboutFood = new String[10][10];
 
-    /*public static String[][] questionsAboutSocialFIN = new String[10][10];
+    public static String[][] questionsAboutSocialFIN = new String[10][10];
     public static String[][] questionsAboutSleepFIN = new String[10][10];
     public static String[][] questionsAboutSportsFIN = new String[10][10];
     public static String[][] questionsAboutHobbiesFIN = new String[10][10];
-    public static String[][] questionsAboutFoodFIN = new String[10][10];*/
+    public static String[][] questionsAboutFoodFIN = new String[10][10];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
     }
 
     // Called when this screen becomes the current screen for a Game.
     // Resets everything on this screen to defaults.
     @Override
     public void show() {
-        // POISTA TÄMÄ!!!!!!!!!!!!!!!!!!!!!!!!!
-        System.out.println("Ruudun leveys: "+ Gdx.graphics.getWidth());
-        System.out.println("Ruudun korkeus: "+ Gdx.graphics.getHeight());
-
         Gdx.input.setInputProcessor(stage);
         stage.clear();
+
+        logo = app.assets.get("images/logo.png", Texture.class);
+        logoRec = new Rectangle(0,0,logo.getWidth(), logo.getHeight());
 
         if(app.getLanguage().equals("fi_FI")) {
             imgCredits = app.assets.get("images/Painonapit/Tekijat.png", Texture.class);
@@ -101,11 +92,6 @@ public class MainMenuScreen implements Screen {
         wrong = app.assets.get("sounds/wrong.mp3", Sound.class);
         music = app.assets.get("sounds/background.mp3", Music.class);
 
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
-
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
         background.setFillParent(true);
@@ -113,17 +99,17 @@ public class MainMenuScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
+        app.setPreviousScreen(app.mainMenuScreen);
 
         if(getMusic()) {
             music.play();
             music.setLooping(true);
             music.setVolume(1f);
         }
-
-        app.setPreviousScreen(app.mainMenuScreen);
     }
+
     // MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
-    public static void receiveQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public static void receiveENQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocial = social.clone();
         questionsAboutSleep = sleep.clone();
         questionsAboutSports = sport.clone();
@@ -131,13 +117,13 @@ public class MainMenuScreen implements Screen {
         questionsAboutFood = food.clone();
     }
 
-    /*public static void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public static void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocialFIN = social.clone();
         questionsAboutSleepFIN = sleep.clone();
         questionsAboutSportsFIN = sport.clone();
         questionsAboutHobbiesFIN = hobby.clone();
         questionsAboutFoodFIN = food.clone();
-    }*/
+    }
 
     // Initializes the buttons used in this screen.
     private void initButtons() {
@@ -169,6 +155,7 @@ public class MainMenuScreen implements Screen {
                 if(getSound()) {
                     sound.play();
                 }
+                app.setScreen(app.instructionsScreen);
             }
         });
 
@@ -227,7 +214,6 @@ public class MainMenuScreen implements Screen {
         stage.addActor(imageSettings);
     }
 
-
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
@@ -236,8 +222,11 @@ public class MainMenuScreen implements Screen {
 
         // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
-
         stage.draw();
+
+        app.batch.begin();
+        app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.2f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoRec.getWidth(), logoRec.getHeight());
+        app.batch.end();
     }
 
     public static void musicOn(){

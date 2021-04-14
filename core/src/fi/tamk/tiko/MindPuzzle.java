@@ -7,6 +7,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -25,9 +26,7 @@ public class MindPuzzle extends Game {
 	// Screen dimensions.
 	public static int VIRTUAL_WIDTH = 1080;
 	public static int VIRTUAL_HEIGHT = 1920;
-
-	// A camera with orthographic projection.
-	// Used in most of the screens
+	// A camera with orthographic projection. Used in most of the screens
 	public OrthographicCamera camera;
 	// Draws batched quads using indices.
 	public SpriteBatch batch;
@@ -68,6 +67,7 @@ public class MindPuzzle extends Game {
 	public QuestionScreen questionScreen;
 	public AnswerScreen answerScreen;
 	public PartyScreen partyScreen;
+	public GameInstructionsScreen instructionsScreen;
 
 	// The most recent screen is stored in the variable, which allows
 	// the return to the previous screen from the question screen.
@@ -92,22 +92,24 @@ public class MindPuzzle extends Game {
 		camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
 		batch = new SpriteBatch();
 
+		assets.load("images/background2.png", Texture.class);
+
 		initFonts();
-		fileEN = Gdx.files.internal("questions/questions.txt");
+		fileEN = Gdx.files.internal("questions/questionsEN.txt");
 		initTextFile(socialQuestions, "SOCIAL", fileEN);
 		initTextFile(sleepQuestions, "SLEEP", fileEN);
 		initTextFile(sportQuestions, "SPORTS", fileEN);
 		initTextFile(hobbyQuestions, "HOBBIES", fileEN);
 		initTextFile(foodQuestions, "FOOD", fileEN);
-		MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+		MainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
 
-		/*fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
+		fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
 		initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
 		initTextFile(sleepQuestionsFIN, "SLEEP", fileFIN);
 		initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
 		initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
 		initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
-		MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);*/
+		MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
 
 		loadingScreen = new LoadingScreen(this);
 		splashScreen = new SplashScreen(this);
@@ -124,6 +126,7 @@ public class MindPuzzle extends Game {
 		questionScreen = new QuestionScreen(this);
 		answerScreen = new AnswerScreen(this);
 		partyScreen = new PartyScreen(this);
+		instructionsScreen = new GameInstructionsScreen(this);
 
 		this.setScreen(loadingScreen);
 		setLanguage(Locale.getDefault());
@@ -152,7 +155,6 @@ public class MindPuzzle extends Game {
     private void initTextFile(String[][] array, String theme, FileHandle file) {
 		Scanner scanner = new Scanner(file.readString());
 		String line = "";
-		String longLine = "";
 
 		while(scanner.hasNext()) {
 			line = scanner.nextLine();
@@ -160,122 +162,22 @@ public class MindPuzzle extends Game {
 				column = 0;
 				line = scanner.nextLine();
 				if (line.contains("?")) {
-					if(line.length() >= 40 && line.length() < 80) {
-						longLine = new StringBuilder().append(line.substring(0, 40))
-								.append("\n").append(line.substring(40)).toString();
-						array[row][column] = longLine;
-					} else if(line.length() >= 80 && line.length() < 120) {
-						longLine = new StringBuilder().append(line.substring(0,40))
-								.append("\n").append(line.substring(40,80))
-								.append("\n").append(line.substring(80)).toString();
-						array[row][column] = longLine;
-					} else if(line.length() >= 120 && line.length() < 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,120))
-								.append("\n").append(line.substring(120)).toString();
-						array[row][column] = longLine;
-					} else if(line.length() >= 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,140))
-								.append("\n").append(line.substring(140)).toString();
-						array[row][column] = longLine;
-					} else {
-						array[row][column] = line;
-					}
+					lineUpText(array, line, 0);
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("a)")) {
-					if(line.length() >= 40 && line.length() < 80) {
-						longLine = new StringBuilder().append(line.substring(0, 40))
-								.append("\n").append(line.substring(40)).toString();
-						array[row][column + 1] = longLine;
-					} else if(line.length() >= 80 && line.length() < 120) {
-						longLine = new StringBuilder().append(line.substring(0,40))
-								.append("\n").append(line.substring(40,80))
-								.append("\n").append(line.substring(80)).toString();
-						array[row][column + 1] = longLine;
-					} else if(line.length() >= 120 && line.length() < 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,120))
-								.append("\n").append(line.substring(120)).toString();
-						array[row][column + 1] = longLine;
-					} else if(line.length() >= 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,140))
-								.append("\n").append(line.substring(140)).toString();
-						array[row][column + 1] = longLine;
-					} else {
-						array[row][column + 1] = line;
-					}
+					lineUpText(array, line, 1);
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("b)")) {
-					if(line.length() >= 40 && line.length() < 80) {
-						longLine = new StringBuilder().append(line.substring(0, 40))
-								.append("\n").append(line.substring(40)).toString();
-						array[row][column + 2] = longLine;
-					} else if(line.length() >= 80 && line.length() < 120) {
-						longLine = new StringBuilder().append(line.substring(0,40))
-								.append("\n").append(line.substring(40,80))
-								.append("\n").append(line.substring(80)).toString();
-						array[row][column + 2] = longLine;
-					} else if(line.length() >= 120 && line.length() < 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,120))
-								.append("\n").append(line.substring(120)).toString();
-						array[row][column + 2] = longLine;
-					} else if(line.length() >= 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,140))
-								.append("\n").append(line.substring(140)).toString();
-						array[row][column + 2] = longLine;
-					} else {
-						array[row][column + 2] = line;
-					}
+					lineUpText(array, line, 2);
 				}
 
 				line = scanner.nextLine();
 				if (line.contains("c)")) {
-					if(line.length() >= 40 && line.length() < 80) {
-						longLine = new StringBuilder().append(line.substring(0, 40))
-								.append("\n").append(line.substring(40)).toString();
-						array[row][column + 3] = longLine;
-					} else if(line.length() >= 80 && line.length() < 120) {
-						longLine = new StringBuilder().append(line.substring(0,40))
-								.append("\n").append(line.substring(40,80))
-								.append("\n").append(line.substring(80)).toString();
-						array[row][column + 3] = longLine;
-					} else if(line.length() >= 120 && line.length() < 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,120))
-								.append("\n").append(line.substring(120)).toString();
-						array[row][column + 3] = longLine;
-					} else if(line.length() >= 140) {
-						longLine = new StringBuilder().append(line.substring(0,35))
-								.append("\n").append(line.substring(35,70))
-								.append("\n").append(line.substring(70,105))
-								.append("\n").append(line.substring(105,140))
-								.append("\n").append(line.substring(140)).toString();
-						array[row][column + 3] = longLine;
-					} else {
-						array[row][column + 3] = line;
-					}
+					lineUpText(array, line, 3);
 				}
 
 				line = scanner.nextLine();
@@ -293,6 +195,36 @@ public class MindPuzzle extends Game {
 
 		row = 0;
 		scanner.close();
+	}
+
+	private void lineUpText(String[][] array, String line, int columnNo) {
+		String longLine = "";
+		if(line.length() >= 40 && line.length() < 80) {
+			longLine = new StringBuilder().append(line.substring(0, 40))
+					.append("\n").append(line.substring(40)).toString();
+			array[row][columnNo] = longLine;
+		} else if(line.length() >= 80 && line.length() < 120) {
+			longLine = new StringBuilder().append(line.substring(0,40))
+					.append("\n").append(line.substring(40,80))
+					.append("\n").append(line.substring(80)).toString();
+			array[row][columnNo] = longLine;
+		} else if(line.length() >= 120 && line.length() < 140) {
+			longLine = new StringBuilder().append(line.substring(0,35))
+					.append("\n").append(line.substring(35,70))
+					.append("\n").append(line.substring(70,105))
+					.append("\n").append(line.substring(105,120))
+					.append("\n").append(line.substring(120)).toString();
+			array[row][columnNo] = longLine;
+		} else if(line.length() >= 140) {
+			longLine = new StringBuilder().append(line.substring(0,35))
+					.append("\n").append(line.substring(35,70))
+					.append("\n").append(line.substring(70,105))
+					.append("\n").append(line.substring(105,140))
+					.append("\n").append(line.substring(140)).toString();
+			array[row][columnNo] = longLine;
+		} else {
+			array[row][columnNo] = line;
+		}
 	}
 
     public static void setVirtualWidth(int width) {
