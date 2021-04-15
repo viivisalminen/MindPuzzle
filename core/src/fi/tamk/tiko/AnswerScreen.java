@@ -23,6 +23,9 @@ public class AnswerScreen implements Screen {
     private Skin skin;
     private boolean answer;
     private String line = "";
+    private String rightLine = "";
+    private String wrongLine = "";
+    private String rightAnswer = "";
     private ImageButton xButton;
     private Texture bubble, characterTxt, exit, exitPressed;
     private Rectangle largerCharacter;
@@ -62,19 +65,29 @@ public class AnswerScreen implements Screen {
             MainMenuScreen.music.setVolume(0.4f);
         }
 
+        rightAnswer = QuestionScreen.getRightAnswerAsString();
+
+        if(app.getLanguage().equals("fi_FI")) {
+            rightLine = "Jei, vastasit oikein! Nyt voin hyvillä"+"\nmielin lähteä valmistautumaan kyläjuhliin!";
+            wrongLine = "Voi ei, vastauksesi ei ollut oikein."+"\nOikea vastaus olisi ollut: \n\n"+"\""+rightAnswer+"\"";
+        } else {
+            rightLine = "Awesome, you answered correctly!"+"\nNow I can happily set off"+"\nto prepare for the village party";
+            wrongLine = "Oh no your answer wasn't that good!"+"\nYou should have answered: \n\n"+"\""+rightAnswer+"\"";
+        }
+
         if (checkTheAnswer()) {
             app.addPoint();
             if(MainMenuScreen.getSound()) {
                 MainMenuScreen.right.play();
                 MainMenuScreen.right.setVolume(1f);
             }
-            line = "Yay your answer was right!";
+            line = rightLine;
         } else if (!(checkTheAnswer())) {
             if(MainMenuScreen.getSound()) {
                 MainMenuScreen.wrong.play();
                 MainMenuScreen.wrong.setVolume(1f);
             }
-            line = "Oh no your answer wasn't that good!";
+            line = wrongLine;
         }
     }
 
@@ -165,16 +178,16 @@ public class AnswerScreen implements Screen {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
-            app.font30.draw(app.batch, line,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.9f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width * 0.75f, largerCharacter.height * 0.75f);
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.6f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.85f);
+            app.font30.draw(app.batch, line,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.875f);
+            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.15f, largerCharacter.width * 0.75f, largerCharacter.height * 0.75f);
         } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.7f, bubble.getWidth(), bubble.getHeight());
-            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.9f);
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.6f, bubble.getWidth(), bubble.getHeight() * 1.25f);
+            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.875f);
             app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.75f, bubble.getWidth(), bubble.getHeight());
-            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.8f);
+            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.65f, bubble.getWidth(), bubble.getHeight() * 1.25f);
+            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.875f);
             app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
         }
         app.batch.end();

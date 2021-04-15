@@ -37,6 +37,7 @@ public class QuestionScreen implements Screen {
     public static String optionC = "";
     public static String rightAnswer = "";
     public static String playersAnswer = "";
+    public static String rightAnswerAsString = "";
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public QuestionScreen(final MindPuzzle app) {
@@ -120,7 +121,7 @@ public class QuestionScreen implements Screen {
     }
 
     private void initQuestions(Screen prev) {
-        if(row == 10) {
+        if(row == 14) {
             row = 0;
         }
 
@@ -199,11 +200,24 @@ public class QuestionScreen implements Screen {
                 row++;
             }
         }
+        setRightAnswerAsString();
     }
 
     public static String getRightAnswer() {
         return rightAnswer;
     }
+
+    private void setRightAnswerAsString() {
+        if(rightAnswer.equals("a")) {
+            rightAnswerAsString = optionA;
+        } else  if(rightAnswer.equals("b")) {
+            rightAnswerAsString = optionB;
+        } else  if(rightAnswer.equals("c")) {
+            rightAnswerAsString = optionC;
+        }
+    }
+
+    public static String getRightAnswerAsString() { return rightAnswerAsString; }
 
     // Initializes the buttons used in this screen.
     private void initButtons() {

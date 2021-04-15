@@ -38,16 +38,16 @@ public class MindPuzzle extends Game {
     public AssetManager assets;
 
     public FileHandle fileEN, fileFIN;
-    public static String[][] socialQuestions = new String[10][10];
-    public static String[][] sleepQuestions = new String[10][10];
-    public static String[][] sportQuestions = new String[10][10];
-    public static String[][] hobbyQuestions = new String[10][10];
-    public static String[][] foodQuestions = new String[10][10];
-    public static String[][] socialQuestionsFIN = new String[10][10];
-    public static String[][] sleepQuestionsFIN = new String[10][10];
-    public static String[][] sportQuestionsFIN = new String[10][10];
-    public static String[][] hobbyQuestionsFIN = new String[10][10];
-    public static String[][] foodQuestionsFIN = new String[10][10];
+    public static String[][] socialQuestions = new String[15][15];
+    public static String[][] sleepQuestions = new String[15][15];
+    public static String[][] sportQuestions = new String[15][15];
+    public static String[][] hobbyQuestions = new String[15][15];
+    public static String[][] foodQuestions = new String[15][15];
+    public static String[][] socialQuestionsFIN = new String[15][15];
+    public static String[][] sleepQuestionsFIN = new String[15][15];
+    public static String[][] sportQuestionsFIN = new String[15][15];
+    public static String[][] hobbyQuestionsFIN = new String[15][15];
+    public static String[][] foodQuestionsFIN = new String[15][15];
     public int row = 0;
     public int column = 0;
 
@@ -177,10 +177,10 @@ public class MindPuzzle extends Game {
                     array[row][column + 4] = line;
                 }
 
-                if (row < 9) {
+                if (row < 14) {
                     row++;
                 }
-                else if (row == 9) {
+                else if (row == 14) {
                     break;
                 }
             }

@@ -59,6 +59,37 @@ a) Go for an exhausting jog in the evening, that will make you so tired you don�
 b) Don’t stress about it, sleep will come if it comes. 
 c) Try some breathing and relaxing exercises, before going to bed. 
 c
+SLEEP
+We have a test tomorrow and I'm thinking should I go through the material for a third time tonight? 
+a) Absolutely! You have to cram for several hours before going to sleep.
+b) You’ll do better at the test, if you spend your evening relaxing and go to bed early, so you are rested in the morning. 
+c) Of course not. You don’t have to study for a test at all. 
+b
+SLEEP
+It’s 9 pm and my friend wants us to go and buy energy drinks, but we have school next morning at 8 am. What should I do?
+a) You go buy the energy drinks and go to his house to play playstation. 
+b) Tell your friend you don’t want to drink energy drinks this late ‘cause it affects your sleep. 
+c) You by the energy drinks so you guys can stay up longer studying.
+B
+SLEEP
+Is it okay if stay up all night studying for a test on  the last night? 
+a) You should start preparing for test well ahead of time, so you can spend the last night relaxing and maybe take a quick glance at the harder stuff.
+b) Sure it is, that’s when you should start studying. 
+c) That sounds like an awesome plan. You are going to ace it!
+A
+SLEEP
+I got in to a huge fight with my best friend today and now i can’t sleep because of it. What can i do?
+a) Stop worrying and just go to sleep.
+b) If it’s already late, write your thougts down, then you can talk about it with your friend tomorrow.
+c) You have to go to friend right now and work this out. You don’t go to sleep angry.
+B
+SLEEP
+If i stretch before going to bed, how does it affect my sleep? 
+a) Light streching in the evening is a exelent part of evening routines. 
+b) Little exercising in the evening makes you nice and tired, it’s good for your sleep!
+c) Stretching is so over rated mumbojumbo, it does nothing to your sleep! 
+a
+
 SPORTS
 Is it enough exercising and being outside if I jog for an hour on the balcony every day?
 a) Yeah, that’s great! No reason to leave the house! 
@@ -124,7 +155,44 @@ Is exercising mandatory if I want to lose weight?
 a) Yes, dietary changes aren’t enough. With exercise you make sure you don’t lose muscle.
 b) Of course not, just leave few meals out and you will see the change in no time! 
 c) Exercising is the only way to lose weight, at minimum 6 times per week at gym and running on top of that. 
-a
+A
+SPORTS
+My friend doesn’t exercise at all! How can I get him to exercise?
+a) Go for a light jog and ask your friend to come with you.
+b) Sounds like it’s your friend’s personal problem.
+c) Maybe exercising just isn’t for them. 
+A
+SPORTS
+I don’t understand why we have P.E in school? 
+a) Exercising is an important part of a healthy lifestyle and P.E classes are a great way to introduce teens to the idea of regular exercise.
+b) I know! P.E classes are so pointless, why should I sweat at school?
+c) Exercising is fun, but P.E classes suck and are super lame. 
+A
+SPORTS
+Is it enough exercising if I walk to school every day?
+a) Of course not, you have to exercise all day every day to keep in shape. 
+b) You should get an hour of active exercising every day. If you walk at a quick pace and it takes about an hour, then yes it could be.
+c) Yes, it is. Who has time or energy for more?
+B
+SPORTS
+I only have motivation to exercise at times when I can’t. Can I just play hookie and go exercising?
+a) Of course not. Just exercise in the middle of the class, if you feel like it. Teachers will understand.
+b) Try adding small things to your day that count as exercise. Cycling to school for example is a good way to add some exercise to your week.
+c) If it is the boring teacher again, then go for it. You have to put your well-being first and go exercising! 
+B
+SPORTS
+I can’t gain any muscle even if I go to the gym a lot. Is there anything I can do?
+a) If it’s not happening for you, just give up.
+b) There must be something wrong with you or you're doing it wrong!
+c) Developing your muscles is a long and tedious process, it might take months or even years. Just keep training and you will see results eventually.
+C
+SPORTS
+None of my friends are exercising. Why should I? 
+a) You shouldn’t, don’t deviate from your friend group’s policies.
+b) Exercising is important, it’s no reason to not exercise if your friends don’t want to.
+c) Right, who even likes exercising. It gets you all sweaty and nasty.
+b
+
 FOOD
 How can I learn to eat healthier, without relapsing to junk food?  
 a) Healthy food tastes horrible, just stick with whatever tastes good.
@@ -184,7 +252,38 @@ How much water should I really drink per day?
 a) Just drink whenever you’re thirsty, no more than that is needed.
 b) It depends on your weight, temperature and your activity level. A daily intake of about 2-3 liters is sufficient on average.
 c) The more, the better. Drinking water decreases appetite, so the more water you drink, the less you need to eat.
+B
+FOOD
+I would like to try vegetarian diet, but I don’t know how to start?
+a) Don’t do it, bacon and cheeseburgers are delicious! 
+b) Just take out all the meat. Vegetarians eat only veggies so from this point forward you jsut eat salad.
+c) You should look recipes online, talk to actual dietician and gradually start removing meat products from your diet. 
+c
+FOOD
+I think I'm allergic to something, but I'm not sure. What should I do about it? 
+a) Try avoiding it and talk to your doctor about getting tested. 
+b) Expose yourself to it, just to be sure.
+c) You could try immunotherapy at home. 
+a
+FOOD
+I’m not sure if the food I've been eating is healthy or not, can I check it somehow?
+a) You can check the nutritional values from food packs and see how it fits your daily energy needs.
+b) Well, if it tastes good it’s probably good for you.
+c) Everything green is good for you. Bread, meat, sugar and salt are bad for you. 
+a
+FOOD
+My friend thinks that they eat healthy, but I think they eat too little. Can I do something?
+a) Your friend knows best! Just let them do their thing. 
+b) Could be that they honestly think they are healthy, but can’t see the downside of their diet. You should talk to them about your concerns.
+c) Try looking online for evidence to back you up and tell them. You have to save them!  
 b
+FOOD
+How much coffee is too much on a daily basis?
+a) There is no such thing as too much coffee.
+b) It depends on the time of the day.
+c) Even four cups of coffee is enough. 
+c
+
 SOCIAL
 My friends never invite me to anything anymore and I don’t know why. What could I do?
 a) Let it be.
@@ -219,7 +318,7 @@ SOCIAL
 My best friend is moving away! How could I maintain our friendship?
 a) Video calls are a great way to keep in touch with your friend and you could still visit each other if you don’t live too far apart.
 b) Friends come and go.
-C) You shouldn’t worry too much; your friendship will last if it shall.
+c) You shouldn’t worry too much; your friendship will last if it shall.
 a
 SOCIAL
 My friends always want to do something I don’t want to do. How can I say no to them?  
@@ -244,7 +343,38 @@ Sometimes I feel like my parents don’t get me at all. How can I make them unde
 a) If your parents don’t get you, just spend more time away from home. 
 b) Parents are always just stubborn and don’t understand anything.  
 c) Try talking to them, even about the difficult subjects and tell them how you are feeling.
-c
+C
+SOCIAL
+My friend has betrayed my trust, but doesn’t see it as a problem. How can I make them understand my point? 
+a) They didn’t mean it, just let it go. 
+b) Bring it up with them and explain how you experienced what happened and how it made you feel.
+c) Time for revenge, let’s get even. That’ll teach them! 
+B
+SOCIAL
+My family member has been distant. How can I help them?
+a) Try to suggest some activities to do together that you know they like.
+b) They will ask if and when they want to spend time together. 
+c)  They just don’t want to spend time together. 
+A
+SOCIAL
+I think my friend is depressed, but they won’t talk to me about it. How can I help them?
+a) If they don’t want to talk to you, suggest them to talk with a professional, like the school psychologist.
+b) Make them talk to you. They have to get over the depression.
+c) Bring it up with their parents. 
+A
+SOCIAL
+All my friends are dating already, but I'm not. Am I just a bad person, for not finding a partner?
+a) If nobody is interested in you, then surely there must be something wrong with you.
+b) There is no reason to rush in to dating. You will find the right person when the time is right.  
+c) It’s so lame if you’re the only one not dating.
+B
+SOCIAL
+I like a person of the same sex, but I don’t have the courage to tell anyone. What should I do?
+a) It’s totally fine but it’s just a phase. Just let it be and it will pass.
+b) There are many platforms online where you can have conversations anonymously and get the courage to tell your friends. Just don’t suffocate yourself. 
+c) Never ever tell anyone about it. They will just judge you.
+b
+
 HOBBIES
 I still haven’t found a hobby that would be right for me and I have tried just about everything. Should I just give up? 
 a) Come up with a new thing for yourself.
@@ -258,7 +388,7 @@ b) Just give up the hobby, hobbies are overrated.
 c) Boredom is just a phase. Just keep at it and you will enjoy it again in no time. 
 a
 HOBBIES
-My parents want me to have a certain hobby, but It's just not for me. How can I tell them this? 
+My parents want me to have a certain hobby, but it's just not for me. How can I tell them this? 
 a) Just lie to your parents and use the time to hang out with your friends.
 b) Tell them openly how you feel about the hobby and try to find a solution together.
 c) Just keep at it, if that is what your parents want. They know what is best for you. 
@@ -304,4 +434,34 @@ I would like to start a hobby that is usually the opposite gender’s hobby, how
 a) Forget the whole thing, it’s better to just go with the masses.
 b) Start the hobby but don’t tell anyone about it. If someone asks, then lie.
 c) Talk openly about your interests to your close relatives and explain to them why the hobby is important to you.
+C
+HOBBIES
+I Feel like i have too many hobbies, but i don’t want to quit any. What to do? 
+a) If your hobbies don’t interfere with scool work and you get enough rest, you can keep as many hobbies as you like. 
+b) How can anyone have more than one hobby, just quit some already! 
+c) Lets throw a dice and see what hobbies to quit. It lets you concentrate better on the others.
+A
+HOBBIES
+I constantly start new hobbies, but i don’t keep at them more then couple of weeks. How can i find a hobby that i really like? 
+a) Could be that you just haven’t found your thing yet. But it is good that you’re trying lots of stuff!
+b) You shoud just pick one and stick with it. Maybe someting your friend is doing! 
+c) You should just keep at it little longer so you would actually know whether you like or not. 
+A
+HOBBIES
+Gaming is my favourite hobby, but sometimes i wonder if i game too much. Could i be gameaddict? 
+a) You are aware of the risk so you are okay.  
+b) They always say you should have a hobby and you can’t spend too much time with your hobbies. 
+c) If your gaming is starting to affect your sleeping and there for your schoolwork, you should think about reducing your gaming time.
+C
+HOBBIES
+I would like to elevate my hobby to a profession in the future, but nobody thinks i can do it. Am i living a pipe dream? 
+a) Believe in yourself and in your dreams and it will be possibe. Just remember to have a backup plan just in case. 
+b) Yes, you are living a pipe dream. All work is tedious and it’s not supposed to be fun and games. 
+c) Other probably know that you are not good enough to make that hobby into a profession.
+A
+HOBBIES
+I don’t have the courage to play in front of everybody at music class anymore, everybody else is so much better than me. Do i have to? 
+a) Music is useless anyway. Just skip the classes and study history instead.
+b) Of course not. Just let the best drummers and guitarists play so they don’t get frustrated. 
+c) School is for learning and you don’t have to be the best at everything to able to do it. The important thing is to go out there and do your best.
 c

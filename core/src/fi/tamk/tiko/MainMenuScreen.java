@@ -35,17 +35,17 @@ public class MainMenuScreen implements Screen {
     public static Sound sound;
     public static boolean soundOn = true;
 
-    public static String[][] questionsAboutSocial = new String[10][10];
-    public static String[][] questionsAboutSleep = new String[10][10];
-    public static String[][] questionsAboutSports = new String[10][10];
-    public static String[][] questionsAboutHobbies = new String[10][10];
-    public static String[][] questionsAboutFood = new String[10][10];
+    public static String[][] questionsAboutSocial = new String[15][15];
+    public static String[][] questionsAboutSleep = new String[15][15];
+    public static String[][] questionsAboutSports = new String[15][15];
+    public static String[][] questionsAboutHobbies = new String[15][15];
+    public static String[][] questionsAboutFood = new String[15][15];
 
-    public static String[][] questionsAboutSocialFIN = new String[10][10];
-    public static String[][] questionsAboutSleepFIN = new String[10][10];
-    public static String[][] questionsAboutSportsFIN = new String[10][10];
-    public static String[][] questionsAboutHobbiesFIN = new String[10][10];
-    public static String[][] questionsAboutFoodFIN = new String[10][10];
+    public static String[][] questionsAboutSocialFIN = new String[15][15];
+    public static String[][] questionsAboutSleepFIN = new String[15][15];
+    public static String[][] questionsAboutSportsFIN = new String[15][15];
+    public static String[][] questionsAboutHobbiesFIN = new String[15][15];
+    public static String[][] questionsAboutFoodFIN = new String[15][15];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {

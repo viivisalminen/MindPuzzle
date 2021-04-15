@@ -58,6 +58,37 @@ a) Käy illalla oikein raskaalla juoksu- lenkillä niin kyllä se uni sieltä tu
 b) Ei siitä kannata ottaa stressiä.     Uni tulee, jos on tullakseen.
 c) Yritä jotain hengitys- tai rentou-   tusharjoitusta ennen nukkumaanmenoa.
 c
+SLEEP
+Huomenna olisi koe ja mietin, pitäisikö tenttialue päntätä vielä kolmannen kerran läpi illalla?
+a) Ehdottomasti! Ilman muuta pänttäät monta tuntia juuri ennen nukkumaanmenoa.
+b) Pärjäät varmasti kokeessa paremmin, jos otat rennosti illalla ja menet ajoissa nukkumaan.
+c) Ei tietenkään. Ei kokeisiin tarvitsisi valmistautua lainkaan.
+b
+SLEEP
+Kello on 21:00 ja kaverini ehdottaa, että ostaisimme energiajuomat, mutta seuraavana aamuna on kahdeksalta koulua. Mitä teen?
+a) Ostatte energiajuomat ja menette pelaamaan pleikkaria kaverin luo.
+b) Kerrot kaverillesi, että et halua juoda energiajuomaa näin myöhään, koska se vaikuttaisi yöuniin.
+c) Ostatte energiajuomat, jotta jaksatte opiskella pidempään. 
+b
+SLEEP
+Haittaako, jos valvon ja luen kokeeseen koko yön ennen koepäivää?
+a) Kokeeseen kannattaisi valmistautua hyvissä ajoin, jotta edeltävänä päivänä voisit ottaa rennommin ja halutessasi pikaisesti kerrata asioita.
+b) Ei tietenkään. Ei kokeisiin kannatakaan sen aiemmin lukea.
+c) Kuulostaa todella hyvältä suunnitelmalta. Loistat varmasti kokeessa!
+a
+SLEEP
+Minulla oli tänään iso riita parhaan ystäväni kanssa ja en sen takia saa unta. Mitä voisin tehdä?
+a) Lopeta murehtiminen ja ala nukkumaan.
+b) Jos on jo myöhä, kirjoita ajatuksiasi ylös paperille. Puhut ystäväsi kanssa sitten huomenna.
+c) Nyt äkkiä menet ystäväsi luo ja selvitätte välinne. Ei riidoissa saa mennä nukkumaan.
+b
+SLEEP
+Jos venyttelen ennen nukkumaanmenoa, miten se vaikuttaa uneen?
+a) Rauhallinen venyttely illalla on erinomainen osa iltarutiinia.
+b) Pieni urheilu illalla saa väsyttämään ja on hyväksi unelle!
+c) Venyttely on täysin yliarvostettu hössötystä eikä varmasti paranne yöuniasi.
+a
+
 SPORTS
 Onko se tarpeeksi liikuntaa ja ulkoil-  maa, jos hölkkään parvekkeella tunnin   joka päivä?
 a) Hienosti! Eipähän tarvitse poistua   kotoa mihinkään.
@@ -124,6 +155,37 @@ a) Kyllä, pelkkä ruokavalio muutos ei   riitä. Liikunnalla varmistat, että p
 b) Ei tietenkään jätät vain muutaman    aterian välistä niin paino lähtee       putoamaan.
 c) Liikunta on ainoa tapa pudottaa pai- noa, vähintään 6 kertaa viikossa salille ja juoksu lenkit päälle.
 a
+SPORTS 
+Onko liikunta pakollista, jos haluan pudottaa painoani?
+a) Kyllä, pelkkä ruokavalion muutos ei riitä. Liikunnalla varmistat, että paino lähtee oikeista paikoista.
+b) Ei tietenkään jätät vain muutaman aterian välistä niin paino lähtee putoamaan.
+c) Liikunta on ainoa tapa pudottaa painoa, vähintään 6 kertaa viikossa salille ja juoksulenkit päälle.
+a
+SPORTS 
+Ystäväni ei liiku ollenkaan! Miten saisin hänet liikkumaan?
+a) Mene lenkille ja pyydä häntä mukaan!
+b) Se on hänen ongelmansa, älä puutu.
+c) Ehkä liikkuminen ei vain ole hänen juttunsa.
+a
+SPORTS 
+Minulla on motivaatiota liikkua vain silloin kun en voi! Voinko karata kesken koulupäivän liikkumaan?
+a) Et tietenkään. Liikut vaikka kesken tunnin, jos siltä tuntuu. Kyllä opettaja ymmärtää.
+b) Kokeile lisätä arkeesi hyötyliikuntaa. Esim. pyöräily kouluun on hyvä tapa lisätä liikuntaa kouluviikkoihin.
+c) Jos sinulla on taas sen tylsän opettajan tunti, niin ehdottomasti laitat hyvinvointisi etusijalle ja lähdet liikkumaan!
+b
+SPORTS 
+Miksen saa lihasmassaa, vaikka käyn todella paljon salilla?
+a) Lopeta yrittäminen, jos mitään ei tapahdu.
+b) Sinussa on siis pakko olla jokin vialla tai sitten teet jotain väärin!
+c) Lihasten kehittyminen on pitkä prosessi ja siinä voi kestä kuukausista jopa vuosiin. Jatkat vain treenaamista!
+c
+SPORTS 
+Kukaan kavereistani ei urheile. Miksi minunkaan pitäisi?
+a) Ei tarvitsekaan, eikä sinun kannata poiketa kaveriporukkasi toimintatavoista.
+b) Liikunta on tärkeää, eikä sinun kannata sen takia olla urheilematta, että kaverisikaan eivät urheile.
+c) Niinpä. Kuka edes oikeasti pitää urheilusta. Tulee hikikin ja kaikkee.
+b
+
 FOOD
 Kuinka oppisin syömään terveellisesti   ilman, että sorrun toistuvasti herkutte-lemaan?
 a) Terveellinen ruoka on pahaa. Kannat- taa vain syödä sitä mikä on hyvää.
@@ -184,6 +246,37 @@ a) Juot silloin kun on jano, ei sitä sen enempää tarvitse.
 b) Veden tarpeeseen vaikuttaa paino,    lämpötila ja aktiivisuus. Keskimääräinen veden tarve on noin 2-3 litraa.
 c) Enemmän on parempi, juominen pitää   nälän tunteen loitolla eli mitä enemmän juot, sitä vähemmän tarvitsee syödä.
 b
+FOOD
+Haluaisin kokeilla vegetaristista dieettiä, mutta en tiedä mistä aloittaa?
+a) Miten voisit elää ilman hamppareita ja pekonia!
+b) Saman tien kaikki liha ja muu pois. Vegetaristit syövät pelkkiä kasviksia, joten tästä lähtien syöt pelkkää salaattia.
+c) Netistä voi alkaa tutkimaan mahdollisia reseptejä ja voit pikkuhiljaa vähentää lihankäyttöä.
+c
+FOOD
+Luulen olevani allerginen jollekin, mutta en ole varma. Mitä minun kannattaisi tehdä?
+a) Voit yrittää sen tietyn asian välttämistä ja pyrkiä allergiatesteihin.
+b) Altista itsesi sille ollaksesi varma.
+c) Voit yrittää kotitekoista siedätyshoitoa.
+a
+FOOD
+En ole varma onko syömäni ruoka terveellistä vai ei. Miten tarkistan?
+a) Voit tarkistaa ruuan ravintoarvot sen pakkauksesta ja tarkista kuinka se sopii päivittäisiin energiatarpeisiisi.
+b) No jos se maistuu hyvältä, niin se on varmaan hyväksi.
+c) Kaikki vihreä on hyväksi. Leipä, liha, sokeri ja suola ovat pahaksi.
+a
+FOOD
+Ystäväni luulee, että hän syö terveellisesti, mutta mielestäni hän syö liian vähän. Mitä tekisin?
+a) Kyllä ystäväsi tietää paremmin! Antaa hänen tehdä omia juttujaan. 
+b) Voi olla, että hän rehellisesti uskoo olevansa terve, mutta ei näe dieetin haittaa. Sinun kannattaa kertoa hänelle olevasi huolissasi.
+c) Yritä etsiä netistä tietoa, joka tukee tätä ja selitä se hänelle todisteiden kera. Tuollainen peli ei vetele! 
+b
+FOOD
+Kuinka paljon kahvia on liian paljon kahvia?
+a) Kahvia ei voi ikinä olla liikaa.
+b) Riippuu päivänajasta.
+c) Jo neljä kuppia päivässä on aivan tarpeeksi.
+c
+
 SOCIAL
 Ystäväni eivät enää kutsu minua yhtei-  siin juttuihin enkä tiedä miksi. Mitä   voisin tehdä? 
 a) Antaa asian olla.
@@ -244,6 +337,37 @@ a) Jos vanhempasi eivät ymmärrä sinua,  kannattaa viettää enemmän aikaa po
 b) Vanhemmat ovat aina vähän jääräpäitä, eivätkä ymmärrä millään. 
 c) Pyri keskustelemaan vaikeistakin     asioista vanhempiesi kanssa ja kertomaan omista tuntemuksistasi.
 c
+SOCIAL
+Ystäväni on pettänyt luottamukseni, mutta hän ei koe sitä ongelmana. Miten ilmaisen asian minun näkökulmastani?
+a) Ei hän varmaan sitä tarkoittanut. Anna asian olla.
+b) Tuo asia esille ystäväsi kanssa henkilökohtaisesti ja selitä miten koit tilanteen tapahtuneen.
+c) Anna samalla mitalla takaisin niin hän oppii.
+b
+SOCIAL
+Perheenjäseneni on ollut todella etäinen muita kohtaan. Miten voisin auttaa?
+a) Ehdota jotain yhteistä tekemistä mistä hän tykkää.
+b) Kyllä hän sitten kysyy, jos hän haluaa tehdä jotain yhdessä.
+c) Häntä ei nyt vain huvita seurustella muiden kanssa.
+a
+SOCIAL
+Luulen, että ystäväni on masentunut, mutta hän ei suostu puhumaan siitä minulle. Miten voisin auttaa?
+a) Yritä suositella hänelle vaikka koulun psykologille puhumista.
+b) Pakota hänet puhumaan sinulle. Kyllä hänen jotenkin pitää päästä yli masennuksestaan.
+c) Tuo asia esiin hänen vanhempiensa kanssa. 
+a
+SOCIAL
+Kaikilla kavereillani on jo parisuhde, mutta minulla ei. Olenko vain huono ihminen, kun en löydä itselleni partneria?
+a) Kyllä sinussa täytyy olla jotain vikaa, jos kukaan ei ole kiinnostunut sinusta.
+b) Seurustelua ei kannata kiirehtiä. Löydät kyllä sopivan parin itsellesi, kun on sen aika. 
+c) Vähän noloa hei, jos olet porukan ainoa sinkku!
+b
+SOCIAL
+Koen jääneeni porukan ulkopuolelle, vaikka minulla on kyllä monta kaveria luokallani. Mitä voin tehdä?
+a) Rohkeasti menet mukaan porukan puuhiin ja voit myös itse ehdottaa yhteistä tekemistä.
+b) Älä murehdi, kuvittelet varmasti vain kaiken päässäsi.
+c) Jättäydy pois porukasta ja hengaile yksin jatkossa. Kyllä he sitten kysyvät perääsi, jos huomaavat sinun jääneen pois.
+a
+
 HOBBIES
 En ole vieläkään löytänyt harras-  tusta, joka olisi “minun juttuni”  vaikka olen kokeillut jo niin      montaa asiaa.  Mitä voisin tehdä?
 a) Keksi itsellesi uusi juttu.
@@ -303,4 +427,34 @@ Haluaisin aloittaa harrastuksen,   jonka yleisesti ajatellaan olevan  toisen suk
 a) Unohda koko asia, parempi vain mennä massan mukana 
 b) Aloita harrastus mutta älä kerro     kenellekään asiasta ja jos joku kysyy   niin valehtele. 
 c) Puhu avoimesti läheisillesi kiinnos- tuksestasi ja selitä miksi asia on      sinulle tärkeä.
+c
+HOBBIES
+Tuntuu, että minulla on liikaa harrastuksia, mutta en haluaisi lopettaa niistä yhtäkään. Mitä tekisin?
+a) Jos harrastuksesi eivät haittaa koulunkäyntiä ja ehdit myös välillä levätä, niin voit harrastaa huoletta niin paljon kuin itse haluat.
+b) Miten kenelläkään voi olla enemmän kuin yksi harrastus. Karsimaan vain!
+c) Anna arvan päättää minkä harrastuksen lopetat. Sitten pystyt panostamaan muihin harrastuksiin paremmin.
+a
+HOBBIES
+Aloitan jatkuvasti uuden harrastuksen. En kuitenkaan ikinä jatka sitä paria viikkoa pidempään. Miten löytäisin harrastuksen, jonka parissa viihtyisin pidempään?
+a) Voi olla, että et vain ole löytänyt omaa juttuasi. On silti erittäin hyvä, että testaat monia eri asioita!
+b) Kannattaisi valita yksi harrastus ja pysyä sen parissa. Vaikka joku sellainen, jota kaverisikin harrastaa!
+c) Sinun kannattaisi pysyä harrastuksien parissa pidempään niin oikeasti tietäisit, pidätkö niistä.
+a
+HOBBIES
+Pelaaminen on lempiharrastukseni, mutta joskus mietin pelaanko liikaa. Voinko olla peliriippuvainen?
+a) Tiedostat asian niin silloin ei ole mitään hätää. 
+b) Aina sanotaan, että pitää olla joku harrastus niin eihän mitään voi myöskään harrastaa liikaa.
+c) Jos pelaamisesi alkaa vaikuttaa yöuniisi ja sitä kautta myös koulunkäyntiin, silloin pelaamista olisi syytä vähentää.
+c
+HOBBIES
+Haluaisin muuttaa harrastukseni työkseni tulevaisuudessa, mutta muut eivät usko, että se on mahdollista. Elättelenkö turhia toiveita?
+a) Usko itseesi ja unelmiisi niin se on varmasti mahdollista. Pidä kuitenkin myös muut vaihtoehdot avoinna.
+b) Elät pilvilinnoissa. Kaikki työnteko on puuduttavaa eikä sen kuulu olla hauskaa.
+c) Muut varmasti tietävät, ettet ole tarpeeksi hyvä harrastuksessasi, jotta voisit saada siitä ammatin itsellesi.
+a
+HOBBIES
+En enää uskalla soittaa musiikintunnilla luokan edessä, koska muut ovat niin paljon parempia kuin minä! Mitä teen?
+a) Musiikki on ihan turha oppiaine muutenkin. Skippaat vain ne tunnit ja pänttäät historiaa.
+b) Ei kannatakaan. Päästät suosiolla luokan parhaat rumpalit ja kitaristit soittamaan niin he eivät loukkaannu.
+c) Koulussahan ollaan oppimassa eikä kaikessa tarvitse olla paras, jotta asioita voi tehdä. Tärkeintä on heittäytyä ja yrittää parhaansa.
 c
