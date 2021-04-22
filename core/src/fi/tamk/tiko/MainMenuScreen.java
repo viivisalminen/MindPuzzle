@@ -1,6 +1,7 @@
 package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -14,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // MainMenuScreen is the main menu of the game including play, how to play, settings, credits and exit.
@@ -26,7 +28,7 @@ public class MainMenuScreen implements Screen {
     private Table background;
 
     private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
-    private Rectangle logoSmall, logoLarge;
+    private Rectangle logoSmall, logoMedium, logoLarge;
     private Texture logo, imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
     private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
 
@@ -61,8 +63,9 @@ public class MainMenuScreen implements Screen {
         stage.clear();
 
         logo = app.assets.get("images/logo.png", Texture.class);
-        logoSmall = new Rectangle(0,0,logo.getWidth() * 0.85f, logo.getHeight() * 0.85f);
-        logoLarge = new Rectangle(0,0,logo.getWidth() * 1.25f, logo.getHeight() * 1.25f);
+        logoSmall = new Rectangle(0,0,logo.getWidth() * 0.5f, logo.getHeight() * 0.5f);
+        logoMedium = new Rectangle(0,0,logo.getWidth() * 0.75f, logo.getHeight() * 0.75f);
+        logoLarge = new Rectangle(0,0,logo.getWidth(), logo.getHeight());
 
         if(app.getLanguage().equals("fi_FI")) {
             imgCredits = app.assets.get("images/Painonapit/Tekijat.png", Texture.class);
@@ -101,6 +104,9 @@ public class MainMenuScreen implements Screen {
 
         initButtons();
         app.setPreviousScreen(app.mainMenuScreen);
+
+        openSettings(musicPlaying, soundOn);
+        app.getPoints();
 
         if(getMusic()) {
             music.play();
@@ -227,13 +233,11 @@ public class MainMenuScreen implements Screen {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f, Gdx.graphics.getHeight() * 0.75f, logoSmall.getWidth(), logoSmall.getHeight());
+            app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f, Gdx.graphics.getHeight() * 0.75f, logoSmall.width, logoSmall.height);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
-        } else if (Gdx.graphics.getWidth() >= 2000) {
-            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.getWidth(), logoLarge.getHeight());
+            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoMedium.width, logoMedium.height);
+        } else if (Gdx.graphics.getWidth() >= 1200) {
+            app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
         }
         app.batch.end();
     }
@@ -266,6 +270,38 @@ public class MainMenuScreen implements Screen {
 
     public static Boolean getSound() {
         return soundOn;
+    }
+
+    public static void saveSettings(Boolean music, Boolean sound) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        prefs.putBoolean("music", musicPlaying);
+        prefs.putBoolean("sound", soundOn);
+        prefs.flush();
+    }
+
+    public static void openSettings(Boolean music, Boolean sound) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        Boolean musicBoolean  = prefs.getBoolean("music", true);
+        if(musicBoolean) {
+            musicOn();
+        } else {
+            musicOff();
+        }
+
+        Boolean soundBoolean  = prefs.getBoolean("sound", true);
+        if(soundBoolean) {
+            soundEffectOn();
+        } else {
+            soundEffectOff();
+        }
+    }
+
+    public void resetSettings() {
+        musicPlaying = true;
+        soundOn = true;
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        prefs.clear();
+        prefs.flush();
     }
 
     // Called when the Application is resized. This can happen at any point during

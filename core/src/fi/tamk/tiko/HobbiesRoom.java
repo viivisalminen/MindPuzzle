@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class HobbiesRoom implements Screen {
@@ -39,6 +40,7 @@ public class HobbiesRoom implements Screen {
     public HobbiesRoom(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        openCharacterInfo();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -57,9 +59,9 @@ public class HobbiesRoom implements Screen {
         }
 
         pixel1Txt = app.assets.get("images/Characters/hamster.png", Texture.class);
-        pixel2Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Characters/leafdragonFlipped.png", Texture.class);
         pixel3Txt = app.assets.get("images/Characters/lynx.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Characters/leafdragon.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Characters/bunnygreyFlipped.png", Texture.class);
         pixel5Txt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
         settingsTxt = app.assets.get("images/RoomSettings/Settings.png", Texture.class);
         settingsTxtPressed = app.assets.get("images/RoomSettings/SettingsPressed.png", Texture.class);
@@ -76,12 +78,13 @@ public class HobbiesRoom implements Screen {
         stage.addActor(background);
 
         initButtons();
+        app.setPreviousScreen(app.hobbiesRoom);
 
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.musicOn();
         }
 
-        app.setPreviousScreen(app.hobbiesRoom);
+
     }
 
     // Initializes the buttons used in this screen.
@@ -112,6 +115,7 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
+                app.saveCharacter("hobbies1",char1NotClicked);
                 app.setPreviousCharacter("hamster");
                 app.setScreen(app.questionScreen);
             }
@@ -119,8 +123,8 @@ public class HobbiesRoom implements Screen {
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.075f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
+        pixel2Button.setPosition(0f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
+        pixel2Button.setSize(pixel2Txt.getWidth() * 0.45f, pixel2Txt.getHeight() * 0.45f);
         pixel2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -128,7 +132,8 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
-                app.setPreviousCharacter("griffinblue");
+                app.saveCharacter("hobbies2",char2NotClicked);
+                app.setPreviousCharacter("leafdragon");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -136,7 +141,7 @@ public class HobbiesRoom implements Screen {
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
         pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.675f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel3Button.setSize(pixel3Txt.getWidth() * 0.4f, pixel3Txt.getHeight() * 0.4f);
+        pixel3Button.setSize(pixel3Txt.getWidth() * 0.3f, pixel3Txt.getHeight() * 0.3f);
         pixel3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -144,6 +149,7 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
+                app.saveCharacter("hobbies3",char3NotClicked);
                 app.setPreviousCharacter("lynx");
                 app.setScreen(app.questionScreen);
             }
@@ -151,8 +157,8 @@ public class HobbiesRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
-        pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
+        pixel4Button.setSize(pixel4Txt.getWidth() * 0.25f, pixel4Txt.getHeight() * 0.25f);
         pixel4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -160,14 +166,15 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
-                app.setPreviousCharacter("leafdragon");
+                app.saveCharacter("hobbies4",char4NotClicked);
+                app.setPreviousCharacter("bunnygrey");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.65f,MindPuzzle.VIRTUAL_HEIGHT * 0.45f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
         pixel5Button.setSize(pixel5Txt.getWidth() * 0.2f, pixel5Txt.getHeight() * 0.2f);
         pixel5Button.addListener(new ClickListener() {
             @Override
@@ -176,6 +183,7 @@ public class HobbiesRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
+                app.saveCharacter("hobbies5",char5NotClicked);
                 app.setPreviousCharacter("mushroomguy");
                 app.setScreen(app.questionScreen);
             }
@@ -225,6 +233,22 @@ public class HobbiesRoom implements Screen {
         }
     }
 
+    public void openCharacterInfo() {
+        char1NotClicked = app.openCharacters("hobbies1",char1NotClicked);
+        char2NotClicked = app.openCharacters("hobbies2",char2NotClicked);
+        char3NotClicked = app.openCharacters("hobbies3",char3NotClicked);
+        char4NotClicked = app.openCharacters("hobbies4",char4NotClicked);
+        char5NotClicked = app.openCharacters("hobbies5",char5NotClicked);
+    }
+
+    public void resetCharacterInfo() {
+        char1NotClicked = true;
+        char2NotClicked = true;
+        char3NotClicked = true;
+        char4NotClicked = true;
+        char5NotClicked = true;
+    }
+
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
@@ -242,10 +266,8 @@ public class HobbiesRoom implements Screen {
             app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.945f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
             app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.88f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.25f);
-        } else if (Gdx.graphics.getWidth() >= 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.5f);
+        } else {
+            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.95f);
         }
         app.batch.end();
     }

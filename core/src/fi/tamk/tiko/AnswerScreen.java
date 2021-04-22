@@ -96,8 +96,16 @@ public class AnswerScreen implements Screen {
             characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
         } else if (app.getCharacter().equals("browncat")) {
             characterTxt = app.assets.get("images/Characters/browncat.png", Texture.class);
+        } else if (app.getCharacter().equals("bunny")) {
+            characterTxt = app.assets.get("images/Characters/bunny.png", Texture.class);
+        } else if (app.getCharacter().equals("bunnygrey")) {
+            characterTxt = app.assets.get("images/Characters/bunnygrey.png", Texture.class);
+        } else if (app.getCharacter().equals("cactusbuddy")) {
+            characterTxt = app.assets.get("images/Characters/cactusbuddy.png", Texture.class);
         } else if (app.getCharacter().equals("demoncat")) {
             characterTxt = app.assets.get("images/Characters/demoncat.png", Texture.class);
+        } else if (app.getCharacter().equals("fishy")) {
+            characterTxt = app.assets.get("images/Characters/fishy.png", Texture.class);
         } else if (app.getCharacter().equals("fox")) {
             characterTxt = app.assets.get("images/Characters/fox.png", Texture.class);
         } else if (app.getCharacter().equals("ghost")) {
@@ -130,6 +138,8 @@ public class AnswerScreen implements Screen {
             characterTxt = app.assets.get("images/Characters/wizardcat.png", Texture.class);
         } else if (app.getCharacter().equals("wolf")) {
             characterTxt = app.assets.get("images/Characters/wolf.png", Texture.class);
+        } else if (app.getCharacter().equals("wolfbrown")) {
+            characterTxt = app.assets.get("images/Characters/wolfbrown.png", Texture.class);
         } else if (app.getCharacter().equals("yeti")) {
             characterTxt = app.assets.get("images/Characters/yeti.png", Texture.class);
         }
@@ -156,8 +166,8 @@ public class AnswerScreen implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                if((app.getAnsweredQuestion("food") >= 3) && (app.getAnsweredQuestion("social") >= 3) && (app.getAnsweredQuestion("sleep") >= 3)
-                        && (app.getAnsweredQuestion("hobbies") >= 3) && (app.getAnsweredQuestion("sports") >= 3)) {
+                if((app.getAnsweredQuestion("food") == 5) && (app.getAnsweredQuestion("social") == 5) && (app.getAnsweredQuestion("sleep") == 5)
+                        && (app.getAnsweredQuestion("hobbies") == 5) && (app.getAnsweredQuestion("sports") == 5)) {
                     app.setScreen(app.partyScreen);
                 } else {
                     app.setScreen(app.previousScreen);

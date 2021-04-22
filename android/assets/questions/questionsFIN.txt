@@ -88,7 +88,36 @@ a) Rauhallinen venyttely illalla on erinomainen osa iltarutiinia.
 b) Pieni urheilu illalla saa väsyttämään ja on hyväksi unelle!
 c) Venyttely on täysin yliarvostettu hössötystä eikä varmasti paranne yöuniasi.
 a
-
+SLEEP
+Edellisviikko oli todella kiireinen ja vaikka nukuin viikonloppuna reilut yöunet, olen silti todella väsynyt maanantaiaamuna. Miksei pitkät yöunet viikonloppuna auttaneet yhtään?
+a) Kituutat arjen ja tyhjennät viikonlopulta kaikki suunnitelmat, jotta ehdit nukkua ympäri vuorokauden.
+b) Nukuit varmasti liikaa. Mitä kiireisempää arki on, sitä vähemmän viikonloppuna kannattaa nukkua.
+c) Kuulostaa tosiaan siltä, ettet ole palautunut edellisviikon kiireestä vielä. Yritä ottaa tällä viikolla rennommin ja pidä lepohetki koulupäivän jälkeen.
+c
+SLEEP
+Auttaako vai haittaako se unta, jos pelaan kännykällä ennen nukkumaanmenoa?
+a) Kännykällä pelaaminen saa aivot vilkkaiksi ja haittaa unen saantia
+b) Keho ja mieli rauhoittuu hyvin, kun makaa pelaamassa hetken. 
+c) Kannattaisi ennemmin pelata koneella. 
+a
+SLEEP
+Onko ok, jos herään aamulla viideltä tekemään läksyjä, joita en jaksanut tehdä edellisenä päivänä?
+a) Tietenkin on, tärkeintä on vain saada ne tehtyä.
+b) Älä suotta herää tekemään niitä, jätät tekemättä ja kerrot opettajalle, että et kerennyt tekemään niitä. Kyllä se ymmärtää.
+c) Läksyt kannattaa tehdä hyvissä ajoin ja virkeänä. Jos heräät normaalisti aamu viideltä ja sinulla on aikaa ennen koulua niin miksi ei. 
+c
+SLEEP
+Jätän usein kaikki kouluhommat viimetippaan ja teen ne viimeisenä iltana yömyöhään. Mitä minun kannattaisi tehdä?
+a) Kyllähän ne hommat niinkin valmistuvat, älä murehdi siitä.
+b) Kannattaa kysyä, jos voisit vaikka kaverin kanssa tehdä tehtäviä yhdessä niin olisi helpompi tarttua toimeen.
+c) Jätät vaan hommat tekemättä kokonaan niin ei tarvitse stressata siitä. 
+b
+SLEEP
+Loukkasin ystävääni koska olen nukkunut huonosti ja ollut todella äreä ja kiukkuinen. Miten voin korjata tilanteen? 
+a) Puhu ystävällesi ja selitä tilanne hänelle, kyllä se ymmärtää. Kannattaa myös miettiä voitko tehdä jotain parantaaksesi unen laatuasi. 
+b) Jos se jostain pienestä loukkaantui, kun olet ollut väsynyt, ehkä on parempi etsiä muita kavereita.
+c) Annat asian olla, kyllä se siitä ajan kanssa lutviutuu. Ei se ikuisesti voi vihainen olla.
+a
 SPORTS
 Onko se tarpeeksi liikuntaa ja ulkoil-  maa, jos hölkkään parvekkeella tunnin   joka päivä?
 a) Hienosti! Eipähän tarvitse poistua   kotoa mihinkään.
@@ -114,17 +143,17 @@ b) Ei liikkuminen ole niin tärkeää. Kou-luun raahautuminen on tarpeeksi rankk
 c) Aloita vaikka puolen tunnin kävely-  lenkillä pari kertaa viikossa. Mieli    virkistyy ja kunto kohenee pikkuhiljaa.
 c
 SPORTS 
+Onko se riittävästi liikuntaa, jos kävelen kouluun päivittäin?
+a) Ei tietenkään, koko ajan pitää olla liikkeessä, että kunto pysyy yllä.
+b) Reipasta liikuntaa tulisi harrastaa noin tunti päivässä. Jos kävely kouluun kestää puoli tuntia suuntaansa, se on riittävästi.
+c) On, kuka nyt sen enempää jaksaisi liikkua.
+b
+SPORTS 
 Ulkona on liian kylmä liikkumiseen!     Voinko vain jäädä sohvalle?
 a) Kylmä tekee hyvää lihaksille,        sinne vaan!
 b) Puet vain riittävästi vaatteita      päälle niin kyllä siellä pärjää.
 c) Sohvalle vain viltin alle.
 b
-SPORTS 
-Ulkona on liian kuuma liikkumiseen!     Voinko vain makoilla rannalla?
-a) Lakki päähän, aurinkorasvaa iholle ja juomapullo mukaan niin hyvä tulee.
-b) Ei kesällä tarvitse liikkua.         Hellepäivinä hikoilee ihan tarpeeksi.
-c) Vaatteet pois ja pihalle vain!
-a
 SPORTS 
 En pysy muiden perässä liikuntatunnilla. Mitä voisin tehdä asialle? 
 a) Kampita kaikki muut niin sittenpähän olette kaikki yhtä nopeita.
@@ -156,12 +185,6 @@ b) Ei tietenkään jätät vain muutaman    aterian välistä niin paino lähtee
 c) Liikunta on ainoa tapa pudottaa pai- noa, vähintään 6 kertaa viikossa salille ja juoksu lenkit päälle.
 a
 SPORTS 
-Onko liikunta pakollista, jos haluan pudottaa painoani?
-a) Kyllä, pelkkä ruokavalion muutos ei riitä. Liikunnalla varmistat, että paino lähtee oikeista paikoista.
-b) Ei tietenkään jätät vain muutaman aterian välistä niin paino lähtee putoamaan.
-c) Liikunta on ainoa tapa pudottaa painoa, vähintään 6 kertaa viikossa salille ja juoksulenkit päälle.
-a
-SPORTS 
 Ystäväni ei liiku ollenkaan! Miten saisin hänet liikkumaan?
 a) Mene lenkille ja pyydä häntä mukaan!
 b) Se on hänen ongelmansa, älä puutu.
@@ -180,12 +203,41 @@ b) Sinussa on siis pakko olla jokin vialla tai sitten teet jotain väärin!
 c) Lihasten kehittyminen on pitkä prosessi ja siinä voi kestä kuukausista jopa vuosiin. Jatkat vain treenaamista!
 c
 SPORTS 
+Ulkona on liian kuuma liikkumiseen!     Voinko vain makoilla rannalla?
+a) Lakki päähän, aurinkorasvaa iholle ja juomapullo mukaan niin hyvä tulee.
+b) Ei kesällä tarvitse liikkua.         Hellepäivinä hikoilee ihan tarpeeksi.
+c) Vaatteet pois ja pihalle vain!
+a
+SPORTS 
 Kukaan kavereistani ei urheile. Miksi minunkaan pitäisi?
 a) Ei tarvitsekaan, eikä sinun kannata poiketa kaveriporukkasi toimintatavoista.
 b) Liikunta on tärkeää, eikä sinun kannata sen takia olla urheilematta, että kaverisikaan eivät urheile.
 c) Niinpä. Kuka edes oikeasti pitää urheilusta. Tulee hikikin ja kaikkee.
 b
-
+SPORTS 
+Onko se riittävästi liikuntaa, jos pyöräilen kouluun päivittäin?
+a) Ei tietenkään, koko ajan pitää olla liikkeessä, että kunto säilyy.
+b) Reipasta liikuntaa tulisi harrastaa noin tunti päivässä. Jos pyöräily kouluun kestää puoli tuntia suuntaansa, se on riittävästi.
+c) On, kuka nyt sen enempää jaksaisi liikkua.
+b
+SPORTS 
+En ymmärrä miksi koulussa pitää olla liikuntatunteja?
+a) Liikunta on tärkeä osa terveellisiä elämäntapoja ja koululiikunta on hyvä keino lisätä nuorten liikkumista.
+b) Niinpä, koulun liikuntatunnit ovat ihan turhia. 
+c) Liikunta on kyllä kivaa mutta koululiikunta ei.
+a
+SPORTS 
+Voinko parantaa mielenterveyttäni liikkumalla?
+a) Se riippuu siitä, minkälaista liikuntaa harrastaa.
+b) Et, liikunta on aina vain rasitteeksi.
+c) Totta kai, liikunta on hyvä keino saada tasapainoa arkeen ja liikunnan jälkeen tulee monesti hyvä fiilis.
+c
+SPORTS 
+Paras ystäväni ei pidä liikunnasta ollenkaan. Miten saisin hänet innostumaan liikkumaan enemmän?
+a) Voisitte vaikka aloittaa jonkin yhteisen liikuntaharrastuksen, josta ystäväsi pitäisi.
+b) Ei ole sinun asiasi innostaa kaveriasi liikkumaan.
+c) Toiset tykkää liikunnasta ja toiset ei.
+a
 FOOD
 Kuinka oppisin syömään terveellisesti   ilman, että sorrun toistuvasti herkutte-lemaan?
 a) Terveellinen ruoka on pahaa. Kannat- taa vain syödä sitä mikä on hyvää.
@@ -276,7 +328,36 @@ a) Kahvia ei voi ikinä olla liikaa.
 b) Riippuu päivänajasta.
 c) Jo neljä kuppia päivässä on aivan tarpeeksi.
 c
-
+FOOD
+Onko ok skipata kouluruokailu, jos se ei maistu?
+a) Ei maistu minullekaan!
+b) Tämä ei ole hyvä idea. Tarvitset koulupäivän aikana paljon energiaa, jotta aivosi jaksavat oppia. Kannattaa syödä edes vähän, että jaksat.
+c) Afrikassa on nääntyviä lapsia! Kuinka kehtaat jättää ilmaisen ruokailun väliin!
+b
+FOOD
+Minulla ei ole aamulla aikaa syödä aamupalaa! Eihän se niin tärkeä ole?
+a) Sinä et siis herää tarpeeksi aikaisin!
+b) Jos sinulla ei ole aamulla aikaa syödä aamupalaa, niin mitäs, jos tekisit sen etukäteen edellisenä iltana, ottaisit sen mukaan kouluun ja söisit koulumatkalla tai ensimmäisellä välitunnilla.
+c) Aamupalan syöminen ei ole aamulla kannattavaa ja koulussa tarjotaan muutenkin lounas. 
+b
+FOOD
+Onko se outoa, jos juon aina maitoa ruuan kanssa?
+a) Ei, monet ihmiset juovat maitoa ruuan kanssa, riippumatta iästä. Se on myös terveellistä!
+b) Vähän, vain lapset ja vanhukset juovat aina maitoa ruuan kanssa.
+c) Voisit juoda ihan vettä tai mehuakin.
+a
+FOOD
+Onko minun pakko opetella kokkaamaan? Enkö voi syödä eineksiä loppu elämäni?
+a) No jos on vain lyhyt loppu elämä.
+b) Kaikkien on pakko osata laittaa ruokaa jollakin tasolla. Se on taito, jossa ei saisi olla täysin riippuvainen muista. 
+c) Ei tarvitse, jos muuttaa suoraan lapsuudenkodista kumppanin kanssa yhteen ja he osaavat kokata. 
+b
+FOOD
+Onko sillä merkitystä, jos syön samanlaista ruokaa joka päivä?
+a) Tulet mahdollisesti kipeäksi useammin, et jaksa yhtä hyvin ja lopulta kyllästyt ruokaan mitä syöt.
+b) Minäkin syön vain makaronimössöä joka päivä ja voin hyvin! Keho vain vähän reistailee. 
+c) Ei, jos se on terveellistä ruokaa. 
+a
 SOCIAL
 Ystäväni eivät enää kutsu minua yhtei-  siin juttuihin enkä tiedä miksi. Mitä   voisin tehdä? 
 a) Antaa asian olla.
@@ -301,6 +382,12 @@ a) Rupeat kiusaamaan heitä takaisin,    leikkimielinen kiusaaminen on hyväksi 
 b) Annat vain asian olla ja unohdat     heidät.
 c) Kannattaa yrittää keskustella heidän kanssaan asiasta ja mahdollisesti tuoda aikuisia mukaan keskusteluun.
 c
+SOCIAL
+Kavereillani on paljon enemmän seuraajia Instagramissa kuin minulla. Mitä voin tehdä asialle?
+a) Ota mallia suosituista Instagram-käyttäjistä ja postaa samanlaisia kuvia.
+b) Seuraajien määrä sosiaalisessa mediassa ei määritä ketään ihmisenä, suuri määrä seuraajia ei tarkoita, että olisi jotenkin coolimpi tyyppi.
+c) Instagram seuraajia voi saada lisää postaamalla siistimpiä kuvia aktiivisemmin. 
+b
 SOCIAL
 Olen ajautunut etäisiksi ystäväni kans- sa. Miten saisin korjattua välejämme?
 a) Jos ystäväsi ei enää halua viettää   kanssasi aikaa, hanki uusia ystäviä.
@@ -367,7 +454,30 @@ a) Rohkeasti menet mukaan porukan puuhiin ja voit myös itse ehdottaa yhteistä 
 b) Älä murehdi, kuvittelet varmasti vain kaiken päässäsi.
 c) Jättäydy pois porukasta ja hengaile yksin jatkossa. Kyllä he sitten kysyvät perääsi, jos huomaavat sinun jääneen pois.
 a
-
+SOCIAL
+Luokkakaverini on todella suosittu somessa ja hän saa paljon tykkäyksiä ja kivoja kommentteja kuviinsa. Miten saisin samanlaista suosiota?
+a) Katsot millaista materiaalia kaverisi julkaisee ja teet perässä samankaltaista sisältöä.
+b) Et mitenkään. Luokkakaverisi vain on parempi ihminen kuin sinä ja saa sen takia niin paljon huomiota.
+c) On hyvä muistaa, että somessa on vain kiillotettu pintaraapaisu todellisesta elämästä eikä seuraajien tai tykkäysten määrä määritä sinua ihmisenä. 
+c
+SOCIAL
+Haluaisin saada ystäviä, mutta sosiaaliset tilanteet uusien ihmisten kanssa ahdistavat. Mitä voisin tehdä?
+a) Ehkä et ansaitse uusia ystäviä, jos heidän tapaamisensa kerran pelottaa niin paljon. 
+b) Sinun kannattaisi tavata uusia ystäviä nykyisten ystäviesi kanssa, niin tilanne ei olisi kokonaan uusi.
+c) Voisit vain puhua ihmisille netin kautta.
+b
+SOCIAL
+Eräs henkilö kommentoi somessa kuviini usein todella ilkeästi. Mitä voisin tehdä?
+a) Vastaa samalla mitalla takaisin ja käy haukkumassa hänen kuviaan myös!
+b) Ilkeät kommentit ja suoranainen haukkuminen kertoo enemmän siitä toisesta. Poista tai estä hänet, niin sinun ei tarvitse enää välittää hänen pahasta olostaan.
+c) Poistat kaikki sometilisi. Eipähän tule enää paha mieli.
+b
+SOCIAL
+Luulen, että ystäväni on masentunut, mutta hän ei suostu puhumaan ammattilaiselle. Miten voisin auttaa?
+a) Kidnappaa hänet ja toimita psykologin tai kuraattorin vastaanotolle!
+b) Yritä puhua hänelle. Ehkä hän vain tarvitsee jonkun, joka kuuntelee. 
+c) Kerro asiasta hänen vanhemmilleen.  
+b
 HOBBIES
 En ole vieläkään löytänyt harras-  tusta, joka olisi “minun juttuni”  vaikka olen kokeillut jo niin      montaa asiaa.  Mitä voisin tehdä?
 a) Keksi itsellesi uusi juttu.
@@ -458,3 +568,33 @@ a) Musiikki on ihan turha oppiaine muutenkin. Skippaat vain ne tunnit ja päntt�
 b) Ei kannatakaan. Päästät suosiolla luokan parhaat rumpalit ja kitaristit soittamaan niin he eivät loukkaannu.
 c) Koulussahan ollaan oppimassa eikä kaikessa tarvitse olla paras, jotta asioita voi tehdä. Tärkeintä on heittäytyä ja yrittää parhaansa.
 c
+HOBBIES
+Olen nykyisessä harrastuksessani vain, koska muut kaverini pitävät siitä ja en halua jatkaa, mutta pelkään ettemme pysy kavereina, jos teen niin?
+a) Jatkat vaan mukana kyllä se into sieltä vielä löytyy.
+b) Kerrot kavereillesi, että harrastus ei enää kiinnosta kyllä he ymmärtävät.
+c) Painostat kaverisikin lopettamaan ja aloitatte yhdessä uuden harrastuksen.
+b
+HOBBIES
+Lasketaanko läksyjen tekeminen harrastukseksi?
+a) Tottakai, sehän on vapaa-ajan aktiviteetti
+b) Tekeekö joku muka läksyjä, hyi!	
+c) Olisi hyvä olla joku harrastus mikä ei liity kouluun, jotta aivot kerkeäisivät lepäämään ja käsittelemään opittuja asioita.
+c
+HOBBIES
+Ystäväni harrastaa jotain tyhmää. Voinko sanoa, että hänen pitää lopettaa nolo harrastuksensa?
+a) Ystäväsi pitää harrastuksestaan ja uskaltaa olla oma itsensä. Mahtavaa!
+b) Ehkä hän ei ole vielä tarpeeksi kypsä oikeille harrastuksille. Kyllä hän kohta muuttaa mielensä.
+c) Sinun pitäisi kertoa mielipiteesi ystävällesi. 
+a
+HOBBIES
+Olen aloittanut taidekurssin, mutta muut ovat paljon minua edellä! Mitä voin tehdä?
+a) Sabotoi muita! Eivät he saa olla parempia kuin sinä. Kerskailevatkin varmaan. 
+b) Voit harjoitella paljon tai vaihtaa toisen taitotason kurssiin.
+c) On parempi luovuttaa taiteen suhteen, jos muut ovat jo niin paljon parempia.
+b
+HOBBIES
+Haluaisin aloittaa bändissä soittamisen, mutten tiedä miten voisin aloittaa tai löytää muita innostuneita?
+a) Olisit varmaan jo bändissä, jos joku sinut sellaiseen haluaisi.
+b) Etsi mahdollisia bändinjäseniä esimerkiksi musiikin tunnilla tai laita ilmoitus koulun aulaan.
+c) Lähetä viestejä lempibändillesi ja pyydä liittyä heidän bändiinsä!
+b

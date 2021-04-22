@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class SocialRoom implements Screen {
@@ -40,6 +42,7 @@ public class SocialRoom implements Screen {
     public SocialRoom(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        openCharacterInfo();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -57,7 +60,7 @@ public class SocialRoom implements Screen {
             doorTxt = app.assets.get("images/door.png", Texture.class);
         }
 
-        pixel1Txt = app.assets.get("images/Characters/wizardcat.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Characters/wizardcatFlipped.png", Texture.class);
         pixel2Txt = app.assets.get("images/Characters/swampmonster.png", Texture.class);
         pixel3Txt = app.assets.get("images/Characters/snake.png", Texture.class);
         pixel4Txt = app.assets.get("images/Characters/wolf.png", Texture.class);
@@ -112,6 +115,7 @@ public class SocialRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
+                app.saveCharacter("social1",char1NotClicked);
                 app.setPreviousCharacter("wizardcat");
                 app.setScreen(app.questionScreen);
             }
@@ -120,7 +124,7 @@ public class SocialRoom implements Screen {
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
         pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.25f);
-        pixel2Button.setSize(pixel2Txt.getWidth() * 0.25f, pixel2Txt.getHeight() * 0.25f);
+        pixel2Button.setSize(pixel2Txt.getWidth() * 0.35f, pixel2Txt.getHeight() * 0.35f);
         pixel2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -128,6 +132,7 @@ public class SocialRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
+                app.saveCharacter("social2",char2NotClicked);
                 app.setPreviousCharacter("swampmonster");
                 app.setScreen(app.questionScreen);
             }
@@ -144,6 +149,7 @@ public class SocialRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
+                app.saveCharacter("social3",char3NotClicked);
                 app.setPreviousCharacter("snake");
                 app.setScreen(app.questionScreen);
             }
@@ -151,7 +157,7 @@ public class SocialRoom implements Screen {
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.375f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
         pixel4Button.setSize(pixel4Txt.getWidth() * 0.5f, pixel4Txt.getHeight() * 0.5f);
         pixel4Button.addListener(new ClickListener() {
             @Override
@@ -160,6 +166,7 @@ public class SocialRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
+                app.saveCharacter("social4",char4NotClicked);
                 app.setPreviousCharacter("wolf");
                 app.setScreen(app.questionScreen);
             }
@@ -176,6 +183,7 @@ public class SocialRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
+                app.saveCharacter("social5",char5NotClicked);
                 app.setPreviousCharacter("yeti");
                 app.setScreen(app.questionScreen);
             }
@@ -225,6 +233,23 @@ public class SocialRoom implements Screen {
         }
     }
 
+    public void openCharacterInfo() {
+        char1NotClicked = app.openCharacters("social1",char1NotClicked);
+        char2NotClicked = app.openCharacters("social2",char2NotClicked);
+        char3NotClicked = app.openCharacters("social3",char3NotClicked);
+        char4NotClicked = app.openCharacters("social4",char4NotClicked);
+        char5NotClicked = app.openCharacters("social5",char5NotClicked);
+    }
+
+    public void resetCharacterInfo() {
+        char1NotClicked = true;
+        char2NotClicked = true;
+        char3NotClicked = true;
+        char4NotClicked = true;
+        char5NotClicked = true;
+    }
+
+
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
@@ -241,10 +266,8 @@ public class SocialRoom implements Screen {
             app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.945f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
             app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.88f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.25f);
-        } else if (Gdx.graphics.getWidth() >= 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.5f);
+        } else {
+            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.95f);
         }
         app.batch.end();
     }

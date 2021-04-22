@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // LoadingScreen loads all the assets to the game and
@@ -28,7 +29,7 @@ public class LoadingScreen implements Screen {
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new FitViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
         this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
@@ -66,23 +67,35 @@ public class LoadingScreen implements Screen {
 
         app.assets.load("images/Characters/bird.png", Texture.class);
         app.assets.load("images/Characters/browncat.png", Texture.class);
+        app.assets.load("images/Characters/browncatFlipped.png", Texture.class);
+        app.assets.load("images/Characters/bunny.png", Texture.class);
+        app.assets.load("images/Characters/bunnygrey.png", Texture.class);
+        app.assets.load("images/Characters/bunnygreyFlipped.png", Texture.class);
+        app.assets.load("images/Characters/cactusbuddy.png", Texture.class);
         app.assets.load("images/Characters/demoncat.png", Texture.class);
+        app.assets.load("images/Characters/fishy.png", Texture.class);
         app.assets.load("images/Characters/fox.png", Texture.class);
         app.assets.load("images/Characters/ghost.png", Texture.class);
         app.assets.load("images/Characters/griffinblue.png", Texture.class);
         app.assets.load("images/Characters/griffinred.png", Texture.class);
+        app.assets.load("images/Characters/griffinredFlipped.png", Texture.class);
         app.assets.load("images/Characters/hamster.png", Texture.class);
         app.assets.load("images/Characters/leafdragon.png", Texture.class);
+        app.assets.load("images/Characters/leafdragonFlipped.png", Texture.class);
         app.assets.load("images/Characters/lynx.png", Texture.class);
         app.assets.load("images/Characters/mushroomguy.png", Texture.class);
         app.assets.load("images/Characters/robotcat.png", Texture.class);
+        app.assets.load("images/Characters/robotcatFlipped.png", Texture.class);
         app.assets.load("images/Characters/skullbear.png", Texture.class);
         app.assets.load("images/Characters/skullwolf.png", Texture.class);
         app.assets.load("images/Characters/sloth.png", Texture.class);
         app.assets.load("images/Characters/snake.png", Texture.class);
         app.assets.load("images/Characters/swampmonster.png", Texture.class);
         app.assets.load("images/Characters/wizardcat.png", Texture.class);
+        app.assets.load("images/Characters/wizardcatFlipped.png", Texture.class);
         app.assets.load("images/Characters/wolf.png", Texture.class);
+        app.assets.load("images/Characters/wolfbrown.png", Texture.class);
+        app.assets.load("images/Characters/wolfbrownFlipped.png", Texture.class);
         app.assets.load("images/Characters/yeti.png", Texture.class);
 
         app.assets.load("images/Credits_and_instructions/Credits.png", Texture.class);
@@ -162,15 +175,19 @@ public class LoadingScreen implements Screen {
         app.assets.load("images/RoomSettings/X.png", Texture.class);
         app.assets.load("images/RoomSettings/Xpressed.png", Texture.class);
 
+        app.assets.load("images/answerLarge.png", Texture.class);
+        app.assets.load("images/answerMedium.png", Texture.class);
         app.assets.load("images/background2.png", Texture.class);
+        app.assets.load("images/badEnding.png", Texture.class);
         app.assets.load("images/bubble.png", Texture.class);
         app.assets.load("images/door.png", Texture.class);
         app.assets.load("images/doorFIN.png", Texture.class);
         app.assets.load("images/foodRoom.png", Texture.class);
+        app.assets.load("images/happyending.png", Texture.class);
         app.assets.load("images/hobbiesRoom.png", Texture.class);
         app.assets.load("images/logo.png", Texture.class);
+        app.assets.load("images/neutralEnding.png", Texture.class);
         app.assets.load("images/popUpBackground.jpg", Texture.class);
-        app.assets.load("images/roomBackground.png", Texture.class);
         app.assets.load("images/sleepRoom.png", Texture.class);
         app.assets.load("images/socialRoom.png", Texture.class);
         app.assets.load("images/sportRoom.png", Texture.class);

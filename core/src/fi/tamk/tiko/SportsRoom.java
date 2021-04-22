@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class SportsRoom implements Screen {
@@ -40,6 +41,7 @@ public class SportsRoom implements Screen {
     public SportsRoom(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        openCharacterInfo();
     }
 
     // Called when this screen becomes the current screen for a Game.
@@ -57,11 +59,11 @@ public class SportsRoom implements Screen {
             doorTxt = app.assets.get("images/door.png", Texture.class);
         }
 
-        pixel1Txt = app.assets.get("images/Characters/snake.png", Texture.class);
-        pixel2Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
-        pixel3Txt = app.assets.get("images/Characters/yeti.png", Texture.class);
-        pixel4Txt = app.assets.get("images/Characters/bird.png", Texture.class);
-        pixel5Txt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
+        pixel1Txt = app.assets.get("images/Characters/fishy.png", Texture.class);
+        pixel2Txt = app.assets.get("images/Characters/wolfbrownFlipped.png", Texture.class);
+        pixel3Txt = app.assets.get("images/Characters/bunny.png", Texture.class);
+        pixel4Txt = app.assets.get("images/Characters/cactusbuddy.png", Texture.class);
+        pixel5Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
         settingsTxt = app.assets.get("images/RoomSettings/Settings.png", Texture.class);
         settingsTxtPressed = app.assets.get("images/RoomSettings/SettingsPressed.png", Texture.class);
 
@@ -104,7 +106,7 @@ public class SportsRoom implements Screen {
         pixel1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel1Txt)));
         pixel1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel1Button.setSize(pixel1Txt.getWidth() * 0.25f, pixel1Txt.getHeight() * 0.25f);
+        pixel1Button.setSize(pixel1Txt.getWidth() * 0.2f, pixel1Txt.getHeight() * 0.2f);
         pixel1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -112,14 +114,15 @@ public class SportsRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
-                app.setPreviousCharacter("snake");
+                app.saveCharacter("sports1",char1NotClicked);
+                app.setPreviousCharacter("fishy");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel2Txt)));
-        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.05f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        pixel2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.025f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
         pixel2Button.setSize(pixel2Txt.getWidth() * 0.5f, pixel2Txt.getHeight() * 0.5f);
         pixel2Button.addListener(new ClickListener() {
             @Override
@@ -128,15 +131,16 @@ public class SportsRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
-                app.setPreviousCharacter("griffinblue");
+                app.saveCharacter("sports2",char2NotClicked);
+                app.setPreviousCharacter("wolfbrown");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel3Txt)));
-        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.55f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
-        pixel3Button.setSize(pixel3Txt.getWidth() * 0.6f, pixel3Txt.getHeight() * 0.6f);
+        pixel3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.65f,MindPuzzle.VIRTUAL_HEIGHT * 0.25f);
+        pixel3Button.setSize(pixel3Txt.getWidth() * 0.25f, pixel3Txt.getHeight() * 0.25f);
         pixel3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -144,14 +148,15 @@ public class SportsRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
-                app.setPreviousCharacter("yeti");
+                app.saveCharacter("sports3",char3NotClicked);
+                app.setPreviousCharacter("bunny");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel4Txt)));
-        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
+        pixel4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
         pixel4Button.setSize(pixel4Txt.getWidth() * 0.25f, pixel4Txt.getHeight() * 0.25f);
         pixel4Button.addListener(new ClickListener() {
             @Override
@@ -160,15 +165,16 @@ public class SportsRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
-                app.setPreviousCharacter("bird");
+                app.saveCharacter("sports4",char4NotClicked);
+                app.setPreviousCharacter("cactusbuddy");
                 app.setScreen(app.questionScreen);
             }
         });
 
         pixel5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(pixel5Txt)));
-        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
-        pixel5Button.setSize(pixel5Txt.getWidth() * 0.2f, pixel5Txt.getHeight() * 0.2f);
+        pixel5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.65f,MindPuzzle.VIRTUAL_HEIGHT * 0.575f);
+        pixel5Button.setSize(pixel5Txt.getWidth() * 0.5f, pixel5Txt.getHeight() * 0.5f);
         pixel5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -176,7 +182,8 @@ public class SportsRoom implements Screen {
                     MainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
-                app.setPreviousCharacter("mushroomguy");
+                app.saveCharacter("sports5",char5NotClicked);
+                app.setPreviousCharacter("griffinblue");
                 app.setScreen(app.questionScreen);
             }
         });
@@ -225,6 +232,23 @@ public class SportsRoom implements Screen {
         }
     }
 
+    public void openCharacterInfo() {
+        char1NotClicked = app.openCharacters("sports1",char1NotClicked);
+        char2NotClicked = app.openCharacters("sports2",char2NotClicked);
+        char3NotClicked = app.openCharacters("sports3",char3NotClicked);
+        char4NotClicked = app.openCharacters("sports4",char4NotClicked);
+        char5NotClicked = app.openCharacters("sports5",char5NotClicked);
+    }
+
+    public void resetCharacterInfo() {
+        char1NotClicked = true;
+        char2NotClicked = true;
+        char3NotClicked = true;
+        char4NotClicked = true;
+        char5NotClicked = true;
+    }
+
+
     // Called when the screen should render itself.
     @Override
     public void render(float delta) {
@@ -241,10 +265,8 @@ public class SportsRoom implements Screen {
             app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.945f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
             app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.88f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.25f);
-        } else if (Gdx.graphics.getWidth() >= 2000) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f, MindPuzzle.VIRTUAL_HEIGHT * 1.5f);
+        } else {
+            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.95f);
         }
         app.batch.end();
     }

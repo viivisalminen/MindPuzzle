@@ -89,7 +89,6 @@ a) Light streching in the evening is a exelent part of evening routines.
 b) Little exercising in the evening makes you nice and tired, it’s good for your sleep!
 c) Stretching is so over rated mumbojumbo, it does nothing to your sleep! 
 a
-
 SPORTS
 Is it enough exercising and being outside if I jog for an hour on the balcony every day?
 a) Yeah, that’s great! No reason to leave the house! 
@@ -120,12 +119,6 @@ a) Cold is good for muscles, just go for it!
 b) Just put enough clothes on, you will be fine. 
 c) Just burrow into the couch with warm blanket. 
 b
-SPORTS 
-It’s too hot outside to exercise! Can I just lay on the beach?
-a) Just put a hat on, sunblock on skin, a bottle of water in hand and your good to go!
-b) You don’t have to exercise in the summer. During heatwave you sweat enough already. 
-c) Just take your clothes off and out you go!
-a
 SPORTS 
 I can’t keep up with the rest of the gym class. What could I do about it?
 a) Trip all the others, then you’re all equally as fast.
@@ -168,6 +161,12 @@ a) Exercising is an important part of a healthy lifestyle and P.E classes are a 
 b) I know! P.E classes are so pointless, why should I sweat at school?
 c) Exercising is fun, but P.E classes suck and are super lame. 
 A
+SPORTS 
+It’s too hot outside to exercise! Can I just lay on the beach?
+a) Just put a hat on, sunblock on skin, a bottle of water in hand and your good to go!
+b) You don’t have to exercise in the summer. During heatwave you sweat enough already. 
+c) Just take your clothes off and out you go!
+a
 SPORTS
 Is it enough exercising if I walk to school every day?
 a) Of course not, you have to exercise all day every day to keep in shape. 
@@ -192,7 +191,6 @@ a) You shouldn’t, don’t deviate from your friend group’s policies.
 b) Exercising is important, it’s no reason to not exercise if your friends don’t want to.
 c) Right, who even likes exercising. It gets you all sweaty and nasty.
 b
-
 FOOD
 How can I learn to eat healthier, without relapsing to junk food?  
 a) Healthy food tastes horrible, just stick with whatever tastes good.
@@ -283,7 +281,6 @@ a) There is no such thing as too much coffee.
 b) It depends on the time of the day.
 c) Even four cups of coffee is enough. 
 c
-
 SOCIAL
 My friends never invite me to anything anymore and I don’t know why. What could I do?
 a) Let it be.
@@ -374,7 +371,6 @@ a) It’s totally fine but it’s just a phase. Just let it be and it will pass.
 b) There are many platforms online where you can have conversations anonymously and get the courage to tell your friends. Just don’t suffocate yourself. 
 c) Never ever tell anyone about it. They will just judge you.
 b
-
 HOBBIES
 I still haven’t found a hobby that would be right for me and I have tried just about everything. Should I just give up? 
 a) Come up with a new thing for yourself.

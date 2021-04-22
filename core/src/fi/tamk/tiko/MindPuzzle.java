@@ -2,6 +2,7 @@ package fi.tamk.tiko;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
@@ -53,7 +54,6 @@ public class MindPuzzle extends Game {
 
     // Classes' objects that are used to switch screens.
     public LoadingScreen loadingScreen;
-    public SplashScreen splashScreen;
     public MainMenuScreen mainMenuScreen;
     public RoomMenuScreen roomMenuScreen;
     public SettingsScreen settingsScreen;
@@ -95,6 +95,8 @@ public class MindPuzzle extends Game {
         assets.load("images/background2.png", Texture.class);
 
         initFonts();
+        getLanguage();
+
         fileEN = Gdx.files.internal("questions/questionsEN.txt");
         initTextFile(socialQuestions, "SOCIAL", fileEN);
         initTextFile(sleepQuestions, "SLEEP", fileEN);
@@ -112,7 +114,6 @@ public class MindPuzzle extends Game {
         MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
 
         loadingScreen = new LoadingScreen(this);
-        splashScreen = new SplashScreen(this);
         mainMenuScreen = new MainMenuScreen(this);
         roomMenuScreen = new RoomMenuScreen(this);
         settingsScreen = new SettingsScreen(this);
@@ -129,12 +130,17 @@ public class MindPuzzle extends Game {
         instructionsScreen = new GameInstructionsScreen(this);
 
         this.setScreen(loadingScreen);
-        setLanguage(Locale.getDefault());
+    }
+
+    // Uses the currently displayed screens render()-method
+    @Override
+    public void render() {
+        super.render();
     }
 
     // Introduces and initializes fonts
     private void initFonts() {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-MediumItalic.ttf"));
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
 
         FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter30.size = 30;
@@ -220,14 +226,6 @@ public class MindPuzzle extends Game {
         }
     }
 
-    public static void setVirtualWidth(int width) {
-        VIRTUAL_WIDTH = width;
-    }
-
-    public static void setVirtualHeight(int height) {
-        VIRTUAL_HEIGHT = height;
-    }
-
     // Sets the previous visible screen.
     public void setPreviousScreen(Screen prev) {
         previousScreen = prev;
@@ -243,14 +241,6 @@ public class MindPuzzle extends Game {
 
     public static String getCharacter() {
         return previousCharacter;
-    }
-
-    public static void addPoint() {
-        points++;
-    }
-
-    public static int getPoints() {
-        return points;
     }
 
     public void addAnsweredQuestion(Screen room) {
@@ -286,17 +276,65 @@ public class MindPuzzle extends Game {
     }
 
     public static void setLanguage(Locale locale) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         language = locale.toString();
+        prefs.putString("language", language);
+        prefs.flush();
     }
 
     public static String getLanguage() {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        Locale locale = Locale.getDefault();
+        String defaultLanguage = locale.toString();
+
+        language = prefs.getString("language", defaultLanguage);
+
         return language;
     }
 
-    // Uses the currently displayed screens render()-method
-    @Override
-    public void render() {
-        super.render();
+    public void addPoint() {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        points++;
+        prefs.putInteger("points", points);
+        prefs.flush();
+    }
+
+    public static int getPoints() {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        points = prefs.getInteger("points", points);
+
+        return points;
+    }
+
+    public void saveCharacter(String character, Boolean roomCharacter) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        prefs.putBoolean(character, roomCharacter);
+        prefs.flush();
+    }
+
+    public boolean openCharacters(String character, Boolean roomCharacter) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        Boolean isCharacterVisible  = prefs.getBoolean(character, roomCharacter);
+
+        return isCharacterVisible;
+    }
+
+    public void resetGame() {
+        mainMenuScreen.resetSettings();
+        foodRoom.resetCharacterInfo();
+        hobbiesRoom.resetCharacterInfo();
+        sleepRoom.resetCharacterInfo();
+        socialRoom.resetCharacterInfo();
+        sportsRoom.resetCharacterInfo();
+        points = 0;
+        foodQuestionsAnswered = 0;
+        socialQuestionsAnswered = 0;
+        sportQuestionsAnswered = 0;
+        hobbyQuestionsAnswered = 0;
+        sleepQuestionsAnswered = 0;
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
+        prefs.clear();
+        prefs.flush();
     }
 
     // Called when the Application is destroyed. Disposes all objects.
@@ -307,7 +345,6 @@ public class MindPuzzle extends Game {
         font40.dispose();
         assets.dispose();
         loadingScreen.dispose();
-        splashScreen.dispose();
         mainMenuScreen.dispose();
         roomMenuScreen.dispose();
         settingsScreen.dispose();

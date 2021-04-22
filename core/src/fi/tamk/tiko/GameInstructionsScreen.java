@@ -4,16 +4,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // CreditsScreen contains information about the authors of the game,
@@ -28,6 +29,7 @@ public class GameInstructionsScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
     private Texture imgMenu, imgMenuPressed, instructions;
+    private Rectangle instructionsRec;
     private ImageButton imageMenu;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
@@ -54,6 +56,8 @@ public class GameInstructionsScreen implements Screen {
             imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
             instructions = app.assets.get("images/Credits_and_instructions/HowTo.png", Texture.class);
         }
+
+        instructionsRec = new Rectangle(0,0,instructions.getWidth(), instructions.getHeight());
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -104,7 +108,7 @@ public class GameInstructionsScreen implements Screen {
         } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
             app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f, instructions.getWidth() * 0.75f, instructions.getHeight() * 0.75f);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f, instructions.getWidth() * 0.8f, instructions.getHeight() * 0.8f);
+            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.12f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f, instructions.getWidth() * 0.8f, instructions.getHeight() * 0.8f);
         }
         app.batch.end();
     }

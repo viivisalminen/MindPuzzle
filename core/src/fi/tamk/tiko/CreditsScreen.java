@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 // CreditsScreen contains information about the authors of the game,
@@ -99,12 +101,13 @@ public class CreditsScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
+
         if(Gdx.graphics.getWidth() < 1000) {
             app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
         } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
             app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.7f, credits.getHeight() * 0.7f);
+            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f, credits.getWidth() * 0.7f, credits.getHeight() * 0.75f);
         }
         app.batch.end();
     }

@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import java.util.Locale;
@@ -279,7 +280,7 @@ public class SettingsPopUp implements Screen {
 
     // Called when this screen is no longer the current screen for a Game.
     @Override
-    public void hide() { }
+    public void hide() { MainMenuScreen.saveSettings(MainMenuScreen.getMusic(),MainMenuScreen.getSound()); }
 
     // Called when the Application is destroyed. Disposes the stage and all its actors.
     @Override
