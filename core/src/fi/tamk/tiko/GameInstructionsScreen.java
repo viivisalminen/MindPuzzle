@@ -29,7 +29,7 @@ public class GameInstructionsScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
     private Texture imgMenu, imgMenuPressed, instructions;
-    private Rectangle instructionsRec;
+    private Rectangle instructionsSmall, instructionsLarge;
     private ImageButton imageMenu;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
@@ -57,7 +57,8 @@ public class GameInstructionsScreen implements Screen {
             instructions = app.assets.get("images/Credits_and_instructions/HowTo.png", Texture.class);
         }
 
-        instructionsRec = new Rectangle(0,0,instructions.getWidth(), instructions.getHeight());
+        instructionsSmall = new Rectangle(0,0,instructions.getWidth() * 0.55f, instructions.getHeight() * 0.55f);
+        instructionsLarge = new Rectangle(0,0,instructions.getWidth() * 0.75f, instructions.getHeight() * 0.75f);
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -103,20 +104,21 @@ public class GameInstructionsScreen implements Screen {
         stage.draw();
 
         app.batch.begin();
-        if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.075f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f, instructions.getWidth() * 0.5f, instructions.getHeight() * 0.5f);
-        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f, instructions.getWidth() * 0.75f, instructions.getHeight() * 0.75f);
-        } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(instructions, MindPuzzle.VIRTUAL_WIDTH * 0.12f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f, instructions.getWidth() * 0.8f, instructions.getHeight() * 0.8f);
+        if (Gdx.graphics.getWidth() < 1000) {
+            app.batch.draw(instructions, ((stage.getViewport().getScreenWidth() / 2) - (instructionsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.15f, instructionsSmall.width, instructionsSmall.height);
+        } else {
+            app.batch.draw(instructions, ((stage.getViewport().getScreenWidth() / 2) - (instructionsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.2f, instructionsLarge.width, instructionsLarge.height);
         }
+
         app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.

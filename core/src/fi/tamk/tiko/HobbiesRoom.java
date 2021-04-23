@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -30,6 +31,7 @@ public class HobbiesRoom implements Screen {
 
     private ImageButton settingsButton, doorButton, pixel1Button, pixel2Button, pixel3Button, pixel4Button, pixel5Button;
     private Texture settingsTxt, settingsTxtPressed, doorTxt, pixel1Txt, pixel2Txt, pixel3Txt, pixel4Txt, pixel5Txt;
+    private Rectangle settingRec;
     private boolean char1NotClicked = true;
     private boolean char2NotClicked = true;
     private boolean char3NotClicked = true;
@@ -65,6 +67,7 @@ public class HobbiesRoom implements Screen {
         pixel5Txt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
         settingsTxt = app.assets.get("images/RoomSettings/Settings.png", Texture.class);
         settingsTxtPressed = app.assets.get("images/RoomSettings/SettingsPressed.png", Texture.class);
+        settingRec = new Rectangle(0,0, settingsTxt.getWidth() * 0.74f, settingsTxt.getHeight() * 0.74f);
 
         this.skin = new Skin();
         this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
@@ -193,6 +196,7 @@ public class HobbiesRoom implements Screen {
                 new TextureRegionDrawable(new TextureRegion(settingsTxt)),
                 new TextureRegionDrawable(new TextureRegion(settingsTxtPressed))
         );
+
         if(Gdx.graphics.getWidth() < 1000) {
             settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
@@ -202,8 +206,7 @@ public class HobbiesRoom implements Screen {
         } else if (Gdx.graphics.getWidth() >= 2000) {
             settingsButton.setPosition(MindPuzzle.VIRTUAL_WIDTH / 2,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         }
-        settingsButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.15f, MindPuzzle.VIRTUAL_WIDTH * 0.15f);
-        settingsButton.addListener(new ClickListener() {
+        settingsButton.setSize(settingRec.width, settingRec.height);        settingsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(MainMenuScreen.getSound()) {
@@ -216,9 +219,10 @@ public class HobbiesRoom implements Screen {
         stage.addActor(settingsButton);
         stage.addActor(doorButton);
 
-        if (char1NotClicked) {
+        stage.addActor(pixel1Button);
+        /*if (char1NotClicked) {
             stage.addActor(pixel1Button);
-        }
+        }*/
         if (char2NotClicked) {
             stage.addActor(pixel2Button);
         }
@@ -262,20 +266,16 @@ public class HobbiesRoom implements Screen {
 
         app.batch.begin();
         points = Integer.toString(MindPuzzle.getPoints());
-        if(Gdx.graphics.getWidth() < 1000) {
-            app.font40.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.075f,Gdx.graphics.getHeight() * 0.945f);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.font60.draw(app.batch, line+points,MindPuzzle.VIRTUAL_WIDTH * 0.1f,MindPuzzle.VIRTUAL_HEIGHT * 0.88f);
-        } else {
-            app.font60.draw(app.batch, line+points,Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.95f);
-        }
+        app.font60.draw(app.batch, line+points,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.975f);
         app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.

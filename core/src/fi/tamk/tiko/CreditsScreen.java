@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -30,6 +31,7 @@ public class CreditsScreen implements Screen {
     // Renders points, lines, shape outlines and filled shapes.
     private ShapeRenderer shapeRenderer;
     private Texture imgMenu, imgMenuPressed, credits;
+    private Rectangle creditsLarge, creditsSmall;
     private ImageButton imageMenu;
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
@@ -56,6 +58,9 @@ public class CreditsScreen implements Screen {
             imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
             credits = app.assets.get("images/Credits_and_instructions/Credits.png", Texture.class);
         }
+
+        creditsSmall = new Rectangle(0,0,credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
+        creditsLarge = new Rectangle(0,0,credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -102,20 +107,21 @@ public class CreditsScreen implements Screen {
 
         app.batch.begin();
 
-        if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
-        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.05f, credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
-        } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(credits, MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f, credits.getWidth() * 0.7f, credits.getHeight() * 0.75f);
+        if (Gdx.graphics.getWidth() < 1000) {
+            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.075f, creditsSmall.width, creditsSmall.height);
+        } else {
+            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.05f, creditsLarge.width, creditsLarge.height);
         }
+
         app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.

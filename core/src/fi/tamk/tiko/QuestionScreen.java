@@ -31,7 +31,7 @@ public class QuestionScreen implements Screen {
     private ImageButton buttonA, buttonB, buttonC;
     private TextButton buttonX;
     private Texture answerBackground, answerBackgroundPressed, bubble, characterTxt;
-    private Rectangle characterRec;
+    private Rectangle characterSmall, characterLarge,bubbleSmall, bubbleLarge;
 
     public int row = (int)(Math.random() * 15);
     public static String question = "";
@@ -56,8 +56,12 @@ public class QuestionScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        characterRec = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
+        characterSmall = new Rectangle(0,0,characterTxt.getWidth() * 0.3f, characterTxt.getHeight() * 0.3f);
+        characterLarge = new Rectangle(0,0,characterTxt.getWidth() * 0.45f, characterTxt.getHeight() * 0.45f);
+
         bubble = app.assets.get("images/bubble.png", Texture.class);
+        bubbleSmall = new Rectangle(0,0,bubble.getWidth() * 0.675f, bubble.getHeight() * 0.77f);
+        bubbleLarge = new Rectangle(0,0,bubble.getWidth(), bubble.getHeight() * 1.25f);
 
         if(Gdx.graphics.getWidth() < 1000) {
             answerBackground = app.assets.get("images/answerMedium.png", Texture.class);
@@ -145,11 +149,11 @@ public class QuestionScreen implements Screen {
     }
 
     private void initQuestions(Screen prev) {
-        if(row == 14) {
+        if(row == 19) {
             row = 0;
         }
 
-        String[][] array = new String[15][15];
+        String[][] array = new String[20][20];
 
         if(app.getLanguage().equals("fi_FI")) {
             if (prev.equals(app.socialRoom)) {
@@ -274,7 +278,7 @@ public class QuestionScreen implements Screen {
         stage.addActor(buttonA);
         stage.addActor(buttonB);
         stage.addActor(buttonC);
-        stage.addActor(buttonX);
+        //stage.addActor(buttonX);
     }
 
     public static void setPlayersAnswer(String a) {
@@ -298,34 +302,30 @@ public class QuestionScreen implements Screen {
         app.batch.begin();
 
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.715f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.65f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.45f,Gdx.graphics.getHeight() * 0.475f, characterRec.width * 0.6f, characterRec.height * 0.6f);
-            app.font30.draw(app.batch, question,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.915f);
-            app.font30.draw(app.batch, optionA,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.46f);
-            app.font30.draw(app.batch, optionB,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.3f);
-            app.font30.draw(app.batch, optionC,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.14f);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.715f, bubble.getWidth(), bubble.getHeight());
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.475f, characterRec.width, characterRec.height);
-            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.925f);
-            app.font40.draw(app.batch, optionA,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-            app.font40.draw(app.batch, optionB,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.265f);
-            app.font40.draw(app.batch, optionC,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
-        } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.765f, bubble.getWidth(), bubble.getHeight());
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.5f,Gdx.graphics.getHeight() * 0.475f, characterRec.width, characterRec.height);
-            app.font40.draw(app.batch, question,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.8f);
-            app.font40.draw(app.batch, optionA,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-            app.font40.draw(app.batch, optionB,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.265f);
-            app.font40.draw(app.batch, optionC,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleSmall.width, bubbleSmall.height);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterSmall.width, characterSmall.height);
+            app.font30.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
+            app.font30.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.46f);
+            app.font30.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.3f);
+            app.font30.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.14f);
+        } else {
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleLarge.width, bubbleLarge.height);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterLarge.width, characterLarge.height);
+            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.925f);
+            app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.46f);
+            app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.3f);
+            app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.14f);
         }
+
         app.batch.end();
     }
 
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.

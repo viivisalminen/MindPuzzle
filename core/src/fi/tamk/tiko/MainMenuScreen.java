@@ -37,17 +37,17 @@ public class MainMenuScreen implements Screen {
     public static Sound sound;
     public static boolean soundOn = true;
 
-    public static String[][] questionsAboutSocial = new String[15][15];
-    public static String[][] questionsAboutSleep = new String[15][15];
-    public static String[][] questionsAboutSports = new String[15][15];
-    public static String[][] questionsAboutHobbies = new String[15][15];
-    public static String[][] questionsAboutFood = new String[15][15];
+    public static String[][] questionsAboutSocial = new String[20][20];
+    public static String[][] questionsAboutSleep = new String[20][20];
+    public static String[][] questionsAboutSports = new String[20][20];
+    public static String[][] questionsAboutHobbies = new String[20][20];
+    public static String[][] questionsAboutFood = new String[20][20];
 
-    public static String[][] questionsAboutSocialFIN = new String[15][15];
-    public static String[][] questionsAboutSleepFIN = new String[15][15];
-    public static String[][] questionsAboutSportsFIN = new String[15][15];
-    public static String[][] questionsAboutHobbiesFIN = new String[15][15];
-    public static String[][] questionsAboutFoodFIN = new String[15][15];
+    public static String[][] questionsAboutSocialFIN = new String[20][20];
+    public static String[][] questionsAboutSleepFIN = new String[20][20];
+    public static String[][] questionsAboutSportsFIN = new String[20][20];
+    public static String[][] questionsAboutHobbiesFIN = new String[20][20];
+    public static String[][] questionsAboutFoodFIN = new String[20][20];
 
     // Class constructor. Uses the MindPuzzle reference to set the screen.
     public MainMenuScreen(final MindPuzzle app) {
@@ -239,6 +239,8 @@ public class MainMenuScreen implements Screen {
         } else if (Gdx.graphics.getWidth() >= 1200) {
             app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
         }
+
+
         app.batch.end();
     }
 
@@ -307,7 +309,9 @@ public class MainMenuScreen implements Screen {
     // Called when the Application is resized. This can happen at any point during
     // a non-paused state but will never happen before a call to create().
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     // Called when the Application is paused, usually when it's not active or visible on-screen.
     // An Application is also paused before it is destroyed.

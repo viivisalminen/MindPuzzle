@@ -28,7 +28,7 @@ public class AnswerScreen implements Screen {
     private String rightAnswer = "";
     private ImageButton xButton;
     private Texture bubble, characterTxt, exit, exitPressed;
-    private Rectangle largerCharacter;
+    private Rectangle characterSmall, characterLarge, bubbleSmall, bubbleLarge;
 
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
@@ -41,8 +41,13 @@ public class AnswerScreen implements Screen {
         stage.clear();
 
         getCharacter();
-        largerCharacter = new Rectangle(0,0,characterTxt.getWidth() * 0.75f, characterTxt.getHeight() * 0.75f);
+        characterSmall = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
+        characterLarge = new Rectangle(0,0,characterTxt.getWidth() * 0.725f, characterTxt.getHeight() * 0.725f);
+
         bubble = app.assets.get("images/bubble.png", Texture.class);
+        bubbleSmall = new Rectangle(0,0,bubble.getWidth() * 0.675f, bubble.getHeight() * 0.95f);
+        bubbleLarge = new Rectangle(0,0,bubble.getWidth(), bubble.getHeight() * 1.5f);
+
         exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
         exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
 
@@ -166,8 +171,8 @@ public class AnswerScreen implements Screen {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
-                if((app.getAnsweredQuestion("food") == 5) && (app.getAnsweredQuestion("social") == 5) && (app.getAnsweredQuestion("sleep") == 5)
-                        && (app.getAnsweredQuestion("hobbies") == 5) && (app.getAnsweredQuestion("sports") == 5)) {
+                if((app.getAnsweredQuestion("food") >= 5) && (app.getAnsweredQuestion("social") >= 5) && (app.getAnsweredQuestion("sleep") >= 5)
+                        && (app.getAnsweredQuestion("hobbies") >= 5) && (app.getAnsweredQuestion("sports") >= 5)) {
                     app.setScreen(app.partyScreen);
                 } else {
                     app.setScreen(app.previousScreen);
@@ -188,17 +193,13 @@ public class AnswerScreen implements Screen {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.6f, bubble.getWidth() * 0.65f, bubble.getHeight() * 0.85f);
-            app.font30.draw(app.batch, line,Gdx.graphics.getWidth() * 0.125f,Gdx.graphics.getHeight() * 0.875f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.15f, largerCharacter.width * 0.75f, largerCharacter.height * 0.75f);
-        } else if (Gdx.graphics.getWidth() >= 1000  && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.6f, bubble.getWidth(), bubble.getHeight() * 1.25f);
-            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.875f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
-        } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(bubble,Gdx.graphics.getWidth() * 0.05f,Gdx.graphics.getHeight() * 0.65f, bubble.getWidth(), bubble.getHeight() * 1.25f);
-            app.font40.draw(app.batch, line,Gdx.graphics.getWidth() * 0.15f,Gdx.graphics.getHeight() * 0.875f);
-            app.batch.draw(characterTxt, Gdx.graphics.getWidth() * 0.4f,Gdx.graphics.getHeight() * 0.2f, largerCharacter.width, largerCharacter.height);
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleSmall.width, bubbleSmall.height);
+            app.font30.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.15f, characterSmall.width, characterSmall.height);
+        } else {
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleLarge.width, bubbleLarge.height);
+            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.15f,stage.getViewport().getScreenHeight() * 0.875f);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.2f, characterLarge.width, characterLarge.height);
         }
         app.batch.end();
     }
@@ -214,7 +215,9 @@ public class AnswerScreen implements Screen {
     }
 
     @Override
-    public void resize(int width, int height) { }
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+    }
 
     @Override
     public void pause() { }

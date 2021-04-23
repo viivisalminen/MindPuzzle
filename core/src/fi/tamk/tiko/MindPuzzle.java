@@ -32,25 +32,28 @@ public class MindPuzzle extends Game {
     // Draws batched quads using indices.
     public SpriteBatch batch;
     // Renders bitmap fonts.
+    public BitmapFont font20;
     public BitmapFont font30;
     public BitmapFont font40;
+    public BitmapFont font50;
     public BitmapFont font60;
     // Provides access to an application's raw asset files.
     public AssetManager assets;
 
     public FileHandle fileEN, fileFIN;
-    public static String[][] socialQuestions = new String[15][15];
-    public static String[][] sleepQuestions = new String[15][15];
-    public static String[][] sportQuestions = new String[15][15];
-    public static String[][] hobbyQuestions = new String[15][15];
-    public static String[][] foodQuestions = new String[15][15];
-    public static String[][] socialQuestionsFIN = new String[15][15];
-    public static String[][] sleepQuestionsFIN = new String[15][15];
-    public static String[][] sportQuestionsFIN = new String[15][15];
-    public static String[][] hobbyQuestionsFIN = new String[15][15];
-    public static String[][] foodQuestionsFIN = new String[15][15];
+    public static String[][] socialQuestions = new String[20][20];
+    public static String[][] sleepQuestions = new String[20][20];
+    public static String[][] sportQuestions = new String[20][20];
+    public static String[][] hobbyQuestions = new String[20][20];
+    public static String[][] foodQuestions = new String[20][20];
+    public static String[][] socialQuestionsFIN = new String[20][20];
+    public static String[][] sleepQuestionsFIN = new String[20][20];
+    public static String[][] sportQuestionsFIN = new String[20][20];
+    public static String[][] hobbyQuestionsFIN = new String[20][20];
+    public static String[][] foodQuestionsFIN = new String[20][20];
     public int row = 0;
     public int column = 0;
+    public static int returnable = 0;
 
     // Classes' objects that are used to switch screens.
     public LoadingScreen loadingScreen;
@@ -142,6 +145,11 @@ public class MindPuzzle extends Game {
     private void initFonts() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
 
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter20 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter20.size = 20;
+        parameter20.color = Color.BLACK;
+        font20 = generator.generateFont(parameter20);
+
         FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter30.size = 30;
         parameter30.color = Color.BLACK;
@@ -151,6 +159,11 @@ public class MindPuzzle extends Game {
         parameter40.size = 40;
         parameter40.color = Color.BLACK;
         font40 = generator.generateFont(parameter40);
+
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter50 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter50.size = 50;
+        parameter50.color = Color.BLACK;
+        font50 = generator.generateFont(parameter50);
 
         FreeTypeFontGenerator.FreeTypeFontParameter parameter60 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter60.size = 60;
@@ -183,10 +196,10 @@ public class MindPuzzle extends Game {
                     array[row][column + 4] = line;
                 }
 
-                if (row < 14) {
+                if (row < 19) {
                     row++;
                 }
-                else if (row == 14) {
+                else if (row == 19) {
                     break;
                 }
             }
@@ -207,19 +220,18 @@ public class MindPuzzle extends Game {
                     .append("\n").append(line.substring(40,80))
                     .append("\n").append(line.substring(80)).toString();
             array[row][columnNo] = longLine;
-        } else if(line.length() >= 120 && line.length() < 140) {
-            longLine = new StringBuilder().append(line.substring(0,35))
-                    .append("\n").append(line.substring(35,70))
-                    .append("\n").append(line.substring(70,105))
-                    .append("\n").append(line.substring(105,120))
+        } else if(line.length() >= 120 && line.length() < 150) {
+            longLine = new StringBuilder().append(line.substring(0,40))
+                    .append("\n").append(line.substring(40,80))
+                    .append("\n").append(line.substring(80,120))
                     .append("\n").append(line.substring(120)).toString();
             array[row][columnNo] = longLine;
-        } else if(line.length() >= 140) {
-            longLine = new StringBuilder().append(line.substring(0,35))
-                    .append("\n").append(line.substring(35,70))
-                    .append("\n").append(line.substring(70,105))
-                    .append("\n").append(line.substring(105,140))
-                    .append("\n").append(line.substring(140)).toString();
+        } else if(line.length() >= 150) {
+            longLine = new StringBuilder().append(line.substring(0,40))
+                    .append("\n").append(line.substring(40,80))
+                    .append("\n").append(line.substring(80,120))
+                    .append("\n").append(line.substring(120,150))
+                    .append("\n").append(line.substring(150)).toString();
             array[row][columnNo] = longLine;
         } else {
             array[row][columnNo] = line;
@@ -258,8 +270,6 @@ public class MindPuzzle extends Game {
     }
 
     public static int getAnsweredQuestion(String room) {
-        int returnable = 0;
-
         if(room.equals("food")) {
             returnable = foodQuestionsAnswered;
         } else if (room.equals("social")) {
@@ -341,8 +351,11 @@ public class MindPuzzle extends Game {
     @Override
     public void dispose() {
         batch.dispose();
+        font20.dispose();
         font30.dispose();
         font40.dispose();
+        font50.dispose();
+        font60.dispose();
         assets.dispose();
         loadingScreen.dispose();
         mainMenuScreen.dispose();
