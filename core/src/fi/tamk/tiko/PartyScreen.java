@@ -1,7 +1,7 @@
 package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,28 +11,60 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class PartyScreen implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * PartyScreen is the ending screen or the game. The view is determined by the player's score.
+ * The player can return to the main menu and start a new game or exit the game.
+ */
+public class PartyScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Positions the background picture to the Screen.
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
+    /**
+     * String object that gets the string depending on how many points the player got
+     */
     private String line = "";
-
-    private Texture imgMenu, imgExit;
-    private Texture imgMenuPressed ,imgExitPressed;
+    /**
+     * X-button to exit the answer view.
+     */
     private ImageButton imageMenu,imageExit;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
+    private Texture imgMenu, imgExit;
+    /**
+     * Textures used in ImageButtons when button is touched.
+     */
+    private Texture imgMenuPressed ,imgExitPressed;
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public PartyScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures and the ending message to the screen.
+     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
@@ -52,29 +84,42 @@ public class PartyScreen implements Screen {
         }
 
         background = new Table();
-
         if (app.getPoints() >= 18) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
-            line = "Hurray! The villagers are happy again.\nLet's have a great party!";
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Hurraa! Kyläläiset ovat jälleen iloisia! \nNyt juhlitaan!";
+            } else {
+                line = "Hurray! The villagers are happy again.\nLet's have a great party!";
+            }
         } else if (app.getPoints() > 8 && app.getPoints() < 18) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/neutralEnding.png", Texture.class))));
-            line = "Well done! You managed to help the villagers a little. \nSome of them are happy enough to party!";
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Hienosti tehty! Onnistuit auttamaan joitain kyläläisiä.\nOsa heistä tulivat juhlimaan.";
+            } else {
+                line = "Well done! You managed to help the villagers a little. \nSome of them are happy enough to party!";
+            }
         } else if (app.getPoints() < 9) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/badEnding.png", Texture.class))));
-            line = "Oh no! The villagers are still \ntoo sad to have a party!";
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Voi ei! Et onnistunut auttamaan kyläläisiä ja he ovat liian surullisia juhlimaan.";
+            } else {
+                line = "Oh no! You failed to help the villagers \nand they are still too sad to have a party";
+            }
         }
-
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
 
         initButtons();
 
-        /*if(MainMenuScreen.getMusic()) {
+        if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
-        }*/
+        }
     }
-    // Initializes the buttons used in this screen.
+
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         imageMenu = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
@@ -111,34 +156,40 @@ public class PartyScreen implements Screen {
         stage.addActor(imageExit);
     }
 
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage and the ending string message on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
         app.batch.begin();
-        app.font40.draw(app.batch, line,MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.15f,stage.getViewport().getScreenHeight() * 0.91f);
         app.batch.end();
     }
 
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    @Override
-    public void pause() { }
-
-    @Override
-    public void resume() { }
-
-    @Override
-    public void hide() { }
-
+    /**
+     * Disposes the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();

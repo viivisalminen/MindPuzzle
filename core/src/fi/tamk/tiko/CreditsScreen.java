@@ -1,49 +1,66 @@
 package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-// CreditsScreen contains information about the authors of the game,
-// the customer and possible source information of the material.
-public class CreditsScreen implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * CreditsScreen shows team roles of the game's authors.
+ */
+public class CreditsScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Positions the background picture to the Screen.
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
-    // Renders points, lines, shape outlines and filled shapes.
-    private ShapeRenderer shapeRenderer;
-    private Texture imgMenu, imgMenuPressed, credits;
-    private Rectangle creditsLarge, creditsSmall;
+    /**
+     * ImageButtons are used to navigate the game.
+     */
     private ImageButton imageMenu;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
+    private Texture imgMenu, imgMenuPressed, credits;
+    /**
+     * Rectangle object to resize the credits texture.
+     */
+    private Rectangle creditsLarge, creditsSmall;
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public CreditsScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-        this.shapeRenderer = new ShapeRenderer();
-        this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
 
-    // Called when this screen becomes the current screen for a Game.
-    // Resets everything on this screen to defaults.
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures.
+     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
@@ -69,12 +86,15 @@ public class CreditsScreen implements Screen {
         stage.addActor(background);
 
         initButtons();
+
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
     }
 
-    // Initializes the buttons used in this screen.
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         imageMenu = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
@@ -95,50 +115,48 @@ public class CreditsScreen implements Screen {
         stage.addActor(imageMenu);
     }
 
-    // Called when the screen should render itself.
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage and credits on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
         app.batch.begin();
-
         if (Gdx.graphics.getWidth() < 1000) {
             app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.075f, creditsSmall.width, creditsSmall.height);
         } else {
             app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.05f, creditsLarge.width, creditsLarge.height);
         }
-
         app.batch.end();
     }
 
-    // Called when the Application is resized. This can happen at any point during
-    // a non-paused state but will never happen before a call to create().
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    // Called when the Application is paused, usually when it's not active or visible on-screen.
-    // An Application is also paused before it is destroyed.
-    @Override
-    public void pause() { }
-
-    // Called when the Application is resumed from a paused state, usually when it regains focus.
-    @Override
-    public void resume() { }
-
-    // Called when this screen is no longer the current screen for a Game.
-    @Override
-    public void hide() { }
-
-    // Called when the Application is destroyed. Disposes the stage and all its actors.
+    /**
+     * Disposes the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();
     }
 }
+
+// End of file

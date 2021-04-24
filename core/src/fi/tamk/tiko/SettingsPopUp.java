@@ -2,6 +2,7 @@ package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,31 +12,57 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import java.util.Locale;
 
-public class SettingsPopUp implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * SettingsPopUp is the settings view that opens from the rooms.
+ */
+public class SettingsPopUp extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Positions the background picture to the Screen.
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
-
+    /**
+     * X-button to exit the answer view.
+     */
     private ImageButton xButton, soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
     private Texture exit, soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
+    /**
+     * Textures used in ImageButtons when button is touched.
+     */
     private Texture exitPressed, soundsONPressed, soundsOFFPressed, musicONPressed, musicOFFPressed, finONPressed, finOFFPressed, enONPressed, enOFFPressed;
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public SettingsPopUp(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
-    // Called when this screen becomes the current screen for a Game.
-    // Resets everything on this screen to defaults.
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures.
+     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
@@ -73,7 +100,9 @@ public class SettingsPopUp implements Screen {
         }
     }
 
-    // Initializes the buttons used in this screen.
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         int buttonSize = 180;
 
@@ -253,41 +282,44 @@ public class SettingsPopUp implements Screen {
         stage.addActor(xButton);
     }
 
-    // Called when the screen should render itself.
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage and the ending string message on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
 
-    // Called when the Application is resized. This can happen at any point during
-    // a non-paused state but will never happen before a call to create().
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    // Called when the Application is paused, usually when it's not active or visible on-screen.
-    // An Application is also paused before it is destroyed.
-    @Override
-    public void pause() { }
-
-    // Called when the Application is resumed from a paused state, usually when it regains focus.
-    @Override
-    public void resume() { }
-
-    // Called when this screen is no longer the current screen for a Game.
+    /**
+     * Saves the settings to the Preferences file.
+     */
     @Override
     public void hide() { MainMenuScreen.saveSettings(MainMenuScreen.getMusic(),MainMenuScreen.getSound()); }
 
-    // Called when the Application is destroyed. Disposes the stage and all its actors.
+    /**
+     * Disposes the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();
     }
 }
-

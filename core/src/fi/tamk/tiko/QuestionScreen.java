@@ -2,6 +2,7 @@ package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,41 +16,92 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class QuestionScreen implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * QuestionScreen shows the view for the character's multiple choice question.
+ */
+public class QuestionScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Positions the background picture to the Screen.
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
+
     // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
     private Skin skin;
-
-    private ImageButton buttonA, buttonB, buttonC;
     private TextButton buttonX;
+
+    /**
+     * ImageButtons are used to navigate the game.
+     */
+    private ImageButton buttonA, buttonB, buttonC;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
     private Texture answerBackground, answerBackgroundPressed, bubble, characterTxt;
+    /**
+     * Rectangle object to resize the textures.
+     */
     private Rectangle characterSmall, characterLarge,bubbleSmall, bubbleLarge;
-
-    public int row = (int)(Math.random() * 15);
+    /**
+     * Starting row value for getting questions from the arrays.
+     */
+    public int row = (int)(Math.random() * 20);
+    /**
+     * String object that gets the question from array.
+     */
     public static String question = "";
+    /**
+     * String object that gets the option a) from array.
+     */
     public static String optionA = "";
+    /**
+     * String object that gets the option b) from array.
+     */
     public static String optionB = "";
+    /**
+     * String object that gets the option c) from array.
+     */
     public static String optionC = "";
+    /**
+     * String object that gets the right answer as a letter a, b or c from array.
+     */
     public static String rightAnswer = "";
-    public static String playersAnswer = "";
+    /**
+     * String object that gets the right answer as String from array.
+     */
     public static String rightAnswerAsString = "";
+    /**
+     * String object that gets the player's answer as a letter a, b or c.
+     */
+    public static String playersAnswer = "";
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public QuestionScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
-    // Called when this screen becomes the current screen for a Game.
-    // Resets everything on this screen to defaults.
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures and question.
+     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage); //Allows input to Scene2D components
@@ -94,6 +146,9 @@ public class QuestionScreen implements Screen {
         }
     }
 
+    /**
+     * Initializes the character texture depending on which character was clicked.
+     */
     private void getCharacter() {
         if(app.getCharacter().equals("bird")) {
             characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
@@ -148,70 +203,9 @@ public class QuestionScreen implements Screen {
         }
     }
 
-    private void initQuestions(Screen prev) {
-        if(row == 19) {
-            row = 0;
-        }
-
-        String[][] array = new String[20][20];
-
-        if(app.getLanguage().equals("fi_FI")) {
-            if (prev.equals(app.socialRoom)) {
-                array = MainMenuScreen.questionsAboutSocialFIN;
-            } else if (prev.equals(app.sleepRoom)) {
-                array = MainMenuScreen.questionsAboutSleepFIN;
-            } else if (prev.equals(app.sportsRoom)) {
-                array = MainMenuScreen.questionsAboutSportsFIN;
-            } else if (prev.equals(app.hobbiesRoom)) {
-                array = MainMenuScreen.questionsAboutHobbiesFIN;
-            } else if (prev.equals(app.foodRoom)) {
-                array = MainMenuScreen.questionsAboutFoodFIN;
-            }
-        } else {
-            if (prev.equals(app.socialRoom)) {
-                array = MainMenuScreen.questionsAboutSocial;
-            } else if (prev.equals(app.sleepRoom)) {
-                array = MainMenuScreen.questionsAboutSleep;
-            } else if (prev.equals(app.sportsRoom)) {
-                array = MainMenuScreen.questionsAboutSports;
-            } else if (prev.equals(app.hobbiesRoom)) {
-                array = MainMenuScreen.questionsAboutHobbies;
-            } else if (prev.equals(app.foodRoom)) {
-                array = MainMenuScreen.questionsAboutFood;
-            }
-        }
-
-        question = array[row][0];
-        optionA = array[row][1];
-        optionB = array[row][2];
-        optionC = array[row][3];
-        rightAnswer = array[row][4];
-        row++;
-
-        setRightAnswerAsString();
-    }
-
-    public static String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    private void setRightAnswerAsString() {
-        switch (rightAnswer) {
-            case "a":
-                rightAnswerAsString = optionA;
-                break;
-            case "b":
-                rightAnswerAsString = optionB;
-                break;
-            case "c":
-                rightAnswerAsString = optionC;
-                break;
-        }
-    }
-
-    public static String getRightAnswerAsString() { return rightAnswerAsString; }
-
-    // Initializes the buttons used in this screen.
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         float xPos = ((MindPuzzle.VIRTUAL_WIDTH / 2) - (answerBackground.getWidth() / 2));
 
@@ -281,26 +275,121 @@ public class QuestionScreen implements Screen {
         //stage.addActor(buttonX);
     }
 
-    public static void setPlayersAnswer(String a) {
-        playersAnswer = a;
+    /**
+     * Initializes the question depending on which was the previous screen and
+     * what is current language of the game.
+     *
+     * @param prev  previous Screen
+     */
+    private void initQuestions(Screen prev) {
+        if(row == 19) {
+            row = 0;
+        }
+
+        String[][] array = new String[20][20];
+
+        if(app.getLanguage().equals("fi_FI")) {
+            if (prev.equals(app.socialRoom)) {
+                array = MainMenuScreen.questionsAboutSocialFIN;
+            } else if (prev.equals(app.sleepRoom)) {
+                array = MainMenuScreen.questionsAboutSleepFIN;
+            } else if (prev.equals(app.sportsRoom)) {
+                array = MainMenuScreen.questionsAboutSportsFIN;
+            } else if (prev.equals(app.hobbiesRoom)) {
+                array = MainMenuScreen.questionsAboutHobbiesFIN;
+            } else if (prev.equals(app.foodRoom)) {
+                array = MainMenuScreen.questionsAboutFoodFIN;
+            }
+        } else {
+            if (prev.equals(app.socialRoom)) {
+                array = MainMenuScreen.questionsAboutSocial;
+            } else if (prev.equals(app.sleepRoom)) {
+                array = MainMenuScreen.questionsAboutSleep;
+            } else if (prev.equals(app.sportsRoom)) {
+                array = MainMenuScreen.questionsAboutSports;
+            } else if (prev.equals(app.hobbiesRoom)) {
+                array = MainMenuScreen.questionsAboutHobbies;
+            } else if (prev.equals(app.foodRoom)) {
+                array = MainMenuScreen.questionsAboutFood;
+            }
+        }
+
+        question = array[row][0];
+        optionA = array[row][1];
+        optionB = array[row][2];
+        optionC = array[row][3];
+        rightAnswer = array[row][4];
+        row++;
+
+        setRightAnswerAsString();
     }
 
+    /**
+     * Returns the right answer as a letter a, b or c.
+     *
+     * @return right answer as a single letter
+     */
+    public static String getRightAnswer() {
+        return rightAnswer;
+    }
+
+    /**
+     * Changes the right answer from a single letter to an entire string.
+     */
+    private void setRightAnswerAsString() {
+        switch (rightAnswer) {
+            case "a":
+                rightAnswerAsString = optionA;
+                break;
+            case "b":
+                rightAnswerAsString = optionB;
+                break;
+            case "c":
+                rightAnswerAsString = optionC;
+                break;
+        }
+    }
+
+    /**
+     * Returns the right answer as an entire string.
+     *
+     * @return right answer as string
+     */
+    public static String getRightAnswerAsString() { return rightAnswerAsString; }
+
+    /**
+     * Sets the player's answer as a letter a, b or c.
+     *
+     * @param letter player answer
+     */
+    public static void setPlayersAnswer(String letter) {
+        playersAnswer = letter;
+    }
+
+    /**
+     * Return the players answer as a letter a, b or c.
+     *
+     * @return player answer as a single letter
+     */
     public static String getPlayersAnswer() {
         return playersAnswer;
     }
 
-    // Called when the screen should render itself.
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage, speech bubble, character and the question on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
         app.batch.begin();
-
         if(Gdx.graphics.getWidth() < 1000) {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleSmall.width, bubbleSmall.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterSmall.width, characterSmall.height);
@@ -311,38 +400,33 @@ public class QuestionScreen implements Screen {
         } else {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleLarge.width, bubbleLarge.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterLarge.width, characterLarge.height);
-            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.925f);
+            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
             app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.46f);
             app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.3f);
             app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.14f);
         }
-
         app.batch.end();
     }
 
-    // Called when the Application is resized. This can happen at any point during
-    // a non-paused state but will never happen before a call to create().
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    // Called when the Application is paused, usually when it's not active or visible on-screen.
-    // An Application is also paused before it is destroyed.
-    @Override
-    public void pause() { }
-
-    // Called when the Application is resumed from a paused state, usually when it regains focus.
-    @Override
-    public void resume() { }
-
-    // Called when this screen is no longer the current screen for a Game.
-    @Override
-    public void hide() { }
-
-    // Called when the Application is destroyed. Disposes the stage and all its actors.
+    /**
+     * Disposes the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();
     }
 }
+
+// End of file

@@ -2,7 +2,7 @@ package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
@@ -15,48 +15,95 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-// MainMenuScreen is the main menu of the game including play, how to play, settings, credits and exit.
-public class MainMenuScreen implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * MainMenuScreen is the main menu of the game including
+ * play, how to play, settings, credits and exit.
+ */
+public class MainMenuScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Positions the background picture to the Screen.
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
-
+    /**
+     * ImageButtons are used to navigate the game.
+     */
     private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
-    private Rectangle logoSmall, logoMedium, logoLarge;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
     private Texture logo, imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
+    /**
+     * Textures used in ImageButtons when button is touched.
+     */
     private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
-
+    /**
+     * Rectangle object to resize the textures.
+     */
+    private Rectangle logoSmall, logoMedium, logoLarge;
+    /**
+     * Musics of the game. Music as background music.
+     * Right as sound effect for right answer.
+     * Wrong as sound effect for wrong answer.
+     */
     public static Music music, right, wrong;
+    /**
+     * Boolean value that determines whether the music in playing or not.
+     */
     public static boolean musicPlaying = true;
+    /**
+     * The game's sound effect for buttons.
+     */
     public static Sound sound;
+    /**
+     * Boolean value that determines whether the sound effects are playing or not.
+     */
     public static boolean soundOn = true;
-
+    /**
+     * 2D arrays for English questions.
+     */
     public static String[][] questionsAboutSocial = new String[20][20];
     public static String[][] questionsAboutSleep = new String[20][20];
     public static String[][] questionsAboutSports = new String[20][20];
     public static String[][] questionsAboutHobbies = new String[20][20];
     public static String[][] questionsAboutFood = new String[20][20];
-
+    /**
+     * 2D arrays for Finnish questions.
+     */
     public static String[][] questionsAboutSocialFIN = new String[20][20];
     public static String[][] questionsAboutSleepFIN = new String[20][20];
     public static String[][] questionsAboutSportsFIN = new String[20][20];
     public static String[][] questionsAboutHobbiesFIN = new String[20][20];
     public static String[][] questionsAboutFoodFIN = new String[20][20];
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Checks the saved status of the characters.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public MainMenuScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
-    // Called when this screen becomes the current screen for a Game.
-    // Resets everything on this screen to defaults.
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures. Sets the previous screen.
+     * Gets the score and sound and music settings from the Preferences file.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
@@ -104,9 +151,8 @@ public class MainMenuScreen implements Screen {
 
         initButtons();
         app.setPreviousScreen(app.mainMenuScreen);
-
-        openSettings(musicPlaying, soundOn);
         app.getPoints();
+        openSettings(musicPlaying, soundOn);
 
         if(getMusic()) {
             music.play();
@@ -115,7 +161,15 @@ public class MainMenuScreen implements Screen {
         }
     }
 
-    // MainMenuScreen.receiveQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+    /**
+     * Receives English 2D arrays from the MindPuzzle and clones them into the MainMenuScreen's 2D arrays.
+     *
+     * @param social    array containing questions about relationships and emotions
+     * @param sleep     array containing questions about sleep and rest
+     * @param sport     array containing questions about exercise
+     * @param hobby     array containing questions about hobbies
+     * @param food      array containing questions about food and eating habits
+     */
     public static void receiveENQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocial = social.clone();
         questionsAboutSleep = sleep.clone();
@@ -124,6 +178,15 @@ public class MainMenuScreen implements Screen {
         questionsAboutFood = food.clone();
     }
 
+    /**
+     * Receives Finnish 2D arrays from the MindPuzzle and clones them into the MainMenuScreen's 2D arrays.
+     *
+     * @param social    array containing questions about relationships and emotions
+     * @param sleep     array containing questions about sleep and rest
+     * @param sport     array containing questions about exercise
+     * @param hobby     array containing questions about hobbies
+     * @param food      array containing questions about food and eating habits
+     */
     public static void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocialFIN = social.clone();
         questionsAboutSleepFIN = sleep.clone();
@@ -132,7 +195,9 @@ public class MainMenuScreen implements Screen {
         questionsAboutFoodFIN = food.clone();
     }
 
-    // Initializes the buttons used in this screen.
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         imagePlay = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgPlay)),
@@ -221,13 +286,17 @@ public class MainMenuScreen implements Screen {
         stage.addActor(imageSettings);
     }
 
-    // Called when the screen should render itself.
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage and game logo on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
@@ -239,11 +308,12 @@ public class MainMenuScreen implements Screen {
         } else if (Gdx.graphics.getWidth() >= 1200) {
             app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
         }
-
-
         app.batch.end();
     }
 
+    /**
+     * Sets the music to play.
+     */
     public static void musicOn(){
         music.play();
         music.setLooping(true);
@@ -251,29 +321,54 @@ public class MainMenuScreen implements Screen {
         musicPlaying = true;
     }
 
+    /**
+     * Stops the music.
+     */
     public static void musicOff() {
         music.stop();
         musicPlaying = false;
     }
 
+    /**
+     * Returns information on whether the music is on or not.
+     *
+     * @return boolean value of musicPlaying
+     */
     public static Boolean getMusic() {
         return musicPlaying;
     }
 
+    /**
+     * Sets the sound effects to play.
+     */
     public static void soundEffectOn() {
         sound.play(1f);;
         soundOn = true;
     }
 
+    /**
+     * Stops the sound effects.
+     */
     public static void soundEffectOff() {
         sound.stop();
         soundOn = false;
     }
 
+    /**
+     * Returns information on whether the sound effects are on or not.
+     *
+     * @return boolean value of soundON
+     */
     public static Boolean getSound() {
         return soundOn;
     }
 
+    /**
+     * Saves the music and sound settings to the Preferences file.
+     *
+     * @param music false when music is set off, true when music is set on
+     * @param sound false when sound effects are set off, true when sound effects are set on
+     */
     public static void saveSettings(Boolean music, Boolean sound) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         prefs.putBoolean("music", musicPlaying);
@@ -281,6 +376,14 @@ public class MainMenuScreen implements Screen {
         prefs.flush();
     }
 
+    /**
+     * Retrieves the settings for music and sounds from the Preferences file.
+     * Sets them to play if the return value is true.
+     * Sets them off if the return value is false.
+     *
+     * @param music keyword to music
+     * @param sound keyword to sounds
+     */
     public static void openSettings(Boolean music, Boolean sound) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         Boolean musicBoolean  = prefs.getBoolean("music", true);
@@ -298,6 +401,9 @@ public class MainMenuScreen implements Screen {
         }
     }
 
+    /**
+     * Resets the settings for music and sound effects.
+     */
     public void resetSettings() {
         musicPlaying = true;
         soundOn = true;
@@ -306,27 +412,21 @@ public class MainMenuScreen implements Screen {
         prefs.flush();
     }
 
-    // Called when the Application is resized. This can happen at any point during
-    // a non-paused state but will never happen before a call to create().
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    // Called when the Application is paused, usually when it's not active or visible on-screen.
-    // An Application is also paused before it is destroyed.
-    @Override
-    public void pause() { }
-
-    // Called when the Application is resumed from a paused state, usually when it regains focus.
-    @Override
-    public void resume() { }
-
-    // Called when this screen is no longer the current screen for a Game.
-    @Override
-    public void hide() { }
-
-    // Called when the Application is destroyed. Disposes the stage and all its actors, sound and music objects.
+    /**
+     * Disposes music, sounds and the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();
@@ -337,3 +437,4 @@ public class MainMenuScreen implements Screen {
     }
 }
 
+// End of file

@@ -1,40 +1,89 @@
 package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-public class AnswerScreen implements Screen {
+/**
+ * AnswerScreen shows the game's answer view after the QuestionScreen.
+ */
+public class AnswerScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
+    /**
+     * Positions the background image to the Screen.
+     */
     private Table background;
-    private Skin skin;
+    /**
+     * Boolean variable gets the value depending on whether the player's answer is right or wrong.
+     */
     private boolean answer;
+    /**
+     * String object that gets the string depending on what the player answered
+     * and what is the current language of the game.
+     */
     private String line = "";
+    /**
+     * String object that gets happy message either in English or in Finnish depending on
+     * what is the current language of the game.
+     */
     private String rightLine = "";
+    /**
+     * String object that gets sad message either in English or in Finnish depending on
+     * what is the current language of the game.
+     */
     private String wrongLine = "";
+    /**
+     * String object that gets the right answer as an entire string from the QuestionScreen.
+     */
     private String rightAnswer = "";
+    /**
+     * X-button to exit the answer view.
+     */
     private ImageButton xButton;
+    /**
+     * Textures used in ImageButtons when button is not touched.
+     */
     private Texture bubble, characterTxt, exit, exitPressed;
+    /**
+     * Rectangle object to resize the textures.
+     */
     private Rectangle characterSmall, characterLarge, bubbleSmall, bubbleLarge;
 
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
+    /**
+     * Sets the InputProcessor that will receive all touch and key input events.
+     * Initializes the textures and question.
+     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
@@ -50,11 +99,6 @@ public class AnswerScreen implements Screen {
 
         exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
         exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
-
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
@@ -96,6 +140,9 @@ public class AnswerScreen implements Screen {
         }
     }
 
+    /**
+     * Initializes the character texture depending on which character was clicked.
+     */
     private void getCharacter() {
         if(app.getCharacter().equals("bird")) {
             characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
@@ -150,6 +197,9 @@ public class AnswerScreen implements Screen {
         }
     }
 
+    /**
+     * Initializes the buttons used in this screen.
+     */
     private void initButtons() {
         xButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(exit)),
@@ -182,12 +232,17 @@ public class AnswerScreen implements Screen {
         stage.addActor(xButton);
     }
 
+    /**
+     * Calls every actor's act()-method that has added to the stage.
+     * Draws the stage, speech bubble, character and the answer message on the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f,1f,1f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Calls every actor's act()-method that has added to the stage.
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
@@ -204,6 +259,11 @@ public class AnswerScreen implements Screen {
         app.batch.end();
     }
 
+    /**
+     * Checks if the player's answer was right or wrong.
+     *
+     * @return
+     */
     public boolean checkTheAnswer() {
         if(QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
             answer = true;
@@ -214,22 +274,25 @@ public class AnswerScreen implements Screen {
         return answer;
     }
 
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    @Override
-    public void pause() { }
-
-    @Override
-    public void resume() { }
-
-    @Override
-    public void hide() { }
-
+    /**
+     * Disposes the stage and all its actors.
+     */
     @Override
     public void dispose() {
         stage.dispose();
     }
 }
+
+// End of file

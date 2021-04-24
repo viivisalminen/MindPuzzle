@@ -8,54 +8,85 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 import java.util.Locale;
 import java.util.Scanner;
-
-/*The class MindPuzzle contains methods the application is operated with.
-
-Class MindPuzzle initializes the measurement of the screens, fonts used in the application
-*/
+/**
+ * MindPuzzle is the main class of the application
+ * that contains metadata of the game and methods the game is operated with.
+ *
+ * MindPuzzle includes information on what was the last visible screen and character,
+ * how many questions in the rooms have been answered and amount of the points.
+ * It also handles the text files, screen switching, the reset of the game
+ * and the saving of language settings and character status to the Preferences file.
+ *
+ * @author      Viivi Salminen
+ * @version     2021.2704
+ * @since       15.0.1
+ */
 public class MindPuzzle extends Game {
-    public static final String TITLE = "MindPuzzle";
-    // Application version number.
-    public static final float VERSION =  0.1f;
-    // Screen dimensions.
+    /**
+     * The Viewport's width.
+     */
     public static int VIRTUAL_WIDTH = 1080;
+    /**
+     * The Viewport's height.
+     */
     public static int VIRTUAL_HEIGHT = 1920;
-    // A camera with orthographic projection. Used in most of the screens
+    /**
+     * A camera with orthographic projection.
+     */
     public OrthographicCamera camera;
-    // Draws batched quads using indices.
+    /**
+     * Draws batched quads using indices.
+     */
     public SpriteBatch batch;
-    // Renders bitmap fonts.
+    /**
+     * Renders bitmap fonts in sizes 20, 30, 40, 50 and 60.
+     */
     public BitmapFont font20;
     public BitmapFont font30;
     public BitmapFont font40;
     public BitmapFont font50;
     public BitmapFont font60;
-    // Provides access to an application's raw asset files.
+    /**
+     * Loads and stores assets like textures, sounds and music.
+     */
     public AssetManager assets;
-
+    /**
+     * Text files containing questions in English and in Finnish.
+     */
     public FileHandle fileEN, fileFIN;
+    /**
+     * 2D arrays for English questions.
+     */
     public static String[][] socialQuestions = new String[20][20];
     public static String[][] sleepQuestions = new String[20][20];
     public static String[][] sportQuestions = new String[20][20];
     public static String[][] hobbyQuestions = new String[20][20];
     public static String[][] foodQuestions = new String[20][20];
+    /**
+     * 2D arrays for Finnish questions.
+     */
     public static String[][] socialQuestionsFIN = new String[20][20];
     public static String[][] sleepQuestionsFIN = new String[20][20];
     public static String[][] sportQuestionsFIN = new String[20][20];
     public static String[][] hobbyQuestionsFIN = new String[20][20];
     public static String[][] foodQuestionsFIN = new String[20][20];
+    /**
+     * Starting row value for filling in the arrays.
+     */
     public int row = 0;
+    /**
+     * Starting column value for filling in the arrays.
+     */
     public int column = 0;
-    public static int returnable = 0;
-
-    // Classes' objects that are used to switch screens.
+    /**
+     * Classes' objects that are used to switch screens.
+     */
     public LoadingScreen loadingScreen;
     public MainMenuScreen mainMenuScreen;
     public RoomMenuScreen roomMenuScreen;
@@ -71,31 +102,49 @@ public class MindPuzzle extends Game {
     public AnswerScreen answerScreen;
     public PartyScreen partyScreen;
     public GameInstructionsScreen instructionsScreen;
-
-    // The most recent screen is stored in the variable, which allows
-    // the return to the previous screen from the question screen.
+    /**
+     * The most recent screen is stored in the variable, which allows
+     * the return to the previous screen from the answer screen.
+     */
     public Screen previousScreen = mainMenuScreen;
+    /**
+     * The character clicked in the room is stored in this variable
+     * so that the correct character is seen on the question and answer screen.
+     */
     public static String previousCharacter = "";
-
+    /**
+     * Points in the game.
+     */
     public static int points = 0;
+    /**
+     * Starting value for return variable of method
+     * public static int getAnsweredQuestion(String room) {...}
+     */
+    public static int returnable = 0;
+    /**
+     * Starting values for amount of answered questions in every game room.
+     */
     public static int foodQuestionsAnswered = 0;
     public static int socialQuestionsAnswered = 0;
     public static int sportQuestionsAnswered = 0;
     public static int hobbyQuestionsAnswered = 0;
     public static int sleepQuestionsAnswered = 0;
-
+    /**
+     * Variable for language settings.
+     */
     public static String language = "";
 
-    // Called when the Application is first created.
-    // Initializes objects and sets the screen to loading screen.
+    /**
+     * Initializes objects, font and language.
+     * Handles the text files and sends them to MainMenuScreen.
+     * And finally sets the screen to loading screen.
+     */
     @Override
     public void create() {
         assets = new AssetManager();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
         batch = new SpriteBatch();
-
-        assets.load("images/background2.png", Texture.class);
 
         initFonts();
         getLanguage();
@@ -135,13 +184,17 @@ public class MindPuzzle extends Game {
         this.setScreen(loadingScreen);
     }
 
-    // Uses the currently displayed screens render()-method
+    /**
+     * Uses the currently displayed screen's render()-method
+     */
     @Override
     public void render() {
         super.render();
     }
 
-    // Introduces and initializes fonts
+    /**
+     * Introduces and initializes fonts
+     */
     private void initFonts() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
 
@@ -171,6 +224,13 @@ public class MindPuzzle extends Game {
         font60 = generator.generateFont(parameter60);
     }
 
+    /**
+     * Initializes the text files.
+     *
+     * @param array     the array in which questions are stored
+     * @param theme     the theme to be processed within the text file
+     * @param file      the text file to be processed
+     */
     private void initTextFile(String[][] array, String theme, FileHandle file) {
         Scanner scanner = new Scanner(file.readString());
         String line = "";
@@ -209,6 +269,13 @@ public class MindPuzzle extends Game {
         scanner.close();
     }
 
+    /**
+     * Adds line breaks to String lines.
+     *
+     * @param array     the array in which questions are stored
+     * @param line      the line to which line breaks are added
+     * @param columnNo  the value of the column in the array to which the processed line will be added
+     */
     private void lineUpText(String[][] array, String line, int columnNo) {
         String longLine = "";
         if(line.length() >= 40 && line.length() < 80) {
@@ -238,23 +305,47 @@ public class MindPuzzle extends Game {
         }
     }
 
-    // Sets the previous visible screen.
+    /**
+     * Sets the previous visible screen.
+     *
+     * @param prev  the previous visible screen to set
+     */
     public void setPreviousScreen(Screen prev) {
         previousScreen = prev;
     }
-    // Returns the previous visible screen.
+
+    /**
+     * Returns the previous visible screen.
+     *
+     * @return previous visible creen
+     */
     public Screen getPreviousScreen() {
         return previousScreen;
     }
 
+    /**
+     * Sets the previous clicked character.
+     *
+     * @param character the character to set
+     */
     public static void setPreviousCharacter(String character) {
         previousCharacter = character;
     }
 
+    /**
+     * Returns the previous clicked character.
+     *
+     * @return previous clicked character
+     */
     public static String getCharacter() {
         return previousCharacter;
     }
 
+    /**
+     * Adds the amount of answered questions in the certain room.
+     *
+     * @param room the room to whose amount of the questions answered is increased
+     */
     public void addAnsweredQuestion(Screen room) {
         if(room.equals(foodRoom)) {
             foodQuestionsAnswered++;
@@ -269,6 +360,11 @@ public class MindPuzzle extends Game {
         }
     }
 
+    /**
+     * Returns the number of questions have been answered in certain room.
+     *
+     * @return integer value of answered question between 0-5
+     */
     public static int getAnsweredQuestion(String room) {
         if(room.equals("food")) {
             returnable = foodQuestionsAnswered;
@@ -285,6 +381,12 @@ public class MindPuzzle extends Game {
         return returnable;
     }
 
+    /**
+     * Sets the language of the game and
+     * saves it to the Preferences file.
+     *
+     * @param locale language to set
+     */
     public static void setLanguage(Locale locale) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         language = locale.toString();
@@ -292,6 +394,11 @@ public class MindPuzzle extends Game {
         prefs.flush();
     }
 
+    /**
+     * Returns the current language of the game.
+     *
+     * @return current language
+     */
     public static String getLanguage() {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         Locale locale = Locale.getDefault();
@@ -302,6 +409,10 @@ public class MindPuzzle extends Game {
         return language;
     }
 
+    /**
+     * Increases the points by one and saves
+     * the total score to the Preferences file.
+     */
     public void addPoint() {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         points++;
@@ -309,6 +420,11 @@ public class MindPuzzle extends Game {
         prefs.flush();
     }
 
+    /**
+     * Returns current score.
+     *
+     * @return points to return between 0-25
+     */
     public static int getPoints() {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         points = prefs.getInteger("points", points);
@@ -316,12 +432,25 @@ public class MindPuzzle extends Game {
         return points;
     }
 
+    /**
+     * Saves character's status into the Preferences file.
+     *
+     * @param character     character that has been clicked
+     * @param roomCharacter room where the character is
+     */
     public void saveCharacter(String character, Boolean roomCharacter) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         prefs.putBoolean(character, roomCharacter);
         prefs.flush();
     }
 
+    /**
+     * Gets and returns the saved boolean value for the characters visibility.
+     *
+     * @param character     the character whose status is being asked
+     * @param roomCharacter default value if there is no data stored in Preferences file yet
+     * @return if the character should be visible in the rooms or not
+     */
     public boolean openCharacters(String character, Boolean roomCharacter) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         Boolean isCharacterVisible  = prefs.getBoolean(character, roomCharacter);
@@ -329,6 +458,9 @@ public class MindPuzzle extends Game {
         return isCharacterVisible;
     }
 
+    /**
+     * Resets the game.
+     */
     public void resetGame() {
         mainMenuScreen.resetSettings();
         foodRoom.resetCharacterInfo();
@@ -347,7 +479,9 @@ public class MindPuzzle extends Game {
         prefs.flush();
     }
 
-    // Called when the Application is destroyed. Disposes all objects.
+    /**
+     * Disposes SpriteBatch, BitmapFonts, AssetManager and classes' objects.
+     */
     @Override
     public void dispose() {
         batch.dispose();

@@ -1,7 +1,7 @@
 package fi.tamk.tiko;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
@@ -11,22 +11,39 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-// LoadingScreen loads all the assets to the game and
-// shows how many assets have been loaded using the download bar.
-public class LoadingScreen implements Screen {
-    // Class MindPuzzle object that allows to set screen from inside this class.
+/**
+ * LoadingScreen loads all the assets to the game.
+ * The visual view to the user is the download bar that
+ * shows how many assets have been loaded.
+ */
+public class LoadingScreen extends ScreenAdapter {
+    /**
+     * Class MindPuzzle object that allows to set screen from inside this class.
+     */
     private final MindPuzzle app;
-    // Renders points, lines, shape outlines and filled shapes.
+    /**
+     * Renders the loading bar.
+     */
     private ShapeRenderer shapeRenderer;
-    // A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+    /**
+     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     */
     private Stage stage;
-    // Progress tells how much AssetManager has loaded at the time
+    /**
+     * Progress variable tells how many assets AssetManager has been downloaded so far.
+     */
     private float progress;
 
-    // Class constructor. Uses the MindPuzzle reference to set the screen.
+    /**
+     * Class constructor.
+     *
+     * Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     *
+     * @param app   MindPuzzle class's object
+     */
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
@@ -34,7 +51,52 @@ public class LoadingScreen implements Screen {
         this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
 
-    // Loads all the assets used in the game one by one.
+    /**
+     * Sets the progress' starting value and calls method to load the assets.
+     */
+    @Override
+    public void show() {
+        this.progress = 0f;
+        queueAssets();
+    }
+
+    /**
+     * Renders the loading bar to the screen.
+     *
+     * @param delta The time in seconds since the last render.
+     */
+    @Override
+    public void render(float delta) {
+        Gdx.gl.glClearColor(1f,1f,1f,1f);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        update();
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(Color.BLACK);
+        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.7f, MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
+
+        shapeRenderer.setColor(Color.FOREST);
+        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, progress * (MindPuzzle.VIRTUAL_WIDTH * 0.7f), MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
+        shapeRenderer.end();
+    }
+
+    /**
+     * Tells the AssetManager to keep checking if all the assets have been loaded.
+     *  If statement keeps returning false until all the assets are finished loading
+     *  After that, application changes to the MainMenuScreen.
+     */
+    public void update() {
+        progress = MathUtils.lerp(progress, app.assets.getProgress(), 0.1f);
+
+        if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
+            app.setScreen(app.mainMenuScreen);
+        }
+    }
+
+    /**
+     * Loads all the assets used in the game one by one.
+     */
     public void queueAssets() {
         app.assets.load("images/Buttons/Credits.png", Texture.class);
         app.assets.load("images/Buttons/CreditsPressed.png", Texture.class);
@@ -200,65 +262,21 @@ public class LoadingScreen implements Screen {
         app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }
 
-    // Called when this screen becomes the current screen for a Game.
-    @Override
-    public void show() {
-        this.progress = 0f;
-        queueAssets();
-    }
-
-    // Tells the AssetManager to keep checking if all the assets have been loaded.
-    // After every asset have been loaded, change the vies to SplashScreen.
-    public void update() {
-        // MathUtils.lerp(float fromValue, float toValue, float progress)
-        // Linearly interpolates between fromValue to toValue on progress position.
-        progress = MathUtils.lerp(progress, app.assets.getProgress(), 0.1f);
-        // Keeps returning false until all the assets are finished loading
-        // After that, application changes to the SplashScreen
-        if(app.assets.update() && progress >= app.assets.getProgress() - 0.001f) {
-            app.setScreen(app.mainMenuScreen);
-        }
-    }
-
-    // Called when the screen should render itself.
-    @Override
-    public void render(float delta) {
-        Gdx.gl.glClearColor(1f,1f,1f,1f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        update();
-
-        // Loading bar rectangles
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.7f, MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
-
-        shapeRenderer.setColor(Color.FOREST);
-        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, progress * (MindPuzzle.VIRTUAL_WIDTH * 0.7f), MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
-        shapeRenderer.end();
-    }
-
-    // Called when the Application is resized. This can happen at any point during
-    // a non-paused state but will never happen before a call to create().
+    /**
+     * Resizes the viewport's dimensions based on the screen dimensions of
+     * the device using the application.
+     *
+     * @param width     The viewport's width of the device
+     * @param height    The viewport's height of the device
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    // Called when the Application is paused, usually when it's not active or visible on-screen.
-    // An Application is also paused before it is destroyed.
-    @Override
-    public void pause() { }
-
-    // Called when the Application is resumed from a paused state, usually when it regains focus.
-    @Override
-    public void resume() { }
-
-    // Called when this screen is no longer the current screen for a Game.
-    @Override
-    public void hide() { }
-
-    // Called when the Application is destroyed. Disposes the shapeRenderer.
+    /**
+     * Disposes the ShapeRenderer.
+     */
     @Override
     public void dispose() {
         shapeRenderer.dispose();
