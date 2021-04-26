@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -58,13 +58,37 @@ public class AnswerScreen extends ScreenAdapter {
      */
     private ImageButton xButton;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * Texture used in ImageButton when button is not touched.
      */
-    private Texture bubble, characterTxt, exit, exitPressed;
+    private Texture exit;
     /**
-     * Rectangle object to resize the textures.
+     * Texture used in ImageButton when button is touched.
      */
-    private Rectangle characterSmall, characterLarge, bubbleSmall, bubbleLarge;
+    private Texture exitPressed;
+    /**
+     * Texture for speech bubble image.
+     */
+    private Texture bubble;
+    /**
+     * Rectangle variable to reduce the size of the speech bubble image.
+     */
+    private Rectangle bubbleSmall;
+    /**
+     * Texture for a game character image.
+     */
+    private Texture characterTxt;
+    /**
+     * Rectangle variable to increase the size of the character image.
+     */
+    private Rectangle characterLarge;
+    /**
+     * Rectangle variable to reduce the size of the character image.
+     */
+    private Rectangle characterSmall;
+    /**
+     * Rectangle variable to increase the size of the speech bubble image.
+     */
+    private Rectangle bubbleLarge;
 
     /**
      * Class constructor.
@@ -114,7 +138,7 @@ public class AnswerScreen extends ScreenAdapter {
             MainMenuScreen.music.setVolume(0.4f);
         }
 
-        rightAnswer = QuestionScreen.getRightAnswerAsString();
+        rightAnswer = fi.tamk.mindpuzzle.QuestionScreen.getRightAnswerAsString();
 
         if(app.getLanguage().equals("fi_FI")) {
             rightLine = "Jei, vastasit oikein! Nyt voin hyvillä"+"\nmielin lähteä valmistautumaan kyläjuhliin!";
@@ -265,7 +289,7 @@ public class AnswerScreen extends ScreenAdapter {
      * @return
      */
     public boolean checkTheAnswer() {
-        if(QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
+        if(fi.tamk.mindpuzzle.QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
             answer = true;
         }
         else {
@@ -291,8 +315,11 @@ public class AnswerScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        bubble.dispose();
+        characterTxt.dispose();
+        //exit.dispose();
     }
 }
 
-// End of file

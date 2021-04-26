@@ -1,19 +1,16 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -34,23 +31,46 @@ public class QuestionScreen extends ScreenAdapter {
      * Positions the background image to the Screen.
      */
     private Table background;
-
-    // A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc)
-    private Skin skin;
-    private TextButton buttonX;
-
     /**
-     * ImageButtons are used to navigate the game.
+     * ImageButton used as option a's button.
      */
-    private ImageButton buttonA, buttonB, buttonC;
+    private ImageButton buttonA;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * ImageButton used as option a's button.
      */
-    private Texture answerBackground, answerBackgroundPressed, bubble, characterTxt;
+    private ImageButton buttonB;
     /**
-     * Rectangle object to resize the textures.
+     * ImageButton used as option a's button.
      */
-    private Rectangle characterSmall, characterLarge,bubbleSmall, bubbleLarge;
+    private ImageButton buttonC;
+    /**
+     * Texture used in buttonA, buttonB and buttonC.
+     */
+    private Texture answerBackground;
+    /**
+     * Texture used as speech bubble.
+     */
+    private Texture bubble;
+    /**
+     * Texture used as game character.
+     */
+    private Texture characterTxt;
+    /**
+     * Rectangle object to increase the size of the character image.
+     */
+    private Rectangle characterLarge;
+    /**
+     * Rectangle object to reduce the size of the character image.
+     */
+    private Rectangle characterSmall;
+    /**
+     * Rectangle object to increase the size of the speech bubble image.
+     */
+    private Rectangle bubbleLarge;
+    /**
+     * Rectangle object to reduce the size of the speech bubble image.
+     */
+    private Rectangle bubbleSmall;
     /**
      * Starting row value for getting questions from the arrays.
      */
@@ -117,19 +137,11 @@ public class QuestionScreen extends ScreenAdapter {
 
         if(Gdx.graphics.getWidth() < 1000) {
             answerBackground = app.assets.get("images/answerMedium.png", Texture.class);
-            answerBackgroundPressed = app.assets.get("images/answerMedium.png", Texture.class);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
             answerBackground = app.assets.get("images/answerMedium.png", Texture.class);
-            answerBackgroundPressed = app.assets.get("images/answerMedium.png", Texture.class);
         } else if (Gdx.graphics.getWidth() >= 1200) {
             answerBackground = app.assets.get("images/answerLarge.png", Texture.class);
-            answerBackgroundPressed = app.assets.get("images/answerLarge.png", Texture.class);
         }
-
-        this.skin = new Skin();
-        this.skin.addRegions(app.assets.get("ui/uiskin.atlas", TextureAtlas.class));
-        this.skin.add("default-font", app.font30);
-        this.skin.load(Gdx.files.internal("ui/uiskin.json"));
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
@@ -210,8 +222,7 @@ public class QuestionScreen extends ScreenAdapter {
         float xPos = ((MindPuzzle.VIRTUAL_WIDTH / 2) - (answerBackground.getWidth() / 2));
 
         buttonA = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(answerBackground)),
-                new TextureRegionDrawable(new TextureRegion(answerBackgroundPressed))
+                new TextureRegionDrawable(new TextureRegion(answerBackground))
         );
         buttonA.setPosition(xPos ,MindPuzzle.VIRTUAL_HEIGHT * 0.335f);
         buttonA.setSize(answerBackground.getWidth(), answerBackground.getHeight());
@@ -256,23 +267,9 @@ public class QuestionScreen extends ScreenAdapter {
             }
         });
 
-        buttonX = new TextButton("X", skin, "default");
-        buttonX.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.85f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        buttonX.setSize(MindPuzzle.VIRTUAL_HEIGHT * 0.075f, MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
-        buttonX.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
-                }
-                app.setScreen(app.previousScreen);
-            }
-        });
-
         stage.addActor(buttonA);
         stage.addActor(buttonB);
         stage.addActor(buttonC);
-        //stage.addActor(buttonX);
     }
 
     /**
@@ -425,8 +422,11 @@ public class QuestionScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        bubble.dispose();
+        characterTxt.dispose();
+        //answerBackground.dispose();
     }
 }
 
-// End of file

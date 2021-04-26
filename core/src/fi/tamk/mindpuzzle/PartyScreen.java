@@ -1,11 +1,10 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -15,9 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 /**
- * CreditsScreen shows team roles of the game's authors.
+ * PartyScreen is the ending screen or the game. The view is determined by the player's score.
+ * The player can return to the main menu and start a new game or exit the game.
  */
-public class CreditsScreen extends ScreenAdapter {
+public class PartyScreen extends ScreenAdapter {
     /**
      * Class MindPuzzle object that allows to set screen from inside this class.
      */
@@ -31,17 +31,33 @@ public class CreditsScreen extends ScreenAdapter {
      */
     private Table background;
     /**
-     * ImageButtons are used to navigate the game.
+     * String object that gets the string depending on how many points the player got
+     */
+    private String line = "";
+    /**
+     * ImageButton to get back to the main menu and start a new game.
      */
     private ImageButton imageMenu;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * Exit button quit the game.
      */
-    private Texture imgMenu, imgMenuPressed, credits;
+    private ImageButton imageExit;
     /**
-     * Rectangle object to resize the credits texture.
+     * Texture used in menu-button when button is not touched.
      */
-    private Rectangle creditsLarge, creditsSmall;
+    private Texture imgMenu;
+    /**
+     * Texture used in exit-button when button is not touched.
+     */
+    private Texture imgExit;
+    /**
+     * Textures used in menu-button when button is touched.
+     */
+    private Texture imgMenuPressed;
+    /**
+     * Texture used in exit-button when button is  touched.
+     */
+    private Texture imgExitPressed;
 
     /**
      * Class constructor.
@@ -51,14 +67,14 @@ public class CreditsScreen extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public CreditsScreen(final MindPuzzle app) {
+    public PartyScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
      * Sets the InputProcessor that will receive all touch and key input events.
-     * Initializes the textures.
+     * Initializes the textures and the ending message to the screen.
      * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
      */
     @Override
@@ -69,18 +85,39 @@ public class CreditsScreen extends ScreenAdapter {
         if(app.getLanguage().equals("fi_FI")) {
             imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Tekijat.png", Texture.class);
+            imgExit = app.assets.get("images/Painonapit/Lopeta.png", Texture.class);
+            imgExitPressed = app.assets.get("images/Painonapit/LopetaPainettu.png", Texture.class);
+
         } else {
             imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Credits.png", Texture.class);
+            imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
+            imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
         }
 
-        creditsSmall = new Rectangle(0,0,credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
-        creditsLarge = new Rectangle(0,0,credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
-
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
+        if (app.getPoints() >= 18) {
+            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Hurraa! Kyläläiset ovat jälleen iloisia! \nNyt juhlitaan!";
+            } else {
+                line = "Hurray! The villagers are happy again.\nLet's have a great party!";
+            }
+        } else if (app.getPoints() > 8 && app.getPoints() < 18) {
+            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/neutralEnding.png", Texture.class))));
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Hienosti tehty! Onnistuit auttamaan joitain kyläläisiä.\nOsa heistä tulivat juhlimaan.";
+            } else {
+                line = "Well done! You managed to help the villagers a little. \nSome of them are happy enough to party!";
+            }
+        } else if (app.getPoints() < 9) {
+            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/badEnding.png", Texture.class))));
+            if(app.getLanguage().equals("fi_FI")) {
+                line = "Voi ei! Et onnistunut auttamaan kyläläisiä ja he ovat liian surullisia juhlimaan.";
+            } else {
+                line = "Oh no! You failed to help the villagers \nand they are still too sad to have a party";
+            }
+        }
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -100,7 +137,7 @@ public class CreditsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
         imageMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
@@ -108,16 +145,32 @@ public class CreditsScreen extends ScreenAdapter {
                 if(MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
+                app.resetGame();
                 app.setScreen(app.mainMenuScreen);
             }
         });
 
+        imageExit = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(imgExit)),
+                new TextureRegionDrawable(new TextureRegion(imgExitPressed))
+        );
+        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.025f);
+        imageExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.resetGame();
+                Gdx.app.exit();
+            }
+        });
+
         stage.addActor(imageMenu);
+        stage.addActor(imageExit);
     }
 
     /**
      * Calls every actor's act()-method that has added to the stage.
-     * Draws the stage and credits on the screen.
+     * Draws the stage and the ending string message on the screen.
      *
      * @param delta The time in seconds since the last render.
      */
@@ -130,11 +183,7 @@ public class CreditsScreen extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        if (Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.075f, creditsSmall.width, creditsSmall.height);
-        } else {
-            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.05f, creditsLarge.width, creditsLarge.height);
-        }
+        app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.15f,stage.getViewport().getScreenHeight() * 0.91f);
         app.batch.end();
     }
 
@@ -155,8 +204,11 @@ public class CreditsScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        //imgMenu.dispose();
+        //imgExit.dispose();
+        //imgMenuPressed.dispose();
+        //imgExitPressed.dispose();
     }
 }
-
-// End of file

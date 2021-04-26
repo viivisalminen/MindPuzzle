@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -21,7 +21,7 @@ public class SleepRoom extends ScreenAdapter {
     /**
      * Class MindPuzzle object that allows to set screen from inside this class.
      */
-    private final MindPuzzle app;
+    private final fi.tamk.mindpuzzle.MindPuzzle app;
     /**
      * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
      */
@@ -33,32 +33,104 @@ public class SleepRoom extends ScreenAdapter {
     /**
      * Points as String object.
      */
-    private String points = Integer.toString(MindPuzzle.getPoints());
+    private String points = Integer.toString(fi.tamk.mindpuzzle.MindPuzzle.getPoints());
     /**
      * Depending the current language of the game, line is "points" either in English or in Finnish.
      */
     private String line = "";
     /**
-     * ImageButtons are used to navigate the game.
+     * ImageButton for settings popup.
      */
-    private ImageButton settingsButton, doorButton, character1Button, character2Button, character3Button, character4Button, character5Button;
+    private ImageButton settingsButton;
     /**
-     * Textures used in ImageButtons.
+     * Texture used in settings button when the button is not touched.
      */
-    private Texture settingsTxt, settingsTxtPressed, doorTxt, character1Txt, character2Txt, character3Txt, character4Txt, character5Txt;
+    private Texture settingsTxt;
+    /**
+     * Texture used in settings button when the button is touched.
+     */
+    private Texture settingsTxtPressed;
     /**
      * Rectangle object to resize the settingsTxt.
      */
     private Rectangle settingRec;
     /**
-     * Boolean values for the characters in the room.
+     * ImageButton for getting back to room menu.
+     */
+    private ImageButton doorButton;
+    /**
+     * Texture used in door button.
+     */
+    private Texture doorTxt;
+    /**
+     * ImageButton for character 1 in the room.
+     */
+    private ImageButton character1Button;
+    /**
+     * ImageButton for character 2 in the room.
+     */
+    private ImageButton character2Button;
+    /**
+     * ImageButton for character 3 in the room.
+     */
+    private ImageButton character3Button;
+    /**
+     * ImageButton for character 4 in the room.
+     */
+    private ImageButton character4Button;
+    /**
+     * ImageButton for character 5 in the room.
+     */
+    private ImageButton character5Button;
+    /**
+     * Texture of character 1.
+     */
+    private Texture character1Txt;
+    /**
+     * Texture of character 2.
+     */
+    private Texture character2Txt;
+    /**
+     * Texture of character 3.
+     */
+    private Texture character3Txt;
+    /**
+     * Texture of character 4.
+     */
+    private Texture character4Txt;
+    /**
+     * Texture of character 5.
+     */
+    private Texture character5Txt;
+    /**
+     * Boolean value for the character 1 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
     private boolean char1NotClicked = true;
+    /**
+     * Boolean value for the character 2 in the room.
+     * If true, character is visible.
+     * If false, character is invisible.
+     */
     private boolean char2NotClicked = true;
+    /**
+     * Boolean value for the character 3 in the room.
+     * If true, character is visible.
+     * If false, character is invisible.
+     */
     private boolean char3NotClicked = true;
+    /**
+     * Boolean value for the character 4 in the room.
+     * If true, character is visible.
+     * If false, character is invisible.
+     */
     private boolean char4NotClicked = true;
+    /**
+     * Boolean value for the character 5 in the room.
+     * If true, character is visible.
+     * If false, character is invisible.
+     */
     private boolean char5NotClicked = true;
 
     /**
@@ -70,9 +142,9 @@ public class SleepRoom extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public SleepRoom(final MindPuzzle app) {
+    public SleepRoom(final fi.tamk.mindpuzzle.MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT, app.camera));
         openCharacterInfo();
     }
 
@@ -113,8 +185,8 @@ public class SleepRoom extends ScreenAdapter {
         initButtons();
         app.setPreviousScreen(app.sleepRoom);
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.musicOn();
+        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
+            fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
         }
     }
 
@@ -125,13 +197,13 @@ public class SleepRoom extends ScreenAdapter {
         doorButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(doorTxt))
         );
-        doorButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.675f);
-        doorButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.5f);
+        doorButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.25f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.5f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.5f);
         doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.roomMenuScreen);
             }
@@ -139,13 +211,13 @@ public class SleepRoom extends ScreenAdapter {
 
         character1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character1Txt)));
-        character1Button.setPosition(0,MindPuzzle.VIRTUAL_HEIGHT * 0.41f);
+        character1Button.setPosition(0, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.41f);
         character1Button.setSize(character1Txt.getWidth() * 0.4f, character1Txt.getHeight() * 0.4f);
         character1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
                 app.saveCharacter("sleep1",char1NotClicked);
@@ -156,13 +228,13 @@ public class SleepRoom extends ScreenAdapter {
 
         character2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character2Txt)));
-        character2Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.025f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
+        character2Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.025f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
         character2Button.setSize(character2Txt.getWidth() * 0.4f, character2Txt.getHeight() * 0.4f);
         character2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
                 app.saveCharacter("sleep2",char2NotClicked);
@@ -173,13 +245,13 @@ public class SleepRoom extends ScreenAdapter {
 
         character3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character3Txt)));
-        character3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
+        character3Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.6f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
         character3Button.setSize(character3Txt.getWidth() * 0.5f, character3Txt.getHeight() * 0.5f);
         character3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
                 app.saveCharacter("sleep3",char3NotClicked);
@@ -190,13 +262,13 @@ public class SleepRoom extends ScreenAdapter {
 
         character4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character4Txt)));
-        character4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.575f,MindPuzzle.VIRTUAL_HEIGHT * 0.55f);
+        character4Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.575f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.55f);
         character4Button.setSize(character4Txt.getWidth() * 0.4f, character4Txt.getHeight() * 0.4f);
         character4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
                 app.saveCharacter("sleep4",char4NotClicked);
@@ -207,13 +279,13 @@ public class SleepRoom extends ScreenAdapter {
 
         character5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character5Txt)));
-        character5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
+        character5Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.5f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.375f);
         character5Button.setSize(character5Txt.getWidth() * 0.4f, character5Txt.getHeight() * 0.4f);
         character5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
                 app.saveCharacter("sleep5",char5NotClicked);
@@ -227,19 +299,19 @@ public class SleepRoom extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(settingsTxtPressed))
         );
         if(Gdx.graphics.getWidth() < 1000) {
-            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3), fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            settingsButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2), fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            settingsButton.setPosition(MindPuzzle.VIRTUAL_WIDTH  / 2,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH  / 2, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            settingsButton.setPosition(MindPuzzle.VIRTUAL_WIDTH / 2,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH / 2, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
         }
         settingsButton.setSize(settingRec.width, settingRec.height);
         settingsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.settingsPopUp);
@@ -326,8 +398,15 @@ public class SleepRoom extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        //settingsTxt.dispose();
+        //settingsTxtPressed.dispose();
+        //doorTxt.dispose();
+        //character1Txt.dispose();
+        //character2Txt.dispose();
+        //character3Txt.dispose();
+        //character4Txt.dispose();
+        //character5Txt.dispose();
     }
 }
-
-// End of file

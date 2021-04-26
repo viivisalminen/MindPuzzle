@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -279,6 +279,8 @@ public class LoadingScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
+        stage.dispose();
         shapeRenderer.dispose();
     }
 }

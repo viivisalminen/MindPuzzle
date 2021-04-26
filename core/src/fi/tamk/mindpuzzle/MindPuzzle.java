@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 import java.util.Locale;
 import java.util.Scanner;
+
 /**
  * MindPuzzle is the main class of the application
  * that contains metadata of the game and methods the game is operated with.
@@ -45,36 +46,76 @@ public class MindPuzzle extends Game {
      */
     public SpriteBatch batch;
     /**
-     * Renders bitmap fonts in sizes 20, 30, 40, 50 and 60.
+     * Renders bitmap fonts in size 20.
      */
     public BitmapFont font20;
+    /**
+     * Renders bitmap fonts in size 30.
+     */
     public BitmapFont font30;
+    /**
+     * Renders bitmap fonts in size 40.
+     */
     public BitmapFont font40;
+    /**
+     * Renders bitmap fonts in size 50.
+     */
     public BitmapFont font50;
+    /**
+     * Renders bitmap fonts in size 60.
+     */
     public BitmapFont font60;
     /**
      * Loads and stores assets like textures, sounds and music.
      */
     public AssetManager assets;
     /**
-     * Text files containing questions in English and in Finnish.
+     * Text files containing questions in English.
      */
-    public FileHandle fileEN, fileFIN;
+    public FileHandle fileEN;
     /**
-     * 2D arrays for English questions.
+     * Text files containing questions in Finnish.
+     */
+    public FileHandle fileFIN;
+    /**
+     * 2D array for English questions about relationships and emotions.
      */
     public static String[][] socialQuestions = new String[20][20];
+    /**
+     * 2D array for English questions about sleep and rest.
+     */
     public static String[][] sleepQuestions = new String[20][20];
+    /**
+     * 2D array for English questions about exercise.
+     */
     public static String[][] sportQuestions = new String[20][20];
+    /**
+     * 2D array for English questions about hobbies.
+     */
     public static String[][] hobbyQuestions = new String[20][20];
+    /**
+     * 2D array for English questions about food and eating habits.
+     */
     public static String[][] foodQuestions = new String[20][20];
     /**
-     * 2D arrays for Finnish questions.
+     * 2D array for Finnish questions about relationships and emotions.
      */
     public static String[][] socialQuestionsFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about sleep and rest.
+     */
     public static String[][] sleepQuestionsFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about exercise.
+     */
     public static String[][] sportQuestionsFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about hobbies.
+     */
     public static String[][] hobbyQuestionsFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about food and eating habits.
+     */
     public static String[][] foodQuestionsFIN = new String[20][20];
     /**
      * Starting row value for filling in the arrays.
@@ -85,23 +126,65 @@ public class MindPuzzle extends Game {
      */
     public int column = 0;
     /**
-     * Classes' objects that are used to switch screens.
+     * Loading screen of the game.
      */
-    public LoadingScreen loadingScreen;
-    public MainMenuScreen mainMenuScreen;
-    public RoomMenuScreen roomMenuScreen;
+    public fi.tamk.mindpuzzle.LoadingScreen loadingScreen;
+    /**
+     * Screen for main menu.
+     */
+    public fi.tamk.mindpuzzle.MainMenuScreen mainMenuScreen;
+    /**
+     * Screen for changing settings in the main menu.
+     */
     public SettingsScreen settingsScreen;
-    public CreditsScreen creditsScreen;
+    /**
+     * Screen for introduce the development team of the game.
+     */
+    public fi.tamk.mindpuzzle.CreditsScreen creditsScreen;
+    /**
+     * Screen for game instructions.
+     */
+    public fi.tamk.mindpuzzle.GameInstructionsScreen instructionsScreen;
+    /**
+     * Screen for room menu.
+     */
+    public fi.tamk.mindpuzzle.RoomMenuScreen roomMenuScreen;
+    /**
+     * Screen for sleep-themed room.
+     */
     public SleepRoom sleepRoom;
-    public FoodRoom foodRoom;
+    /**
+     * Screen for food-themed room.
+     */
+    public fi.tamk.mindpuzzle.FoodRoom foodRoom;
+    /**
+     * Screen for social-themed room.
+     */
     public SocialRoom socialRoom;
-    public HobbiesRoom hobbiesRoom;
+    /**
+     * Screen for hobby-themed room.
+     */
+    public fi.tamk.mindpuzzle.HobbiesRoom hobbiesRoom;
+    /**
+     * Screen for sport-themed room.
+     */
     public SportsRoom sportsRoom;
-    public SettingsPopUp settingsPopUp;
-    public QuestionScreen questionScreen;
-    public AnswerScreen answerScreen;
-    public PartyScreen partyScreen;
-    public GameInstructionsScreen instructionsScreen;
+    /**
+     * Screen for settings in the rooms.
+     */
+    public fi.tamk.mindpuzzle.SettingsPopUp settingsPopUp;
+    /**
+     * Screen for question screen.
+     */
+    public fi.tamk.mindpuzzle.QuestionScreen questionScreen;
+    /**
+     * Screen for answer screen.
+     */
+    public fi.tamk.mindpuzzle.AnswerScreen answerScreen;
+    /**
+     * The game's ending screen.
+     */
+    public fi.tamk.mindpuzzle.PartyScreen partyScreen;
     /**
      * The most recent screen is stored in the variable, which allows
      * the return to the previous screen from the answer screen.
@@ -122,12 +205,24 @@ public class MindPuzzle extends Game {
      */
     public static int returnable = 0;
     /**
-     * Starting values for amount of answered questions in every game room.
+     * How many food-related questions have been answered.
      */
     public static int foodQuestionsAnswered = 0;
+    /**
+     * How many social-related questions have been answered.
+     */
     public static int socialQuestionsAnswered = 0;
+    /**
+     * How many sport-related questions have been answered.
+     */
     public static int sportQuestionsAnswered = 0;
+    /**
+     * How many hobby-related questions have been answered.
+     */
     public static int hobbyQuestionsAnswered = 0;
+    /**
+     * How many sleep-related questions have been answered.
+     */
     public static int sleepQuestionsAnswered = 0;
     /**
      * Variable for language settings.
@@ -155,7 +250,7 @@ public class MindPuzzle extends Game {
         initTextFile(sportQuestions, "SPORTS", fileEN);
         initTextFile(hobbyQuestions, "HOBBIES", fileEN);
         initTextFile(foodQuestions, "FOOD", fileEN);
-        MainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+        fi.tamk.mindpuzzle.MainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
 
         fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
         initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
@@ -163,7 +258,7 @@ public class MindPuzzle extends Game {
         initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
         initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
         initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
-        MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
+        fi.tamk.mindpuzzle.MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
 
         loadingScreen = new LoadingScreen(this);
         mainMenuScreen = new MainMenuScreen(this);
@@ -491,17 +586,20 @@ public class MindPuzzle extends Game {
         font50.dispose();
         font60.dispose();
         assets.dispose();
+        answerScreen.dispose();
+        creditsScreen.dispose();
+        foodRoom.dispose();
+        instructionsScreen.dispose();
+        hobbiesRoom.dispose();
         loadingScreen.dispose();
         mainMenuScreen.dispose();
-        roomMenuScreen.dispose();
-        settingsScreen.dispose();
-        creditsScreen.dispose();
-        sleepRoom.dispose();
-        foodRoom.dispose();
-        socialRoom.dispose();
-        hobbiesRoom.dispose();
-        sportsRoom.dispose();
+        partyScreen.dispose();
         questionScreen.dispose();
-        answerScreen.dispose();
+        roomMenuScreen.dispose();
+        settingsPopUp.dispose();
+        settingsScreen.dispose();
+        sleepRoom.dispose();
+        socialRoom.dispose();
+        sportsRoom.dispose();
     }
 }

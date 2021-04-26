@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import android.os.Bundle;
 

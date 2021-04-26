@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -34,15 +34,75 @@ public class RoomMenuScreen extends ScreenAdapter {
     /**
      * ImageButtons are used to navigate the game.
      */
-    private ImageButton imageMenu, imageSleep, imageFood, imageHobbies, imageSports, imageSocial;
+    private ImageButton imageMenu;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * ImageButtons used to go to the sleep room.
      */
-    private Texture imgMenu, imgSleep, imgFood, imgHobbies, imgSports, imgSocial;
+    private ImageButton imageSleep;
     /**
-     * Textures used in ImageButtons when button is touched.
+     * ImageButtons used to go to the food room.
      */
-    private Texture imgMenuPressed ,imgSleepPressed, imgFoodPressed, imgHobbiesPressed, imgSportsPressed, imgSocialPressed;
+    private ImageButton imageFood;
+    /**
+     * ImageButtons used to go to the hobby room.
+     */
+    private ImageButton imageHobbies;
+    /**
+     * ImageButtons used to go to the sport room.
+     */
+    private ImageButton imageSports;
+    /**
+     * ImageButtons used to go to the social room.
+     */
+    private ImageButton imageSocial;
+    /**
+     * Texture used in menu-button when button is not touched.
+     */
+    private Texture imgMenu;
+    /**
+     * Textures used in sleep-button when button is not touched.
+     */
+    private Texture imgSleep;
+    /**
+     * Textures used in food-button when button is not touched.
+     */
+    private Texture imgFood;
+    /**
+     * Textures used in hobby-button when button is not touched.
+     */
+    private Texture imgHobbies;
+    /**
+     * Textures used in sport-button when button is not touched.
+     */
+    private Texture imgSports;
+    /**
+     * Textures used in social-button when button is not touched.
+     */
+    private Texture imgSocial;
+    /**
+     * Textures used in menu-button when button is touched.
+     */
+    private Texture imgMenuPressed;
+    /**
+     * Textures used in sleep-button when button is touched.
+     */
+    private Texture imgSleepPressed;
+    /**
+     * Textures used in food-button when button is touched.
+     */
+    private Texture imgFoodPressed;
+    /**
+     * Textures used in hobby-button when button is touched.
+     */
+    private Texture imgHobbiesPressed;
+    /**
+     * Textures used in sports-button when button is touched.
+     */
+    private Texture imgSportsPressed;
+    /**
+     * Textures used in social-button when button is touched.
+     */
+    private Texture imgSocialPressed;
 
     /**
      * Class constructor.
@@ -103,8 +163,8 @@ public class RoomMenuScreen extends ScreenAdapter {
 
         initButtons();
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.musicOn();
+        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
+            fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
         }
     }
 
@@ -121,8 +181,8 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.mainMenuScreen);
             }
@@ -137,8 +197,8 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageFood.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.foodRoom);
             }
@@ -153,8 +213,8 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageSocial.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.socialRoom);
             }
@@ -169,8 +229,8 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageHobbies.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.hobbiesRoom);
             }
@@ -185,8 +245,8 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageSports.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.sportsRoom);
             }
@@ -201,7 +261,7 @@ public class RoomMenuScreen extends ScreenAdapter {
         imageSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
+                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
                     MainMenuScreen.sound.play();
                 }
                 app.setScreen(app.sleepRoom);
@@ -248,8 +308,19 @@ public class RoomMenuScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        //imgMenu.dispose();
+        //imgSleep.dispose();
+        //imgFood.dispose();
+        //imgHobbies.dispose();
+        //imgSports.dispose();
+        //imgSocial.dispose();
+        //imgMenuPressed.dispose();
+        //imgSleepPressed.dispose();
+        //imgFoodPressed.dispose();
+        //imgHobbiesPressed.dispose();
+        //imgSportsPressed.dispose();
+        //imgSocialPressed.dispose();
     }
 }
-
-// End of file

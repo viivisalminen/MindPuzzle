@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -16,9 +16,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import java.util.Locale;
 
 /**
- * SettingsScreen is the settings view that opens from the main menu.
+ * SettingsPopUp is the settings view that opens from the rooms.
  */
-public class SettingsScreen extends ScreenAdapter {
+public class SettingsPopUp extends ScreenAdapter {
     /**
      * Class MindPuzzle object that allows to set screen from inside this class.
      */
@@ -32,17 +32,113 @@ public class SettingsScreen extends ScreenAdapter {
      */
     private Table background;
     /**
-     * X-button to exit the answer view.
+     * ImageButton for getting back to the previous room.
      */
-    private ImageButton menuButton, soundsONButton, soundsOFFButton, musicONButton, musicOFFButton, finONButton, finOFFButton, enONButton, enOFFButton;
+    private ImageButton xButton;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * ImageButton for setting sounds on.
      */
-    private Texture menu, soundsON, soundsOFF, musicON, musicOFF, finON, finOFF, enON, enOFF;
+    private ImageButton soundsONButton;
     /**
-     * Textures used in ImageButtons when button is touched.
+     * ImageButton for setting sounds off.
      */
-    private Texture menuPressed, soundsONPressed, soundsOFFPressed, musicONPressed, musicOFFPressed, finONPressed, finOFFPressed, enONPressed, enOFFPressed;
+    private ImageButton soundsOFFButton;
+    /**
+     * ImageButton for setting music on.
+     */
+    private ImageButton musicONButton;
+    /**
+     * ImageButton for setting music off.
+     */
+    private ImageButton musicOFFButton;
+    /**
+     * ImageButton for setting the game language to Finnish.
+     */
+    private ImageButton finONButton;
+    /**
+     * ImageButton for setting the game language to English.
+     */
+    private ImageButton finOFFButton;
+    /**
+     * ImageButton for setting the game language to English.
+     */
+    private ImageButton enONButton;
+    /**
+     * ImageButton for setting the game language to Finnish.
+     */
+    private ImageButton enOFFButton;
+    /**
+     * Texture used in menu-button when button is not touched.
+     */
+    private Texture exit;
+    /**
+     * Texture used in sounds on-button when button is not touched.
+     */
+    private Texture soundsON;
+    /**
+     * Texture used in sounds off-button when button is not touched.
+     */
+    private Texture soundsOFF;
+    /**
+     * Texture used in music on-button when button is not touched.
+     */
+    private Texture musicON;
+    /**
+     * Texture used in music off-button when button is not touched.
+     */
+    private Texture musicOFF;
+    /**
+     * Texture used in finnish on-button when button is not touched.
+     */
+    private Texture finON;
+    /**
+     * Texture used in finnish off-button when button is not touched.
+     */
+    private Texture finOFF;
+    /**
+     * Texture used in english on-button when button is not touched.
+     */
+    private Texture enON;
+    /**
+     * Texture used in english off-button when button is not touched.
+     */
+    private Texture enOFF;
+    /**
+     * Texture used in menu-button when button is touched.
+     */
+    private Texture exitPressed;
+    /**
+     * Texture used in sounds on-button when button is touched.
+     */
+    private Texture soundsONPressed;
+    /**
+     * Texture used in sounds off-button when button is touched.
+     */
+    private Texture soundsOFFPressed;
+    /**
+     * Texture used in music on-button when button is touched.
+     */
+    private Texture musicONPressed;
+    /**
+     * Texture used in music off-button when button is touched.
+     */
+    private Texture musicOFFPressed;
+    /**
+     * Texture used in finnish on-button when button is touched.
+     */
+    private Texture finONPressed;
+    /**
+     * Texture used in finnish off-button when button is touched.
+     */
+    private Texture finOFFPressed;
+    /**
+     * Texture used in english on-button when button is touched.
+     */
+    private Texture enONPressed;
+    /**
+     * Texture used in english off-button when button is touched.
+     */
+    private Texture enOFFPressed;
 
     /**
      * Class constructor.
@@ -52,7 +148,7 @@ public class SettingsScreen extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public SettingsScreen(final MindPuzzle app) {
+    public SettingsPopUp(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
     }
@@ -67,48 +163,27 @@ public class SettingsScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        if(app.getLanguage().equals("fi_FI")) {
-            menu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
-            menuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            soundsON = app.assets.get("images/Painonapit/PeliaanetON.png", Texture.class);
-            soundsONPressed = app.assets.get("images/Painonapit/PeliaanetONPainettu.png", Texture.class);
-            soundsOFF = app.assets.get("images/Painonapit/PeliaanetOFF.png", Texture.class);
-            soundsOFFPressed = app.assets.get("images/Painonapit/PeliaanetOFFPainettu.png", Texture.class);
-            musicON = app.assets.get("images/Painonapit/MusiikkiON.png", Texture.class);
-            musicONPressed = app.assets.get("images/Painonapit/MusiikkiONPainettu.png", Texture.class);
-            musicOFF = app.assets.get("images/Painonapit/MusiikkiOFF.png", Texture.class);
-            musicOFFPressed = app.assets.get("images/Painonapit/Musiikki_OFF2.png", Texture.class);
-            finON = app.assets.get("images/Painonapit/SuomiON.png", Texture.class);
-            finONPressed = app.assets.get("images/Painonapit/SuomiONPainettu.png", Texture.class);
-            finOFF = app.assets.get("images/Painonapit/SuomiOFF.png", Texture.class);
-            finOFFPressed = app.assets.get("images/Painonapit/SuomiOFFPainettu.png", Texture.class);
-            enON = app.assets.get("images/Painonapit/EnglantiON.png", Texture.class);
-            enONPressed = app.assets.get("images/Painonapit/EnglantiONPainettu.png", Texture.class);
-            enOFF = app.assets.get("images/Painonapit/EnglantiOFF.png", Texture.class);
-            enOFFPressed = app.assets.get("images/Painonapit/EnglantiOFFPainettu.png", Texture.class);
-        } else {
-            menu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-            menuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            soundsON = app.assets.get("images/Buttons/SoundsON_Settings.png", Texture.class);
-            soundsONPressed = app.assets.get("images/Buttons/SoundsON_SettingsPressed.png", Texture.class);
-            soundsOFF = app.assets.get("images/Buttons/SoundsOFF_Settings.png", Texture.class);
-            soundsOFFPressed = app.assets.get("images/Buttons/SoundsOFF_SettingsPressed.png", Texture.class);
-            musicON = app.assets.get("images/Buttons/MusicON_Settings.png", Texture.class);
-            musicONPressed = app.assets.get("images/Buttons/MusicON_SettingsPressed.png", Texture.class);
-            musicOFF = app.assets.get("images/Buttons/MusicOFF_Settings.png", Texture.class);
-            musicOFFPressed = app.assets.get("images/Buttons/MusicOFF_SettingsPressed.png", Texture.class);
-            finON = app.assets.get("images/Buttons/FinnishON_Settings.png", Texture.class);
-            finONPressed = app.assets.get("images/Buttons/FinnishON_SettingsPressed.png", Texture.class);
-            finOFF = app.assets.get("images/Buttons/FinnishOFF_Settings.png", Texture.class);
-            finOFFPressed = app.assets.get("images/Buttons/FinnishOFF_SettingsPressed.png", Texture.class);
-            enON = app.assets.get("images/Buttons/EnglishON_Settings.png", Texture.class);
-            enONPressed = app.assets.get("images/Buttons/EnglishON_SettingsPressed.png", Texture.class);
-            enOFF = app.assets.get("images/Buttons/EnglishOFF_Settings.png", Texture.class);
-            enOFFPressed = app.assets.get("images/Buttons/EnglishOFF_SettingsPressed.png", Texture.class);
-        }
+        exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
+        exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
+        soundsON = app.assets.get("images/RoomSettings/SoundsON_Room.png", Texture.class);
+        soundsONPressed = app.assets.get("images/RoomSettings/SoundsON_RoomPressed.png", Texture.class);
+        soundsOFF = app.assets.get("images/RoomSettings/SoundsOFF_Room.png", Texture.class);
+        soundsOFFPressed = app.assets.get("images/RoomSettings/SoundsOFF_RoomPressed.png", Texture.class);
+        musicON = app.assets.get("images/RoomSettings/MusicON_Room.png", Texture.class);
+        musicONPressed = app.assets.get("images/RoomSettings/MusicON_RoomPressed.png", Texture.class);
+        musicOFF = app.assets.get("images/RoomSettings/MusicOFF_Room.png", Texture.class);
+        musicOFFPressed = app.assets.get("images/RoomSettings/MusicOFF_RoomPressed.png", Texture.class);
+        finON = app.assets.get("images/RoomSettings/FiON_Room.png", Texture.class);
+        finONPressed = app.assets.get("images/RoomSettings/FiON_RoomPressed.png", Texture.class);
+        finOFF = app.assets.get("images/RoomSettings/FiOFF_Room.png", Texture.class);
+        finOFFPressed = app.assets.get("images/RoomSettings/FiOFF_RoomPressed.png", Texture.class);
+        enON = app.assets.get("images/RoomSettings/EnON_Room.png", Texture.class);
+        enONPressed = app.assets.get("images/RoomSettings/EnON_RoomPressed.png", Texture.class);
+        enOFF = app.assets.get("images/RoomSettings/EnOFF_Room.png", Texture.class);
+        enOFFPressed = app.assets.get("images/RoomSettings/EnOFF_RoomPressed.png", Texture.class);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("images/background2.png"))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -124,28 +199,14 @@ public class SettingsScreen extends ScreenAdapter {
      * Initializes the buttons used in this screen.
      */
     private void initButtons() {
-        menuButton = new ImageButton(
-                new TextureRegionDrawable(new TextureRegion(menu)),
-                new TextureRegionDrawable(new TextureRegion(menuPressed))
-        );
-        menuButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        menuButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
-        menuButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
-                }
-                app.setScreen(app.mainMenuScreen);
-            }
-        });
+        int buttonSize = 180;
 
         soundsONButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(soundsON)),
                 new TextureRegionDrawable(new TextureRegion(soundsONPressed))
         );
-        soundsONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        soundsONButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        soundsONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        soundsONButton.setSize(buttonSize, buttonSize);
         soundsONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -162,8 +223,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(soundsOFF)),
                 new TextureRegionDrawable(new TextureRegion(soundsOFFPressed))
         );
-        soundsOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        soundsOFFButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        soundsOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        soundsOFFButton.setSize(buttonSize, buttonSize);
         soundsOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -178,8 +239,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(musicON)),
                 new TextureRegionDrawable(new TextureRegion(musicONPressed))
         );
-        musicONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        musicONButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        musicONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        musicONButton.setSize(buttonSize, buttonSize);
         musicONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -193,8 +254,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(musicOFF)),
                 new TextureRegionDrawable(new TextureRegion(musicOFFPressed))
         );
-        musicOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        musicOFFButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        musicOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
+        musicOFFButton.setSize(buttonSize, buttonSize);
         musicOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -208,8 +269,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(finON)),
                 new TextureRegionDrawable(new TextureRegion(finONPressed))
         );
-        finONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        finONButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        finONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        finONButton.setSize(buttonSize, buttonSize);
         finONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -226,8 +287,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(finOFF)),
                 new TextureRegionDrawable(new TextureRegion(finOFFPressed))
         );
-        finOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        finOFFButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        finOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        finOFFButton.setSize(buttonSize, buttonSize);
         finOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -244,8 +305,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(enON)),
                 new TextureRegionDrawable(new TextureRegion(enONPressed))
         );
-        enONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        enONButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        enONButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        enONButton.setSize(buttonSize, buttonSize);
         enONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -262,8 +323,8 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(enOFF)),
                 new TextureRegionDrawable(new TextureRegion(enOFFPressed))
         );
-        enOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        enOFFButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        enOFFButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.3f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
+        enOFFButton.setSize(buttonSize, buttonSize);
         enOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -298,7 +359,22 @@ public class SettingsScreen extends ScreenAdapter {
             stage.addActor(enONButton);
         }
 
-        stage.addActor(menuButton);
+        xButton = new ImageButton(
+                new TextureRegionDrawable(new TextureRegion(exit)),
+                new TextureRegionDrawable(new TextureRegion(exitPressed))
+        );
+        xButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f);
+        xButton.setSize(buttonSize, buttonSize);
+        xButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(MainMenuScreen.getSound()) {
+                    MainMenuScreen.sound.play();
+                }
+                app.setScreen(app.previousScreen);
+            }
+        });
+        stage.addActor(xButton);
     }
 
     /**
@@ -339,6 +415,26 @@ public class SettingsScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+
+        //exit.dispose();
+        //soundsON.dispose();
+        //soundsOFF.dispose();
+        //musicON.dispose();
+        //musicOFF.dispose();
+        //finON.dispose();
+        //finOFF.dispose();
+        //enON.dispose();
+        //enOFF.dispose();
+        //exitPressed.dispose();
+        //soundsONPressed.dispose();
+        //soundsOFFPressed.dispose();
+        //musicONPressed.dispose();
+        //musicOFFPressed.dispose();
+        //finONPressed.dispose();
+        //finOFFPressed.dispose();
+        //enONPressed.dispose();
+        //enOFFPressed.dispose();
     }
 }

@@ -1,8 +1,9 @@
-package fi.tamk.tiko.desktop;
+package fi.tamk.mindpuzzle.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import fi.tamk.tiko.MindPuzzle;
+
+import fi.tamk.mindpuzzle.MindPuzzle;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

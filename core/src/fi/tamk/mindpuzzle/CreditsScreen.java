@@ -1,23 +1,23 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 /**
- * GameInstructionsScreen shows the game's instructions.
+ * CreditsScreen shows team roles of the game's authors.
  */
-public class GameInstructionsScreen extends ScreenAdapter {
+public class CreditsScreen extends ScreenAdapter {
     /**
      * Class MindPuzzle object that allows to set screen from inside this class.
      */
@@ -35,13 +35,25 @@ public class GameInstructionsScreen extends ScreenAdapter {
      */
     private ImageButton imageMenu;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * Texture used in menu button when the button is not touched.
      */
-    private Texture imgMenu, imgMenuPressed, instructions;
+    private Texture imgMenu;
     /**
-     * Rectangle object to resize the instructions texture.
+     * Texture used in menu button when the button is touched.
      */
-    private Rectangle instructionsSmall, instructionsLarge;
+    private Texture imgMenuPressed;
+    /**
+     * Image that introduces the development team of the game.
+     */
+    private Texture credits;
+    /**
+     * Rectangle variable to increase the size of the credits image.
+     */
+    private Rectangle creditsLarge;
+    /**
+     * Rectangle variable to reduce the size of the credits image.
+     */
+    private Rectangle creditsSmall;
 
     /**
      * Class constructor.
@@ -51,15 +63,14 @@ public class GameInstructionsScreen extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public GameInstructionsScreen(final MindPuzzle app) {
+    public CreditsScreen(final MindPuzzle app) {
         this.app = app;
         this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-
     }
 
     /**
      * Sets the InputProcessor that will receive all touch and key input events.
-     * Initializes the textures. Sets the previous screen.
+     * Initializes the textures.
      * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
      */
     @Override
@@ -70,15 +81,15 @@ public class GameInstructionsScreen extends ScreenAdapter {
         if(app.getLanguage().equals("fi_FI")) {
             imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            instructions = app.assets.get("images/Credits_and_instructions/Peliohjeet.png", Texture.class);
+            credits = app.assets.get("images/Credits_and_instructions/Tekijat.png", Texture.class);
         } else {
             imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
             imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            instructions = app.assets.get("images/Credits_and_instructions/HowTo.png", Texture.class);
+            credits = app.assets.get("images/Credits_and_instructions/Credits.png", Texture.class);
         }
 
-        instructionsSmall = new Rectangle(0,0,instructions.getWidth() * 0.55f, instructions.getHeight() * 0.55f);
-        instructionsLarge = new Rectangle(0,0,instructions.getWidth() * 0.75f, instructions.getHeight() * 0.75f);
+        creditsSmall = new Rectangle(0,0,credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
+        creditsLarge = new Rectangle(0,0,credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
 
         background = new Table();
         background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
@@ -87,6 +98,7 @@ public class GameInstructionsScreen extends ScreenAdapter {
         stage.addActor(background);
 
         initButtons();
+
         if(MainMenuScreen.getMusic()) {
             MainMenuScreen.music.play();
         }
@@ -117,7 +129,7 @@ public class GameInstructionsScreen extends ScreenAdapter {
 
     /**
      * Calls every actor's act()-method that has added to the stage.
-     * Draws the stage and game instructions on the screen.
+     * Draws the stage and credits on the screen.
      *
      * @param delta The time in seconds since the last render.
      */
@@ -131,9 +143,9 @@ public class GameInstructionsScreen extends ScreenAdapter {
 
         app.batch.begin();
         if (Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(instructions, ((stage.getViewport().getScreenWidth() / 2) - (instructionsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.15f, instructionsSmall.width, instructionsSmall.height);
+            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.075f, creditsSmall.width, creditsSmall.height);
         } else {
-            app.batch.draw(instructions, ((stage.getViewport().getScreenWidth() / 2) - (instructionsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.2f, instructionsLarge.width, instructionsLarge.height);
+            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.05f, creditsLarge.width, creditsLarge.height);
         }
         app.batch.end();
     }
@@ -155,8 +167,10 @@ public class GameInstructionsScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        credits.dispose();
+        //imgMenu.dispose();
+        //imgMenuPressed.dispose();
     }
 }
-
-// End of file

@@ -1,4 +1,4 @@
-package fi.tamk.tiko;
+package fi.tamk.mindpuzzle;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
@@ -35,27 +35,93 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     private Table background;
     /**
-     * ImageButtons are used to navigate the game.
+     * ImageButton as play button.
      */
-    private ImageButton imagePlay, imageHowToPlay, imageCredits, imageSettings, imageExit;
+    private ImageButton imagePlay;
     /**
-     * Textures used in ImageButtons when button is not touched.
+     * ImageButton as how to play button.
      */
-    private Texture logo, imgPlay, imgHowToPlay, imgCredits, imgSettings, imgExit;
+    private ImageButton imageHowToPlay;
     /**
-     * Textures used in ImageButtons when button is touched.
+     * ImageButton as credits button.
      */
-    private Texture imgPlayPressed, imgHowToPlayPressed, imgCreditsPressed, imgSettingsPressed, imgExitPressed;
+    private ImageButton imageCredits;
     /**
-     * Rectangle object to resize the textures.
+     * ImageButton as settings button.
      */
-    private Rectangle logoSmall, logoMedium, logoLarge;
+    private ImageButton imageSettings;
     /**
-     * Musics of the game. Music as background music.
-     * Right as sound effect for right answer.
-     * Wrong as sound effect for wrong answer.
+     * ImageButton as exit button.
      */
-    public static Music music, right, wrong;
+    private ImageButton imageExit;
+    /**
+     * Texture if the game logo.
+     */
+    private Texture logo;
+    /**
+     * Texture used in play-button when button is not touched.
+     */
+    private Texture imgPlay;
+    /**
+     * Texture used in how to play-button when button is not touched.
+     */
+    private Texture imgHowToPlay;
+    /**
+     * Texture used in credits-button when button is not touched.
+     */
+    private Texture imgCredits;
+    /**
+     * Texture used in settings-button when button is not touched.
+     */
+    private Texture imgSettings;
+    /**
+     * Texture used in exit-button when button is not touched.
+     */
+    private Texture imgExit;
+    /**
+     * Textures used in play-button when button is touched.
+     */
+    private Texture imgPlayPressed;
+    /**
+     * Textures used in how to play-button when button is touched.
+     */
+    private Texture imgHowToPlayPressed;
+    /**
+     * Textures used in credits-button when button is touched.
+     */
+    private Texture imgCreditsPressed;
+    /**
+     * Textures used in settings-button when button is touched.
+     */
+    private Texture imgSettingsPressed;
+    /**
+     * Textures used in exit-button when button is touched.
+     */
+    private Texture imgExitPressed;
+    /**
+     * Rectangle object to resize the logo picture as small sized.
+     */
+    private Rectangle logoSmall;
+    /**
+     * Rectangle object to resize the logo picture as medium sized.
+     */
+    private Rectangle logoMedium;
+    /**
+     * Rectangle object to resize the logo picture as large sized.
+     */
+    private Rectangle logoLarge;
+    /**
+     * Music as background music of the game.
+     */
+    public static Music music;
+    /**
+     * Music as sound effect for right answer.
+     */
+    public static Music right;
+    /**
+     * Music as sound effect for wrong answer.
+     */
+    public static Music wrong;
     /**
      * Boolean value that determines whether the music in playing or not.
      */
@@ -69,20 +135,44 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     public static boolean soundOn = true;
     /**
-     * 2D arrays for English questions.
+     * 2D array for English questions about relationships and emotions.
      */
     public static String[][] questionsAboutSocial = new String[20][20];
+    /**
+     * 2D array for English questions about sleep and rest.
+     */
     public static String[][] questionsAboutSleep = new String[20][20];
+    /**
+     * 2D array for English questions about exercise.
+     */
     public static String[][] questionsAboutSports = new String[20][20];
+    /**
+     * 2D array for English questions about hobbies.
+     */
     public static String[][] questionsAboutHobbies = new String[20][20];
+    /**
+     * 2D array for English questions about food and eating habits.
+     */
     public static String[][] questionsAboutFood = new String[20][20];
     /**
      * 2D arrays for Finnish questions.
      */
     public static String[][] questionsAboutSocialFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about sleep and rest.
+     */
     public static String[][] questionsAboutSleepFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about exercise.
+     */
     public static String[][] questionsAboutSportsFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about hobbies.
+     */
     public static String[][] questionsAboutHobbiesFIN = new String[20][20];
+    /**
+     * 2D array for Finnish questions about food and eating habits.
+     */
     public static String[][] questionsAboutFoodFIN = new String[20][20];
 
     /**
@@ -429,12 +519,22 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     @Override
     public void dispose() {
+        app.dispose();
         stage.dispose();
+        logo.dispose();
+        //imgPlay.dispose();
+        //imgHowToPlay.dispose();
+        //imgCredits.dispose();
+        //imgSettings.dispose();
+        //imgExit.dispose();
+        //imgPlayPressed.dispose();
+        //imgHowToPlayPressed.dispose();
+        //imgCreditsPressed.dispose();
+        //imgSettingsPressed.dispose();
+        //imgExitPressed.dispose();
         sound.dispose();
         music.dispose();
         right.dispose();
         wrong.dispose();
     }
 }
-
-// End of file
