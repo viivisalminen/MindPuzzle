@@ -19,11 +19,13 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
  */
 public class CreditsScreen extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -59,19 +61,21 @@ public class CreditsScreen extends ScreenAdapter {
      * Class constructor.
      *
      * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
     public CreditsScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(
+                app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
-     * Initializes the textures.
-     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     * Initializes the textures. Gets the music's value from
+     * MainMenuScreen and sets music either on or off
+     * depending the returning value.
      */
     @Override
     public void show() {
@@ -79,20 +83,36 @@ public class CreditsScreen extends ScreenAdapter {
         stage.clear();
 
         if(app.getLanguage().equals("fi_FI")) {
-            imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Tekijat.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Painonapit/Paavalikko.png",
+                    Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Painonapit/PaavalikkoPainettu.png",
+                    Texture.class);
+            credits = app.assets.get(
+                    "images/Credits_and_instructions/Tekijat.png",
+                    Texture.class);
         } else {
-            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            credits = app.assets.get("images/Credits_and_instructions/Credits.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Buttons/Menu.png",
+                    Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Buttons/MenuPressed.png",
+                    Texture.class);
+            credits = app.assets.get(
+                    "images/Credits_and_instructions/Credits.png",
+                    Texture.class);
         }
 
-        creditsSmall = new Rectangle(0,0,credits.getWidth() * 0.4f, credits.getHeight() * 0.4f);
-        creditsLarge = new Rectangle(0,0,credits.getWidth() * 0.65f, credits.getHeight() * 0.65f);
+        creditsSmall = new Rectangle(0,0,credits.getWidth() * 0.4f,
+                credits.getHeight() * 0.4f);
+        creditsLarge = new Rectangle(0,0,credits.getWidth() * 0.65f,
+                credits.getHeight() * 0.65f);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(
+                new TextureRegion(app.assets.get(
+                        "images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -112,8 +132,10 @@ public class CreditsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.8f);
-        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -143,9 +165,17 @@ public class CreditsScreen extends ScreenAdapter {
 
         app.batch.begin();
         if (Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsSmall.width / 2)),stage.getViewport().getScreenHeight() * 0.075f, creditsSmall.width, creditsSmall.height);
+            app.batch.draw(credits,
+                    ((stage.getViewport().getScreenWidth() / 2) -
+                            (creditsSmall.width / 2)),
+                    stage.getViewport().getScreenHeight() * 0.075f,
+                    creditsSmall.width, creditsSmall.height);
         } else {
-            app.batch.draw(credits, ((stage.getViewport().getScreenWidth() / 2) - (creditsLarge.width / 2)),stage.getViewport().getScreenHeight() * 0.05f, creditsLarge.width, creditsLarge.height);
+            app.batch.draw(credits,
+                    ((stage.getViewport().getScreenWidth() / 2) -
+                            (creditsLarge.width / 2)),
+                    stage.getViewport().getScreenHeight() * 0.05f,
+                    creditsLarge.width, creditsLarge.height);
         }
         app.batch.end();
     }
@@ -163,14 +193,12 @@ public class CreditsScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
         credits.dispose();
-        //imgMenu.dispose();
-        //imgMenuPressed.dispose();
     }
 }

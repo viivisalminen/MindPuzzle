@@ -19,11 +19,13 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
  */
 public class HobbiesRoom extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -35,7 +37,8 @@ public class HobbiesRoom extends ScreenAdapter {
      */
     private String points;
     /**
-     * Depending the current language of the game, line is "points" either in English or in Finnish.
+     * Depending the current language of the game,
+     * line is "points" either in English or in Finnish.
      */
     private String line = "";
     /**
@@ -137,7 +140,8 @@ public class HobbiesRoom extends ScreenAdapter {
      * Class constructor.
      *
      * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      * Checks the saved status of the characters.
      *
      * @param app   MindPuzzle class's object
@@ -149,7 +153,6 @@ public class HobbiesRoom extends ScreenAdapter {
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
      * Initializes the character textures. Sets the previous screen and plays
      * the music if it it on.
      */
@@ -166,18 +169,29 @@ public class HobbiesRoom extends ScreenAdapter {
             doorTxt = app.assets.get("images/door.png", Texture.class);
         }
 
-        character1Txt = app.assets.get("images/Characters/hamster.png", Texture.class);
-        character2Txt = app.assets.get("images/Characters/leafdragonFlipped.png", Texture.class);
-        character3Txt = app.assets.get("images/Characters/lynx.png", Texture.class);
-        character4Txt = app.assets.get("images/Characters/bunnygreyFlipped.png", Texture.class);
-        character5Txt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
+        character1Txt = app.assets.get(
+                "images/Characters/hamster.png", Texture.class);
+        character2Txt = app.assets.get(
+                "images/Characters/leafdragonFlipped.png", Texture.class);
+        character3Txt = app.assets.get(
+                "images/Characters/lynx.png", Texture.class);
+        character4Txt = app.assets.get(
+                "images/Characters/bunnygreyFlipped.png", Texture.class);
+        character5Txt = app.assets.get(
+                "images/Characters/mushroomguy.png", Texture.class);
 
-        settingsTxt = app.assets.get("images/RoomSettings/Settings.png", Texture.class);
-        settingsTxtPressed = app.assets.get("images/RoomSettings/SettingsPressed.png", Texture.class);
-        settingRec = new Rectangle(0,0, settingsTxt.getWidth() * 0.74f, settingsTxt.getHeight() * 0.74f);
+        settingsTxt = app.assets.get(
+                "images/RoomSettings/Settings.png", Texture.class);
+        settingsTxtPressed = app.assets.get(
+                "images/RoomSettings/SettingsPressed.png", Texture.class);
+        settingRec = new Rectangle(0,0,
+                settingsTxt.getWidth() * 0.74f,
+                settingsTxt.getHeight() * 0.74f);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/hobbiesRoom.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(
+                new TextureRegion(app.assets.get(
+                        "images/hobbiesRoom.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -199,8 +213,10 @@ public class HobbiesRoom extends ScreenAdapter {
         doorButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(doorTxt))
         );
-        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f,app.VIRTUAL_HEIGHT * 0.675f);
-        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f, app.VIRTUAL_WIDTH * 0.5f);
+        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f,
+                app.VIRTUAL_WIDTH * 0.5f);
         doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -213,8 +229,10 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character1Txt)));
-        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.25f,app.VIRTUAL_HEIGHT * 0.65f);
-        character1Button.setSize(character1Txt.getWidth() * 0.25f, character1Txt.getHeight() * 0.25f);
+        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_HEIGHT * 0.65f);
+        character1Button.setSize(character1Txt.getWidth() * 0.25f,
+                character1Txt.getHeight() * 0.25f);
         character1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -231,7 +249,8 @@ public class HobbiesRoom extends ScreenAdapter {
         character2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character2Txt)));
         character2Button.setPosition(0f,app.VIRTUAL_HEIGHT * 0.275f);
-        character2Button.setSize(character2Txt.getWidth() * 0.45f, character2Txt.getHeight() * 0.45f);
+        character2Button.setSize(character2Txt.getWidth() * 0.45f,
+                character2Txt.getHeight() * 0.45f);
         character2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -247,8 +266,10 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character3Txt)));
-        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.675f,app.VIRTUAL_HEIGHT * 0.6f);
-        character3Button.setSize(character3Txt.getWidth() * 0.3f, character3Txt.getHeight() * 0.3f);
+        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.675f,
+                app.VIRTUAL_HEIGHT * 0.6f);
+        character3Button.setSize(character3Txt.getWidth() * 0.3f,
+                character3Txt.getHeight() * 0.3f);
         character3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -264,8 +285,10 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character4Txt)));
-        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.6f,app.VIRTUAL_HEIGHT * 0.075f);
-        character4Button.setSize(character4Txt.getWidth() * 0.25f, character4Txt.getHeight() * 0.25f);
+        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.6f,
+                app.VIRTUAL_HEIGHT * 0.075f);
+        character4Button.setSize(character4Txt.getWidth() * 0.25f,
+                character4Txt.getHeight() * 0.25f);
         character4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -281,8 +304,10 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character5Txt)));
-        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.75f,app.VIRTUAL_HEIGHT * 0.35f);
-        character5Button.setSize(character5Txt.getWidth() * 0.2f, character5Txt.getHeight() * 0.2f);
+        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.35f);
+        character5Button.setSize(character5Txt.getWidth() * 0.2f,
+                character5Txt.getHeight() * 0.2f);
         character5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -298,19 +323,27 @@ public class HobbiesRoom extends ScreenAdapter {
 
         settingsButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(settingsTxt)),
-                new TextureRegionDrawable(new TextureRegion(settingsTxtPressed))
+                new TextureRegionDrawable(
+                        new TextureRegion(settingsTxtPressed))
         );
 
         if(Gdx.graphics.getWidth() < 1000) {
-            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            settingsButton.setPosition((app.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2),app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            settingsButton.setPosition(app.VIRTUAL_WIDTH  / 2,app.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 +
+                    settingsTxt.getWidth() / 3),app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1000
+                && Gdx.graphics.getWidth() < 1200) {
+            settingsButton.setPosition((app.VIRTUAL_WIDTH / 2 -
+                    settingsTxt.getWidth() / 2),app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1200
+                && Gdx.graphics.getWidth() < 2000) {
+            settingsButton.setPosition(app.VIRTUAL_WIDTH  / 2,
+                    app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            settingsButton.setPosition(app.VIRTUAL_WIDTH / 2,app.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(app.VIRTUAL_WIDTH / 2,
+                    app.VIRTUAL_HEIGHT * 0.05f);
         }
-        settingsButton.setSize(settingRec.width, settingRec.height);        settingsButton.addListener(new ClickListener() {
+        settingsButton.setSize(settingRec.width, settingRec.height);
+        settingsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if(app.mainMenuScreen.getSound()) {
@@ -360,6 +393,11 @@ public class HobbiesRoom extends ScreenAdapter {
         char3NotClicked = true;
         char4NotClicked = true;
         char5NotClicked = true;
+        app.saveCharacter("hobbies1",char5NotClicked);
+        app.saveCharacter("hobbies2",char5NotClicked);
+        app.saveCharacter("hobbies3",char5NotClicked);
+        app.saveCharacter("hobbies4",char5NotClicked);
+        app.saveCharacter("hobbies5",char5NotClicked);
     }
 
     /**
@@ -379,7 +417,9 @@ public class HobbiesRoom extends ScreenAdapter {
 
         app.batch.begin();
         points = Integer.toString(app.getPoints());
-        app.font60.draw(app.batch, line+points,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.975f);
+        app.font60.draw(app.batch, line+points,
+                stage.getViewport().getScreenWidth() * 0.05f,
+                stage.getViewport().getScreenHeight() * 0.975f);
         app.batch.end();
     }
 
@@ -396,19 +436,11 @@ public class HobbiesRoom extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
-        //settingsTxt.dispose();
-        //settingsTxtPressed.dispose();
-        //doorTxt.dispose();
-        //character1Txt.dispose();
-        //character2Txt.dispose();
-        //character3Txt.dispose();
-        //character4Txt.dispose();
-        //character5Txt.dispose();
     }
 }

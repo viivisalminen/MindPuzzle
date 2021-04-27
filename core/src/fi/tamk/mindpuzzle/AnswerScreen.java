@@ -271,14 +271,18 @@ public class AnswerScreen extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        if(Gdx.graphics.getWidth() < 1000) {
+        if(stage.getViewport().getScreenWidth() < 1000) {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleSmall.width, bubbleSmall.height);
             app.font30.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.15f, characterSmall.width, characterSmall.height);
-        } else {
+        } else if (stage.getViewport().getScreenWidth() > 1000 && stage.getViewport().getScreenWidth() < 1200) {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleLarge.width, bubbleLarge.height);
-            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.15f,stage.getViewport().getScreenHeight() * 0.875f);
-            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.2f, characterLarge.width, characterLarge.height);
+            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.175f, characterLarge.width, characterLarge.height);
+        } else if (stage.getViewport().getScreenWidth() > 1200) {
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.6f, bubbleLarge.width, bubbleLarge.height);
+            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1175f,stage.getViewport().getScreenHeight() * 0.85f);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.175f, characterLarge.width, characterLarge.height);
         }
         app.batch.end();
     }

@@ -20,11 +20,13 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
  */
 public class RoomMenuScreen extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -108,19 +110,21 @@ public class RoomMenuScreen extends ScreenAdapter {
      * Class constructor.
      *
      * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
     public RoomMenuScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(
+                app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
-     * Initializes the textures.
-     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     * Initializes the textures. Gets the music's value from
+     * MainMenuScreen and sets music either on or off
+     * depending the returning value.
      */
     @Override
     public void show() {
@@ -128,35 +132,85 @@ public class RoomMenuScreen extends ScreenAdapter {
         stage.clear();
 
         if(app.getLanguage().equals("fi_FI")) {
-            imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            imgFood = app.assets.get("images/Huonekuvakkeet/Ravinto.png", Texture.class);
-            imgFoodPressed = app.assets.get("images/Huonekuvakkeet/RavintoPainettu.png", Texture.class);
-            imgSleep = app.assets.get("images/Huonekuvakkeet/Uni.png", Texture.class);
-            imgSleepPressed = app.assets.get("images/Huonekuvakkeet/UniPainettu.png", Texture.class);
-            imgSocial = app.assets.get("images/Huonekuvakkeet/Ihmissuhteet.png", Texture.class);
-            imgSocialPressed = app.assets.get("images/Huonekuvakkeet/IhmissuhteetPainettu.png", Texture.class);
-            imgHobbies = app.assets.get("images/Huonekuvakkeet/Harrastukset.png", Texture.class);
-            imgHobbiesPressed = app.assets.get("images/Huonekuvakkeet/HarrastuksetPainettu.png", Texture.class);
-            imgSports = app.assets.get("images/Huonekuvakkeet/Liikunta.png", Texture.class);
-            imgSportsPressed = app.assets.get("images/Huonekuvakkeet/LiikuntaPainettu.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Painonapit/Paavalikko.png",
+                    Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Painonapit/PaavalikkoPainettu.png",
+                    Texture.class);
+            imgFood = app.assets.get(
+                    "images/Huonekuvakkeet/Ravinto.png",
+                    Texture.class);
+            imgFoodPressed = app.assets.get(
+                    "images/Huonekuvakkeet/RavintoPainettu.png",
+                    Texture.class);
+            imgSleep = app.assets.get(
+                    "images/Huonekuvakkeet/Uni.png",
+                    Texture.class);
+            imgSleepPressed = app.assets.get(
+                    "images/Huonekuvakkeet/UniPainettu.png",
+                    Texture.class);
+            imgSocial = app.assets.get(
+                    "images/Huonekuvakkeet/Ihmissuhteet.png",
+                    Texture.class);
+            imgSocialPressed = app.assets.get(
+                    "images/Huonekuvakkeet/IhmissuhteetPainettu.png",
+                    Texture.class);
+            imgHobbies = app.assets.get(
+                    "images/Huonekuvakkeet/Harrastukset.png",
+                    Texture.class);
+            imgHobbiesPressed = app.assets.get(
+                    "images/Huonekuvakkeet/HarrastuksetPainettu.png",
+                    Texture.class);
+            imgSports = app.assets.get(
+                    "images/Huonekuvakkeet/Liikunta.png",
+                    Texture.class);
+            imgSportsPressed = app.assets.get(
+                    "images/Huonekuvakkeet/LiikuntaPainettu.png",
+                    Texture.class);
         } else {
-            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            imgFood = app.assets.get("images/RoomIcons/Food.png", Texture.class);
-            imgFoodPressed = app.assets.get("images/RoomIcons/FoodPressed.png", Texture.class);
-            imgSleep = app.assets.get("images/RoomIcons/Sleep.png", Texture.class);
-            imgSleepPressed = app.assets.get("images/RoomIcons/SleepPressed.png", Texture.class);
-            imgSocial = app.assets.get("images/RoomIcons/Social.png", Texture.class);
-            imgSocialPressed = app.assets.get("images/RoomIcons/SocialPressed.png", Texture.class);
-            imgHobbies = app.assets.get("images/RoomIcons/Hobbies.png", Texture.class);
-            imgHobbiesPressed = app.assets.get("images/RoomIcons/HobbiesPressed.png", Texture.class);
-            imgSports = app.assets.get("images/RoomIcons/Sports.png", Texture.class);
-            imgSportsPressed = app.assets.get("images/RoomIcons/SportsPressed.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Buttons/Menu.png",
+                    Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Buttons/MenuPressed.png",
+                    Texture.class);
+            imgFood = app.assets.get(
+                    "images/RoomIcons/Food.png",
+                    Texture.class);
+            imgFoodPressed = app.assets.get(
+                    "images/RoomIcons/FoodPressed.png",
+                    Texture.class);
+            imgSleep = app.assets.get(
+                    "images/RoomIcons/Sleep.png",
+                    Texture.class);
+            imgSleepPressed = app.assets.get(
+                    "images/RoomIcons/SleepPressed.png",
+                    Texture.class);
+            imgSocial = app.assets.get(
+                    "images/RoomIcons/Social.png",
+                    Texture.class);
+            imgSocialPressed = app.assets.get(
+                    "images/RoomIcons/SocialPressed.png",
+                    Texture.class);
+            imgHobbies = app.assets.get(
+                    "images/RoomIcons/Hobbies.png",
+                    Texture.class);
+            imgHobbiesPressed = app.assets.get(
+                    "images/RoomIcons/HobbiesPressed.png",
+                    Texture.class);
+            imgSports = app.assets.get(
+                    "images/RoomIcons/Sports.png",
+                    Texture.class);
+            imgSportsPressed = app.assets.get(
+                    "images/RoomIcons/SportsPressed.png",
+                    Texture.class);
         }
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(
+                new TextureRegion(app.assets.get(
+                        "images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -176,8 +230,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.8f);
-        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -192,8 +248,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgFood)),
                 new TextureRegionDrawable(new TextureRegion(imgFoodPressed))
         );
-        imageFood.setPosition(app.VIRTUAL_WIDTH * 0.2f,app.VIRTUAL_HEIGHT * 0.5f);
-        imageFood.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
+        imageFood.setPosition(app.VIRTUAL_WIDTH * 0.2f,
+                app.VIRTUAL_HEIGHT * 0.5f);
+        imageFood.setSize(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_WIDTH * 0.25f);
         imageFood.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -208,8 +266,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSocial)),
                 new TextureRegionDrawable(new TextureRegion(imgSocialPressed))
         );
-        imageSocial.setPosition(app.VIRTUAL_WIDTH * 0.5f,app.VIRTUAL_HEIGHT * 0.5f);
-        imageSocial.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
+        imageSocial.setPosition(app.VIRTUAL_WIDTH * 0.5f,
+                app.VIRTUAL_HEIGHT * 0.5f);
+        imageSocial.setSize(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_WIDTH * 0.25f);
         imageSocial.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -224,8 +284,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgHobbies)),
                 new TextureRegionDrawable(new TextureRegion(imgHobbiesPressed))
         );
-        imageHobbies.setPosition(app.VIRTUAL_WIDTH * 0.2f,app.VIRTUAL_HEIGHT * 0.3f);
-        imageHobbies.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
+        imageHobbies.setPosition(app.VIRTUAL_WIDTH * 0.2f,
+                app.VIRTUAL_HEIGHT * 0.3f);
+        imageHobbies.setSize(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_WIDTH * 0.25f);
         imageHobbies.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -240,8 +302,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSports)),
                 new TextureRegionDrawable(new TextureRegion(imgSportsPressed))
         );
-        imageSports.setPosition(app.VIRTUAL_WIDTH * 0.5f,app.VIRTUAL_HEIGHT * 0.3f);
-        imageSports.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
+        imageSports.setPosition(app.VIRTUAL_WIDTH * 0.5f,
+                app.VIRTUAL_HEIGHT * 0.3f);
+        imageSports.setSize(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_WIDTH * 0.25f);
         imageSports.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -256,8 +320,10 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSleep)),
                 new TextureRegionDrawable(new TextureRegion(imgSleepPressed))
         );
-        imageSleep.setPosition(app.VIRTUAL_WIDTH * 0.35f,app.VIRTUAL_HEIGHT * 0.1f);
-        imageSleep.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
+        imageSleep.setPosition(app.VIRTUAL_WIDTH * 0.35f,
+                app.VIRTUAL_HEIGHT * 0.1f);
+        imageSleep.setSize(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_WIDTH * 0.25f);
         imageSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -304,23 +370,11 @@ public class RoomMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
-        //imgMenu.dispose();
-        //imgSleep.dispose();
-        //imgFood.dispose();
-        //imgHobbies.dispose();
-        //imgSports.dispose();
-        //imgSocial.dispose();
-        //imgMenuPressed.dispose();
-        //imgSleepPressed.dispose();
-        //imgFoodPressed.dispose();
-        //imgHobbiesPressed.dispose();
-        //imgSportsPressed.dispose();
-        //imgSocialPressed.dispose();
     }
 }

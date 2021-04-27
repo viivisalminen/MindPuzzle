@@ -14,16 +14,20 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 /**
- * PartyScreen is the ending screen or the game. The view is determined by the player's score.
- * The player can return to the main menu and start a new game or exit the game.
+ * PartyScreen is the ending screen or the game.
+ * The view is determined by the player's score.
+ * The player can return to the main menu and start
+ * a new game or exit the game.
  */
 public class PartyScreen extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -31,7 +35,8 @@ public class PartyScreen extends ScreenAdapter {
      */
     private Table background;
     /**
-     * String object that gets the string depending on how many points the player got
+     * String object that gets the string depending on
+     * how many points the player got
      */
     private String line = "";
     /**
@@ -63,19 +68,21 @@ public class PartyScreen extends ScreenAdapter {
      * Class constructor.
      *
      * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
     public PartyScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH,
+                app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
      * Initializes the textures and the ending message to the screen.
-     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     * Gets the music's value from MainMenuScreen and sets music
+     * either on or off depending the returning value.
      */
     @Override
     public void show() {
@@ -83,39 +90,62 @@ public class PartyScreen extends ScreenAdapter {
         stage.clear();
 
         if(app.getLanguage().equals("fi_FI")) {
-            imgMenu = app.assets.get("images/Painonapit/Paavalikko.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Painonapit/PaavalikkoPainettu.png", Texture.class);
-            imgExit = app.assets.get("images/Painonapit/Lopeta.png", Texture.class);
-            imgExitPressed = app.assets.get("images/Painonapit/LopetaPainettu.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Painonapit/Paavalikko.png", Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Painonapit/PaavalikkoPainettu.png", Texture.class);
+            imgExit = app.assets.get(
+                    "images/Painonapit/Lopeta.png", Texture.class);
+            imgExitPressed = app.assets.get(
+                    "images/Painonapit/LopetaPainettu.png", Texture.class);
 
         } else {
-            imgMenu = app.assets.get("images/Buttons/Menu.png", Texture.class);
-            imgMenuPressed = app.assets.get("images/Buttons/MenuPressed.png", Texture.class);
-            imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
-            imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
+            imgMenu = app.assets.get(
+                    "images/Buttons/Menu.png", Texture.class);
+            imgMenuPressed = app.assets.get(
+                    "images/Buttons/MenuPressed.png", Texture.class);
+            imgExit = app.assets.get(
+                    "images/Buttons/Exit.png", Texture.class);
+            imgExitPressed = app.assets.get(
+                    "images/Buttons/ExitPressed.png", Texture.class);
         }
 
         background = new Table();
         if (app.getPoints() >= 18) {
-            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
+            background.setBackground(new TextureRegionDrawable(
+                    new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Hurraa! Kyläläiset ovat jälleen"+"\niloisia! Nyt juhlitaan!";
+                line = "Hurraa! Kyläläiset ovat jälleen"
+                        +"\niloisia! Nyt juhlitaan!";
             } else {
-                line = "Hurray! The villagers are happy"+"\nagain. Let's have a great party!";
+                line = "Hurray! The villagers are happy"
+                        +"\nagain. Let's have a great party!";
             }
         } else if (app.getPoints() > 8 && app.getPoints() < 18) {
-            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/neutralEnding.png", Texture.class))));
+            background.setBackground(new TextureRegionDrawable(
+                    new TextureRegion(app.assets.get(
+                            "images/neutralEnding.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Hienosti tehty! Onnistuit"+"\nauttamaan joitain kyläläisiä."+"\nOsa heistä tulivat juhlimaan.";
+                line = "Hienosti tehty! Onnistuit"
+                        +"\nauttamaan joitain kyläläisiä."
+                        +"\nOsa heistä tulivat juhlimaan.";
             } else {
-                line = "Well done! You managed to help"+"\nthe villagers a little."+"\nSome of them came to the party!";
+                line = "Well done! You managed to help"
+                        +"\nthe villagers a little."
+                        +"\nSome of them came to the party!";
             }
         } else if (app.getPoints() < 9) {
-            background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/badEnding.png", Texture.class))));
+            background.setBackground(new TextureRegionDrawable(
+                    new TextureRegion(app.assets.get(
+                            "images/badEnding.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Voi ei! Et onnistunut auttamaan"+"\nkyläläisiä. He ovat liian"+"\nsurullisia juhlimaan.";
+                line = "Voi ei! Et onnistunut auttamaan"
+                        +"\nkyläläisiä. He ovat liian"
+                        +"\nsurullisia juhlimaan.";
             } else {
-                line = "Oh no! You failed to help "+"\nthe villagers. They are still"+"\ntoo sad to have a party";
+                line = "Oh no! You failed to help "
+                        +"\nthe villagers. They are still"
+                        +"\ntoo sad to have a party";
             }
         }
         background.setFillParent(true);
@@ -137,8 +167,10 @@ public class PartyScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.125f);
-        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.125f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -154,8 +186,10 @@ public class PartyScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgExit)),
                 new TextureRegionDrawable(new TextureRegion(imgExitPressed))
         );
-        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.025f);
-        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.025f);
+        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -184,15 +218,20 @@ public class PartyScreen extends ScreenAdapter {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.font40white.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.7f);
+            app.font40white.draw(app.batch, line,
+                    stage.getViewport().getScreenWidth() * 0.1f,
+                    stage.getViewport().getScreenHeight() * 0.7f);
         } else {
-            app.font50white.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.7f);
+            app.font50white.draw(app.batch, line,
+                    stage.getViewport().getScreenWidth() * 0.1f,
+                    stage.getViewport().getScreenHeight() * 0.7f);
         }
         app.batch.end();
     }
 
     /**
-     * Resizes the viewport's dimensions based on the screen dimensions of
+     * Resizes the viewport's dimensions based on
+     * the screen dimensions of
      * the device using the application.
      *
      * @param width     The viewport's width of the device
@@ -204,15 +243,11 @@ public class PartyScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
-        //imgMenu.dispose();
-        //imgExit.dispose();
-        //imgMenuPressed.dispose();
-        //imgExitPressed.dispose();
     }
 }

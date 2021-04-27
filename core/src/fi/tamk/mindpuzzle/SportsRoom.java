@@ -19,11 +19,13 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
  */
 public class SportsRoom extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -35,7 +37,8 @@ public class SportsRoom extends ScreenAdapter {
      */
     private String points;
     /**
-     * Depending the current language of the game, line is "points" either in English or in Finnish.
+     * Depending the current language of the game,
+     * line is "points" either in English or in Finnish.
      */
     private String line = "";
     /**
@@ -137,21 +140,22 @@ public class SportsRoom extends ScreenAdapter {
      * Class constructor.
      *
      * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      * Checks the saved status of the characters.
      *
      * @param app   MindPuzzle class's object
      */
     public SportsRoom(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH,
+                app.VIRTUAL_HEIGHT, app.camera));
         openCharacterInfo();
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
-     * Initializes the character textures. Sets the previous screen and plays
-     * the music if it it on.
+     * Initializes the character textures. Sets the
+     * previous screen and plays the music if it is on.
      */
     @Override
     public void show() {
@@ -166,18 +170,29 @@ public class SportsRoom extends ScreenAdapter {
             doorTxt = app.assets.get("images/door.png", Texture.class);
         }
 
-        character1Txt = app.assets.get("images/Characters/fishy.png", Texture.class);
-        character2Txt = app.assets.get("images/Characters/wolfbrownFlipped.png", Texture.class);
-        character3Txt = app.assets.get("images/Characters/bunny.png", Texture.class);
-        character4Txt = app.assets.get("images/Characters/cactusbuddy.png", Texture.class);
-        character5Txt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
+        character1Txt = app.assets.get(
+                "images/Characters/fishy.png", Texture.class);
+        character2Txt = app.assets.get(
+                "images/Characters/wolfbrownFlipped.png", Texture.class);
+        character3Txt = app.assets.get(
+                "images/Characters/bunny.png", Texture.class);
+        character4Txt = app.assets.get(
+                "images/Characters/cactusbuddy.png", Texture.class);
+        character5Txt = app.assets.get(
+                "images/Characters/griffinblue.png", Texture.class);
 
-        settingsTxt = app.assets.get("images/RoomSettings/Settings.png", Texture.class);
-        settingsTxtPressed = app.assets.get("images/RoomSettings/SettingsPressed.png", Texture.class);
-        settingRec = new Rectangle(0,0, settingsTxt.getWidth() * 0.74f, settingsTxt.getHeight() * 0.74f);
+        settingsTxt = app.assets.get(
+                "images/RoomSettings/Settings.png", Texture.class);
+        settingsTxtPressed = app.assets.get(
+                "images/RoomSettings/SettingsPressed.png", Texture.class);
+        settingRec = new Rectangle(0,0,
+                settingsTxt.getWidth() * 0.74f,
+                settingsTxt.getHeight() * 0.74f);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/sportRoom.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(
+                new TextureRegion(app.assets.get(
+                        "images/sportRoom.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -197,8 +212,10 @@ public class SportsRoom extends ScreenAdapter {
         doorButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(doorTxt))
         );
-        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_HEIGHT * 0.675f);
-        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f, app.VIRTUAL_WIDTH * 0.5f);
+        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f,
+                app.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f,
+                app.VIRTUAL_WIDTH * 0.5f);
         doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -211,8 +228,10 @@ public class SportsRoom extends ScreenAdapter {
 
         character1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character1Txt)));
-        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.15f, app.VIRTUAL_HEIGHT * 0.6f);
-        character1Button.setSize(character1Txt.getWidth() * 0.2f, character1Txt.getHeight() * 0.2f);
+        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.15f,
+                app.VIRTUAL_HEIGHT * 0.6f);
+        character1Button.setSize(character1Txt.getWidth() * 0.2f,
+                character1Txt.getHeight() * 0.2f);
         character1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -228,8 +247,10 @@ public class SportsRoom extends ScreenAdapter {
 
         character2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character2Txt)));
-        character2Button.setPosition(app.VIRTUAL_WIDTH * 0.025f, app.VIRTUAL_HEIGHT * 0.35f);
-        character2Button.setSize(character2Txt.getWidth() * 0.5f, character2Txt.getHeight() * 0.5f);
+        character2Button.setPosition(app.VIRTUAL_WIDTH * 0.025f,
+                app.VIRTUAL_HEIGHT * 0.35f);
+        character2Button.setSize(character2Txt.getWidth() * 0.5f,
+                character2Txt.getHeight() * 0.5f);
         character2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -245,8 +266,10 @@ public class SportsRoom extends ScreenAdapter {
 
         character3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character3Txt)));
-        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.65f, app.VIRTUAL_HEIGHT * 0.25f);
-        character3Button.setSize(character3Txt.getWidth() * 0.25f, character3Txt.getHeight() * 0.25f);
+        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.65f,
+                app.VIRTUAL_HEIGHT * 0.25f);
+        character3Button.setSize(character3Txt.getWidth() * 0.25f,
+                character3Txt.getHeight() * 0.25f);
         character3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -262,8 +285,10 @@ public class SportsRoom extends ScreenAdapter {
 
         character4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character4Txt)));
-        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.35f, app.VIRTUAL_HEIGHT * 0.15f);
-        character4Button.setSize(character4Txt.getWidth() * 0.25f, character4Txt.getHeight() * 0.25f);
+        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.35f,
+                app.VIRTUAL_HEIGHT * 0.15f);
+        character4Button.setSize(character4Txt.getWidth() * 0.25f,
+                character4Txt.getHeight() * 0.25f);
         character4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -279,8 +304,10 @@ public class SportsRoom extends ScreenAdapter {
 
         character5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character5Txt)));
-        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.65f, app.VIRTUAL_HEIGHT * 0.575f);
-        character5Button.setSize(character5Txt.getWidth() * 0.5f, character5Txt.getHeight() * 0.5f);
+        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.65f,
+                app.VIRTUAL_HEIGHT * 0.575f);
+        character5Button.setSize(character5Txt.getWidth() * 0.5f,
+                character5Txt.getHeight() * 0.5f);
         character5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -296,16 +323,25 @@ public class SportsRoom extends ScreenAdapter {
 
         settingsButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(settingsTxt)),
-                new TextureRegionDrawable(new TextureRegion(settingsTxtPressed))
+                new TextureRegionDrawable(
+                        new TextureRegion(settingsTxtPressed))
         );
         if(Gdx.graphics.getWidth() < 1000) {
-            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3), app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            settingsButton.setPosition((app.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2), app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            settingsButton.setPosition(app.VIRTUAL_WIDTH  / 2, app.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((
+                    Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),
+                    app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1000
+                && Gdx.graphics.getWidth() < 1200) {
+            settingsButton.setPosition((
+                    app.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2),
+                    app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1200
+                && Gdx.graphics.getWidth() < 2000) {
+            settingsButton.setPosition(
+                    app.VIRTUAL_WIDTH  / 2, app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            settingsButton.setPosition(app.VIRTUAL_WIDTH / 2, app.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(
+                    app.VIRTUAL_WIDTH / 2, app.VIRTUAL_HEIGHT * 0.05f);
         }
         settingsButton.setSize(settingRec.width, settingRec.height);
         settingsButton.addListener(new ClickListener() {
@@ -358,6 +394,11 @@ public class SportsRoom extends ScreenAdapter {
         char3NotClicked = true;
         char4NotClicked = true;
         char5NotClicked = true;
+        app.saveCharacter("sports1",char5NotClicked);
+        app.saveCharacter("sports2",char5NotClicked);
+        app.saveCharacter("sports3",char5NotClicked);
+        app.saveCharacter("sports4",char5NotClicked);
+        app.saveCharacter("sports5",char5NotClicked);
     }
 
     /**
@@ -376,7 +417,9 @@ public class SportsRoom extends ScreenAdapter {
 
         app.batch.begin();
         points = Integer.toString(app.getPoints());
-        app.font60.draw(app.batch, line+points,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.95f);
+        app.font60.draw(app.batch, line+points,
+                stage.getViewport().getScreenWidth() * 0.05f,
+                stage.getViewport().getScreenHeight() * 0.95f);
         app.batch.end();
     }
 
@@ -393,19 +436,11 @@ public class SportsRoom extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
-        //settingsTxt.dispose();
-        //settingsTxtPressed.dispose();
-        //doorTxt.dispose();
-        //character1Txt.dispose();
-        //character2Txt.dispose();
-        //character3Txt.dispose();
-        //character4Txt.dispose();
-        //character5Txt.dispose();
     }
 }

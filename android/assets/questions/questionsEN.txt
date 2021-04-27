@@ -20,7 +20,7 @@ SLEEP
 I would just like to sleep all day, but the day's chores should still be taken  care of. Where can I get more energy?
 a) Make sure you get enough sleep at    night, eat well, and exercise even      a little during the day.
 b) Just drink enough energy drinks so   you can handle your day's               responsibilities.
-c) The school can wait you to sleep off your sleep debt one day.
+c) The school can wait for you to sleep off your sleep debt one day.
 a
 SLEEP
 I wake up constantly during the night.  How do I get to sleep through the night?
@@ -48,7 +48,7 @@ b) Don't by any means take a nap!  You  will ruin the rest of your day!
 c) If you feel like you need to take    a midday nap, limit your nap to 30      minutes or less and then get up.
 c
 SLEEP
-I do just fine with couple of hours of  sleep! Sleep isn't that important,      right? 
+I do just fine with a couple of hours   of sleep! Sleep isn't that important,   right? 
 a) Sleeping too little affects your     concentration, vigilance and makes it   harder to remember things.
 b) It's wise to sleep just a little and use that time to do something more      important.
 c) My parents manage with little sleep. Coffee saves the day! 
@@ -70,53 +70,53 @@ SLEEP
 It's 9 pm and my friend wants us to go  and buy energy drinks, but we have      school next morning at 8 am.            What should I do?
 a) You go buy the energy drinks and go  to his house to play playstation. 
 b) Tell your friend you don't want to   drink energy drinks this late 'cause it affects your sleep. 
-c) You by the energy drinks so you guys can stay up longer studying.
+c) You buy the energy drinks so you guyscan stay up longer studying.
 b
 SLEEP
 Is it okay if stay up all night studyingfor a test on  the last night? 
-a) You should start preparing for test  well ahead of time, so you can spend thelast night relaxing and maybe take      a quick glance at the harder  stuff.
+a) You should start preparing for the   test well ahead of time, so you can     spend the last night relaxing and maybe take      a quick glance at   the harder  stuff.
 b) Sure it is, that's when you should   start studying. 
 c) That sounds like an awesome plan. Youare going to ace it!
 a
 SLEEP
-I got into a huge fight with my best   friend today and now i can't sleep      because of it. What can I do?
+I got into a huge fight with my best   friend today and now I can't sleep      because of it. What can I do?
 a) Stop worrying and just go to sleep.
-b) If it's already late, write your     thougts down, then you can talk about itwith your friend tomorrow.
-c) You have to go to friend right now   and work this out. You don't go to sleepangry.
+b) If it's already late, write your     thoughts down, then you can talk about  it with your friend tomorrow.
+c) You have to go to your friend right  now and work this out. You don't go to  sleep angry.
 b
 SLEEP
 If I stretch before going to bed, how   does it affect my sleep? 
-a) Light streching in the evening is    a excelent part of evening routines. 
+a) Light stretching in the evening is   an excellent part of evening routines. 
 b) Little exercising in the evening     makes you nice and tired, it's good for your sleep!
 c) Stretching is so over rated          mumbojumbo, it does nothing to your     sleep! 
 a
 ----------------------------------------------------------------
 SLEEP
-Last week I was really busy and even    after having nice long sleep on the     weekend, I'm still tired on monday      morning. Why didn't sleeping  well on weekend help? 
-a) Just bare with it for the week and   clear your schedule for the weekend, so you can sleep around the clock to chargeyour batteries.
-b) You must have slept too much. The    busier the week, less you should sleep  on weekend.
+Last week I was really busy and even    after having nice long sleep on the     weekend, I'm still tired on Monday      morning. Why didn't sleeping  well on the weekend help? 
+a) Just bear with it for the week and   clear your schedule for the weekend, so you can sleep around the clock to chargeyour batteries.
+b) You must have slept too much. The    busier the week, the less you should    sleep on the weekend.
 c) Sounds like you haven't really       recovered from last week. Try taking it easier this week and take some time to  relax after school.
 c
 SLEEP
 Does gaming with my phone before        sleeping affect the quality of my sleep?
-a) Gaming on your phone activates your  brain and makes it harder to fall       a sleep.
+a) Gaming on your phone activates your  brain and makes it harder to fall       asleep.
 b) Gaming a bit before sleeping helps   your body and to relax. 
 c) You should be gaming on your PC      instead.  
 a
 SLEEP
-Is it okey to wake up at 5 o’clock to   do the homeworks I didn’t have the      energy to do yesterday? 
+Is it okay to wake up at 5 o'clock to   do the homework I didn't have the       energy to do yesterday? 
 a) Of course it is, most important thing is to get them done.
-b) Don't bother, just don’t do them and tell the teacher that you didn’t do     them. They will understand. 
-c) You should always do your homework   well ahead of time and well rested. It  is not recommended to do homework so    early in the morning.           
+b) Don't bother, just don't do them and tell the teacher that you didn't do     them. They will understand. 
+c) You should always do your homework   well ahead of time and well-rested. It  is not recommended to do homework so    early in the morning.           
 c
 SLEEP
-I often leave schoolwork to the last    possible moment and spend the night     working on them. What should i do about it? 
+I often leave schoolwork to the last    possible moment and spend the night     working on them. What should I do about it? 
 a) That's your way of doing it and you  get them done, so don't worry about it.
 b) You should ask one of your class     mates about doing the work together, so it doesn't feel so taxing and you both  get the job done.
 c) Just don't do them and doing so you  reduce stress about it and you can use  that time for sleeping or something fun.  
 b
 SLEEP
-I hurt my friends feelings because I    haven't slept well and I have been very cranky and irritated.                   How can i fix this? 
+I hurt my friends feelings because I    haven't slept well and I have been very cranky and irritated.                   How can I fix this? 
 a) Just talk to them and explain what's going on. They will understand. You     should also think about the reasons     behind of your      quality ofsleep.
 b) If they got so offended about        something you said while tired, maybe   you should find some other friends. 
 c) Just let it be, they will get over   it. They can't be mad at you forever. 
@@ -311,7 +311,7 @@ b
 FOOD
 I would like to try vegetarian diet, butI don't know how to start?
 a) Don't do it, bacon and cheeseburgers are delicious! 
-b) Just take out all the meat.          Vegetarians eat only veggies so from    this point forward you jsut eat salad.
+b) Just take out all the meat.          Vegetarians eat only veggies so from    this point forward you just eat salad.
 c) You should look recipes online, talk to actual dietician and gradually start removing meat products from your diet.
 c
 FOOD
@@ -348,7 +348,7 @@ b
 FOOD
 I don't have time to eat breakfast! It'snot that important right?
 a) So you don't wake up early enough!
-b) If you din't have time in the morning how about making breakfast ready in theevening and take it with you. Maybe eat it on the way to school.      
+b) If you didn't have time in the       morning how about making breakfast      ready in the evening and take it with   you. Maybe eat it on the way  to school.      
 c) You shouldn't eat breakfast and      anyway there is lunch at school. 
 b
 FOOD
@@ -365,16 +365,16 @@ c) No you don't, if you move straight   from your parents house to live with    
 b
 FOOD
 Does it matter if I eat the same kind   of food every day? 
-a) You probaly will get sick more often,you don't have the energy to do anythingand you will get sick of the food       eventually.
-b) I only eat macaronimaddness every dayand I'm just fine! Body is just la ittlecranky.  
+a) You probably will get sick more often,you don't have the energy to do anythingand you will get sick of the food       eventually.
+b) I only eat macaronimaddness every dayand I'm just fine! Body is just a littlecranky.  
 c) No, if it is healthy food.
 a
 #####################################
 SOCIAL
-My friends never invite me to anything  anymore and I don't know why.           What couldI do?
+My friends never invite me to anything  anymore and I don't know why.           What could I do?
 a) Let it be.
 b) Get some new friends.
-c) Tell them bluntly how you feel and   ask for them to hang out with you.
+c) Be honest and tell them how you feel and ask for them to hang out with you.
 c
 SOCIAL
 I feel like my friend is keeping secretsfrom me and it bothers me.              What should I do?
@@ -402,7 +402,7 @@ c) You can get more followers by postingcooler pics more often.
 b
 ----------------------------------------------------------------
 SOCIAL
-My friend has become distant from me.   How could I fix our friendship?
+My friend has become distant.           How could I fix our friendship?
 a) If your friend doesn't want to spend time with you anymore, get new friends.
 b) Recommend your friend to do things   together with you. They have likely justbeen busy.
 c) Stalk your friend on social media    and intrude them.
@@ -411,7 +411,7 @@ SOCIAL
 My best friend is moving away!          How could I maintain our                friendship?
 a) Video calls are a great way to keep  in touch with your friend and you could still visit each other if you don't     live too far apart.
 b) Friends come and go.
-c) You shouldn't worry too much; your   friendship will last if it shall.
+c) You shouldn't worry too much; your   friendship will last if it is meant to last.
 a
 SOCIAL
 My friends always want to do something  I don't want to do. How can I say no to them?  
@@ -421,7 +421,7 @@ c) Suggest something you would like to  do and if they don’t want to just let 
 a
 SOCIAL
 I would like my family to spend more    time together, but how can I make this  happen? 
-a) Friends are more important than      family. Just invest more time to them   instead. 
+a) Friends are more important than      family. Just invest more time on them   instead. 
 b) Family parties are enough time to    together.
 c) Just talk about it and suggest a gamenight or something. 
 c
@@ -448,7 +448,7 @@ SOCIAL
 My family member has been distant.      How can I help them?
 a) Try to suggest some activities to do together that you know they like.
 b) They will ask if and when they want  to spend time together. 
-c)  They just don’t want to spend time  together. 
+c) They just don’t want to spend time   together. 
 a
 SOCIAL
 I think my friend is depressed, but theywon't talk to me about it. How can I    help them?
@@ -476,13 +476,13 @@ b) There are many platforms online      where you can have conversations        
 c) Never ever tell anyone about it. Theywill just judge you.
 b
 SOCIAL
-My classmate is really popular on socialmedia and gets loads of likes and nice  comments on pics. How can i get the sameattention? 
+My classmate is really popular on socialmedia and gets loads of likes and nice  comments on pics. How can I get the sameattention? 
 a) Check out their material and copy it.
-b) You can't. Your classmatee is just   better person than you and gets all the attention because of it.
-c) You need to remember, that on social media you only get to see what they wantyou to see. The followers or likes don’tdefine you as a person.  
+b) You can't. Your classmate is just    better person than you and gets all the attention because of it.
+c) You need to remember, that on social media you only get to see what they wantyou to see. The followers or likes don'tdefine you as a person.  
 c
 SOCIAL
-I would like to get friends, but social interactions with new people make me    anxious. Is there anyting I could do?
+I would like to get friends, but social interactions with new people make me    anxious. Is there anything I could do?
 a) Maybe you don't deserve new friends, if you are so scared meeting them. 
 b) You should meet new people with your old friends so the situation wouldn't becompletely new. 
 c) You could just talk to people online.
@@ -491,7 +491,7 @@ SOCIAL
 Someone leaves mean comments on my pics in social media.                        What can I do about it?
 a) Just answer them equally and go be   mean on their pics. 
 B) Mean comments and bullying tells moreabout the bully than you. Just block    them, so you don't have to deal with    their toxicity.
-c) Just delete your your accounts on    social media. Then you can't get hurt. 
+c) Just delete your accounts on social  media. Then you can't get hurt. 
 b
 #################################################
 HOBBIES
@@ -513,7 +513,7 @@ b) Tell them openly how you feel about  the hobby and try to find a solution    
 c) Just keep at it, if that is what yourparents want. They know what is best foryou. 
 b
 HOBBIES
-I like my hobby very much, but my       parents don’t, and they are trying to   take the hobby away from me. How could  I change their mind?
+I like my hobby very much, but my       parents don't, and they are trying to   take the hobby away from me. How could  I change their minds?
 a) Tell them how important your hobby   really is to you and try to make them   understand.
 b) You should just stop the hobby and   avoid conflict.
 c) Just ignore your parents and continuethe hobby.
@@ -535,16 +535,16 @@ HOBBIES
 My friend is considering ending our     common hobby and I don't want to        continue alone. What could I do?
 a) Pressure your friend to continue     the hobby with you.
 b) You should support your friend's     decision and also end the hobby.
-c) Perhaps you could find some other    friend who would be interested to do    the hobby with you.
+c) Perhaps you could find some other    friend who would be interested to start that hobby with you.
 c
 HOBBIES
 I would like to start a certain hobby,  but I may already be too old for it.    Could I still try?
 a) Age is just an excuse to be lazy.
-b) Think about what the others think
+b) Think about what the others will     think.
 c) Any age is the right age to pick     a hobby, so go for it if you'd really   want to.
 c
 HOBBIES
-I like my hobby, but I feel like I’m    spending too much time on it. What can  I do?
+I like my hobby, but I feel like I'm    spending too much time on it. What can  I do?
 a) Give up on the hobby.
 b) Try to manage the time spent on the  hobby to fit the rest of your life.
 c) Put the hobby before everything else. 
@@ -563,9 +563,9 @@ b) How can anyone have more than one    hobby, just quit some already!
 c) Lets throw a dice and see what       hobbies to quit. It lets you concentratebetter on the others.
 a
 HOBBIES
-I constantly start new hobbies, but I   don't keep at them more then couple of  weeks. How can I find a hobby that I    really like? 
+I constantly start new hobbies, but I   don't continue with them more than      couple of weeks. How can I find a hobby that I    really like?
 a) Could be that you just haven't found your thing yet. But it is good that     you're trying lots of stuff!
-b) You shoud just pick one and stick    with it. Maybe someting your friend is  doing! 
+b) You should just pick one and stick   with it. Maybe something your friend is doing! 
 c) You should just keep at it little    longer so you would actually know       whether you like or not. 
 a
 HOBBIES
@@ -578,7 +578,7 @@ HOBBIES
 I would like to elevate my hobby to     a profession in the future, but nobody  thinks I can do it. Am I living a pipe  dream? 
 a) Believe in yourself and in your      dreams and it will be possibe. Just     remember to have a backup plan just in  case. 
 b) Yes, you are living a pipe dream. Allwork is tedious and it's not supposed   to be fun and games. 
-c) Other probably know that you are not good enough to make that hobby into     a profession.
+c) Others probably know that you are notgood enough to make that hobby into     a profession.
 a
 HOBBIES
 I don't have the courage to play in     front of everybody at music class any-  more, everybody else is so much better  than me. Do I have to?
@@ -607,13 +607,13 @@ c) You should tell them that it's       embarrasing and lame.
 a
 HOBBIES
 I have started an art class, but        everybody is already so far ahead of me!What can I do? 
-a) Start sabotaging the others! Thay    can't be better than you. They are      probably also bragging about it.  
+a) Start sabotaging the others! They    can't be better than you. They are      probably also bragging about it.  
 b) You can practice a lot or change to  a different skill level class. 
 c) It's better to give up on art, if    everybody is already so far ahead of you
 b
 HOBBIES
-I would like to start playing in a band,but where do i start or find other      people with same interests?
+I would like to start playing in a band,but where do I start or find other      people with same interests?
 a) If somebody would want you in a band,you would already be in one.
-b) Find possible band mates in music    class or but a post about it on school  messageboard. 
+b) Find possible band mates in music    class or put a post about it on school  messageboard. 
 c) Just send a message to your          favourite band and ask them about       joining! 
 b

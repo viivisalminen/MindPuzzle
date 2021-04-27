@@ -18,16 +18,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 /**
- * MainMenuScreen is the main menu of the game including
+ * MainMenuScreen is the main menu of the game including buttons for
  * play, how to play, settings, credits and exit.
  */
 public class MainMenuScreen extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -123,7 +125,7 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     public Music wrong;
     /**
-     * Boolean value that determines whether the music in playing or not.
+     * Boolean value that determines whether the music is playing or not.
      */
     public boolean musicPlaying = true;
     /**
@@ -131,7 +133,8 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     public Sound sound;
     /**
-     * Boolean value that determines whether the sound effects are playing or not.
+     * Boolean value that determines whether the sound effects
+     * are playing or not.
      */
     public boolean soundOn = true;
     /**
@@ -176,23 +179,23 @@ public class MainMenuScreen extends ScreenAdapter {
     public String[][] questionsAboutFoodFIN = new String[20][20];
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set the screen.
+     * Creates a stage using StretchViewPort with MindPuzzle
+     * class' viewport dimensions and camera.
      * Checks the saved status of the characters.
      *
      * @param app   MindPuzzle class's object
      */
     public MainMenuScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH,
+                app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
      * Initializes the textures. Sets the previous screen.
-     * Gets the score and sound and music settings from the Preferences file.
+     * Gets the score and sound and music settings
+     * from the Preferences file.
      */
     @Override
     public void show() {
@@ -200,32 +203,54 @@ public class MainMenuScreen extends ScreenAdapter {
         stage.clear();
 
         logo = app.assets.get("images/logo.png", Texture.class);
-        logoSmall = new Rectangle(0,0,logo.getWidth() * 0.5f, logo.getHeight() * 0.5f);
-        logoMedium = new Rectangle(0,0,logo.getWidth() * 0.75f, logo.getHeight() * 0.75f);
+        logoSmall = new Rectangle(0,0,logo.getWidth() * 0.5f,
+                logo.getHeight() * 0.5f);
+        logoMedium = new Rectangle(0,0,logo.getWidth() * 0.75f,
+                logo.getHeight() * 0.75f);
         logoLarge = new Rectangle(0,0,logo.getWidth(), logo.getHeight());
 
         if(app.getLanguage().equals("fi_FI")) {
-            imgCredits = app.assets.get("images/Painonapit/Tekijat.png", Texture.class);
-            imgCreditsPressed = app.assets.get("images/Painonapit/TekijatPainettu.png", Texture.class);
-            imgExit = app.assets.get("images/Painonapit/Lopeta.png", Texture.class);
-            imgExitPressed = app.assets.get("images/Painonapit/LopetaPainettu.png", Texture.class);
-            imgHowToPlay = app.assets.get("images/Painonapit/Ohjeet.png", Texture.class);
-            imgHowToPlayPressed = app.assets.get("images/Painonapit/OhjeetPainettu.png", Texture.class);
-            imgPlay = app.assets.get("images/Painonapit/Pelaa.png", Texture.class);
-            imgPlayPressed = app.assets.get("images/Painonapit/PelaaPainettu.png", Texture.class);
-            imgSettings = app.assets.get("images/Painonapit/Asetukset.png", Texture.class);
-            imgSettingsPressed = app.assets.get("images/Painonapit/AsetuksetPainettu.png", Texture.class);
+            imgCredits = app.assets.get(
+                    "images/Painonapit/Tekijat.png", Texture.class);
+            imgCreditsPressed = app.assets.get(
+                    "images/Painonapit/TekijatPainettu.png", Texture.class);
+            imgExit = app.assets.get(
+                    "images/Painonapit/Lopeta.png", Texture.class);
+            imgExitPressed = app.assets.get(
+                    "images/Painonapit/LopetaPainettu.png", Texture.class);
+            imgHowToPlay = app.assets.get(
+                    "images/Painonapit/Ohjeet.png", Texture.class);
+            imgHowToPlayPressed = app.assets.get(
+                    "images/Painonapit/OhjeetPainettu.png", Texture.class);
+            imgPlay = app.assets.get(
+                    "images/Painonapit/Pelaa.png", Texture.class);
+            imgPlayPressed = app.assets.get(
+                    "images/Painonapit/PelaaPainettu.png", Texture.class);
+            imgSettings = app.assets.get(
+                    "images/Painonapit/Asetukset.png", Texture.class);
+            imgSettingsPressed = app.assets.get(
+                    "images/Painonapit/AsetuksetPainettu.png", Texture.class);
         } else {
-            imgCredits = app.assets.get("images/Buttons/Credits.png", Texture.class);
-            imgCreditsPressed = app.assets.get("images/Buttons/CreditsPressed.png", Texture.class);
-            imgExit = app.assets.get("images/Buttons/Exit.png", Texture.class);
-            imgExitPressed = app.assets.get("images/Buttons/ExitPressed.png", Texture.class);
-            imgHowToPlay = app.assets.get("images/Buttons/HowToPlay.png", Texture.class);
-            imgHowToPlayPressed = app.assets.get("images/Buttons/HowToPlayPressed.png", Texture.class);
-            imgPlay = app.assets.get("images/Buttons/Play.png", Texture.class);
-            imgPlayPressed = app.assets.get("images/Buttons/PlayPressed.png", Texture.class);
-            imgSettings = app.assets.get("images/Buttons/Settings.png", Texture.class);
-            imgSettingsPressed = app.assets.get("images/Buttons/SettingsPressed.png", Texture.class);
+            imgCredits = app.assets.get(
+                    "images/Buttons/Credits.png", Texture.class);
+            imgCreditsPressed = app.assets.get(
+                    "images/Buttons/CreditsPressed.png", Texture.class);
+            imgExit = app.assets.get(
+                    "images/Buttons/Exit.png", Texture.class);
+            imgExitPressed = app.assets.get(
+                    "images/Buttons/ExitPressed.png", Texture.class);
+            imgHowToPlay = app.assets.get(
+                    "images/Buttons/HowToPlay.png", Texture.class);
+            imgHowToPlayPressed = app.assets.get(
+                    "images/Buttons/HowToPlayPressed.png", Texture.class);
+            imgPlay = app.assets.get(
+                    "images/Buttons/Play.png", Texture.class);
+            imgPlayPressed = app.assets.get(
+                    "images/Buttons/PlayPressed.png", Texture.class);
+            imgSettings = app.assets.get(
+                    "images/Buttons/Settings.png", Texture.class);
+            imgSettingsPressed = app.assets.get(
+                    "images/Buttons/SettingsPressed.png", Texture.class);
         }
 
         sound = app.assets.get("sounds/button.mp3", Sound.class);
@@ -234,7 +259,9 @@ public class MainMenuScreen extends ScreenAdapter {
         music = app.assets.get("sounds/background.mp3", Music.class);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/background2.png", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(
+                new TextureRegion(app.assets.get(
+                        "images/background2.png", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -252,15 +279,18 @@ public class MainMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Receives English 2D arrays from the MindPuzzle and clones them into the MainMenuScreen's 2D arrays.
+     * Receives English 2D arrays from the MindPuzzle and clones
+     * them into the MainMenuScreen's 2D arrays.
      *
-     * @param social    array containing questions about relationships and emotions
+     * @param social    array containing questions about relationships
      * @param sleep     array containing questions about sleep and rest
      * @param sport     array containing questions about exercise
      * @param hobby     array containing questions about hobbies
      * @param food      array containing questions about food and eating habits
      */
-    public void receiveENQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public void receiveENQuestions(String[][] social, String[][] sleep,
+                                   String[][] sport, String[][] hobby,
+                                   String[][] food) {
         questionsAboutSocial = social.clone();
         questionsAboutSleep = sleep.clone();
         questionsAboutSports = sport.clone();
@@ -269,15 +299,18 @@ public class MainMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Receives Finnish 2D arrays from the MindPuzzle and clones them into the MainMenuScreen's 2D arrays.
+     * Receives Finnish 2D arrays from the MindPuzzle and clones
+     * them into the MainMenuScreen's 2D arrays.
      *
-     * @param social    array containing questions about relationships and emotions
+     * @param social    array containing questions about relationships
      * @param sleep     array containing questions about sleep and rest
      * @param sport     array containing questions about exercise
      * @param hobby     array containing questions about hobbies
      * @param food      array containing questions about food and eating habits
      */
-    public void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public void receiveFINQuestions(String[][] social, String[][] sleep,
+                                    String[][] sport, String[][] hobby,
+                                    String[][] food) {
         questionsAboutSocialFIN = social.clone();
         questionsAboutSleepFIN = sleep.clone();
         questionsAboutSportsFIN = sport.clone();
@@ -293,8 +326,10 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgPlay)),
                 new TextureRegionDrawable(new TextureRegion(imgPlayPressed))
         );
-        imagePlay.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.5f);
-        imagePlay.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imagePlay.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.5f);
+        imagePlay.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imagePlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -307,10 +342,13 @@ public class MainMenuScreen extends ScreenAdapter {
 
         imageHowToPlay = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgHowToPlay)),
-                new TextureRegionDrawable(new TextureRegion(imgHowToPlayPressed))
+                new TextureRegionDrawable(
+                        new TextureRegion(imgHowToPlayPressed))
         );
-        imageHowToPlay.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.4f);
-        imageHowToPlay.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageHowToPlay.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.4f);
+        imageHowToPlay.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageHowToPlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -323,10 +361,13 @@ public class MainMenuScreen extends ScreenAdapter {
 
         imageSettings = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(imgSettings)),
-                new TextureRegionDrawable(new TextureRegion(imgSettingsPressed))
+                new TextureRegionDrawable(
+                        new TextureRegion(imgSettingsPressed))
         );
-        imageSettings.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.3f);
-        imageSettings.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageSettings.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.3f);
+        imageSettings.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageSettings.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -341,8 +382,10 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgCredits)),
                 new TextureRegionDrawable(new TextureRegion(imgCreditsPressed))
         );
-        imageCredits.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.2f);
-        imageCredits.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageCredits.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.2f);
+        imageCredits.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageCredits.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -357,8 +400,10 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgExit)),
                 new TextureRegionDrawable(new TextureRegion(imgExitPressed))
         );
-        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.1f);
-        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f,
+                app.VIRTUAL_HEIGHT * 0.1f);
+        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f,
+                app.VIRTUAL_HEIGHT * 0.09f);
         imageExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -392,11 +437,19 @@ public class MainMenuScreen extends ScreenAdapter {
 
         app.batch.begin();
         if(Gdx.graphics.getWidth() < 1000) {
-            app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f, Gdx.graphics.getHeight() * 0.75f, logoSmall.width, logoSmall.height);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(logo, app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.7f, logoMedium.width, logoMedium.height);
+            app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f,
+                    Gdx.graphics.getHeight() * 0.75f,
+                    logoSmall.width, logoSmall.height);
+        } else if (Gdx.graphics.getWidth() >= 1000
+                && Gdx.graphics.getWidth() < 1200) {
+            app.batch.draw(logo, app.VIRTUAL_WIDTH * 0.125f,
+                    app.VIRTUAL_HEIGHT * 0.7f,
+                    logoMedium.width, logoMedium.height);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), app.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
+            app.batch.draw(logo,
+                    ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)),
+                    app.VIRTUAL_HEIGHT * 0.7f,
+                    logoLarge.width, logoLarge.height);
         }
         app.batch.end();
     }
@@ -457,7 +510,8 @@ public class MainMenuScreen extends ScreenAdapter {
      * Saves the music and sound settings to the Preferences file.
      *
      * @param music false when music is set off, true when music is set on
-     * @param sound false when sound effects are set off, true when sound effects are set on
+     * @param sound false when sound effects are set off, true when sound
+     *              effects are set on
      */
     public void saveSettings(Boolean music, Boolean sound) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
@@ -515,23 +569,13 @@ public class MainMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes music, sounds and the stage and all its actors.
+     * Disposes MindPuzzle object, music, sounds and the stage and all its actors.
      */
     @Override
     public void dispose() {
         app.dispose();
         stage.dispose();
         logo.dispose();
-        //imgPlay.dispose();
-        //imgHowToPlay.dispose();
-        //imgCredits.dispose();
-        //imgSettings.dispose();
-        //imgExit.dispose();
-        //imgPlayPressed.dispose();
-        //imgHowToPlayPressed.dispose();
-        //imgCreditsPressed.dispose();
-        //imgSettingsPressed.dispose();
-        //imgExitPressed.dispose();
         sound.dispose();
         music.dispose();
         right.dispose();

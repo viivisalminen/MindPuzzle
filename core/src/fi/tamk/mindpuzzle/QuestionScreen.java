@@ -387,23 +387,24 @@ public class QuestionScreen extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        if(Gdx.graphics.getWidth() < 1000) {
+        if(stage.getViewport().getScreenWidth() < 1000) {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleSmall.width, bubbleSmall.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterSmall.width, characterSmall.height);
             app.font30.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
             app.font30.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.47f);
             app.font30.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.31f);
             app.font30.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.15f);
-        } else {
+        } else if (stage.getViewport().getScreenWidth() > 1000 && stage.getViewport().getScreenWidth() < 1200){
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleLarge.width, bubbleLarge.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterLarge.width, characterLarge.height);
-
-            if (Gdx.graphics.getWidth() > 1000 && Gdx.graphics.getWidth() < 1200){
-                app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
-            } else {
-                app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
-            }
-
+            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
+            app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.47f);
+            app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.31f);
+            app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.15f);
+        } else if (stage.getViewport().getScreenWidth() > 1200) {
+            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleLarge.width, bubbleLarge.height);
+            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterLarge.width, characterLarge.height);
+            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.1175f,stage.getViewport().getScreenHeight() * 0.8f);
             app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.47f);
             app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.31f);
             app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.15f);

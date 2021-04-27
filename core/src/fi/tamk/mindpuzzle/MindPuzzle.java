@@ -17,12 +17,14 @@ import java.util.Scanner;
 
 /**
  * MindPuzzle is the main class of the application
- * that contains metadata of the game and methods the game is operated with.
+ * that contains metadata of the game and methods
+ * the game is operated with.
  *
- * MindPuzzle includes information on what was the last visible screen and character,
- * how many questions in the rooms have been answered and amount of the points.
- * It also handles the text files, screen switching, the reset of the game
- * and the saving of language settings and character status to the Preferences file.
+ * MindPuzzle includes information on what was the last visible screen
+ * and character, how many questions in the rooms have been answered
+ * and amount of the points. It also handles the text files, screen
+ * switching, the reset of the game and the saving of language
+ * settings and character status to the Preferences file.
  *
  * @author      Viivi Salminen
  * @version     2021.2704
@@ -42,7 +44,7 @@ public class MindPuzzle extends Game {
      */
     public OrthographicCamera camera;
     /**
-     * Draws batched quads using indices.
+     * SpriteBatch handles drawing.
      */
     public SpriteBatch batch;
     /**
@@ -78,11 +80,11 @@ public class MindPuzzle extends Game {
      */
     public AssetManager assets;
     /**
-     * Text files containing questions in English.
+     * Text file containing questions in English.
      */
     public FileHandle fileEN;
     /**
-     * Text files containing questions in Finnish.
+     * Text file containing questions in Finnish.
      */
     public FileHandle fileFIN;
     /**
@@ -146,7 +148,7 @@ public class MindPuzzle extends Game {
      */
     public SettingsScreen settingsScreen;
     /**
-     * Screen for introduce the development team of the game.
+     * Screen for introducing the development team of the game.
      */
     public CreditsScreen creditsScreen;
     /**
@@ -197,10 +199,10 @@ public class MindPuzzle extends Game {
      * The most recent screen is stored in the variable, which allows
      * the return to the previous screen from the answer screen.
      */
-    public Screen previousScreen = mainMenuScreen;
+    public Screen previousScreen;
     /**
-     * The character clicked in the room is stored in this variable
-     * so that the correct character is seen on the question and answer screen.
+     * The character clicked in the room is stored in this variable so that
+     * the correct character is seen on the question and answer screens.
      */
     public String previousCharacter = "";
     /**
@@ -233,7 +235,7 @@ public class MindPuzzle extends Game {
      */
     public int sleepQuestionsAnswered = 0;
     /**
-     * Variable for language settings.
+     * Object for language settings.
      */
     public String language = "";
 
@@ -273,7 +275,9 @@ public class MindPuzzle extends Game {
         initTextFile(sportQuestions, "SPORTS", fileEN);
         initTextFile(hobbyQuestions, "HOBBIES", fileEN);
         initTextFile(foodQuestions, "FOOD", fileEN);
-        mainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+        mainMenuScreen.receiveENQuestions(socialQuestions,
+                sleepQuestions, sportQuestions,
+                hobbyQuestions, foodQuestions);
 
         fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
         initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
@@ -281,8 +285,11 @@ public class MindPuzzle extends Game {
         initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
         initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
         initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
-        mainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
+        mainMenuScreen.receiveFINQuestions(socialQuestionsFIN,
+                sleepQuestionsFIN, sportQuestionsFIN,
+                hobbyQuestionsFIN, foodQuestionsFIN);
 
+        previousScreen = mainMenuScreen;
         this.setScreen(loadingScreen);
     }
 
@@ -298,39 +305,47 @@ public class MindPuzzle extends Game {
      * Introduces and initializes fonts
      */
     private void initFonts() {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
+        FreeTypeFontGenerator generator =
+                new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter20 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter20 =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter20.size = 20;
         parameter20.color = Color.BLACK;
         font20 = generator.generateFont(parameter20);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter30 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter30 =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter30.size = 30;
         parameter30.color = Color.BLACK;
         font30 = generator.generateFont(parameter30);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter40 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter40 =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter40.size = 40;
         parameter40.color = Color.BLACK;
         font40 = generator.generateFont(parameter40);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter40white = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter40white =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter40white.size = 40;
         parameter40white.color = Color.WHITE;
         font40white = generator.generateFont(parameter40white);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter50 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter50 =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter50.size = 50;
         parameter50.color = Color.BLACK;
         font50 = generator.generateFont(parameter50);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter50white = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter50white =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter50white.size = 50;
         parameter50white.color = Color.WHITE;
         font50white = generator.generateFont(parameter50white);
 
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter60 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter60 =
+                new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter60.size = 60;
         parameter60.color = Color.BLACK;
         font60 = generator.generateFont(parameter60);
@@ -343,7 +358,8 @@ public class MindPuzzle extends Game {
      * @param theme     the theme to be processed within the text file
      * @param file      the text file to be processed
      */
-    private void initTextFile(String[][] array, String theme, FileHandle file) {
+    private void initTextFile(String[][] array,
+                              String theme, FileHandle file) {
         Scanner scanner = new Scanner(file.readString());
         String line = "";
 
@@ -352,19 +368,28 @@ public class MindPuzzle extends Game {
             if (line.contains(theme)) {
                 column = 0;
                 line = scanner.nextLine();
-                if (line.contains("?")) {	lineUpText(array, line, 0);	}
+                if (line.contains("?")) {
+                    lineUpText(array, line, 0);
+                }
 
                 line = scanner.nextLine();
-                if (line.contains("a)")) {	lineUpText(array, line, 1);	}
+                if (line.contains("a)")) {
+                    lineUpText(array, line, 1);
+                }
 
                 line = scanner.nextLine();
-                if (line.contains("b)")) {	lineUpText(array, line, 2);	}
+                if (line.contains("b)")) {
+                    lineUpText(array, line, 2);
+                }
 
                 line = scanner.nextLine();
-                if (line.contains("c)")) {	lineUpText(array, line, 3);	}
+                if (line.contains("c)")) {
+                    lineUpText(array, line, 3);
+                }
 
                 line = scanner.nextLine();
-                if (line.contains("a") || line.contains("b") || line.contains("c")) {
+                if (line.contains("a") ||
+                        line.contains("b") || line.contains("c")) {
                     array[row][column + 4] = line;
                 }
 
@@ -386,7 +411,8 @@ public class MindPuzzle extends Game {
      *
      * @param array     the array in which questions are stored
      * @param line      the line to which line breaks are added
-     * @param columnNo  the value of the column in the array to which the processed line will be added
+     * @param columnNo  the value of the column in the array to which
+     *                  the processed line will be added
      */
     private void lineUpText(String[][] array, String line, int columnNo) {
         String longLine = "";
@@ -456,20 +482,29 @@ public class MindPuzzle extends Game {
     /**
      * Adds the amount of answered questions in the certain room.
      *
-     * @param room the room to whose amount of the questions answered is increased
+     * @param room the room to whose amount of the questions
+     *             answered is increased
      */
     public void addAnsweredQuestion(Screen room) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         if(room.equals(foodRoom)) {
             foodQuestionsAnswered++;
+            prefs.putInteger("foodquestions", foodQuestionsAnswered);
         } else if (room.equals(socialRoom)) {
             socialQuestionsAnswered++;
+            prefs.putInteger("socialquestions", socialQuestionsAnswered);
         } else if (room.equals(sleepRoom)) {
             sleepQuestionsAnswered++;
+            prefs.putInteger("sleepquestions", sleepQuestionsAnswered);
         } else if (room.equals(hobbiesRoom)) {
             hobbyQuestionsAnswered++;
+            prefs.putInteger("hobbyquestions", hobbyQuestionsAnswered);
         } else if (room.equals(sportsRoom)) {
             sportQuestionsAnswered++;
+            prefs.putInteger("sportquestions", sportQuestionsAnswered);
         }
+
+        prefs.flush();
     }
 
     /**
@@ -478,16 +513,22 @@ public class MindPuzzle extends Game {
      * @return integer value of answered question between 0-5
      */
     public int getAnsweredQuestion(String room) {
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         if(room.equals("food")) {
-            returnable = foodQuestionsAnswered;
+            returnable =
+                    prefs.getInteger("foodquestions", foodQuestionsAnswered);
         } else if (room.equals("social")) {
-            returnable = socialQuestionsAnswered;
+            returnable =
+                    prefs.getInteger("socialquestions", socialQuestionsAnswered);
         } else if (room.equals("sleep")) {
-            returnable = sleepQuestionsAnswered;
+            returnable =
+                    prefs.getInteger("sleepquestions", sleepQuestionsAnswered);
         } else if (room.equals("hobbies")) {
-            returnable = hobbyQuestionsAnswered;
+            returnable =
+                    prefs.getInteger("hobbyquestions", hobbyQuestionsAnswered);
         } else if (room.equals("sports")) {
-            returnable = sportQuestionsAnswered;
+            returnable =
+                    prefs.getInteger("sportquestions", sportQuestionsAnswered);
         }
 
         return returnable;
@@ -560,8 +601,9 @@ public class MindPuzzle extends Game {
      * Gets and returns the saved boolean value for the characters visibility.
      *
      * @param character     the character whose status is being asked
-     * @param roomCharacter default value if there is no data stored in Preferences file yet
-     * @return if the character should be visible in the rooms or not
+     * @param roomCharacter default value if there is no data stored
+     *                      in Preferences file yet
+     * @return boolean if the character should be visible in the rooms or not
      */
     public boolean openCharacters(String character, Boolean roomCharacter) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
@@ -571,10 +613,11 @@ public class MindPuzzle extends Game {
     }
 
     /**
-     * Resets the game.
+     * Reset the game. However, retains the language and audio
+     * settings made during the first round of play.
      */
     public void resetGame() {
-        mainMenuScreen.resetSettings();
+        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         foodRoom.resetCharacterInfo();
         hobbiesRoom.resetCharacterInfo();
         sleepRoom.resetCharacterInfo();
@@ -586,8 +629,13 @@ public class MindPuzzle extends Game {
         sportQuestionsAnswered = 0;
         hobbyQuestionsAnswered = 0;
         sleepQuestionsAnswered = 0;
-        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
-        prefs.clear();
+        prefs.putInteger("points", points);
+        prefs.putInteger("foodquestions", foodQuestionsAnswered);
+        prefs.putInteger("socialquestions", socialQuestionsAnswered);
+        prefs.putInteger("sportquestions", sportQuestionsAnswered);
+        prefs.putInteger("hobbyquestions", hobbyQuestionsAnswered);
+        prefs.putInteger("sleepquestions", sleepQuestionsAnswered);
+
         prefs.flush();
     }
 
