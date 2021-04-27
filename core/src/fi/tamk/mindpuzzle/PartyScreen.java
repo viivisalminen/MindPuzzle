@@ -69,7 +69,7 @@ public class PartyScreen extends ScreenAdapter {
      */
     public PartyScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -99,23 +99,23 @@ public class PartyScreen extends ScreenAdapter {
         if (app.getPoints() >= 18) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Hurraa! Kyläläiset ovat jälleen iloisia! \nNyt juhlitaan!";
+                line = "Hurraa! Kyläläiset ovat jälleen"+"\niloisia! Nyt juhlitaan!";
             } else {
-                line = "Hurray! The villagers are happy again.\nLet's have a great party!";
+                line = "Hurray! The villagers are happy"+"\nagain. Let's have a great party!";
             }
         } else if (app.getPoints() > 8 && app.getPoints() < 18) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/neutralEnding.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Hienosti tehty! Onnistuit auttamaan joitain kyläläisiä.\nOsa heistä tulivat juhlimaan.";
+                line = "Hienosti tehty! Onnistuit"+"\nauttamaan joitain kyläläisiä."+"\nOsa heistä tulivat juhlimaan.";
             } else {
-                line = "Well done! You managed to help the villagers a little. \nSome of them are happy enough to party!";
+                line = "Well done! You managed to help"+"\nthe villagers a little."+"\nSome of them came to the party!";
             }
         } else if (app.getPoints() < 9) {
             background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/badEnding.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
-                line = "Voi ei! Et onnistunut auttamaan kyläläisiä ja he ovat liian surullisia juhlimaan.";
+                line = "Voi ei! Et onnistunut auttamaan"+"\nkyläläisiä. He ovat liian"+"\nsurullisia juhlimaan.";
             } else {
-                line = "Oh no! You failed to help the villagers \nand they are still too sad to have a party";
+                line = "Oh no! You failed to help "+"\nthe villagers. They are still"+"\ntoo sad to have a party";
             }
         }
         background.setFillParent(true);
@@ -124,8 +124,8 @@ public class PartyScreen extends ScreenAdapter {
 
         initButtons();
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.music.play();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.music.play();
         }
     }
 
@@ -137,13 +137,13 @@ public class PartyScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.125f);
-        imageMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.125f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.resetGame();
                 app.setScreen(app.mainMenuScreen);
@@ -154,8 +154,8 @@ public class PartyScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgExit)),
                 new TextureRegionDrawable(new TextureRegion(imgExitPressed))
         );
-        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.025f);
-        imageExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.025f);
+        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -183,7 +183,11 @@ public class PartyScreen extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.15f,stage.getViewport().getScreenHeight() * 0.91f);
+        if(Gdx.graphics.getWidth() < 1000) {
+            app.font40white.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.7f);
+        } else {
+            app.font50white.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.7f);
+        }
         app.batch.end();
     }
 

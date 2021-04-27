@@ -113,67 +113,67 @@ public class MainMenuScreen extends ScreenAdapter {
     /**
      * Music as background music of the game.
      */
-    public static Music music;
+    public Music music;
     /**
      * Music as sound effect for right answer.
      */
-    public static Music right;
+    public Music right;
     /**
      * Music as sound effect for wrong answer.
      */
-    public static Music wrong;
+    public Music wrong;
     /**
      * Boolean value that determines whether the music in playing or not.
      */
-    public static boolean musicPlaying = true;
+    public boolean musicPlaying = true;
     /**
      * The game's sound effect for buttons.
      */
-    public static Sound sound;
+    public Sound sound;
     /**
      * Boolean value that determines whether the sound effects are playing or not.
      */
-    public static boolean soundOn = true;
+    public boolean soundOn = true;
     /**
      * 2D array for English questions about relationships and emotions.
      */
-    public static String[][] questionsAboutSocial = new String[20][20];
+    public String[][] questionsAboutSocial = new String[20][20];
     /**
      * 2D array for English questions about sleep and rest.
      */
-    public static String[][] questionsAboutSleep = new String[20][20];
+    public String[][] questionsAboutSleep = new String[20][20];
     /**
      * 2D array for English questions about exercise.
      */
-    public static String[][] questionsAboutSports = new String[20][20];
+    public String[][] questionsAboutSports = new String[20][20];
     /**
      * 2D array for English questions about hobbies.
      */
-    public static String[][] questionsAboutHobbies = new String[20][20];
+    public String[][] questionsAboutHobbies = new String[20][20];
     /**
      * 2D array for English questions about food and eating habits.
      */
-    public static String[][] questionsAboutFood = new String[20][20];
+    public String[][] questionsAboutFood = new String[20][20];
     /**
      * 2D arrays for Finnish questions.
      */
-    public static String[][] questionsAboutSocialFIN = new String[20][20];
+    public String[][] questionsAboutSocialFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about sleep and rest.
      */
-    public static String[][] questionsAboutSleepFIN = new String[20][20];
+    public String[][] questionsAboutSleepFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about exercise.
      */
-    public static String[][] questionsAboutSportsFIN = new String[20][20];
+    public String[][] questionsAboutSportsFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about hobbies.
      */
-    public static String[][] questionsAboutHobbiesFIN = new String[20][20];
+    public String[][] questionsAboutHobbiesFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about food and eating habits.
      */
-    public static String[][] questionsAboutFoodFIN = new String[20][20];
+    public String[][] questionsAboutFoodFIN = new String[20][20];
 
     /**
      * Class constructor.
@@ -186,7 +186,7 @@ public class MainMenuScreen extends ScreenAdapter {
      */
     public MainMenuScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -260,7 +260,7 @@ public class MainMenuScreen extends ScreenAdapter {
      * @param hobby     array containing questions about hobbies
      * @param food      array containing questions about food and eating habits
      */
-    public static void receiveENQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public void receiveENQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocial = social.clone();
         questionsAboutSleep = sleep.clone();
         questionsAboutSports = sport.clone();
@@ -277,7 +277,7 @@ public class MainMenuScreen extends ScreenAdapter {
      * @param hobby     array containing questions about hobbies
      * @param food      array containing questions about food and eating habits
      */
-    public static void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
+    public void receiveFINQuestions(String[][] social, String[][] sleep, String[][] sport, String[][] hobby, String[][] food) {
         questionsAboutSocialFIN = social.clone();
         questionsAboutSleepFIN = sleep.clone();
         questionsAboutSportsFIN = sport.clone();
@@ -293,8 +293,8 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgPlay)),
                 new TextureRegionDrawable(new TextureRegion(imgPlayPressed))
         );
-        imagePlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        imagePlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imagePlay.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.5f);
+        imagePlay.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imagePlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -309,8 +309,8 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgHowToPlay)),
                 new TextureRegionDrawable(new TextureRegion(imgHowToPlayPressed))
         );
-        imageHowToPlay.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        imageHowToPlay.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageHowToPlay.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.4f);
+        imageHowToPlay.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageHowToPlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -325,8 +325,8 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSettings)),
                 new TextureRegionDrawable(new TextureRegion(imgSettingsPressed))
         );
-        imageSettings.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        imageSettings.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageSettings.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.3f);
+        imageSettings.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageSettings.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -341,8 +341,8 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgCredits)),
                 new TextureRegionDrawable(new TextureRegion(imgCreditsPressed))
         );
-        imageCredits.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        imageCredits.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageCredits.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.2f);
+        imageCredits.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageCredits.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -357,8 +357,8 @@ public class MainMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgExit)),
                 new TextureRegionDrawable(new TextureRegion(imgExitPressed))
         );
-        imageExit.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
-        imageExit.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageExit.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.1f);
+        imageExit.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageExit.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -394,9 +394,9 @@ public class MainMenuScreen extends ScreenAdapter {
         if(Gdx.graphics.getWidth() < 1000) {
             app.batch.draw(logo, Gdx.graphics.getWidth() * 0.125f, Gdx.graphics.getHeight() * 0.75f, logoSmall.width, logoSmall.height);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            app.batch.draw(logo, MindPuzzle.VIRTUAL_WIDTH * 0.125f, MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoMedium.width, logoMedium.height);
+            app.batch.draw(logo, app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.7f, logoMedium.width, logoMedium.height);
         } else if (Gdx.graphics.getWidth() >= 1200) {
-            app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), MindPuzzle.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
+            app.batch.draw(logo, ((Gdx.graphics.getWidth() / 2) - (logoLarge.width / 2)), app.VIRTUAL_HEIGHT * 0.7f, logoLarge.width, logoLarge.height);
         }
         app.batch.end();
     }
@@ -404,7 +404,7 @@ public class MainMenuScreen extends ScreenAdapter {
     /**
      * Sets the music to play.
      */
-    public static void musicOn(){
+    public void musicOn(){
         music.play();
         music.setLooping(true);
         music.setVolume(1f);
@@ -414,7 +414,7 @@ public class MainMenuScreen extends ScreenAdapter {
     /**
      * Stops the music.
      */
-    public static void musicOff() {
+    public void musicOff() {
         music.stop();
         musicPlaying = false;
     }
@@ -424,14 +424,14 @@ public class MainMenuScreen extends ScreenAdapter {
      *
      * @return boolean value of musicPlaying
      */
-    public static Boolean getMusic() {
+    public Boolean getMusic() {
         return musicPlaying;
     }
 
     /**
      * Sets the sound effects to play.
      */
-    public static void soundEffectOn() {
+    public void soundEffectOn() {
         sound.play(1f);;
         soundOn = true;
     }
@@ -439,7 +439,7 @@ public class MainMenuScreen extends ScreenAdapter {
     /**
      * Stops the sound effects.
      */
-    public static void soundEffectOff() {
+    public void soundEffectOff() {
         sound.stop();
         soundOn = false;
     }
@@ -449,7 +449,7 @@ public class MainMenuScreen extends ScreenAdapter {
      *
      * @return boolean value of soundON
      */
-    public static Boolean getSound() {
+    public Boolean getSound() {
         return soundOn;
     }
 
@@ -459,7 +459,7 @@ public class MainMenuScreen extends ScreenAdapter {
      * @param music false when music is set off, true when music is set on
      * @param sound false when sound effects are set off, true when sound effects are set on
      */
-    public static void saveSettings(Boolean music, Boolean sound) {
+    public void saveSettings(Boolean music, Boolean sound) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         prefs.putBoolean("music", musicPlaying);
         prefs.putBoolean("sound", soundOn);
@@ -474,7 +474,7 @@ public class MainMenuScreen extends ScreenAdapter {
      * @param music keyword to music
      * @param sound keyword to sounds
      */
-    public static void openSettings(Boolean music, Boolean sound) {
+    public void openSettings(Boolean music, Boolean sound) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         Boolean musicBoolean  = prefs.getBoolean("music", true);
         if(musicBoolean) {

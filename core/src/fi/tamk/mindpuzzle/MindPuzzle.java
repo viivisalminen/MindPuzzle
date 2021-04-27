@@ -32,11 +32,11 @@ public class MindPuzzle extends Game {
     /**
      * The Viewport's width.
      */
-    public static int VIRTUAL_WIDTH = 1080;
+    public int VIRTUAL_WIDTH = 1080;
     /**
      * The Viewport's height.
      */
-    public static int VIRTUAL_HEIGHT = 1920;
+    public int VIRTUAL_HEIGHT = 1920;
     /**
      * A camera with orthographic projection.
      */
@@ -46,23 +46,31 @@ public class MindPuzzle extends Game {
      */
     public SpriteBatch batch;
     /**
-     * Renders bitmap fonts in size 20.
+     * Bitmap font in size 20.
      */
     public BitmapFont font20;
     /**
-     * Renders bitmap fonts in size 30.
+     * Bitmap font in size 30.
      */
     public BitmapFont font30;
     /**
-     * Renders bitmap fonts in size 40.
+     * Bitmap font in size 40 and black color.
      */
     public BitmapFont font40;
     /**
-     * Renders bitmap fonts in size 50.
+     * Bitmap font in size 40 and white color.
+     */
+    public BitmapFont font40white;
+    /**
+     * Bitmap font in size 50 and black color.
      */
     public BitmapFont font50;
     /**
-     * Renders bitmap fonts in size 60.
+     * Bitmap font in size 50 and white color.
+     */
+    public BitmapFont font50white;
+    /**
+     * Bitmap font in size 60.
      */
     public BitmapFont font60;
     /**
@@ -80,43 +88,43 @@ public class MindPuzzle extends Game {
     /**
      * 2D array for English questions about relationships and emotions.
      */
-    public static String[][] socialQuestions = new String[20][20];
+    public String[][] socialQuestions = new String[20][20];
     /**
      * 2D array for English questions about sleep and rest.
      */
-    public static String[][] sleepQuestions = new String[20][20];
+    public String[][] sleepQuestions = new String[20][20];
     /**
      * 2D array for English questions about exercise.
      */
-    public static String[][] sportQuestions = new String[20][20];
+    public String[][] sportQuestions = new String[20][20];
     /**
      * 2D array for English questions about hobbies.
      */
-    public static String[][] hobbyQuestions = new String[20][20];
+    public String[][] hobbyQuestions = new String[20][20];
     /**
      * 2D array for English questions about food and eating habits.
      */
-    public static String[][] foodQuestions = new String[20][20];
+    public String[][] foodQuestions = new String[20][20];
     /**
      * 2D array for Finnish questions about relationships and emotions.
      */
-    public static String[][] socialQuestionsFIN = new String[20][20];
+    public String[][] socialQuestionsFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about sleep and rest.
      */
-    public static String[][] sleepQuestionsFIN = new String[20][20];
+    public String[][] sleepQuestionsFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about exercise.
      */
-    public static String[][] sportQuestionsFIN = new String[20][20];
+    public String[][] sportQuestionsFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about hobbies.
      */
-    public static String[][] hobbyQuestionsFIN = new String[20][20];
+    public String[][] hobbyQuestionsFIN = new String[20][20];
     /**
      * 2D array for Finnish questions about food and eating habits.
      */
-    public static String[][] foodQuestionsFIN = new String[20][20];
+    public String[][] foodQuestionsFIN = new String[20][20];
     /**
      * Starting row value for filling in the arrays.
      */
@@ -128,11 +136,11 @@ public class MindPuzzle extends Game {
     /**
      * Loading screen of the game.
      */
-    public fi.tamk.mindpuzzle.LoadingScreen loadingScreen;
+    public LoadingScreen loadingScreen;
     /**
      * Screen for main menu.
      */
-    public fi.tamk.mindpuzzle.MainMenuScreen mainMenuScreen;
+    public MainMenuScreen mainMenuScreen;
     /**
      * Screen for changing settings in the main menu.
      */
@@ -140,15 +148,15 @@ public class MindPuzzle extends Game {
     /**
      * Screen for introduce the development team of the game.
      */
-    public fi.tamk.mindpuzzle.CreditsScreen creditsScreen;
+    public CreditsScreen creditsScreen;
     /**
      * Screen for game instructions.
      */
-    public fi.tamk.mindpuzzle.GameInstructionsScreen instructionsScreen;
+    public GameInstructionsScreen instructionsScreen;
     /**
      * Screen for room menu.
      */
-    public fi.tamk.mindpuzzle.RoomMenuScreen roomMenuScreen;
+    public RoomMenuScreen roomMenuScreen;
     /**
      * Screen for sleep-themed room.
      */
@@ -156,7 +164,7 @@ public class MindPuzzle extends Game {
     /**
      * Screen for food-themed room.
      */
-    public fi.tamk.mindpuzzle.FoodRoom foodRoom;
+    public FoodRoom foodRoom;
     /**
      * Screen for social-themed room.
      */
@@ -164,7 +172,7 @@ public class MindPuzzle extends Game {
     /**
      * Screen for hobby-themed room.
      */
-    public fi.tamk.mindpuzzle.HobbiesRoom hobbiesRoom;
+    public HobbiesRoom hobbiesRoom;
     /**
      * Screen for sport-themed room.
      */
@@ -172,19 +180,19 @@ public class MindPuzzle extends Game {
     /**
      * Screen for settings in the rooms.
      */
-    public fi.tamk.mindpuzzle.SettingsPopUp settingsPopUp;
+    public SettingsPopUp settingsPopUp;
     /**
      * Screen for question screen.
      */
-    public fi.tamk.mindpuzzle.QuestionScreen questionScreen;
+    public QuestionScreen questionScreen;
     /**
      * Screen for answer screen.
      */
-    public fi.tamk.mindpuzzle.AnswerScreen answerScreen;
+    public AnswerScreen answerScreen;
     /**
      * The game's ending screen.
      */
-    public fi.tamk.mindpuzzle.PartyScreen partyScreen;
+    public PartyScreen partyScreen;
     /**
      * The most recent screen is stored in the variable, which allows
      * the return to the previous screen from the answer screen.
@@ -194,40 +202,40 @@ public class MindPuzzle extends Game {
      * The character clicked in the room is stored in this variable
      * so that the correct character is seen on the question and answer screen.
      */
-    public static String previousCharacter = "";
+    public String previousCharacter = "";
     /**
      * Points in the game.
      */
-    public static int points = 0;
+    public int points = 0;
     /**
      * Starting value for return variable of method
      * public static int getAnsweredQuestion(String room) {...}
      */
-    public static int returnable = 0;
+    public int returnable = 0;
     /**
      * How many food-related questions have been answered.
      */
-    public static int foodQuestionsAnswered = 0;
+    public int foodQuestionsAnswered = 0;
     /**
      * How many social-related questions have been answered.
      */
-    public static int socialQuestionsAnswered = 0;
+    public int socialQuestionsAnswered = 0;
     /**
      * How many sport-related questions have been answered.
      */
-    public static int sportQuestionsAnswered = 0;
+    public int sportQuestionsAnswered = 0;
     /**
      * How many hobby-related questions have been answered.
      */
-    public static int hobbyQuestionsAnswered = 0;
+    public int hobbyQuestionsAnswered = 0;
     /**
      * How many sleep-related questions have been answered.
      */
-    public static int sleepQuestionsAnswered = 0;
+    public int sleepQuestionsAnswered = 0;
     /**
      * Variable for language settings.
      */
-    public static String language = "";
+    public String language = "";
 
     /**
      * Initializes objects, font and language.
@@ -240,26 +248,6 @@ public class MindPuzzle extends Game {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
         batch = new SpriteBatch();
-
-        initFonts();
-        getLanguage();
-
-        fileEN = Gdx.files.internal("questions/questionsEN.txt");
-        initTextFile(socialQuestions, "SOCIAL", fileEN);
-        initTextFile(sleepQuestions, "SLEEP", fileEN);
-        initTextFile(sportQuestions, "SPORTS", fileEN);
-        initTextFile(hobbyQuestions, "HOBBIES", fileEN);
-        initTextFile(foodQuestions, "FOOD", fileEN);
-        fi.tamk.mindpuzzle.MainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
-
-        fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
-        initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
-        initTextFile(sleepQuestionsFIN, "SLEEP", fileFIN);
-        initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
-        initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
-        initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
-        fi.tamk.mindpuzzle.MainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
-
         loadingScreen = new LoadingScreen(this);
         mainMenuScreen = new MainMenuScreen(this);
         roomMenuScreen = new RoomMenuScreen(this);
@@ -275,6 +263,25 @@ public class MindPuzzle extends Game {
         answerScreen = new AnswerScreen(this);
         partyScreen = new PartyScreen(this);
         instructionsScreen = new GameInstructionsScreen(this);
+
+        initFonts();
+        getLanguage();
+
+        fileEN = Gdx.files.internal("questions/questionsEN.txt");
+        initTextFile(socialQuestions, "SOCIAL", fileEN);
+        initTextFile(sleepQuestions, "SLEEP", fileEN);
+        initTextFile(sportQuestions, "SPORTS", fileEN);
+        initTextFile(hobbyQuestions, "HOBBIES", fileEN);
+        initTextFile(foodQuestions, "FOOD", fileEN);
+        mainMenuScreen.receiveENQuestions(socialQuestions, sleepQuestions, sportQuestions, hobbyQuestions, foodQuestions);
+
+        fileFIN = Gdx.files.internal("questions/questionsFIN.txt");
+        initTextFile(socialQuestionsFIN, "SOCIAL", fileFIN);
+        initTextFile(sleepQuestionsFIN, "SLEEP", fileFIN);
+        initTextFile(sportQuestionsFIN, "SPORTS", fileFIN);
+        initTextFile(hobbyQuestionsFIN, "HOBBIES", fileFIN);
+        initTextFile(foodQuestionsFIN, "FOOD", fileFIN);
+        mainMenuScreen.receiveFINQuestions(socialQuestionsFIN, sleepQuestionsFIN, sportQuestionsFIN, hobbyQuestionsFIN, foodQuestionsFIN);
 
         this.setScreen(loadingScreen);
     }
@@ -308,10 +315,20 @@ public class MindPuzzle extends Game {
         parameter40.color = Color.BLACK;
         font40 = generator.generateFont(parameter40);
 
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter40white = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter40white.size = 40;
+        parameter40white.color = Color.WHITE;
+        font40white = generator.generateFont(parameter40white);
+
         FreeTypeFontGenerator.FreeTypeFontParameter parameter50 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter50.size = 50;
         parameter50.color = Color.BLACK;
         font50 = generator.generateFont(parameter50);
+
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter50white = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter50white.size = 50;
+        parameter50white.color = Color.WHITE;
+        font50white = generator.generateFont(parameter50white);
 
         FreeTypeFontGenerator.FreeTypeFontParameter parameter60 = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter60.size = 60;
@@ -423,7 +440,7 @@ public class MindPuzzle extends Game {
      *
      * @param character the character to set
      */
-    public static void setPreviousCharacter(String character) {
+    public void setPreviousCharacter(String character) {
         previousCharacter = character;
     }
 
@@ -432,7 +449,7 @@ public class MindPuzzle extends Game {
      *
      * @return previous clicked character
      */
-    public static String getCharacter() {
+    public String getCharacter() {
         return previousCharacter;
     }
 
@@ -460,7 +477,7 @@ public class MindPuzzle extends Game {
      *
      * @return integer value of answered question between 0-5
      */
-    public static int getAnsweredQuestion(String room) {
+    public int getAnsweredQuestion(String room) {
         if(room.equals("food")) {
             returnable = foodQuestionsAnswered;
         } else if (room.equals("social")) {
@@ -482,7 +499,7 @@ public class MindPuzzle extends Game {
      *
      * @param locale language to set
      */
-    public static void setLanguage(Locale locale) {
+    public void setLanguage(Locale locale) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         language = locale.toString();
         prefs.putString("language", language);
@@ -494,7 +511,7 @@ public class MindPuzzle extends Game {
      *
      * @return current language
      */
-    public static String getLanguage() {
+    public String getLanguage() {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         Locale locale = Locale.getDefault();
         String defaultLanguage = locale.toString();
@@ -520,7 +537,7 @@ public class MindPuzzle extends Game {
      *
      * @return points to return between 0-25
      */
-    public static int getPoints() {
+    public int getPoints() {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         points = prefs.getInteger("points", points);
 
@@ -583,7 +600,9 @@ public class MindPuzzle extends Game {
         font20.dispose();
         font30.dispose();
         font40.dispose();
+        font40white.dispose();
         font50.dispose();
+        font50white.dispose();
         font60.dispose();
         assets.dispose();
         answerScreen.dispose();

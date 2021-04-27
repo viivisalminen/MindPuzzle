@@ -46,7 +46,7 @@ public class LoadingScreen extends ScreenAdapter {
      */
     public LoadingScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
         this.shapeRenderer = new ShapeRenderer();
         this.shapeRenderer.setProjectionMatrix(app.camera.combined);
     }
@@ -74,10 +74,10 @@ public class LoadingScreen extends ScreenAdapter {
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.7f, MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
+        shapeRenderer.rect(app.VIRTUAL_WIDTH * 0.15f,app.VIRTUAL_HEIGHT * 0.5f, app.VIRTUAL_WIDTH * 0.7f, app.VIRTUAL_HEIGHT * 0.02f);
 
         shapeRenderer.setColor(Color.FOREST);
-        shapeRenderer.rect(MindPuzzle.VIRTUAL_WIDTH * 0.15f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f, progress * (MindPuzzle.VIRTUAL_WIDTH * 0.7f), MindPuzzle.VIRTUAL_HEIGHT * 0.02f);
+        shapeRenderer.rect(app.VIRTUAL_WIDTH * 0.15f,app.VIRTUAL_HEIGHT * 0.5f, progress * (app.VIRTUAL_WIDTH * 0.7f), app.VIRTUAL_HEIGHT * 0.02f);
         shapeRenderer.end();
     }
 

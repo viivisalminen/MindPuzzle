@@ -148,9 +148,9 @@ public class SettingsScreen extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public SettingsScreen(final fi.tamk.mindpuzzle.MindPuzzle app) {
+    public SettingsScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -211,8 +211,8 @@ public class SettingsScreen extends ScreenAdapter {
 
         initButtons();
 
-        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
-            fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
         }
     }
 
@@ -224,13 +224,13 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(menu)),
                 new TextureRegionDrawable(new TextureRegion(menuPressed))
         );
-        menuButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        menuButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        menuButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.8f);
+        menuButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         menuButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.mainMenuScreen);
             }
@@ -240,15 +240,15 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(soundsON)),
                 new TextureRegionDrawable(new TextureRegion(soundsONPressed))
         );
-        soundsONButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        soundsONButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        soundsONButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.5f);
+        soundsONButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         soundsONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
-                fi.tamk.mindpuzzle.MainMenuScreen.soundEffectOff();
+                app.mainMenuScreen.soundEffectOff();
                 stage.addActor(soundsOFFButton);
                 show();
             }
@@ -258,13 +258,12 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(soundsOFF)),
                 new TextureRegionDrawable(new TextureRegion(soundsOFFPressed))
         );
-        soundsOFFButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        soundsOFFButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        soundsOFFButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.5f);
+        soundsOFFButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         soundsOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                fi.tamk.mindpuzzle.MainMenuScreen.soundEffectOn();
-                fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                app.mainMenuScreen.soundEffectOn();
                 stage.addActor(soundsONButton);
                 show();
             }
@@ -274,12 +273,12 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(musicON)),
                 new TextureRegionDrawable(new TextureRegion(musicONPressed))
         );
-        musicONButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        musicONButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        musicONButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.4f);
+        musicONButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         musicONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                fi.tamk.mindpuzzle.MainMenuScreen.musicOff();
+                app.mainMenuScreen.musicOff();
                 stage.addActor(musicOFFButton);
                 show();
             }
@@ -289,12 +288,12 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(musicOFF)),
                 new TextureRegionDrawable(new TextureRegion(musicOFFPressed))
         );
-        musicOFFButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.4f);
-        musicOFFButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        musicOFFButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.4f);
+        musicOFFButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         musicOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
+                app.mainMenuScreen.musicOn();
                 stage.addActor(musicONButton);
                 show();
             }
@@ -304,13 +303,13 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(finON)),
                 new TextureRegionDrawable(new TextureRegion(finONPressed))
         );
-        finONButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        finONButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        finONButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.3f);
+        finONButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         finONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setLanguage(new Locale("en", "US"));
                 stage.addActor(finOFFButton);
@@ -322,13 +321,13 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(finOFF)),
                 new TextureRegionDrawable(new TextureRegion(finOFFPressed))
         );
-        finOFFButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        finOFFButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        finOFFButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.3f);
+        finOFFButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         finOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setLanguage(new Locale("fi", "FI"));
                 stage.addActor(finONButton);
@@ -340,13 +339,13 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(enON)),
                 new TextureRegionDrawable(new TextureRegion(enONPressed))
         );
-        enONButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        enONButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        enONButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.2f);
+        enONButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         enONButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setLanguage(new Locale("fi", "FI"));
                 stage.addActor(enOFFButton);
@@ -358,13 +357,13 @@ public class SettingsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(enOFF)),
                 new TextureRegionDrawable(new TextureRegion(enOFFPressed))
         );
-        enOFFButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.125f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.2f);
-        enOFFButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        enOFFButton.setPosition(app.VIRTUAL_WIDTH * 0.125f, app.VIRTUAL_HEIGHT * 0.2f);
+        enOFFButton.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         enOFFButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setLanguage(new Locale("en", "US"));
                 stage.addActor(enONButton);
@@ -372,17 +371,17 @@ public class SettingsScreen extends ScreenAdapter {
             }
         });
 
-        if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
+        if(app.mainMenuScreen.getSound()) {
             stage.addActor(soundsONButton);
         }
-        else if (!fi.tamk.mindpuzzle.MainMenuScreen.getSound()){
+        else if (!app.mainMenuScreen.getSound()){
             stage.addActor(soundsOFFButton);
         }
 
-        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
+        if(app.mainMenuScreen.getMusic()) {
             stage.addActor(musicONButton);
         }
-        else if (!fi.tamk.mindpuzzle.MainMenuScreen.getMusic()){
+        else if (!app.mainMenuScreen.getMusic()){
             stage.addActor(musicOFFButton);
         }
 
@@ -428,7 +427,7 @@ public class SettingsScreen extends ScreenAdapter {
      * Saves the settings to the Preferences file.
      */
     @Override
-    public void hide() { fi.tamk.mindpuzzle.MainMenuScreen.saveSettings(fi.tamk.mindpuzzle.MainMenuScreen.getMusic(), MainMenuScreen.getSound()); }
+    public void hide() { app.mainMenuScreen.saveSettings(app.mainMenuScreen.getMusic(), app.mainMenuScreen.getSound()); }
 
     /**
      * Disposes the stage and all its actors.

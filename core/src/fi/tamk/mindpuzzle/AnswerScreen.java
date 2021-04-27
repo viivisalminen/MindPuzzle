@@ -100,7 +100,7 @@ public class AnswerScreen extends ScreenAdapter {
      */
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -133,12 +133,12 @@ public class AnswerScreen extends ScreenAdapter {
         initButtons();
         app.addAnsweredQuestion(app.getPreviousScreen());
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.musicOn();
-            MainMenuScreen.music.setVolume(0.4f);
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
+            app.mainMenuScreen.music.setVolume(0.4f);
         }
 
-        rightAnswer = fi.tamk.mindpuzzle.QuestionScreen.getRightAnswerAsString();
+        rightAnswer = app.questionScreen.getRightAnswerAsString();
 
         if(app.getLanguage().equals("fi_FI")) {
             rightLine = "Jei, vastasit oikein! Nyt voin hyvillä"+"\nmielin lähteä valmistautumaan kyläjuhliin!";
@@ -150,15 +150,15 @@ public class AnswerScreen extends ScreenAdapter {
 
         if (checkTheAnswer()) {
             app.addPoint();
-            if(MainMenuScreen.getSound()) {
-                MainMenuScreen.right.play();
-                MainMenuScreen.right.setVolume(1f);
+            if(app.mainMenuScreen.getSound()) {
+                app.mainMenuScreen.right.play();
+                app.mainMenuScreen.right.setVolume(1f);
             }
             line = rightLine;
         } else if (!(checkTheAnswer())) {
-            if(MainMenuScreen.getSound()) {
-                MainMenuScreen.wrong.play();
-                MainMenuScreen.wrong.setVolume(1f);
+            if(app.mainMenuScreen.getSound()) {
+                app.mainMenuScreen.wrong.play();
+                app.mainMenuScreen.wrong.setVolume(1f);
             }
             line = wrongLine;
         }
@@ -230,20 +230,20 @@ public class AnswerScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(exitPressed))
         );
         if(Gdx.graphics.getWidth() < 1000) {
-            xButton.setPosition((Gdx.graphics.getWidth() / 2 + exit.getWidth() / 3),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((Gdx.graphics.getWidth() / 2 + exit.getWidth() / 3),app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 - exit.getWidth() / 2),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((app.VIRTUAL_WIDTH / 2 - exit.getWidth() / 2),app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH  / 2 + exit.getWidth() * 3f),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((app.VIRTUAL_WIDTH  / 2 + exit.getWidth() * 3f),app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            xButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 + exit.getWidth() * 4),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((app.VIRTUAL_WIDTH / 2 + exit.getWidth() * 4),app.VIRTUAL_HEIGHT * 0.05f);
         }
-        xButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.2f, MindPuzzle.VIRTUAL_WIDTH * 0.2f);
+        xButton.setSize(app.VIRTUAL_WIDTH * 0.2f, app.VIRTUAL_WIDTH * 0.2f);
         xButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 if((app.getAnsweredQuestion("food") >= 5) && (app.getAnsweredQuestion("social") >= 5) && (app.getAnsweredQuestion("sleep") >= 5)
                         && (app.getAnsweredQuestion("hobbies") >= 5) && (app.getAnsweredQuestion("sports") >= 5)) {
@@ -289,7 +289,7 @@ public class AnswerScreen extends ScreenAdapter {
      * @return
      */
     public boolean checkTheAnswer() {
-        if(fi.tamk.mindpuzzle.QuestionScreen.getPlayersAnswer().equals(QuestionScreen.getRightAnswer())) {
+        if(app.questionScreen.getPlayersAnswer().equals(app.questionScreen.getRightAnswer())) {
             answer = true;
         }
         else {

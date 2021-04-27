@@ -65,8 +65,7 @@ public class GameInstructionsScreen extends ScreenAdapter {
      */
     public GameInstructionsScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
-
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -99,8 +98,8 @@ public class GameInstructionsScreen extends ScreenAdapter {
         stage.addActor(background);
 
         initButtons();
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.music.play();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.music.play();
         }
     }
 
@@ -112,13 +111,13 @@ public class GameInstructionsScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        imageMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.mainMenuScreen);
             }

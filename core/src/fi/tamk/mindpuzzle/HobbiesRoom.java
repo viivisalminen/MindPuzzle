@@ -33,7 +33,7 @@ public class HobbiesRoom extends ScreenAdapter {
     /**
      * Points as String object.
      */
-    private String points = Integer.toString(MindPuzzle.getPoints());
+    private String points;
     /**
      * Depending the current language of the game, line is "points" either in English or in Finnish.
      */
@@ -144,7 +144,7 @@ public class HobbiesRoom extends ScreenAdapter {
      */
     public HobbiesRoom(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
         openCharacterInfo();
     }
 
@@ -185,8 +185,8 @@ public class HobbiesRoom extends ScreenAdapter {
         initButtons();
         app.setPreviousScreen(app.hobbiesRoom);
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.musicOn();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
         }
 
 
@@ -199,13 +199,13 @@ public class HobbiesRoom extends ScreenAdapter {
         doorButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(doorTxt))
         );
-        doorButton.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.675f);
-        doorButton.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.5f, MindPuzzle.VIRTUAL_WIDTH * 0.5f);
+        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f,app.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f, app.VIRTUAL_WIDTH * 0.5f);
         doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.roomMenuScreen);
             }
@@ -213,13 +213,13 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character1Txt)));
-        character1Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.25f,MindPuzzle.VIRTUAL_HEIGHT * 0.65f);
+        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.25f,app.VIRTUAL_HEIGHT * 0.65f);
         character1Button.setSize(character1Txt.getWidth() * 0.25f, character1Txt.getHeight() * 0.25f);
         character1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
                 app.saveCharacter("hobbies1",char1NotClicked);
@@ -230,13 +230,13 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character2Txt)));
-        character2Button.setPosition(0f,MindPuzzle.VIRTUAL_HEIGHT * 0.275f);
+        character2Button.setPosition(0f,app.VIRTUAL_HEIGHT * 0.275f);
         character2Button.setSize(character2Txt.getWidth() * 0.45f, character2Txt.getHeight() * 0.45f);
         character2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
                 app.saveCharacter("hobbies2",char2NotClicked);
@@ -247,13 +247,13 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character3Txt)));
-        character3Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.675f,MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.675f,app.VIRTUAL_HEIGHT * 0.6f);
         character3Button.setSize(character3Txt.getWidth() * 0.3f, character3Txt.getHeight() * 0.3f);
         character3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
                 app.saveCharacter("hobbies3",char3NotClicked);
@@ -264,13 +264,13 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character4Txt)));
-        character4Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.6f,MindPuzzle.VIRTUAL_HEIGHT * 0.075f);
+        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.6f,app.VIRTUAL_HEIGHT * 0.075f);
         character4Button.setSize(character4Txt.getWidth() * 0.25f, character4Txt.getHeight() * 0.25f);
         character4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
                 app.saveCharacter("hobbies4",char4NotClicked);
@@ -281,13 +281,13 @@ public class HobbiesRoom extends ScreenAdapter {
 
         character5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character5Txt)));
-        character5Button.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.75f,MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.75f,app.VIRTUAL_HEIGHT * 0.35f);
         character5Button.setSize(character5Txt.getWidth() * 0.2f, character5Txt.getHeight() * 0.2f);
         character5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
                 app.saveCharacter("hobbies5",char5NotClicked);
@@ -302,19 +302,19 @@ public class HobbiesRoom extends ScreenAdapter {
         );
 
         if(Gdx.graphics.getWidth() < 1000) {
-            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3),app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            settingsButton.setPosition((MindPuzzle.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2),MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((app.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2),app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            settingsButton.setPosition(MindPuzzle.VIRTUAL_WIDTH  / 2,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(app.VIRTUAL_WIDTH  / 2,app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            settingsButton.setPosition(MindPuzzle.VIRTUAL_WIDTH / 2,MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(app.VIRTUAL_WIDTH / 2,app.VIRTUAL_HEIGHT * 0.05f);
         }
         settingsButton.setSize(settingRec.width, settingRec.height);        settingsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.settingsPopUp);
             }
@@ -323,7 +323,6 @@ public class HobbiesRoom extends ScreenAdapter {
         stage.addActor(settingsButton);
         stage.addActor(doorButton);
 
-        //stage.addActor(character1Button);
         if (char1NotClicked) {
             stage.addActor(character1Button);
         }
@@ -379,7 +378,7 @@ public class HobbiesRoom extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        points = Integer.toString(MindPuzzle.getPoints());
+        points = Integer.toString(app.getPoints());
         app.font60.draw(app.batch, line+points,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.975f);
         app.batch.end();
     }

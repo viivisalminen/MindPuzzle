@@ -114,7 +114,7 @@ public class RoomMenuScreen extends ScreenAdapter {
      */
     public RoomMenuScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -163,8 +163,8 @@ public class RoomMenuScreen extends ScreenAdapter {
 
         initButtons();
 
-        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
-            fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
         }
     }
 
@@ -176,13 +176,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgMenu)),
                 new TextureRegionDrawable(new TextureRegion(imgMenuPressed))
         );
-        imageMenu.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.125f,MindPuzzle.VIRTUAL_HEIGHT * 0.8f);
-        imageMenu.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.75f, MindPuzzle.VIRTUAL_HEIGHT * 0.09f);
+        imageMenu.setPosition(app.VIRTUAL_WIDTH * 0.125f,app.VIRTUAL_HEIGHT * 0.8f);
+        imageMenu.setSize(app.VIRTUAL_WIDTH * 0.75f, app.VIRTUAL_HEIGHT * 0.09f);
         imageMenu.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.mainMenuScreen);
             }
@@ -192,13 +192,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgFood)),
                 new TextureRegionDrawable(new TextureRegion(imgFoodPressed))
         );
-        imageFood.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        imageFood.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageFood.setPosition(app.VIRTUAL_WIDTH * 0.2f,app.VIRTUAL_HEIGHT * 0.5f);
+        imageFood.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
         imageFood.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.foodRoom);
             }
@@ -208,13 +208,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSocial)),
                 new TextureRegionDrawable(new TextureRegion(imgSocialPressed))
         );
-        imageSocial.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.5f);
-        imageSocial.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSocial.setPosition(app.VIRTUAL_WIDTH * 0.5f,app.VIRTUAL_HEIGHT * 0.5f);
+        imageSocial.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
         imageSocial.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.socialRoom);
             }
@@ -224,13 +224,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgHobbies)),
                 new TextureRegionDrawable(new TextureRegion(imgHobbiesPressed))
         );
-        imageHobbies.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.2f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        imageHobbies.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageHobbies.setPosition(app.VIRTUAL_WIDTH * 0.2f,app.VIRTUAL_HEIGHT * 0.3f);
+        imageHobbies.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
         imageHobbies.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.hobbiesRoom);
             }
@@ -240,13 +240,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSports)),
                 new TextureRegionDrawable(new TextureRegion(imgSportsPressed))
         );
-        imageSports.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.5f,MindPuzzle.VIRTUAL_HEIGHT * 0.3f);
-        imageSports.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSports.setPosition(app.VIRTUAL_WIDTH * 0.5f,app.VIRTUAL_HEIGHT * 0.3f);
+        imageSports.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
         imageSports.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.sportsRoom);
             }
@@ -256,13 +256,13 @@ public class RoomMenuScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(imgSleep)),
                 new TextureRegionDrawable(new TextureRegion(imgSleepPressed))
         );
-        imageSleep.setPosition(MindPuzzle.VIRTUAL_WIDTH * 0.35f,MindPuzzle.VIRTUAL_HEIGHT * 0.1f);
-        imageSleep.setSize(MindPuzzle.VIRTUAL_WIDTH * 0.25f, MindPuzzle.VIRTUAL_WIDTH * 0.25f);
+        imageSleep.setPosition(app.VIRTUAL_WIDTH * 0.35f,app.VIRTUAL_HEIGHT * 0.1f);
+        imageSleep.setSize(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_WIDTH * 0.25f);
         imageSleep.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.sleepRoom);
             }

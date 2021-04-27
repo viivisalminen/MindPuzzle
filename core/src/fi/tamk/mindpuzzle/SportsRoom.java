@@ -21,7 +21,7 @@ public class SportsRoom extends ScreenAdapter {
     /**
      * Class MindPuzzle object that allows to set screen from inside this class.
      */
-    private final fi.tamk.mindpuzzle.MindPuzzle app;
+    private final MindPuzzle app;
     /**
      * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
      */
@@ -33,7 +33,7 @@ public class SportsRoom extends ScreenAdapter {
     /**
      * Points as String object.
      */
-    private String points = Integer.toString(fi.tamk.mindpuzzle.MindPuzzle.getPoints());
+    private String points;
     /**
      * Depending the current language of the game, line is "points" either in English or in Finnish.
      */
@@ -142,9 +142,9 @@ public class SportsRoom extends ScreenAdapter {
      *
      * @param app   MindPuzzle class's object
      */
-    public SportsRoom(final fi.tamk.mindpuzzle.MindPuzzle app) {
+    public SportsRoom(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
         openCharacterInfo();
     }
 
@@ -185,8 +185,8 @@ public class SportsRoom extends ScreenAdapter {
         initButtons();
         app.setPreviousScreen(app.sportsRoom);
 
-        if(fi.tamk.mindpuzzle.MainMenuScreen.getMusic()) {
-            fi.tamk.mindpuzzle.MainMenuScreen.musicOn();
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
         }
     }
 
@@ -197,13 +197,13 @@ public class SportsRoom extends ScreenAdapter {
         doorButton = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(doorTxt))
         );
-        doorButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.25f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.675f);
-        doorButton.setSize(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.5f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.5f);
+        doorButton.setPosition(app.VIRTUAL_WIDTH * 0.25f, app.VIRTUAL_HEIGHT * 0.675f);
+        doorButton.setSize(app.VIRTUAL_WIDTH * 0.5f, app.VIRTUAL_WIDTH * 0.5f);
         doorButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.roomMenuScreen);
             }
@@ -211,13 +211,13 @@ public class SportsRoom extends ScreenAdapter {
 
         character1Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character1Txt)));
-        character1Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.15f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.6f);
+        character1Button.setPosition(app.VIRTUAL_WIDTH * 0.15f, app.VIRTUAL_HEIGHT * 0.6f);
         character1Button.setSize(character1Txt.getWidth() * 0.2f, character1Txt.getHeight() * 0.2f);
         character1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char1NotClicked = false;
                 app.saveCharacter("sports1",char1NotClicked);
@@ -228,13 +228,13 @@ public class SportsRoom extends ScreenAdapter {
 
         character2Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character2Txt)));
-        character2Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.025f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.35f);
+        character2Button.setPosition(app.VIRTUAL_WIDTH * 0.025f, app.VIRTUAL_HEIGHT * 0.35f);
         character2Button.setSize(character2Txt.getWidth() * 0.5f, character2Txt.getHeight() * 0.5f);
         character2Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char2NotClicked = false;
                 app.saveCharacter("sports2",char2NotClicked);
@@ -245,13 +245,13 @@ public class SportsRoom extends ScreenAdapter {
 
         character3Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character3Txt)));
-        character3Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.65f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.25f);
+        character3Button.setPosition(app.VIRTUAL_WIDTH * 0.65f, app.VIRTUAL_HEIGHT * 0.25f);
         character3Button.setSize(character3Txt.getWidth() * 0.25f, character3Txt.getHeight() * 0.25f);
         character3Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char3NotClicked = false;
                 app.saveCharacter("sports3",char3NotClicked);
@@ -262,13 +262,13 @@ public class SportsRoom extends ScreenAdapter {
 
         character4Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character4Txt)));
-        character4Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.35f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.15f);
+        character4Button.setPosition(app.VIRTUAL_WIDTH * 0.35f, app.VIRTUAL_HEIGHT * 0.15f);
         character4Button.setSize(character4Txt.getWidth() * 0.25f, character4Txt.getHeight() * 0.25f);
         character4Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char4NotClicked = false;
                 app.saveCharacter("sports4",char4NotClicked);
@@ -279,13 +279,13 @@ public class SportsRoom extends ScreenAdapter {
 
         character5Button = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(character5Txt)));
-        character5Button.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH * 0.65f, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.575f);
+        character5Button.setPosition(app.VIRTUAL_WIDTH * 0.65f, app.VIRTUAL_HEIGHT * 0.575f);
         character5Button.setSize(character5Txt.getWidth() * 0.5f, character5Txt.getHeight() * 0.5f);
         character5Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    fi.tamk.mindpuzzle.MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 char5NotClicked = false;
                 app.saveCharacter("sports5",char5NotClicked);
@@ -299,20 +299,20 @@ public class SportsRoom extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(settingsTxtPressed))
         );
         if(Gdx.graphics.getWidth() < 1000) {
-            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3), fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((Gdx.graphics.getWidth() / 2 + settingsTxt.getWidth() / 3), app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            settingsButton.setPosition((fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2), fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition((app.VIRTUAL_WIDTH / 2 - settingsTxt.getWidth() / 2), app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            settingsButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH  / 2, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(app.VIRTUAL_WIDTH  / 2, app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            settingsButton.setPosition(fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_WIDTH / 2, fi.tamk.mindpuzzle.MindPuzzle.VIRTUAL_HEIGHT * 0.05f);
+            settingsButton.setPosition(app.VIRTUAL_WIDTH / 2, app.VIRTUAL_HEIGHT * 0.05f);
         }
         settingsButton.setSize(settingRec.width, settingRec.height);
         settingsButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(fi.tamk.mindpuzzle.MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 app.setScreen(app.settingsPopUp);
             }
@@ -321,7 +321,6 @@ public class SportsRoom extends ScreenAdapter {
         stage.addActor(settingsButton);
         stage.addActor(doorButton);
 
-        //stage.addActor(character1Button);
         if (char1NotClicked) {
             stage.addActor(character1Button);
         }
@@ -376,7 +375,7 @@ public class SportsRoom extends ScreenAdapter {
         stage.draw();
 
         app.batch.begin();
-        points = Integer.toString(MindPuzzle.getPoints());
+        points = Integer.toString(app.getPoints());
         app.font60.draw(app.batch, line+points,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.95f);
         app.batch.end();
     }

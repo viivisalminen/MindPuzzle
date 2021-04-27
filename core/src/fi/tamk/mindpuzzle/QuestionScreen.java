@@ -78,31 +78,31 @@ public class QuestionScreen extends ScreenAdapter {
     /**
      * String object that gets the question from array.
      */
-    public static String question = "";
+    public String question = "";
     /**
      * String object that gets the option a) from array.
      */
-    public static String optionA = "";
+    public String optionA = "";
     /**
      * String object that gets the option b) from array.
      */
-    public static String optionB = "";
+    public String optionB = "";
     /**
      * String object that gets the option c) from array.
      */
-    public static String optionC = "";
+    public String optionC = "";
     /**
      * String object that gets the right answer as a letter a, b or c from array.
      */
-    public static String rightAnswer = "";
+    public String rightAnswer = "";
     /**
      * String object that gets the right answer as String from array.
      */
-    public static String rightAnswerAsString = "";
+    public String rightAnswerAsString = "";
     /**
      * String object that gets the player's answer as a letter a, b or c.
      */
-    public static String playersAnswer = "";
+    public String playersAnswer = "";
 
     /**
      * Class constructor.
@@ -114,7 +114,7 @@ public class QuestionScreen extends ScreenAdapter {
      */
     public QuestionScreen(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(MindPuzzle.VIRTUAL_WIDTH, MindPuzzle.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
@@ -152,9 +152,9 @@ public class QuestionScreen extends ScreenAdapter {
         initQuestions(app.getPreviousScreen());
         initButtons();
 
-        if(MainMenuScreen.getMusic()) {
-            MainMenuScreen.musicOn();
-            MainMenuScreen.music.setVolume(0.4f);
+        if(app.mainMenuScreen.getMusic()) {
+            app.mainMenuScreen.musicOn();
+            app.mainMenuScreen.music.setVolume(0.4f);
         }
     }
 
@@ -219,18 +219,18 @@ public class QuestionScreen extends ScreenAdapter {
      * Initializes the buttons used in this screen.
      */
     private void initButtons() {
-        float xPos = ((MindPuzzle.VIRTUAL_WIDTH / 2) - (answerBackground.getWidth() / 2));
+        float xPos = ((app.VIRTUAL_WIDTH / 2) - (answerBackground.getWidth() / 2));
 
         buttonA = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(answerBackground))
         );
-        buttonA.setPosition(xPos ,MindPuzzle.VIRTUAL_HEIGHT * 0.335f);
+        buttonA.setPosition(xPos ,app.VIRTUAL_HEIGHT * 0.335f);
         buttonA.setSize(answerBackground.getWidth(), answerBackground.getHeight());
         buttonA.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 setPlayersAnswer("a");
                 app.setScreen(app.answerScreen);
@@ -239,13 +239,13 @@ public class QuestionScreen extends ScreenAdapter {
 
         buttonB = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(answerBackground)));
-        buttonB.setPosition(xPos,MindPuzzle.VIRTUAL_HEIGHT * 0.175f);
+        buttonB.setPosition(xPos,app.VIRTUAL_HEIGHT * 0.175f);
         buttonB.setSize(answerBackground.getWidth(), answerBackground.getHeight());
         buttonB.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 setPlayersAnswer("b");
                 app.setScreen(app.answerScreen);
@@ -254,13 +254,13 @@ public class QuestionScreen extends ScreenAdapter {
 
         buttonC = new ImageButton(
                 new TextureRegionDrawable(new TextureRegion(answerBackground)));
-        buttonC.setPosition(xPos,MindPuzzle.VIRTUAL_HEIGHT * 0.015f);
+        buttonC.setPosition(xPos,app.VIRTUAL_HEIGHT * 0.015f);
         buttonC.setSize(answerBackground.getWidth(), answerBackground.getHeight());
         buttonC.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(MainMenuScreen.getSound()) {
-                    MainMenuScreen.sound.play();
+                if(app.mainMenuScreen.getSound()) {
+                    app.mainMenuScreen.sound.play();
                 }
                 setPlayersAnswer("c");
                 app.setScreen(app.answerScreen);
@@ -287,27 +287,27 @@ public class QuestionScreen extends ScreenAdapter {
 
         if(app.getLanguage().equals("fi_FI")) {
             if (prev.equals(app.socialRoom)) {
-                array = MainMenuScreen.questionsAboutSocialFIN;
+                array = app.mainMenuScreen.questionsAboutSocialFIN;
             } else if (prev.equals(app.sleepRoom)) {
-                array = MainMenuScreen.questionsAboutSleepFIN;
+                array = app.mainMenuScreen.questionsAboutSleepFIN;
             } else if (prev.equals(app.sportsRoom)) {
-                array = MainMenuScreen.questionsAboutSportsFIN;
+                array = app.mainMenuScreen.questionsAboutSportsFIN;
             } else if (prev.equals(app.hobbiesRoom)) {
-                array = MainMenuScreen.questionsAboutHobbiesFIN;
+                array = app.mainMenuScreen.questionsAboutHobbiesFIN;
             } else if (prev.equals(app.foodRoom)) {
-                array = MainMenuScreen.questionsAboutFoodFIN;
+                array = app.mainMenuScreen.questionsAboutFoodFIN;
             }
         } else {
             if (prev.equals(app.socialRoom)) {
-                array = MainMenuScreen.questionsAboutSocial;
+                array = app.mainMenuScreen.questionsAboutSocial;
             } else if (prev.equals(app.sleepRoom)) {
-                array = MainMenuScreen.questionsAboutSleep;
+                array = app.mainMenuScreen.questionsAboutSleep;
             } else if (prev.equals(app.sportsRoom)) {
-                array = MainMenuScreen.questionsAboutSports;
+                array = app.mainMenuScreen.questionsAboutSports;
             } else if (prev.equals(app.hobbiesRoom)) {
-                array = MainMenuScreen.questionsAboutHobbies;
+                array = app.mainMenuScreen.questionsAboutHobbies;
             } else if (prev.equals(app.foodRoom)) {
-                array = MainMenuScreen.questionsAboutFood;
+                array = app.mainMenuScreen.questionsAboutFood;
             }
         }
 
@@ -326,7 +326,7 @@ public class QuestionScreen extends ScreenAdapter {
      *
      * @return right answer as a single letter
      */
-    public static String getRightAnswer() {
+    public String getRightAnswer() {
         return rightAnswer;
     }
 
@@ -352,14 +352,14 @@ public class QuestionScreen extends ScreenAdapter {
      *
      * @return right answer as string
      */
-    public static String getRightAnswerAsString() { return rightAnswerAsString; }
+    public String getRightAnswerAsString() { return rightAnswerAsString; }
 
     /**
      * Sets the player's answer as a letter a, b or c.
      *
      * @param letter player answer
      */
-    public static void setPlayersAnswer(String letter) {
+    public void setPlayersAnswer(String letter) {
         playersAnswer = letter;
     }
 
@@ -368,7 +368,7 @@ public class QuestionScreen extends ScreenAdapter {
      *
      * @return player answer as a single letter
      */
-    public static String getPlayersAnswer() {
+    public String getPlayersAnswer() {
         return playersAnswer;
     }
 
@@ -391,16 +391,22 @@ public class QuestionScreen extends ScreenAdapter {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleSmall.width, bubbleSmall.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterSmall.width, characterSmall.height);
             app.font30.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
-            app.font30.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.46f);
-            app.font30.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.3f);
-            app.font30.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.14f);
+            app.font30.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.47f);
+            app.font30.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.31f);
+            app.font30.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.15f);
         } else {
             app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.65f, bubbleLarge.width, bubbleLarge.height);
             app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.5f,stage.getViewport().getScreenHeight() * 0.475f, characterLarge.width, characterLarge.height);
-            app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
-            app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.46f);
-            app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.3f);
-            app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.14f);
+
+            if (Gdx.graphics.getWidth() > 1000 && Gdx.graphics.getWidth() < 1200){
+                app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.91f);
+            } else {
+                app.font40.draw(app.batch, question,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
+            }
+
+            app.font40.draw(app.batch, optionA,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.47f);
+            app.font40.draw(app.batch, optionB,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.31f);
+            app.font40.draw(app.batch, optionC,stage.getViewport().getScreenWidth() * 0.1f,stage.getViewport().getScreenHeight() * 0.15f);
         }
         app.batch.end();
     }
