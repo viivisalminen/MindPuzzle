@@ -137,18 +137,17 @@ public class HobbiesRoom extends ScreenAdapter {
     private boolean char5NotClicked = true;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      * Checks the saved status of the characters.
      *
      * @param app   MindPuzzle class's object
      */
     public HobbiesRoom(final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(
+                app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
         openCharacterInfo();
     }
 
@@ -436,7 +435,7 @@ public class HobbiesRoom extends ScreenAdapter {
     }
 
     /**
-     * Disposes MindPuzzle and the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {

@@ -37,8 +37,8 @@ public class FoodRoom extends ScreenAdapter {
      */
     private String points;
     /**
-     * Depending the current language of the game, line is "points"
-     * either in English or in Finnish.
+     * Depending the current language of the game,
+     * line is "points" either in English or in Finnish.
      */
     private String line = "";
     /**
@@ -137,11 +137,9 @@ public class FoodRoom extends ScreenAdapter {
     private boolean char5NotClicked = true;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      * Checks the saved status of the characters.
      *
      * @param app   MindPuzzle class's object

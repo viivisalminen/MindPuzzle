@@ -58,11 +58,9 @@ public class GameInstructionsScreen extends ScreenAdapter {
     private Rectangle instructionsSmall;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */

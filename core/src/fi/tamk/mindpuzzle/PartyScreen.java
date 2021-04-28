@@ -65,11 +65,9 @@ public class PartyScreen extends ScreenAdapter {
     private Texture imgExitPressed;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
@@ -113,7 +111,8 @@ public class PartyScreen extends ScreenAdapter {
         background = new Table();
         if (app.getPoints() >= 18) {
             background.setBackground(new TextureRegionDrawable(
-                    new TextureRegion(app.assets.get("images/happyending.png", Texture.class))));
+                    new TextureRegion(app.assets.get(
+                            "images/happyending.png", Texture.class))));
             if(app.getLanguage().equals("fi_FI")) {
                 line = "Hurraa! Kyläläiset ovat jälleen"
                         +"\niloisia! Nyt juhlitaan!";

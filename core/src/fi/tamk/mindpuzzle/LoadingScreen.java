@@ -7,7 +7,6 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -40,11 +39,9 @@ public class LoadingScreen extends ScreenAdapter {
     private float progress;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
@@ -419,7 +416,9 @@ public class LoadingScreen extends ScreenAdapter {
         app.assets.load("sounds/right.mp3", Music.class);
         app.assets.load("sounds/wrong.mp3", Music.class);
 
-        app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
+        // Ui skin not used in the app after all.
+        // Didn't have time to erase it everywhere.
+        //app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }
 
     /**

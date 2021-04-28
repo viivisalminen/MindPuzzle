@@ -306,7 +306,8 @@ public class MindPuzzle extends Game {
      */
     private void initFonts() {
         FreeTypeFontGenerator generator =
-                new FreeTypeFontGenerator(Gdx.files.internal("fonts/Raleway-Bold.ttf"));
+                new FreeTypeFontGenerator(
+                        Gdx.files.internal("fonts/Raleway-Bold.ttf"));
 
         FreeTypeFontGenerator.FreeTypeFontParameter parameter20 =
                 new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -515,20 +516,20 @@ public class MindPuzzle extends Game {
     public int getAnsweredQuestion(String room) {
         Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
         if(room.equals("food")) {
-            returnable =
-                    prefs.getInteger("foodquestions", foodQuestionsAnswered);
+            returnable = prefs.getInteger(
+                    "foodquestions", foodQuestionsAnswered);
         } else if (room.equals("social")) {
-            returnable =
-                    prefs.getInteger("socialquestions", socialQuestionsAnswered);
+            returnable = prefs.getInteger(
+                    "socialquestions", socialQuestionsAnswered);
         } else if (room.equals("sleep")) {
-            returnable =
-                    prefs.getInteger("sleepquestions", sleepQuestionsAnswered);
+            returnable = prefs.getInteger(
+                    "sleepquestions", sleepQuestionsAnswered);
         } else if (room.equals("hobbies")) {
-            returnable =
-                    prefs.getInteger("hobbyquestions", hobbyQuestionsAnswered);
+            returnable = prefs.getInteger(
+                    "hobbyquestions", hobbyQuestionsAnswered);
         } else if (room.equals("sports")) {
-            returnable =
-                    prefs.getInteger("sportquestions", sportQuestionsAnswered);
+            returnable = prefs.getInteger(
+                    "sportquestions", sportQuestionsAnswered);
         }
 
         return returnable;

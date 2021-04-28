@@ -179,10 +179,9 @@ public class MainMenuScreen extends ScreenAdapter {
     public String[][] questionsAboutFoodFIN = new String[20][20];
 
     /**
-     * Class constructor. Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle
-     * class' viewport dimensions and camera.
-     * Checks the saved status of the characters.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
@@ -569,7 +568,8 @@ public class MainMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes MindPuzzle object, music, sounds and the stage and all its actors.
+     * Disposes MindPuzzle object, logo texture,
+     * music, sounds and  the stage and all its actors.
      */
     @Override
     public void dispose() {

@@ -19,11 +19,13 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
  */
 public class AnswerScreen extends ScreenAdapter {
     /**
-     * Class MindPuzzle object that allows to set screen from inside this class.
+     * Class MindPuzzle object that allows to set
+     * screen from inside this class.
      */
     private final MindPuzzle app;
     /**
-     * A 2D scene graph containing hierarchies of actors. Stage handles the viewport and distributes input events.
+     * A 2D scene graph containing hierarchies of actors.
+     * Stage handles the viewport and distributes input events.
      */
     private Stage stage;
     /**
@@ -31,7 +33,8 @@ public class AnswerScreen extends ScreenAdapter {
      */
     private Table background;
     /**
-     * Boolean variable gets the value depending on whether the player's answer is right or wrong.
+     * Boolean variable gets the value depending on whether
+     * the player's answer is right or wrong.
      */
     private boolean answer;
     /**
@@ -40,17 +43,20 @@ public class AnswerScreen extends ScreenAdapter {
      */
     private String line = "";
     /**
-     * String object that gets happy message either in English or in Finnish depending on
+     * String object that gets happy message either
+     * in English or in Finnish depending on
      * what is the current language of the game.
      */
     private String rightLine = "";
     /**
-     * String object that gets sad message either in English or in Finnish depending on
+     * String object that gets sad message either
+     * in English or in Finnish depending on
      * what is the current language of the game.
      */
     private String wrongLine = "";
     /**
-     * String object that gets the right answer as an entire string from the QuestionScreen.
+     * String object that gets the right answer as
+     * an entire string from the QuestionScreen.
      */
     private String rightAnswer = "";
     /**
@@ -91,22 +97,24 @@ public class AnswerScreen extends ScreenAdapter {
     private Rectangle bubbleLarge;
 
     /**
-     * Class constructor.
-     *
-     * Uses the MindPuzzle reference to set the screen.
-     * Creates a stage using StretchViewPort with MindPuzzle class' viewport dimensions and camera.
+     * Class constructor. Uses the MindPuzzle reference to set
+     * the screen. Creates a stage using StretchViewPort
+     * with MindPuzzle class' viewport dimensions and camera.
      *
      * @param app   MindPuzzle class's object
      */
     public AnswerScreen (final MindPuzzle app) {
         this.app = app;
-        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH, app.VIRTUAL_HEIGHT, app.camera));
+        this.stage = new Stage(new StretchViewport(app.VIRTUAL_WIDTH,
+                app.VIRTUAL_HEIGHT, app.camera));
     }
 
     /**
-     * Sets the InputProcessor that will receive all touch and key input events.
+     * Sets the InputProcessor that will receive all
+     * touch and key input events.
      * Initializes the textures and question.
-     * Gets the music's value from MainMenuScreen and sets music either on or off depending the returning value.
+     * Gets the music's value from MainMenuScreen and
+     * sets music either on or off depending the returning value.
      */
     @Override
     public void show() {
@@ -114,18 +122,24 @@ public class AnswerScreen extends ScreenAdapter {
         stage.clear();
 
         getCharacter();
-        characterSmall = new Rectangle(0,0,characterTxt.getWidth() * 0.5f, characterTxt.getHeight() * 0.5f);
-        characterLarge = new Rectangle(0,0,characterTxt.getWidth() * 0.725f, characterTxt.getHeight() * 0.725f);
+        characterSmall = new Rectangle(0,0,characterTxt.getWidth() * 0.5f,
+                characterTxt.getHeight() * 0.5f);
+        characterLarge = new Rectangle(0,0,characterTxt.getWidth() * 0.725f,
+                characterTxt.getHeight() * 0.725f);
 
         bubble = app.assets.get("images/bubble.png", Texture.class);
-        bubbleSmall = new Rectangle(0,0,bubble.getWidth() * 0.675f, bubble.getHeight() * 0.95f);
-        bubbleLarge = new Rectangle(0,0,bubble.getWidth(), bubble.getHeight() * 1.5f);
+        bubbleSmall = new Rectangle(0,0,bubble.getWidth() * 0.675f,
+                bubble.getHeight() * 0.95f);
+        bubbleLarge = new Rectangle(0,0,bubble.getWidth(),
+                bubble.getHeight() * 1.5f);
 
         exit = app.assets.get("images/RoomSettings/X.png", Texture.class);
-        exitPressed = app.assets.get("images/RoomSettings/Xpressed.png", Texture.class);
+        exitPressed = app.assets.get(
+                "images/RoomSettings/Xpressed.png", Texture.class);
 
         background = new Table();
-        background.setBackground(new TextureRegionDrawable(new TextureRegion(app.assets.get("images/popUpBackground.jpg", Texture.class))));
+        background.setBackground(new TextureRegionDrawable(new TextureRegion(
+                app.assets.get("images/popUpBackground.jpg", Texture.class))));
         background.setFillParent(true);
         background.setDebug(true);
         stage.addActor(background);
@@ -141,11 +155,18 @@ public class AnswerScreen extends ScreenAdapter {
         rightAnswer = app.questionScreen.getRightAnswerAsString();
 
         if(app.getLanguage().equals("fi_FI")) {
-            rightLine = "Jei, vastasit oikein! Nyt voin hyvillä"+"\nmielin lähteä valmistautumaan kyläjuhliin!";
-            wrongLine = "Voi ei, vastauksesi ei ollut oikein."+"\nOikea vastaus olisi ollut: \n\n"+"\""+rightAnswer+"\"";
+            rightLine = "Jei, vastasit oikein! Nyt voin hyvillä"
+                    +"\nmielin lähteä valmistautumaan kyläjuhliin!";
+            wrongLine = "Voi ei, vastauksesi ei ollut oikein."
+                    +"\nOikea vastaus olisi ollut: \n\n"
+                    +"\""+rightAnswer+"\"";
         } else {
-            rightLine = "Awesome, you answered correctly!"+"\nNow I can happily set off"+"\nto prepare for the village party";
-            wrongLine = "Oh no your answer wasn't that good!"+"\nYou should have answered: \n\n"+"\""+rightAnswer+"\"";
+            rightLine = "Awesome, you answered correctly!"
+                    +"\nNow I can happily set off"
+                    +"\nto prepare for the village party";
+            wrongLine = "Oh no your answer wasn't that good!"
+                    +"\nYou should have answered: \n\n"
+                    +"\""+rightAnswer+"\"";
         }
 
         if (checkTheAnswer()) {
@@ -165,59 +186,85 @@ public class AnswerScreen extends ScreenAdapter {
     }
 
     /**
-     * Initializes the character texture depending on which character was clicked.
+     * Initializes the character texture depending
+     * on which character was clicked.
      */
     private void getCharacter() {
         if(app.getCharacter().equals("bird")) {
-            characterTxt = app.assets.get("images/Characters/bird.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/bird.png", Texture.class);
         } else if (app.getCharacter().equals("browncat")) {
-            characterTxt = app.assets.get("images/Characters/browncat.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/browncat.png", Texture.class);
         } else if (app.getCharacter().equals("bunny")) {
-            characterTxt = app.assets.get("images/Characters/bunny.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/bunny.png", Texture.class);
         } else if (app.getCharacter().equals("bunnygrey")) {
-            characterTxt = app.assets.get("images/Characters/bunnygrey.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/bunnygrey.png", Texture.class);
         } else if (app.getCharacter().equals("cactusbuddy")) {
-            characterTxt = app.assets.get("images/Characters/cactusbuddy.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/cactusbuddy.png", Texture.class);
         } else if (app.getCharacter().equals("demoncat")) {
-            characterTxt = app.assets.get("images/Characters/demoncat.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/demoncat.png", Texture.class);
         } else if (app.getCharacter().equals("fishy")) {
-            characterTxt = app.assets.get("images/Characters/fishy.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/fishy.png", Texture.class);
         } else if (app.getCharacter().equals("fox")) {
-            characterTxt = app.assets.get("images/Characters/fox.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/fox.png", Texture.class);
         } else if (app.getCharacter().equals("ghost")) {
-            characterTxt = app.assets.get("images/Characters/ghost.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/ghost.png", Texture.class);
         } else if (app.getCharacter().equals("griffinblue")) {
-            characterTxt = app.assets.get("images/Characters/griffinblue.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/griffinblue.png", Texture.class);
         } else if (app.getCharacter().equals("griffinred")) {
-            characterTxt = app.assets.get("images/Characters/griffinred.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/griffinred.png", Texture.class);
         } else if (app.getCharacter().equals("hamster")) {
-            characterTxt = app.assets.get("images/Characters/hamster.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/hamster.png", Texture.class);
         } else if (app.getCharacter().equals("leafdragon")) {
-            characterTxt = app.assets.get("images/Characters/leafdragon.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/leafdragon.png", Texture.class);
         } else if (app.getCharacter().equals("lynx")) {
-            characterTxt = app.assets.get("images/Characters/lynx.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/lynx.png", Texture.class);
         } else if (app.getCharacter().equals("mushroomguy")) {
-            characterTxt = app.assets.get("images/Characters/mushroomguy.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/mushroomguy.png", Texture.class);
         } else if (app.getCharacter().equals("robotcat")) {
-            characterTxt = app.assets.get("images/Characters/robotcat.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/robotcat.png", Texture.class);
         } else if (app.getCharacter().equals("skullbear")) {
-            characterTxt = app.assets.get("images/Characters/skullbear.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/skullbear.png", Texture.class);
         } else if (app.getCharacter().equals("skullwolf")) {
-            characterTxt = app.assets.get("images/Characters/skullwolf.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/skullwolf.png", Texture.class);
         } else if (app.getCharacter().equals("sloth")) {
-            characterTxt = app.assets.get("images/Characters/sloth.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/sloth.png", Texture.class);
         } else if (app.getCharacter().equals("snake")) {
-            characterTxt = app.assets.get("images/Characters/snake.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/snake.png", Texture.class);
         } else if (app.getCharacter().equals("swampmonster")) {
-            characterTxt = app.assets.get("images/Characters/swampmonster.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/swampmonster.png", Texture.class);
         } else if (app.getCharacter().equals("wizardcat")) {
-            characterTxt = app.assets.get("images/Characters/wizardcat.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/wizardcat.png", Texture.class);
         } else if (app.getCharacter().equals("wolf")) {
-            characterTxt = app.assets.get("images/Characters/wolf.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/wolf.png", Texture.class);
         } else if (app.getCharacter().equals("wolfbrown")) {
-            characterTxt = app.assets.get("images/Characters/wolfbrown.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/wolfbrown.png", Texture.class);
         } else if (app.getCharacter().equals("yeti")) {
-            characterTxt = app.assets.get("images/Characters/yeti.png", Texture.class);
+            characterTxt = app.assets.get(
+                    "images/Characters/yeti.png", Texture.class);
         }
     }
 
@@ -230,13 +277,23 @@ public class AnswerScreen extends ScreenAdapter {
                 new TextureRegionDrawable(new TextureRegion(exitPressed))
         );
         if(Gdx.graphics.getWidth() < 1000) {
-            xButton.setPosition((Gdx.graphics.getWidth() / 2 + exit.getWidth() / 3),app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1000 && Gdx.graphics.getWidth() < 1200) {
-            xButton.setPosition((app.VIRTUAL_WIDTH / 2 - exit.getWidth() / 2),app.VIRTUAL_HEIGHT * 0.05f);
-        } else if (Gdx.graphics.getWidth() >= 1200 && Gdx.graphics.getWidth() < 2000) {
-            xButton.setPosition((app.VIRTUAL_WIDTH  / 2 + exit.getWidth() * 3f),app.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((
+                    Gdx.graphics.getWidth() / 2 + exit.getWidth() / 3),
+                    app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1000
+                && Gdx.graphics.getWidth() < 1200) {
+            xButton.setPosition((
+                    app.VIRTUAL_WIDTH / 2 - exit.getWidth() / 2),
+                    app.VIRTUAL_HEIGHT * 0.05f);
+        } else if (Gdx.graphics.getWidth() >= 1200
+                && Gdx.graphics.getWidth() < 2000) {
+            xButton.setPosition((
+                    app.VIRTUAL_WIDTH  / 2 + exit.getWidth() * 3f),
+                    app.VIRTUAL_HEIGHT * 0.05f);
         } else if (Gdx.graphics.getWidth() >= 2000) {
-            xButton.setPosition((app.VIRTUAL_WIDTH / 2 + exit.getWidth() * 4),app.VIRTUAL_HEIGHT * 0.05f);
+            xButton.setPosition((
+                    app.VIRTUAL_WIDTH / 2 + exit.getWidth() * 4),
+                    app.VIRTUAL_HEIGHT * 0.05f);
         }
         xButton.setSize(app.VIRTUAL_WIDTH * 0.2f, app.VIRTUAL_WIDTH * 0.2f);
         xButton.addListener(new ClickListener() {
@@ -245,8 +302,11 @@ public class AnswerScreen extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                if((app.getAnsweredQuestion("food") >= 5) && (app.getAnsweredQuestion("social") >= 5) && (app.getAnsweredQuestion("sleep") >= 5)
-                        && (app.getAnsweredQuestion("hobbies") >= 5) && (app.getAnsweredQuestion("sports") >= 5)) {
+                if((app.getAnsweredQuestion("food") >= 5)
+                        && (app.getAnsweredQuestion("social") >= 5)
+                        && (app.getAnsweredQuestion("sleep") >= 5)
+                        && (app.getAnsweredQuestion("hobbies") >= 5)
+                        && (app.getAnsweredQuestion("sports") >= 5)) {
                     app.setScreen(app.partyScreen);
                 } else {
                     app.setScreen(app.previousScreen);
@@ -272,17 +332,42 @@ public class AnswerScreen extends ScreenAdapter {
 
         app.batch.begin();
         if(stage.getViewport().getScreenWidth() < 1000) {
-            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleSmall.width, bubbleSmall.height);
-            app.font30.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
-            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.15f, characterSmall.width, characterSmall.height);
-        } else if (stage.getViewport().getScreenWidth() > 1000 && stage.getViewport().getScreenWidth() < 1200) {
-            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.55f, bubbleLarge.width, bubbleLarge.height);
-            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.115f,stage.getViewport().getScreenHeight() * 0.875f);
-            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.175f, characterLarge.width, characterLarge.height);
+            app.batch.draw(bubble,
+                    stage.getViewport().getScreenWidth() * 0.05f,
+                    stage.getViewport().getScreenHeight() * 0.55f,
+                    bubbleSmall.width, bubbleSmall.height);
+            app.font30.draw(app.batch, line,
+                    stage.getViewport().getScreenWidth() * 0.115f,
+                    stage.getViewport().getScreenHeight() * 0.875f);
+            app.batch.draw(characterTxt,
+                    stage.getViewport().getScreenWidth() * 0.4f,
+                    stage.getViewport().getScreenHeight() * 0.15f,
+                    characterSmall.width, characterSmall.height);
+        } else if (stage.getViewport().getScreenWidth() > 1000
+                && stage.getViewport().getScreenWidth() < 1200) {
+            app.batch.draw(bubble,
+                    stage.getViewport().getScreenWidth() * 0.05f,
+                    stage.getViewport().getScreenHeight() * 0.55f,
+                    bubbleLarge.width, bubbleLarge.height);
+            app.font40.draw(app.batch, line,
+                    stage.getViewport().getScreenWidth() * 0.115f,
+                    stage.getViewport().getScreenHeight() * 0.875f);
+            app.batch.draw(characterTxt,
+                    stage.getViewport().getScreenWidth() * 0.4f,
+                    stage.getViewport().getScreenHeight() * 0.175f,
+                    characterLarge.width, characterLarge.height);
         } else if (stage.getViewport().getScreenWidth() > 1200) {
-            app.batch.draw(bubble,stage.getViewport().getScreenWidth() * 0.05f,stage.getViewport().getScreenHeight() * 0.6f, bubbleLarge.width, bubbleLarge.height);
-            app.font40.draw(app.batch, line,stage.getViewport().getScreenWidth() * 0.1175f,stage.getViewport().getScreenHeight() * 0.85f);
-            app.batch.draw(characterTxt, stage.getViewport().getScreenWidth() * 0.4f,stage.getViewport().getScreenHeight() * 0.175f, characterLarge.width, characterLarge.height);
+            app.batch.draw(bubble,
+                    stage.getViewport().getScreenWidth() * 0.05f,
+                    stage.getViewport().getScreenHeight() * 0.6f,
+                    bubbleLarge.width, bubbleLarge.height);
+            app.font40.draw(app.batch, line,
+                    stage.getViewport().getScreenWidth() * 0.1175f,
+                    stage.getViewport().getScreenHeight() * 0.85f);
+            app.batch.draw(characterTxt,
+                    stage.getViewport().getScreenWidth() * 0.4f,
+                    stage.getViewport().getScreenHeight() * 0.175f,
+                    characterLarge.width, characterLarge.height);
         }
         app.batch.end();
     }
@@ -293,7 +378,8 @@ public class AnswerScreen extends ScreenAdapter {
      * @return
      */
     public boolean checkTheAnswer() {
-        if(app.questionScreen.getPlayersAnswer().equals(app.questionScreen.getRightAnswer())) {
+        if(app.questionScreen.getPlayersAnswer().equals(
+                app.questionScreen.getRightAnswer())) {
             answer = true;
         }
         else {
@@ -315,7 +401,7 @@ public class AnswerScreen extends ScreenAdapter {
     }
 
     /**
-     * Disposes the stage and all its actors.
+     * Disposes MindPuzzle object and the stage and all its actors.
      */
     @Override
     public void dispose() {
@@ -323,7 +409,6 @@ public class AnswerScreen extends ScreenAdapter {
         stage.dispose();
         bubble.dispose();
         characterTxt.dispose();
-        //exit.dispose();
     }
 }
 
