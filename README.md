@@ -1,10 +1,10 @@
 # MindPuzzle
 
-Mind Puzzle game was developed by a 5 member team and the development 
-happened from mid-January to the end of April 2021. The game was developed 
-for a project called Empathizing way to build social inclusion. 
-The project supports teens who are at risk social exclusion and 
-dropping out from education. 
+Mind Puzzle game was developed by a 5 member team (1 scrum master, 1 programmer and
+3 graphics designers) and the development happened from mid-January to the end of 
+April 2021. The game was developed for a project called 
+Empathizing way to build social inclusion. The project supports teens who are at 
+risk social exclusion and dropping out from education. 
 
 Mind Puzzle was build around the hand of mental health, meaning that 
 in the game we address five areas of mental health. Game was designed 
