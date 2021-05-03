@@ -1,0 +1,11 @@
+fi/tamk/mindpuzzle/BuildConfig.java
+ fi.tamk.mindpuzzle.BuildConfig
+fi/tamk/mindpuzzle/R.java
+ fi.tamk.mindpuzzle.R
+ fi.tamk.mindpuzzle.R$color
+ fi.tamk.mindpuzzle.R$drawable
+ fi.tamk.mindpuzzle.R$mipmap
+ fi.tamk.mindpuzzle.R$string
+ fi.tamk.mindpuzzle.R$style
+fi/tamk/mindpuzzle/AndroidLauncher.java
+ fi.tamk.mindpuzzle.AndroidLauncher
