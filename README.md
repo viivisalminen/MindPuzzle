@@ -16,6 +16,12 @@ Mind Puzzle is a game made for Android operating systems,
 developed with Android Studio using LibGDX and its technologies 
 Screen and Scene2D. The game is made in both English and Finnish.
 
+<img src="https://user-images.githubusercontent.com/76813467/117126240-2790af00-ada3-11eb-945f-b10af37abfea.jpg" width="200"> <img src="https://user-images.githubusercontent.com/76813467/117127247-8571c680-ada4-11eb-8c2e-573913dfca55.jpg" width="200"> <img src="https://user-images.githubusercontent.com/76813467/117127387-b05c1a80-ada4-11eb-8563-c5e49749b4b4.jpg" width="200"> <img src="https://user-images.githubusercontent.com/76813467/117127430-bd790980-ada4-11eb-9868-b9a87ac9409a.jpg" width="200">
+
+
+
+
+
 # Where to get it?
 
 The game is available for free download from the Google Play Store
