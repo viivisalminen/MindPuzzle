@@ -545,17 +545,6 @@ public class MainMenuScreen extends ScreenAdapter {
     }
 
     /**
-     * Resets the settings for music and sound effects.
-     */
-    public void resetSettings() {
-        musicPlaying = true;
-        soundOn = true;
-        Preferences prefs = Gdx.app.getPreferences("MindPuzzlePreferences");
-        prefs.clear();
-        prefs.flush();
-    }
-
-    /**
      * Resizes the viewport's dimensions based on the screen dimensions of
      * the device using the application.
      *

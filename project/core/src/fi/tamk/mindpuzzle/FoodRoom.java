@@ -110,31 +110,31 @@ public class FoodRoom extends ScreenAdapter {
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char1NotClicked = true;
+    public boolean char1NotClicked = true;
     /**
      * Boolean value for the character 2 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char2NotClicked = true;
+    public boolean char2NotClicked = true;
     /**
      * Boolean value for the character 3 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char3NotClicked = true;
+    public boolean char3NotClicked = true;
     /**
      * Boolean value for the character 4 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char4NotClicked = true;
+    public boolean char4NotClicked = true;
     /**
      * Boolean value for the character 5 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char5NotClicked = true;
+    public boolean char5NotClicked = true;
 
     /**
      * Class constructor. Uses the MindPuzzle reference to set
@@ -237,8 +237,6 @@ public class FoodRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char1NotClicked = false;
-                app.saveCharacter("food1",char1NotClicked);
                 app.setPreviousCharacter("bird");
                 app.setScreen(app.questionScreen);
             }
@@ -256,8 +254,6 @@ public class FoodRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char2NotClicked = false;
-                app.saveCharacter("food2",char2NotClicked);
                 app.setPreviousCharacter("browncat");
                 app.setScreen(app.questionScreen);
             }
@@ -275,8 +271,6 @@ public class FoodRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char3NotClicked = false;
-                app.saveCharacter("food3",char3NotClicked);
                 app.setPreviousCharacter("demoncat");
                 app.setScreen(app.questionScreen);
             }
@@ -294,8 +288,6 @@ public class FoodRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char4NotClicked = false;
-                app.saveCharacter("food4",char4NotClicked);
                 app.setPreviousCharacter("ghost");
                 app.setScreen(app.questionScreen);
             }
@@ -313,8 +305,6 @@ public class FoodRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char5NotClicked = false;
-                app.saveCharacter("food5",char5NotClicked);
                 app.setPreviousCharacter("fox");
                 app.setScreen(app.questionScreen);
             }

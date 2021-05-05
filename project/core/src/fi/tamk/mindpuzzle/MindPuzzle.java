@@ -27,7 +27,7 @@ import java.util.Scanner;
  * settings and character status to the Preferences file.
  *
  * @author      Viivi Salminen
- * @version     2021.2704
+ * @version     2021.0505
  * @since       15.0.1
  */
 public class MindPuzzle extends Game {

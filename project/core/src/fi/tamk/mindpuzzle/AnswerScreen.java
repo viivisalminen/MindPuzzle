@@ -120,8 +120,8 @@ public class AnswerScreen extends ScreenAdapter {
     public void show() {
         Gdx.input.setInputProcessor(stage);
         stage.clear();
-
         getCharacter();
+        
         characterSmall = new Rectangle(0,0,characterTxt.getWidth() * 0.5f,
                 characterTxt.getHeight() * 0.5f);
         characterLarge = new Rectangle(0,0,characterTxt.getWidth() * 0.725f,
@@ -186,85 +186,135 @@ public class AnswerScreen extends ScreenAdapter {
     }
 
     /**
-     * Initializes the character texture depending
-     * on which character was clicked.
+     * Initializes the character texture and sets the character boolean
+     * to false depending on which character was clicked.
      */
     private void getCharacter() {
         if(app.getCharacter().equals("bird")) {
             characterTxt = app.assets.get(
                     "images/Characters/bird.png", Texture.class);
+            app.foodRoom.char1NotClicked = false;
+            app.saveCharacter("food1", app.foodRoom.char1NotClicked);
         } else if (app.getCharacter().equals("browncat")) {
             characterTxt = app.assets.get(
                     "images/Characters/browncat.png", Texture.class);
-        } else if (app.getCharacter().equals("bunny")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/bunny.png", Texture.class);
-        } else if (app.getCharacter().equals("bunnygrey")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/bunnygrey.png", Texture.class);
-        } else if (app.getCharacter().equals("cactusbuddy")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/cactusbuddy.png", Texture.class);
+            app.foodRoom.char2NotClicked = false;
+            app.saveCharacter("food2", app.foodRoom.char2NotClicked);
         } else if (app.getCharacter().equals("demoncat")) {
             characterTxt = app.assets.get(
                     "images/Characters/demoncat.png", Texture.class);
-        } else if (app.getCharacter().equals("fishy")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/fishy.png", Texture.class);
-        } else if (app.getCharacter().equals("fox")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/fox.png", Texture.class);
+            app.foodRoom.char3NotClicked = false;
+            app.saveCharacter("food3", app.foodRoom.char3NotClicked);
         } else if (app.getCharacter().equals("ghost")) {
             characterTxt = app.assets.get(
                     "images/Characters/ghost.png", Texture.class);
-        } else if (app.getCharacter().equals("griffinblue")) {
+            app.foodRoom.char4NotClicked = false;
+            app.saveCharacter("food4", app.foodRoom.char4NotClicked);
+        } else if (app.getCharacter().equals("fox")) {
             characterTxt = app.assets.get(
-                    "images/Characters/griffinblue.png", Texture.class);
-        } else if (app.getCharacter().equals("griffinred")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/griffinred.png", Texture.class);
+                    "images/Characters/fox.png", Texture.class);
+            app.foodRoom.char5NotClicked = false;
+            app.saveCharacter("food5", app.foodRoom.char5NotClicked);
         } else if (app.getCharacter().equals("hamster")) {
             characterTxt = app.assets.get(
                     "images/Characters/hamster.png", Texture.class);
+            app.hobbiesRoom.char1NotClicked = false;
+            app.saveCharacter("hobbies1", app.hobbiesRoom.char1NotClicked);
         } else if (app.getCharacter().equals("leafdragon")) {
             characterTxt = app.assets.get(
                     "images/Characters/leafdragon.png", Texture.class);
+            app.hobbiesRoom.char2NotClicked = false;
+            app.saveCharacter("hobbies2", app.hobbiesRoom.char2NotClicked);
         } else if (app.getCharacter().equals("lynx")) {
             characterTxt = app.assets.get(
                     "images/Characters/lynx.png", Texture.class);
+            app.hobbiesRoom.char3NotClicked = false;
+            app.saveCharacter("hobbies3", app.hobbiesRoom.char3NotClicked);
+        } else if (app.getCharacter().equals("bunnygrey")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/bunnygrey.png", Texture.class);
+            app.hobbiesRoom.char4NotClicked = false;
+            app.saveCharacter("hobbies4", app.hobbiesRoom.char4NotClicked);
         } else if (app.getCharacter().equals("mushroomguy")) {
             characterTxt = app.assets.get(
                     "images/Characters/mushroomguy.png", Texture.class);
+            app.hobbiesRoom.char5NotClicked = false;
+            app.saveCharacter("hobbies5", app.hobbiesRoom.char5NotClicked);
+        } else if (app.getCharacter().equals("griffinred")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/griffinred.png", Texture.class);
+            app.sleepRoom.char1NotClicked = false;
+            app.saveCharacter("sleep1", app.sleepRoom.char1NotClicked);
         } else if (app.getCharacter().equals("robotcat")) {
             characterTxt = app.assets.get(
                     "images/Characters/robotcat.png", Texture.class);
+            app.sleepRoom.char2NotClicked = false;
+            app.saveCharacter("sleep2", app.sleepRoom.char2NotClicked);
         } else if (app.getCharacter().equals("skullbear")) {
             characterTxt = app.assets.get(
                     "images/Characters/skullbear.png", Texture.class);
+            app.sleepRoom.char3NotClicked = false;
+            app.saveCharacter("sleep3", app.sleepRoom.char3NotClicked);
         } else if (app.getCharacter().equals("skullwolf")) {
             characterTxt = app.assets.get(
                     "images/Characters/skullwolf.png", Texture.class);
+            app.sleepRoom.char4NotClicked = false;
+            app.saveCharacter("sleep4", app.sleepRoom.char4NotClicked);
         } else if (app.getCharacter().equals("sloth")) {
             characterTxt = app.assets.get(
                     "images/Characters/sloth.png", Texture.class);
-        } else if (app.getCharacter().equals("snake")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/snake.png", Texture.class);
-        } else if (app.getCharacter().equals("swampmonster")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/swampmonster.png", Texture.class);
+            app.sleepRoom.char5NotClicked = false;
+            app.saveCharacter("sleep5", app.sleepRoom.char5NotClicked);
         } else if (app.getCharacter().equals("wizardcat")) {
             characterTxt = app.assets.get(
                     "images/Characters/wizardcat.png", Texture.class);
+            app.socialRoom.char1NotClicked = false;
+            app.saveCharacter("social1", app.socialRoom.char1NotClicked);
+        } else if (app.getCharacter().equals("swampmonster")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/swampmonster.png", Texture.class);
+            app.socialRoom.char2NotClicked = false;
+            app.saveCharacter("social2", app.socialRoom.char2NotClicked);
+        } else if (app.getCharacter().equals("snake")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/snake.png", Texture.class);
+            app.socialRoom.char3NotClicked = false;
+            app.saveCharacter("social3", app.socialRoom.char3NotClicked);
         } else if (app.getCharacter().equals("wolf")) {
             characterTxt = app.assets.get(
                     "images/Characters/wolf.png", Texture.class);
-        } else if (app.getCharacter().equals("wolfbrown")) {
-            characterTxt = app.assets.get(
-                    "images/Characters/wolfbrown.png", Texture.class);
+            app.socialRoom.char4NotClicked = false;
+            app.saveCharacter("social4", app.socialRoom.char4NotClicked);
         } else if (app.getCharacter().equals("yeti")) {
             characterTxt = app.assets.get(
                     "images/Characters/yeti.png", Texture.class);
+            app.socialRoom.char5NotClicked = false;
+            app.saveCharacter("social5", app.socialRoom.char5NotClicked);
+        } else if (app.getCharacter().equals("fishy")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/fishy.png", Texture.class);
+            app.sportsRoom.char1NotClicked = false;
+            app.saveCharacter("sports1", app.sportsRoom.char1NotClicked);
+        } else if (app.getCharacter().equals("wolfbrown")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/wolfbrown.png", Texture.class);
+            app.sportsRoom.char2NotClicked = false;
+            app.saveCharacter("sports2", app.sportsRoom.char2NotClicked);
+        } else if (app.getCharacter().equals("bunny")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/bunny.png", Texture.class);
+            app.sportsRoom.char3NotClicked = false;
+            app.saveCharacter("sports3", app.sportsRoom.char3NotClicked);
+        } else if (app.getCharacter().equals("cactusbuddy")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/cactusbuddy.png", Texture.class);
+            app.sportsRoom.char4NotClicked = false;
+            app.saveCharacter("sports4", app.sportsRoom.char4NotClicked);
+        } else if (app.getCharacter().equals("griffinblue")) {
+            characterTxt = app.assets.get(
+                    "images/Characters/griffinblue.png", Texture.class);
+            app.sportsRoom.char5NotClicked = false;
+            app.saveCharacter("sports5", app.sportsRoom.char5NotClicked);
         }
     }
 
@@ -302,11 +352,38 @@ public class AnswerScreen extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
+
                 if((app.getAnsweredQuestion("food") >= 5)
                         && (app.getAnsweredQuestion("social") >= 5)
                         && (app.getAnsweredQuestion("sleep") >= 5)
                         && (app.getAnsweredQuestion("hobbies") >= 5)
                         && (app.getAnsweredQuestion("sports") >= 5)) {
+                    app.setScreen(app.partyScreen);
+                } else if (!app.foodRoom.char1NotClicked
+                        && !app.foodRoom.char2NotClicked
+                        && !app.foodRoom.char3NotClicked
+                        && !app.foodRoom.char4NotClicked
+                        && !app.foodRoom.char5NotClicked
+                        && !app.hobbiesRoom.char1NotClicked
+                        && !app.hobbiesRoom.char2NotClicked
+                        && !app.hobbiesRoom.char3NotClicked
+                        && !app.hobbiesRoom.char4NotClicked
+                        && !app.hobbiesRoom.char5NotClicked
+                        && !app.socialRoom.char1NotClicked
+                        && !app.socialRoom.char2NotClicked
+                        && !app.socialRoom.char3NotClicked
+                        && !app.socialRoom.char4NotClicked
+                        && !app.socialRoom.char5NotClicked
+                        && !app.sportsRoom.char1NotClicked
+                        && !app.sportsRoom.char2NotClicked
+                        && !app.sportsRoom.char3NotClicked
+                        && !app.sportsRoom.char4NotClicked
+                        && !app.sportsRoom.char5NotClicked
+                        && !app.sleepRoom.char1NotClicked
+                        && !app.sleepRoom.char2NotClicked
+                        && !app.sleepRoom.char3NotClicked
+                        && !app.sleepRoom.char4NotClicked
+                        && !app.sleepRoom.char5NotClicked) {
                     app.setScreen(app.partyScreen);
                 } else {
                     app.setScreen(app.previousScreen);

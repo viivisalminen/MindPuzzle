@@ -415,10 +415,6 @@ public class LoadingScreen extends ScreenAdapter {
         app.assets.load("sounds/button.mp3", Sound.class);
         app.assets.load("sounds/right.mp3", Music.class);
         app.assets.load("sounds/wrong.mp3", Music.class);
-
-        // Ui skin not used in the app after all.
-        // Didn't have time to erase it everywhere.
-        //app.assets.load("ui/uiskin.atlas", TextureAtlas.class);
     }
 
     /**

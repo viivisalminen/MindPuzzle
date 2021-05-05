@@ -110,31 +110,31 @@ public class HobbiesRoom extends ScreenAdapter {
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char1NotClicked = true;
+    public boolean char1NotClicked = true;
     /**
      * Boolean value for the character 2 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char2NotClicked = true;
+    public boolean char2NotClicked = true;
     /**
      * Boolean value for the character 3 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char3NotClicked = true;
+    public boolean char3NotClicked = true;
     /**
      * Boolean value for the character 4 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char4NotClicked = true;
+    public boolean char4NotClicked = true;
     /**
      * Boolean value for the character 5 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char5NotClicked = true;
+    public boolean char5NotClicked = true;
 
     /**
      * Class constructor. Uses the MindPuzzle reference to set
@@ -201,8 +201,6 @@ public class HobbiesRoom extends ScreenAdapter {
         if(app.mainMenuScreen.getMusic()) {
             app.mainMenuScreen.musicOn();
         }
-
-
     }
 
     /**
@@ -238,8 +236,6 @@ public class HobbiesRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char1NotClicked = false;
-                app.saveCharacter("hobbies1",char1NotClicked);
                 app.setPreviousCharacter("hamster");
                 app.setScreen(app.questionScreen);
             }
@@ -256,8 +252,6 @@ public class HobbiesRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char2NotClicked = false;
-                app.saveCharacter("hobbies2",char2NotClicked);
                 app.setPreviousCharacter("leafdragon");
                 app.setScreen(app.questionScreen);
             }
@@ -275,8 +269,6 @@ public class HobbiesRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char3NotClicked = false;
-                app.saveCharacter("hobbies3",char3NotClicked);
                 app.setPreviousCharacter("lynx");
                 app.setScreen(app.questionScreen);
             }
@@ -294,8 +286,6 @@ public class HobbiesRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char4NotClicked = false;
-                app.saveCharacter("hobbies4",char4NotClicked);
                 app.setPreviousCharacter("bunnygrey");
                 app.setScreen(app.questionScreen);
             }
@@ -313,8 +303,6 @@ public class HobbiesRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char5NotClicked = false;
-                app.saveCharacter("hobbies5",char5NotClicked);
                 app.setPreviousCharacter("mushroomguy");
                 app.setScreen(app.questionScreen);
             }

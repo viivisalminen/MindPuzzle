@@ -110,31 +110,31 @@ public class SportsRoom extends ScreenAdapter {
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char1NotClicked = true;
+    public boolean char1NotClicked = true;
     /**
      * Boolean value for the character 2 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char2NotClicked = true;
+    public boolean char2NotClicked = true;
     /**
      * Boolean value for the character 3 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char3NotClicked = true;
+    public boolean char3NotClicked = true;
     /**
      * Boolean value for the character 4 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char4NotClicked = true;
+    public boolean char4NotClicked = true;
     /**
      * Boolean value for the character 5 in the room.
      * If true, character is visible.
      * If false, character is invisible.
      */
-    private boolean char5NotClicked = true;
+    public boolean char5NotClicked = true;
 
     /**
      * Class constructor. Uses the MindPuzzle reference to set
@@ -236,8 +236,6 @@ public class SportsRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char1NotClicked = false;
-                app.saveCharacter("sports1",char1NotClicked);
                 app.setPreviousCharacter("fishy");
                 app.setScreen(app.questionScreen);
             }
@@ -255,8 +253,6 @@ public class SportsRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char2NotClicked = false;
-                app.saveCharacter("sports2",char2NotClicked);
                 app.setPreviousCharacter("wolfbrown");
                 app.setScreen(app.questionScreen);
             }
@@ -274,8 +270,6 @@ public class SportsRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char3NotClicked = false;
-                app.saveCharacter("sports3",char3NotClicked);
                 app.setPreviousCharacter("bunny");
                 app.setScreen(app.questionScreen);
             }
@@ -293,8 +287,6 @@ public class SportsRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char4NotClicked = false;
-                app.saveCharacter("sports4",char4NotClicked);
                 app.setPreviousCharacter("cactusbuddy");
                 app.setScreen(app.questionScreen);
             }
@@ -312,8 +304,6 @@ public class SportsRoom extends ScreenAdapter {
                 if(app.mainMenuScreen.getSound()) {
                     app.mainMenuScreen.sound.play();
                 }
-                char5NotClicked = false;
-                app.saveCharacter("sports5",char5NotClicked);
                 app.setPreviousCharacter("griffinblue");
                 app.setScreen(app.questionScreen);
             }
